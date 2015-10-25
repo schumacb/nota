@@ -85,7 +85,7 @@ Pipelines.Add("renderInput",
 	Meta("ReposetoryUrl",  (@doc, @ctx)=> 
 	{		
 		//https://github.com/LokiMidgard/nota/blob/master/input/render/Downloads.md
-		var url = "https://github.com/LokiMidgard/nota/blob/master/"+ (string)@doc["RelativeFilePath"];
+		var url = "https://github.com/LokiMidgard/nota/blob/master/input/"+ (string)@doc["RelativeFilePath"];
 		return url;
 	})
 );
