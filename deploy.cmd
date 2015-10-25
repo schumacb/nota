@@ -71,7 +71,7 @@ IF NOT DEFINED WYAM_CMD (
   call nuget restore %BIN_PATH%\Wyam
   IF !ERRORLEVEL! NEQ 0 goto error
 
-  call msbuild %BIN_PATH%\Wyam
+  call msbuild %BIN_PATH%\Wyam\wyam.sln
   IF !ERRORLEVEL! NEQ 0 goto error
 
 
