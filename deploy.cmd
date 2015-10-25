@@ -65,6 +65,7 @@ IF NOT EXIST %BIN_PATH% (
 IF NOT DEFINED WYAM_CMD (
   :: Install wyam
   echo Installing Wyam
+
   call git clone https://github.com/Wyamio/Wyam.git %BIN_PATH%\Wyam
   IF !ERRORLEVEL! NEQ 0 goto error
 
