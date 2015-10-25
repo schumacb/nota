@@ -61,6 +61,9 @@ IF NOT EXIST %BIN_PATH% (
   call mkdir %BIN_PATH%
 ) 
 
+IF  EXIST %BIN_PATH%\Wyam\Wyam\bin\Debug\wyam.exe (
+  SET WYAM_CMD=%BIN_PATH%\Wyam\Wyam\bin\Debug\wyam.exe
+)
 
 IF NOT DEFINED WYAM_CMD (
   :: Install wyam
