@@ -1,0 +1,61 @@
+@using Wyam.Modules.Git
+@using LibGit2Sharp
+
+@{
+    
+    IDocument document = null;
+    string path = (string) Metadata["Path"];
+}
+
+<a class="btn btn-default" href="/@Metadata["ContributorSite"]">Übersicht @Metadata["Contributor"] </a> 
+
+    @if(path.StartsWith(@"input\"))
+    {       
+        var relativePath = path.Substring(@"input\".Length);
+        document = Documents["Write"].FirstOrDefault(x=> x.Metadata.ContainsKey("RelativeFilePath") 
+                                                                && x["RelativeFilePath"].Equals(relativePath));
+    }
+        @if(document != null)
+        {
+            <h1><a href="@document["TargetUrl"]" >@Metadata["Path"]</a></h1>            
+        }
+        else
+        {
+            <h1>@Metadata["Path"]</h1>            
+        }   
+<ul>
+    
+@foreach(var commit in ((IEnumerable<CommitInformation>)Metadata["Commits"]).OrderBy(x=> x.Author.DateTime))
+{
+    string style =null;
+    switch(commit.Status)
+    {
+                case ChangeKind.Added:
+                    style ="label-success";
+                    break;
+                case ChangeKind.Ignored:
+                case ChangeKind.Untracked:
+                    style ="label-warning";
+                    break;
+                case ChangeKind.Deleted:
+                    style ="label-danger";
+                    break;
+                case ChangeKind.Modified:
+                case ChangeKind.Renamed:
+                case ChangeKind.Copied:
+                    style ="label-primary";
+                    break;
+                case ChangeKind.Unreadable:
+                    style ="label-info";
+                    break;
+                case ChangeKind.TypeChanged:
+                case ChangeKind.Unmodified:
+                default:
+                    style ="label-default";
+                    break;
+    }
+        <li><span class="label @style">@commit.Status</span> <small> (@commit.Author.DateTime) </small> <p>@commit.Message</p> </li>
+}  
+</ul>        
+
+

@@ -1,0 +1,7 @@
+
+<ul>
+@foreach(var doc in ((IEnumerable<IDocument>)Metadata["Documents"]))
+                {
+                    <li><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
+                }  
+</ul>        

@@ -1,0 +1,293 @@
+// Setup code
+Packages
+    .Install("Twitter.Bootstrap.Less", "[3.3.5]")
+    .Install("jQuery", "[2.1.1]");
+    
+===
+
+// Declaration code
+
+public static class	Constants
+{
+	public static string ProjectName {get; }= "nota";
+}
+
+public static class AutoLinkHelper
+{
+	public static IEnumerable<string> GetKeywords(IDocument doc, params String[] keywords)
+	{
+		foreach (var keyword in keywords)
+		{
+			if(doc.Metadata.ContainsKey(keyword))
+			{
+				var metadata = doc[keyword];
+				var strings = metadata as String[];
+				if(strings != null)
+					foreach (var s in strings)
+						yield return s;
+				else
+					yield return metadata.ToString();
+			}
+		}
+	}
+	
+	public static ILookup<string,IDocument> ToLookup(IExecutionContext ctx)
+	{
+		var erg = ctx.Documents
+    .FromPipeline("renderOutput")  // Get documents from our current pipeline
+    .Select(x =>  AutoLinkHelper.GetKeywords(x,"Title","Alias")
+					.Select(y => new {Document = x, Keyword = y}))
+	.SelectMany(x=>x)
+	.ToLookup(x=> x.Keyword, x=> x.Document);
+		return erg;
+	}
+}
+
+---
+
+// Configuration code
+
+//  88                                              
+//  88                                       ,d     
+//  88                                       88     
+//  88 8b,dPPYba,  8b,dPPYba,  88       88 MM88MMM  
+//  88 88P'   `"8a 88P'    "8a 88       88   88     
+//  88 88       88 88       d8 88       88   88     
+//  88 88       88 88b,   ,a8" "8a,   ,a88   88,    
+//  88 88       88 88`YbbdP"'   `"YbbdP'Y8   "Y888  
+//                 88                               
+//                 88                  
+
+
+
+Pipelines.Add("renderInput",
+	ReadFiles(@"render\*"),
+	FrontMatter(Yaml()),
+	GitContributor(),
+	DirectoryMeta()
+		.WithMetadataFile(".inherited",true),
+	Meta("TargetFile",  (@doc, @ctx)=> 
+	{
+		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
+		var last = path[path.Length-1];
+		if(Path.GetExtension(last) == ".md" || Path.GetExtension(last) == ".cshtml")
+			path[path.Length-1] = last = Path.ChangeExtension(last, ".html");
+		return Path.Combine(path);
+	}),
+	Meta("TargetUrl",  (@doc, @ctx)=> 
+	{
+		var url = (string)@doc["TargetFile"];
+		if(Path.GetFileName(url) == "index.html")
+			url = Path.GetDirectoryName(url);
+		url = "\\"+url;
+		return url;
+	})
+);
+ 
+
+Pipelines.Add("staticInput",
+	ReadFiles(@"static\*"),
+	Meta("TargetFile",  (@doc, @ctx)=> 
+	{
+		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
+		var last = path[path.Length-1];
+		return Path.Combine(path);
+	}),
+		Meta("TargetUrl",  (@doc, @ctx)=> 
+	{
+		var url = (string)@doc["TargetFile"];
+		if(Path.GetFileName(url) == "index.html")
+			url = Path.GetDirectoryName(url);
+		url = "\\"+url;
+		return url;
+	})
+);
+
+//  888888888888                                           ad88                                           
+//       88                                               d8"                                             
+//       88                                               88                                              
+//       88 8b,dPPYba, ,adPPYYba, 8b,dPPYba,  ,adPPYba, MM88MMM ,adPPYba,  8b,dPPYba, 88,dPYba,,adPYba,   
+//       88 88P'   "Y8 ""     `Y8 88P'   `"8a I8[    ""   88   a8"     "8a 88P'   "Y8 88P'   "88"    "8a  
+//       88 88         ,adPPPPP88 88       88  `"Y8ba,    88   8b       d8 88         88      88      88  
+//       88 88         88,    ,88 88       88 aa    ]8I   88   "8a,   ,a8" 88         88      88      88  
+//       88 88         `"8bbdP"Y8 88       88 `"YbbdP"'   88    `"YbbdP"'  88         88      88      88  
+
+ 
+Pipelines.Add("bootstrapOutput",
+	ReadFiles(@"Scripts\*"),
+	Meta("TargetFile",  (@doc, @ctx)=> 
+	{
+		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').ToArray();
+		path[0]="js";
+		return Path.Combine(path);
+	}),
+	Concat(	
+		ReadFiles("bootstrap.less"),
+		Less(),
+		Meta("TargetFile",  @"css\bootstrap.css")
+	)
+);
+
+
+Pipelines.Add("authorOutput",
+	GitAuthors(),
+	Meta("TargetFile",  Path.Combine("author",@doc["Contributor"]+".html")),
+	Meta("Title", @doc["Contributor"]),
+	Meta("Layout", @"layout\book.cshtml"),
+	Content(
+		ReadFiles(@"template\author.cshtml")		
+	),
+	BranchConcat(
+		Execute((@doc, @ctx)=>{
+			var information = @doc["CommitInformation"] as IEnumerable<CommitInformation>;
+			var fileCommits =  information.GroupBy(x=>x.Path);
+
+			return fileCommits.Select(x=>
+			{
+				var targetFile = Path.Combine("author",(string)@doc["Contributor"],x.Key+".html");
+				var commits = x.ToArray();				
+				return @ctx.GetNewDocument(new KeyValuePair<string,object>[]
+				{
+					new KeyValuePair<string,object>("Contributor", @doc["Contributor"]),
+					new KeyValuePair<string,object>("ContributorSite", @doc["TargetFile"]),
+					new KeyValuePair<string,object>("TargetFile", targetFile),
+					new KeyValuePair<string,object>("Commits", commits),
+					new KeyValuePair<string,object>("Path", x.Key),
+				});				
+			});
+		}),
+		Content(
+			ReadFiles(@"template\CommitFile.cshtml")		
+		)
+	),
+	Meta("TargetUrl",  (@doc, @ctx)=> 
+	{
+		var url = (string)@doc["TargetFile"];
+		if(Path.GetFileName(url) == "index.html")
+			url = Path.GetDirectoryName(url);
+		url = "\\"+url;
+		return url;
+	}),
+	Execute(new IDocument[]{ @doc.Clone(Path.ChangeExtension((string)@doc["TargetFile"], ".cshtml"),@doc.Content)})
+);
+
+Pipelines.Add("renderOutput",
+	Documents("renderInput"),
+	Concat(
+		Execute((@ctx)=>
+		{
+			var ambigiusElements = AutoLinkHelper.ToLookup(@ctx).Where(x=> x.Skip(1).Any());
+			
+			var list = new List<IDocument>();
+			foreach (var a in ambigiusElements)
+			{
+
+				list.Add(@ctx.GetNewDocument(
+					@"ambiguis\"+a.Key + ".cshtml",
+					"",
+					new KeyValuePair<string,object>[]{
+					new KeyValuePair<string,object>("DisambigiusData", a),
+					new KeyValuePair<string,object>("Keyword", a.Key),
+					new KeyValuePair<string,object>("Alias", a.Key),
+					new KeyValuePair<string,object>("Documents", a),
+					new KeyValuePair<string,object>("IsDisambigiusPage", true),
+				}));
+			}
+			return list;
+		}),
+		Meta("TargetFile",  Path.Combine("ambiguis",@doc["Keyword"]+".html")),
+		Meta("Title",  "begriffsklärung "+ @doc["Keyword"]),
+		Meta("TargetUrl",  (@doc, @ctx)=> 
+		{
+			var url = (string)@doc["TargetFile"];
+			if(Path.GetFileName(url) == "index.html")
+				url = Path.GetDirectoryName(url);
+			url = "\\"+url;
+			return url;
+		}),
+		ReadFiles(@"template\ambiguis.cshtml")
+	)	
+);
+
+Pipelines.Add("staticOutput",
+	Documents("staticInput")	
+);
+
+Pipelines.Add("output",
+	Documents("staticOutput"),
+	Concat(
+		Documents("renderOutput")
+	),
+	Concat(
+		Documents("bootstrapOutput")
+	),
+	Concat(
+		Documents("authorOutput")		
+	)
+);
+
+//  88                                 88                                          
+//  88                                 88                                          
+//  88                                 88                                          
+//  88          ,adPPYba,   ,adPPYba,  88   ,d8 88       88 8b,dPPYba,  ,adPPYba,  
+//  88         a8"     "8a a8"     "8a 88 ,a8"  88       88 88P'    "8a I8[    ""  
+//  88         8b       d8 8b       d8 8888[    88       88 88       d8  `"Y8ba,   
+//  88         "8a,   ,a8" "8a,   ,a8" 88`"Yba, "8a,   ,a88 88b,   ,a8" aa    ]8I  
+//  88888888888 `"YbbdP"'   `"YbbdP"'  88   `Y8a `"YbbdP'Y8 88`YbbdP"'  `"YbbdP"'  
+//                                                          88                     
+//                                                          88                     
+
+
+
+Pipelines.Add("Books",
+	Documents("renderOutput").Where( (@doc, @ctx)=> 
+	{
+		var path =((string) @doc["TargetFile"]).Split('\\','/');
+		return path.Length >1  && path[0]== "books" && path[path.Length-1] =="index.html";
+	})	
+);
+
+
+Pipelines.Add("MainMenue",
+	Documents("output").Where( (@doc, @ctx)=> 
+	{
+		return @doc.Metadata.ContainsKey("MainMenueOrder");
+	}),
+	OrderBy(@doc["MainMenueOrder"])	
+);
+
+//  I8,        8        ,8I          88                    
+//  `8b       d8b       d8'          ""   ,d               
+//   "8,     ,8"8,     ,8"                88               
+//    Y8     8P Y8     8P 8b,dPPYba, 88 MM88MMM ,adPPYba,  
+//    `8b   d8' `8b   d8' 88P'   "Y8 88   88   a8P_____88  
+//     `8a a8'   `8a a8'  88         88   88   8PP"""""""  
+//      `8a8'     `8a8'   88         88   88,  "8b,   ,aa  
+//       `8'       `8'    88         88   "Y888 `"Ybbd8"'  
+ 
+
+Pipelines.Add("Write",
+	Documents("output"),
+	If(Path.GetExtension(@doc.Source)==".md",
+		Markdown()
+	), 
+	If(Path.GetExtension(@doc.Source)==".md" || Path.GetExtension(@doc.Source)==".cshtml",
+		Razor().WithViewStart(@"layout\viewstart.cshtml")
+	),
+	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
+		.ToDictionary(x => x.Key, 
+			x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
+		.WithMatchOnlyWholeWord(),
+
+	
+	If(Path.GetExtension((string)@doc["TargetFile"])==".html",
+		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
+	),
+
+	WriteFiles( @doc["TargetFile"])
+);
+
+
+
+
+

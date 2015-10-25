@@ -1,0 +1,14 @@
+@using Wyam.Modules.Git
+
+<ul>
+    
+@foreach(var commit in ((IEnumerable<CommitInformation>)Metadata["CommitInformation"]).Select(c => c.Path).Distinct().OrderBy(x=>x))
+{
+
+    var url = Metadata["Contributor"]+"/"+@commit + ".html";
+
+    <li><a href="@url" >@commit</a></li>            
+
+        
+}  
+</ul>        

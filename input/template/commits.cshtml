@@ -1,0 +1,18 @@
+@using Wyam.Modules.Git
+
+@{
+    var proxy =((IEnumerable<CommitInformation>)Metadata["CommitInformation"]).First();
+}
+
+<h2>@proxy.Author.Name <small>@proxy.Author.DateTime </small></h2>
+<p> @proxy.Message</p>
+<ul>
+    
+@foreach(var commit in ((IEnumerable<CommitInformation>)Metadata["CommitInformation"]))
+{
+
+    <li><strong> @commit.Path</strong> <small> @commit.Status </small> </li>            
+
+        
+}  
+</ul>        

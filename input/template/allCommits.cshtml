@@ -1,0 +1,13 @@
+@using Wyam.Modules.Git
+
+<h1> Commits</h1>
+<ul>
+    
+@foreach(var commit in ((IEnumerable<string>)Metadata["Shas"]))
+{
+    var url = commit+".html";
+    <li><a href="@url"> @commit </a></li>            
+
+        
+}  
+</ul>        
