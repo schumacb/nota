@@ -83,15 +83,41 @@ IF NOT DEFINED WYAM_CMD (
     IF !ERRORLEVEL! NEQ 0 goto error
   )
 
-  echo Clone Reposetory
+  
+  echo          dP                            
+  echo          88                            
+  echo .d8888b. 88 .d8888b. 88d888b. .d8888b. 
+  echo 88'  `"" 88 88'  `88 88'  `88 88ooood8 
+  echo 88.  ... 88 88.  .88 88    88 88.  ... 
+  echo `88888P' dP `88888P' dP    dP `88888P' 
+  echo ooooooooooooooooooooooooooooooooooooooo
+  echo
+  
   call git clone https://github.com/Wyamio/Wyam.git %WYAM_SOURCE%
   IF !ERRORLEVEL! NEQ 0 goto error
 
-  echo Runing Nuget Restore
+
+  echo                                       dP                                   dP                              
+  echo                                       88                                   88                              
+  echo 88d888b. dP    dP .d8888b. .d8888b. d8888P    88d888b. .d8888b. .d8888b. d8888P .d8888b. 88d888b. .d8888b. 
+  echo 88'  `88 88    88 88'  `88 88ooood8   88      88'  `88 88ooood8 Y8ooooo.   88   88'  `88 88'  `88 88ooood8 
+  echo 88    88 88.  .88 88.  .88 88.  ...   88      88       88.  ...       88   88   88.  .88 88       88.  ... 
+  echo dP    dP `88888P' `8888P88 `88888P'   dP      dP       `88888P' `88888P'   dP   `88888P' dP       `88888P' 
+  echo ooooooooooooooooooo~~~~.88~oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+  echo                    d8888P                                                                                  
+
   call nuget restore %WYAM_SOURCE%
   IF !ERRORLEVEL! NEQ 0 goto error
 
-  echo Buld Wyam
+  echo dP                oo dP       dP                                            
+  echo 88                   88       88                                            
+  echo 88d888b. dP    dP dP 88 .d888b88    dP  dP  dP dP    dP .d8888b. 88d8b.d8b. 
+  echo 88'  `88 88    88 88 88 88'  `88    88  88  88 88    88 88'  `88 88'`88'`88 
+  echo 88.  .88 88.  .88 88 88 88.  .88    88.88b.88' 88.  .88 88.  .88 88  88  88 
+  echo 88Y8888' `88888P' dP dP `88888P8    8888P Y8P  `8888P88 `88888P8 dP  dP  dP 
+  echo oooooooooooooooooooooooooooooooooooooooooooooooo~~~~.88~oooooooooooooooooooo
+  echo                                                 d8888P                      
+ 
   call msbuild %WYAM_SOURCE%\wyam.sln
   IF !ERRORLEVEL! NEQ 0 goto error
 
@@ -101,11 +127,28 @@ IF NOT DEFINED WYAM_CMD (
     IF !ERRORLEVEL! NEQ 0 goto error
   )
 
-  echo Move Wyam to execution folder
+
+                                                                                 
+                                                                                 
+  echo 88d8b.d8b. .d8888b. dP   .dP .d8888b.    dP  dP  dP dP    dP .d8888b. 88d8b.d8b. 
+  echo 88'`88'`88 88'  `88 88   d8' 88ooood8    88  88  88 88    88 88'  `88 88'`88'`88 
+  echo 88  88  88 88.  .88 88 .88'  88.  ...    88.88b.88' 88.  .88 88.  .88 88  88  88 
+  echo dP  dP  dP `88888P' 8888P'   `88888P'    8888P Y8P  `8888P88 `88888P8 dP  dP  dP 
+  echo ooooooooooooooooooooooooooooooooooooooooooooooooooooo~~~~.88~oooooooooooooooooooo
+  echo                                                      d8888P                      
+
   call move %WYAM_SOURCE%\Wyam\bin\Debug\* %WYAM_PATH%
   IF !ERRORLEVEL! NEQ 0 goto error
 
-  echo Delete Source
+  echo       dP          dP            dP                                                                     
+  echo       88          88            88                                                                     
+  echo .d888b88 .d8888b. 88 .d8888b. d8888P .d8888b.    .d8888b. .d8888b. dP    dP 88d888b. .d8888b. .d8888b. 
+  echo 88'  `88 88ooood8 88 88ooood8   88   88ooood8    Y8ooooo. 88'  `88 88    88 88'  `88 88'  `"" 88ooood8 
+  echo 88.  .88 88.  ... 88 88.  ...   88   88.  ...          88 88.  .88 88.  .88 88       88.  ... 88.  ... 
+  echo `88888P8 `88888P' dP `88888P'   dP   `88888P'    `88888P' `88888P' `88888P' dP       `88888P' `88888P' 
+  echo ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+  echo                                                                                                        
+    
   call del /F /S /Q %WYAM_SOURCE%
   IF !ERRORLEVEL! NEQ 0 goto error
 
@@ -121,8 +164,17 @@ IF NOT EXIST %DEPLOYMENT_TEMP% (
 :: Deployment
 :: ----------
 
-echo Building Website.
 
+
+echo                               dP   dP   dP                              
+echo                               88   88   88                              
+echo 88d888b. dP    dP 88d888b.    88  .8P  .8P dP    dP .d8888b. 88d8b.d8b. 
+echo 88'  `88 88    88 88'  `88    88  d8'  d8' 88    88 88'  `88 88'`88'`88 
+echo 88       88.  .88 88    88    88.d8P8.d8P  88.  .88 88.  .88 88  88  88 
+echo dP       `88888P' dP    dP    8888' Y88'   `8888P88 `88888P8 dP  dP  dP 
+echo oooooooooooooooooooooooooooooooooooooooooooo~~~~.88~oooooooooooooooooooo
+echo                                             d8888P                      
+                                            
 call %WYAM_CMD% %DEPLOYMENT_SOURCE% --output %DEPLOYMENT_TEMP%
 IF !ERRORLEVEL! NEQ 0 goto error
 
@@ -132,9 +184,17 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
-  echo Delete Build Artefacts
-  call del /F /S /Q %DEPLOYMENT_TEMP%
-  IF !ERRORLEVEL! NEQ 0 goto error
+echo       dP          dP            dP                                   dP            .8888b                     dP            
+echo       88          88            88                                   88            88   "                     88            
+echo .d888b88 .d8888b. 88 .d8888b. d8888P .d8888b.    .d8888b. 88d888b. d8888P .d8888b. 88aaa  .d8888b. .d8888b. d8888P .d8888b. 
+echo 88'  `88 88ooood8 88 88ooood8   88   88ooood8    88'  `88 88'  `88   88   88ooood8 88     88'  `88 88'  `""   88   Y8ooooo. 
+echo 88.  .88 88.  ... 88 88.  ...   88   88.  ...    88.  .88 88         88   88.  ... 88     88.  .88 88.  ...   88         88 
+echo `88888P8 `88888P' dP `88888P'   dP   `88888P'    `88888P8 dP         dP   `88888P' dP     `88888P8 `88888P'   dP   `88888P' 
+echo oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+echo                                                                                                                             
+
+call del /F /S /Q %DEPLOYMENT_TEMP%
+IF !ERRORLEVEL! NEQ 0 goto error
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
