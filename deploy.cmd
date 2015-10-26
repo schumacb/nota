@@ -79,7 +79,7 @@ IF NOT DEFINED WYAM_CMD (
 
   IF EXIST %WYAM_SOURCE% (
     echo Deleting old Source
-    call del %WYAM_SOURCE%
+    call del /F /S /Q %WYAM_SOURCE%
     IF !ERRORLEVEL! NEQ 0 goto error
   )
 
@@ -106,7 +106,7 @@ IF NOT DEFINED WYAM_CMD (
   IF !ERRORLEVEL! NEQ 0 goto error
 
   echo Delete Source
-  call del %WYAM_SOURCE%
+  call del /F /S /Q %WYAM_SOURCE%
   IF !ERRORLEVEL! NEQ 0 goto error
 
 
@@ -133,7 +133,7 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 )
 
   echo Delete Build Artefacts
-  call del %DEPLOYMENT_TEMP%
+  call del /F /S /Q %DEPLOYMENT_TEMP%
   IF !ERRORLEVEL! NEQ 0 goto error
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
