@@ -61,7 +61,15 @@ IF NOT EXIST %BIN_PATH% (
   call mkdir %BIN_PATH%
 ) 
 
-IF  EXIST %BIN_PATH%\Wyam\Wyam\bin\Debug\wyam.exe (
+IF NOT DEFINED WYAM_PATH (
+  SET WYAM_PATH=%BIN_PATH%\Wyam
+)
+
+IF NOT DEFINED WYAM_SOURCE (
+  SET WYAM_SOURCE=%BIN_PATH%\WyamSource
+)
+
+IF EXIST %WYAM_PATH%\wyam.exe (
   SET WYAM_CMD=%BIN_PATH%\Wyam\Wyam\bin\Debug\wyam.exe
 )
 
@@ -69,17 +77,40 @@ IF NOT DEFINED WYAM_CMD (
   :: Install wyam
   echo Installing Wyam
 
-  call git clone https://github.com/Wyamio/Wyam.git %BIN_PATH%\Wyam
+  IF EXIST %WYAM_SOURCE% (
+    echo Deleting old Source
+    call del %WYAM_SOURCE%
+    IF !ERRORLEVEL! NEQ 0 goto error
+  )
+
+  echo Clone Reposetory
+  call git clone https://github.com/Wyamio/Wyam.git %WYAM_SOURCE%
   IF !ERRORLEVEL! NEQ 0 goto error
 
-  call nuget restore %BIN_PATH%\Wyam
+  echo Runing Nuget Restore
+  call nuget restore %WYAM_SOURCE%
   IF !ERRORLEVEL! NEQ 0 goto error
 
-  call msbuild %BIN_PATH%\Wyam\wyam.sln
+  echo Buld Wyam
+  call msbuild %WYAM_SOURCE%\wyam.sln
+  IF !ERRORLEVEL! NEQ 0 goto error
+
+  IF NOT EXIST %WYAM_PATH% (
+    echo Creating Wyam Folder
+    call mkdir %WYAM_PATH%
+    IF !ERRORLEVEL! NEQ 0 goto error
+  )
+
+  echo Move Wyam to execution folder
+  call move %WYAM_SOURCE%\Wyam\bin\Debug\* %WYAM_PATH%
+  IF !ERRORLEVEL! NEQ 0 goto error
+
+  echo Delete Source
+  call del %WYAM_SOURCE%
   IF !ERRORLEVEL! NEQ 0 goto error
 
 
-  SET WYAM_CMD=%BIN_PATH%\Wyam\Wyam\bin\Debug\wyam.exe
+  SET WYAM_CMD=%WYAM_PATH%\wyam.exe
 )
 
 IF NOT EXIST %DEPLOYMENT_TEMP% (
@@ -90,7 +121,7 @@ IF NOT EXIST %DEPLOYMENT_TEMP% (
 :: Deployment
 :: ----------
 
-echo Handling Basic Web Site deployment.
+echo Building Website.
 
 call %WYAM_CMD% %DEPLOYMENT_SOURCE% --output %DEPLOYMENT_TEMP%
 IF !ERRORLEVEL! NEQ 0 goto error
@@ -100,6 +131,10 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
+
+  echo Delete Build Artefacts
+  call del %DEPLOYMENT_TEMP%
+  IF !ERRORLEVEL! NEQ 0 goto error
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
