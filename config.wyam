@@ -131,6 +131,14 @@ Pipelines.Add("bootstrapOutput",
 		ReadFiles("bootstrap.less"),
 		Less(),
 		Meta("TargetFile",  @"css\bootstrap.css")
+	),
+	Concat(	
+		ReadFiles(@"Content\fonts\*"),
+		Meta("TargetFile",  (@doc, @ctx)=> 
+		{
+			var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
+			return Path.Combine(path);
+		})
 	)
 );
 
