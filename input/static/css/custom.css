@@ -81,3 +81,11 @@ font-size: 80%;
      left: 0;
      background: rgba(0,0,0,0.8);
 }
+
+#footer .container > * {
+   margin-top: 20px;
+}
+
+#footer .container > #license {
+   margin-top: 15px;
+}
