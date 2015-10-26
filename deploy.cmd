@@ -70,7 +70,7 @@ IF NOT DEFINED WYAM_SOURCE (
 )
 
 IF EXIST %WYAM_PATH%\wyam.exe (
-  SET WYAM_CMD=%BIN_PATH%\Wyam\Wyam\bin\Debug\wyam.exe
+  SET WYAM_CMD=%WYAM_PATH%\wyam.exe
 )
 
 IF NOT DEFINED WYAM_CMD (
