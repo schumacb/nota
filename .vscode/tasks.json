@@ -5,7 +5,6 @@
 // ${fileDirname}: the current opened file's dirname
 // ${fileExtname}: the current opened file's extension
 // ${cwd}: the current working directory of the spawned process
-
 // A task runner that calls the Typescript compiler (tsc) and
 // Compiles a HelloWorld.ts program
 {
@@ -22,28 +21,51 @@
 
 	// args is the HelloWorld program to compile.
 	"args": [],
-	
 	"tasks": [
 		{
 			"taskName": "build",
-			"isBuildCommand": true
+			"suppressTaskName": true
 		},
 		{
 			"taskName": "preview",
+			"showOutput": "silent",
+			"isBuildCommand": true,
 			"suppressTaskName": true,
 			"isWatching": true,
 			"args": [
 				"--watch",
 				"--preview"
-			]
+			],
+			"problemMatcher": {
+				// The problem is owned by the typescript language service. Ensure that the problems
+				// are merged with problems produced by Visual Studio's language service.
+				"owner": "wyam",
+				// The file name for reported problems is relative to the current working directory.
+				"fileLocation": [
+					"relative",
+					"${cwd}"
+				],
+				// The actual pattern to match problems in the output.
+				"pattern": {
+					//Line 142: CS1525: Invalid expression term ')'
+					// The regular expression. Matches HelloWorld.ts(2,10): error TS2339: Property 'logg' does not exist on type 'Console'.
+					"regexp": "^(.+)\\s+Line (\\d+):\\s*(.*?):\\s*(.*)$",
+					// The match group that denotes the file containing the problem.
+ 					"file": 1,
+					// The match group that denotes the problem location.
+					"location": 2,
+					// The match group that denotes the problem's severity. Can be omitted.
+
+					// The match group that denotes the problem code. Can be omitted.
+					"code": 3,
+					// The match group that denotes the problem's message.
+					"message": 4
+				}
+			}
 		}
-	],
+	]
 
-	// use the standard tsc problem matcher to find compile problems
-	// in the output.
-	"problemMatcher": "$tsc"
 }
-
 // A task runner that calls the Typescript compiler (tsc) and
 // compiles based on a tsconfig.json file that is present in
 // the root of the folder open in VSCode
@@ -68,7 +90,6 @@
 	"problemMatcher": "$tsc"
 }
 */
-
 // A task runner configuration for gulp. Gulp provides a less task
 // which compiles less to css.
 /*
@@ -89,7 +110,6 @@
 	]
 }
 */
-
 // Uncomment the following section to use jake to build a workspace
 // cloned from https://github.com/Microsoft/TypeScript.git
 /*
@@ -116,7 +136,6 @@
 	]
 }
 */
-
 // Uncomment the section below to use msbuild and generate problems
 // for csc, cpp, tsc and vb. The configuration assumes that msbuild
 // is available on the path and a solution file exists in the
@@ -143,7 +162,6 @@
 	]
 }
 */
-
 // Uncomment the following section to use msbuild which compiles Typescript
 // and less files.
 /*
@@ -203,4 +221,4 @@
 		}
 	}
 }
-*/
+*/ 
