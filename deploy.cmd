@@ -73,6 +73,7 @@ IF NOT DEFINED UPDATE_PATH (
   SET UPDATE_PATH=%BIN_PATH%\update
 )
 
+echo check for update
 IF EXIST UPDATE_PATH (
   echo delete wyam for update
   call del /F /S /Q %WYAM_PATH%
