@@ -20,7 +20,7 @@
     @foreach(var commit in ((IEnumerable<CommitInformation>)Metadata["CommitInformation"]).Select(c => c.Path).Distinct().OrderBy(x=>x))
     {
     
-        var url = Metadata["Contributor"]+"/"+@commit + ".html";
+        var url = ((Author)Metadata["Contributor"]).Email+"/"+@commit + ".html";
     
         <li><a href="@url" >@commit</a></li>            
     

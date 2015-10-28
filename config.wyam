@@ -151,8 +151,8 @@ Pipelines.Add("bootstrapOutput",
 
 Pipelines.Add("authorOutput",
 	GitAuthors(),
-	Meta("TargetFile",  Path.Combine("author",@doc["Contributor"]+".html")),
-	Meta("Title", @doc["Contributor"]),
+	Meta("TargetFile",  Path.Combine("author",((Author)@doc["Contributor"]).Email+".html")),
+	Meta("Title", ((Author)@doc["Contributor"]).Name),
 	Meta("Layout", @"layout\book.cshtml"),
 	Content(
 		ReadFiles(@"template\author.cshtml")		
@@ -164,7 +164,7 @@ Pipelines.Add("authorOutput",
 
 			return fileCommits.Select(x=>
 			{
-				var targetFile = Path.Combine("author",(string)@doc["Contributor"],x.Key+".html");
+				var targetFile = Path.Combine("author",((Author)@doc["Contributor"]).Email,x.Key+".html");
 				var commits = x.ToArray();				
 				return @ctx.GetNewDocument(new KeyValuePair<string,object>[]
 				{

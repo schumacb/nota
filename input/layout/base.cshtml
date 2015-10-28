@@ -154,7 +154,7 @@
               <ul class="list-unstyled">
                 @foreach(var con in Metadata["Contributors"] as IEnumerable<Wyam.Modules.Git.CommitInformation>)
                 {
-                  var url ="/author/" +con.Author.Name +".html";
+                  var url ="/author/" +con.Author.Email +".html";
                   <li class="list-item"><a href="@url"> @con.Author.Name <small>@con.Message </small> </a></li>
                 }
               </ul>
@@ -213,7 +213,7 @@
             var lastEditDateTimeOffset = DateTimeOffset.Now; 
             @if(Metadata.ContainsKey("Contributors"))
             {          
-              var commitTimeOfset = (Metadata["Contributors"] as IEnumerable<Wyam.Modules.Git.CommitInformation>).FirstOrDefault()?.Author?.DateTime;
+              var commitTimeOfset = (Metadata["Contributors"] as IEnumerable<Wyam.Modules.Git.CommitInformation>).FirstOrDefault()?.AuthorDateTime;
               @if(commitTimeOfset == null){
                 lastEditDateTimeOffset = DateTimeOffset.Now;
               }

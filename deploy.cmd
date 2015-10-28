@@ -69,6 +69,17 @@ IF NOT DEFINED WYAM_SOURCE (
   SET WYAM_SOURCE=%BIN_PATH%\WyamSource
 )
 
+IF NOT DEFINED UpdatePath (
+  SET UpdatePath=%BIN_PATH%\update
+)
+
+IF EXIST UpdatePath (
+  echo delete wyam for update
+  call del /F /S /Q %WYAM_PATH%
+  IF !ERRORLEVEL! NEQ 0 goto error
+)
+
+
 IF EXIST %WYAM_PATH%\wyam.exe (
   SET WYAM_CMD=%WYAM_PATH%\wyam.exe
 )
