@@ -74,7 +74,7 @@ IF NOT DEFINED UPDATE_PATH (
 )
 
 echo check for update
-IF EXIST UPDATE_PATH (
+IF EXIST %UPDATE_PATH% (
   echo delete wyam for update
   call del /F /S /Q %WYAM_PATH%
   IF !ERRORLEVEL! NEQ 0 goto error
