@@ -96,6 +96,9 @@ IF NOT DEFINED WYAM_CMD (
     echo Deleting old Source
     call del /F /S /Q %WYAM_SOURCE%\*
     IF !ERRORLEVEL! NEQ 0 goto error
+    IF EXIST %WYAM_SOURCE% (
+      echo faild deliting
+    )
   )
 
   
