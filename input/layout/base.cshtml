@@ -208,26 +208,25 @@
         e.preventDefault();
      });
   
-@{  
-          var generated = true; // false falls es sich um eine bearbeitbare datei in git handelt.
-          var lastEditDateTimeOffset = DateTimeOffset.Now; 
-          @if(Metadata.ContainsKey("Contributors"))
-          {          
-             lastEditDateTimeOffset = (Metadata["Contributors"] as IEnumerable<Wyam.Modules.Git.CommitInformation>).FirstOrDefault()?.Author?.DateTime ??lastEditDateTimeOffset;
-            @if(lastEditDateTimeOffset == null){
-              lastEditDateTimeOffset = DateTimeOffset.Now;
+          @{  
+            var generated = true; // false falls es sich um eine bearbeitbare datei in git handelt.
+            var lastEditDateTimeOffset = DateTimeOffset.Now; 
+            @if(Metadata.ContainsKey("Contributors"))
+            {          
+              var commitTimeOfset = (Metadata["Contributors"] as IEnumerable<Wyam.Modules.Git.CommitInformation>).FirstOrDefault()?.Author?.DateTime;
+              @if(commitTimeOfset == null){
+                lastEditDateTimeOffset = DateTimeOffset.Now;
+              }
+              else
+              {
+                lastEditDateTimeOffset = commitTimeOfset.Value;
+                generated = false;
+              }
+    
             }
-            else
-            {
-              generated = false;
-            }
-   
-          }
-           var lastEdit = TimeZoneInfo.ConvertTimeFromUtc(lastEditDateTimeOffset.UtcDateTime, Constants.TimeZone);
-} 
-
-
-            window.setInterval(function(){              
+            var lastEdit = TimeZoneInfo.ConvertTimeFromUtc(lastEditDateTimeOffset.UtcDateTime, Constants.TimeZone);
+          } 
+          var calculateTime = function(){              
               var currentDate = new Date();
               var pastDate = new Date(@lastEdit.Year, @lastEdit.Month-1, @lastEdit.Day, @lastEdit.Hour, @lastEdit.Minute, @lastEdit.Second );
               var diference = currentDate.getTime() - pastDate.getTime();
@@ -237,24 +236,24 @@
                 showString = "vor " + Math.floor(diference) +" Sekunden";
               else if(diference/60 < 60)
                 {
-                  if(currentDate.getYear() == pastDate.getYear())
+                  if(diference/60 < 2)
                     showString = "vor eier Minute";
                   else 
                     showString = "vor " + Math.floor(diference/60) +" Minuten";
                 }
               else if(diference/60/60 < 24)
                 {
-                  if(currentDate.getYear() == pastDate.getYear())
+                  if(diference/60/60 < 2)
                     showString = "vor einer Stunde";
                   else 
                     showString = "vor " + Math.floor(diference/60/60) +" Stunden";
                 }
               else if(diference/60/60/24 < 7)
                 {
-                  if(currentDate.getYear() == pastDate.getYear())
+                  if(diference/60/60/24 < 2)
                     showString = "vor einem Tag";
                   else 
-                    showString = "vor " + Math.floor(diference/60/24) +" Tagen";
+                    showString = "vor " + Math.floor(diference/60/60/24) +" Tagen";
                 }
               else if(diference/60/60/24 < 14)
                 showString = "vor einer Woche";
@@ -273,7 +272,9 @@
               {
                 @:$('#lastEdit').html("Zuletzt bearbeitet " + showString);
               }
-            }, 1000);
+            };
+            calculateTime();
+            window.setInterval(calculateTime, 1000);
 
   
   
