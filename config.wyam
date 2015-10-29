@@ -9,6 +9,77 @@ Packages
 
 // Declaration code
 
+    public class Tree<T, K> : IComparable<Tree<T, K>> where K : IComparable<K>
+    {
+
+        private int Level => Parent == null ? 0 : Parent.Level;
+
+        private Tree<T, K> parent;
+        public Tree<T, K> Parent
+        {
+            get { return parent; }
+            set
+            {
+                if (parent != null)
+                    throw new InvalidOperationException("Parent already set.");
+                parent = value;
+                var index = parent.childrean.BinarySearch(value, new TreeIndexSearcher());
+				if(index < 0)
+					index =~index;
+                parent.childrean.Insert(index, this);
+            }
+        }
+
+        public T Value { get; }
+        public K Key { get; }
+
+        public System.Collections.ObjectModel.ReadOnlyCollection<Tree<T, K>> Childrean => childrean.AsReadOnly();
+        private readonly List<Tree<T, K>> childrean = new List<Tree<T, K>>();
+
+
+        public Tree(T value, K key)
+        {
+            this.Value = value;
+            this.Key = key;
+        }
+
+        public int CompareTo(Tree<T, K> other)
+        {
+            var me = this;
+            while (me.Level > other.Level)
+            {
+                if (me.Level - 1 == other.Level && me.Parent == other)
+                    return -1;
+                me = me.Parent;
+            }
+            while (other.Level > me.Level)
+            {
+                if (other.Level - 1 == me.Level && other.Parent == me)
+                    return +1;
+                other = other.Parent;
+            }
+            while (me.Parent != null && other.Parent != null)
+            {
+                if (other.Parent == me.Parent)
+                {
+                    return me.Parent.childrean.BinarySearch(me, new TreeIndexSearcher()).CompareTo(other.Parent.childrean.BinarySearch(other, new TreeIndexSearcher()));
+                }
+                me = me.Parent;
+                other = other.Parent;
+            }
+            throw new ArgumentException("Both trees not comparable", nameof(other));
+        }
+
+        private class TreeIndexSearcher : IComparer<Tree<T, K>>
+        {
+
+            public int Compare(Tree<T, K> x, Tree<T, K> y)
+            {
+                return x.Key.CompareTo(y.Key);
+            }
+        }
+    }
+
 public static class	Constants
 {
 	public static string ProjectName {get; }= "nota";
@@ -226,7 +297,71 @@ Pipelines.Add("renderOutput",
 			return url;
 		}),
 		ReadFiles(@"template\ambiguis.cshtml")
-	)	
+	),
+	/// Adding Tree ///
+	Execute(@ctx => {
+	 	var input = @ctx.Documents.FromPipeline("renderOutput");
+		
+		var treeLookup = input.ToDictionary(x=>x["TargetUrl"], x=> new Tree<string,int>((string)x["TargetUrl"], x.Get<int>("ChapterOrder",-1)));
+		
+		return input.Select(x=>
+		{
+			var url = (string)x["TargetUrl"];
+			var tree = treeLookup[url];
+			string parentUrl = url;
+			do{
+			   parentUrl = Path.GetDirectoryName(parentUrl);
+				
+			} while(parentUrl != null &&!treeLookup.ContainsKey(parentUrl) );
+			if(parentUrl!=null)
+			{
+				var parentTree = treeLookup[parentUrl];
+				tree.Parent = parentTree;
+			}
+			return x.Clone(new KeyValuePair<string,object>[]{new KeyValuePair<string,object>("Tree", tree)});
+			
+		});
+	}),
+	/// BOOKS /// 
+	If((@doc, @ctx)=> 
+		{
+			var tree = (Tree<string,int>)@doc["Tree"];
+			var parentUrl = tree.Parent?.Value;
+			return parentUrl == @"\books";
+		},
+		Meta("IsBook", true)	
+	),
+	/// Chapters ///
+	If( (@doc, @ctx)=> 
+		{
+			var tree = (Tree<string,int>)@doc["Tree"];
+			var parent = tree.Parent;
+			var parentUrl = parent?.Value;
+			if(parentUrl == @"\books" || parentUrl == null)
+				return false;
+			while(parentUrl != @"\books" && parentUrl != null)
+			{
+				 parent = parent.Parent;
+				 parentUrl = parent?.Value;	
+			}
+			return parentUrl != null;
+		},
+		Meta("ParentBook", (@doc, @ctx)=>{
+			var tree = (Tree<string,int>)@doc["Tree"];
+			string parentUrl;
+
+			do {
+				parentUrl = tree.Parent?.Value;
+				tree = tree.Parent;
+			} while(parentUrl != @"\books");
+			return tree.Value;
+		}),
+		If(!@doc.ContainsKey("ChapterOrder"),
+			Trace($"Chapter besitzt kein ChapterOrder Metadata: {@doc.Source}"),
+			Where((@doc, @ctx)=> false)
+		)
+			
+	)
 );
 
 Pipelines.Add("staticOutput",
@@ -260,12 +395,10 @@ Pipelines.Add("output",
 
 
 Pipelines.Add("Books",
-	Documents("renderOutput").Where( (@doc, @ctx)=> 
-	{
-		var path =((string) @doc["TargetFile"]).Split('\\','/');
-		return path.Length >1  && path[0]== "books" && path[path.Length-1] =="index.html";
-	})	
+	Documents("renderOutput").Where(@doc.Get<bool>("IsBook")  )	
 );
+
+
 
 
 Pipelines.Add("MainMenue",
