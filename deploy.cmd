@@ -233,8 +233,10 @@ exit /b %ERRORLEVEL%
 :error
 endlocal
 echo An error has occurred during web site deployment.
+call del /F /S /Q %WYAM_SOURCE%
 call :exitSetErrorLevel
 call :exitFromFunction 2>nul
+
 
 :exitSetErrorLevel
 exit /b 1
