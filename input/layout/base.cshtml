@@ -65,8 +65,27 @@
                   }
               <a class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">Bücher <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                @foreach(var doc in Documents["Books"])
+                @{
+                  string parentPath = @"\books";
+                }
+                @foreach(var doc in Documents["Books"].OrderBy(x=>(Tree<string,int>)x["Tree"]))
                 {
+                  
+                  var currentTree =(Tree<string,int>)doc["Tree"];
+                
+                  @if(System.IO.Path.GetDirectoryName(currentTree.Value) != parentPath)
+                  {
+                    
+                    <li class="divider" role="separator"></li>
+                    @if(!System.IO.Path.GetDirectoryName(currentTree.Parent.Value).StartsWith(parentPath))
+                    {
+                      var headder = System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(currentTree.Value));
+                    <li class="dropdown-header">@headder</li>                      
+                    }
+                    parentPath = System.IO.Path.GetDirectoryName(currentTree.Parent.Value);
+                    
+                  }                  
+                  
                   @if(@doc["TargetUrl"].Equals(Metadata["TargetUrl"]))
                   {
                     <li  class="active"><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
