@@ -12,6 +12,43 @@
     public class Tree<T, K> : IComparable<Tree<T, K>> where K : IComparable<K>
     {
 
+        public Tree<T, K> PreviousSilbling
+        {
+            get
+            {
+                if (Parent == null)
+                    return null; // Root hat keine Geschwister
+
+                var parentIndex = IndexInParent;
+                if (parentIndex == 0)
+                    return null;
+                return Parent.Childrean[parentIndex - 1];
+            }
+        }
+
+        public Tree<T, K> NextSilbling
+        {
+            get
+            {
+                if (Parent == null)
+                    return null; // Root hat keine Geschwister
+
+                var parentIndex = IndexInParent;
+                if (parentIndex == Parent.Childrean.Count-1)
+                    return null;
+                return Parent.Childrean[parentIndex + 1];
+            }
+        }
+
+        public int IndexInParent
+        {
+            get
+            {
+                return this.Parent.childrean.BinarySearch(this, new TreeIndexSearcher());
+            }
+        }
+
+
         private int Level => Parent == null ? 0 : Parent.Level;
 
         private Tree<T, K> parent;
@@ -24,8 +61,8 @@
                     throw new InvalidOperationException("Parent already set.");
                 parent = value;
                 var index = parent.childrean.BinarySearch(value, new TreeIndexSearcher());
-				if(index < 0)
-					index =~index;
+                if (index < 0)
+                    index = ~index;
                 parent.childrean.Insert(index, this);
             }
         }
@@ -62,13 +99,14 @@
             {
                 if (other.Parent == me.Parent)
                 {
-                    return me.Parent.childrean.BinarySearch(me, new TreeIndexSearcher()).CompareTo(other.Parent.childrean.BinarySearch(other, new TreeIndexSearcher()));
+                    return me.IndexInParent.CompareTo(other.IndexInParent);
                 }
                 me = me.Parent;
                 other = other.Parent;
             }
             throw new ArgumentException("Both trees not comparable", nameof(other));
         }
+
 
         private class TreeIndexSearcher : IComparer<Tree<T, K>>
         {
