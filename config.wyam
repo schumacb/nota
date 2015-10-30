@@ -1,7 +1,7 @@
 // Setup code
-Packages
-    .Install("Twitter.Bootstrap.Less", "[3.3.5]")
-    .Install("jQuery", "[2.1.1]");
+//  Packages
+//      .Install("Twitter.Bootstrap.Less", "[3.3.5]")
+//      .Install("jQuery", "[2.1.1]");
     
 //Assemblies
 //    .Load("mscorlib , Version=1.0.2004.0, Culture=neutral, PublicKeyToken=8744b20f8da049e3");

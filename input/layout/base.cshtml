@@ -67,25 +67,26 @@
               <ul class="dropdown-menu">
                 @{
                   string parentPath = @"\books";
+                  bool isFirstEntry = true;
                 }
-                @foreach(var doc in Documents["Books"].OrderBy(x=>(Tree<string,int>)x["Tree"]))
+                @foreach(var doc in Documents["Books"].GroupBy(x=>((Tree<string,int>)x["Tree"]).Parent.Value).Select(g=> g.OrderBy(x=>(Tree<string,int>)x["Tree"])).SelectMany(x=>x))
                 {
                   
                   var currentTree =(Tree<string,int>)doc["Tree"];
                 
                   @if(System.IO.Path.GetDirectoryName(currentTree.Value) != parentPath)
                   {
-                    
-                    <li class="divider" role="separator"></li>
+                    @if(!isFirstEntry){
+                      <li class="divider" role="separator"></li>
+                    }
                     @if(!System.IO.Path.GetDirectoryName(currentTree.Parent.Value).StartsWith(parentPath))
                     {
                       var headder = System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(currentTree.Value));
                     <li class="dropdown-header">@headder</li>                      
                     }
-                    parentPath = System.IO.Path.GetDirectoryName(currentTree.Parent.Value);
                     
                   }                  
-                  
+                  isFirstEntry = false;                
                   @if(@doc["TargetUrl"].Equals(Metadata["TargetUrl"]))
                   {
                     <li  class="active"><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
@@ -93,6 +94,8 @@
                   else{
                     <li><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
                   } 
+
+                    parentPath = System.IO.Path.GetDirectoryName(currentTree.Value);
                 }
                 <!--<li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
