@@ -9,7 +9,7 @@
 
 // Declaration code
 
-    public class Tree<T, K> : IComparable<Tree<T, K>> where K : IComparable<K>
+	public class Tree<T, K> : IComparable<Tree<T, K>> where K : IComparable<K>
     {
 
         public Tree<T, K> PreviousSilbling
@@ -34,7 +34,7 @@
                     return null; // Root hat keine Geschwister
 
                 var parentIndex = IndexInParent;
-                if (parentIndex == Parent.Childrean.Count-1)
+                if (parentIndex == Parent.Childrean.Count - 1)
                     return null;
                 return Parent.Childrean[parentIndex + 1];
             }
@@ -49,7 +49,7 @@
         }
 
 
-        private int Level => Parent == null ? 0 : Parent.Level;
+        private int Level => Parent == null ? 0 : Parent.Level + 1;
 
         private Tree<T, K> parent;
         public Tree<T, K> Parent
@@ -58,12 +58,22 @@
             set
             {
                 if (parent != null)
-                    throw new InvalidOperationException("Parent already set.");
+                {
+                    var index = parent.childrean.BinarySearch(parent, new TreeIndexSearcher());
+                    if (index < 0)
+                        throw new ApplicationException($"The Element should have been in the Parrent Childrean {value}.");
+                    parent.childrean.RemoveAt(index);
+                }
+
                 parent = value;
-                var index = parent.childrean.BinarySearch(value, new TreeIndexSearcher());
-                if (index < 0)
-                    index = ~index;
-                parent.childrean.Insert(index, this);
+
+                if (parent != null)
+                {
+                    var index = parent.childrean.BinarySearch(value, new TreeIndexSearcher());
+                    if (index < 0)
+                        index = ~index;
+                    parent.childrean.Insert(index, this);
+                }
             }
         }
 
@@ -83,6 +93,8 @@
         public int CompareTo(Tree<T, K> other)
         {
             var me = this;
+			if(other == null)
+				throw new ArgumentException("other is null");
             while (me.Level > other.Level)
             {
                 if (me.Level - 1 == other.Level && me.Parent == other)
@@ -113,6 +125,10 @@
 
             public int Compare(Tree<T, K> x, Tree<T, K> y)
             {
+				if(x == null)
+					throw new ArgumentNullException("Darf net null sein.",nameof(x));
+				if(y == null)
+					throw new ArgumentNullException("Darf net null sein.",nameof(y));
                 return x.Key.CompareTo(y.Key);
             }
         }
@@ -365,9 +381,14 @@ Pipelines.Add("renderOutput",
 		{
 			var tree = (Tree<string,int>)@doc["Tree"];
 			var parentUrl = tree.Parent?.Value;
-			return parentUrl == @"\books";
+			if(parentUrl == @"\books")
+			{
+				tree.Parent = null;
+				return true;
+			}
+			return false;
 		},
-		Meta("IsBook", true)	
+		Meta("IsBook", true)
 	),
 	/// Chapters ///
 	If( (@doc, @ctx)=> 

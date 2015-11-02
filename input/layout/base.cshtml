@@ -69,24 +69,10 @@
                   string parentPath = @"\books";
                   bool isFirstEntry = true;
                 }
-                @foreach(var doc in Documents["Books"].GroupBy(x=>((Tree<string,int>)x["Tree"]).Parent.Value).Select(g=> g.OrderBy(x=>(Tree<string,int>)x["Tree"])).SelectMany(x=>x))
-                {
-                  
+                @foreach(var doc in Documents["Books"])
+                {                  
                   var currentTree =(Tree<string,int>)doc["Tree"];
                 
-                  @if(System.IO.Path.GetDirectoryName(currentTree.Value) != parentPath)
-                  {
-                    @if(!isFirstEntry){
-                      <li class="divider" role="separator"></li>
-                    }
-                    @if(!System.IO.Path.GetDirectoryName(currentTree.Parent.Value).StartsWith(parentPath))
-                    {
-                      var headder = System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(currentTree.Value));
-                    <li class="dropdown-header">@headder</li>                      
-                    }
-                    
-                  }                  
-                  isFirstEntry = false;                
                   @if(@doc["TargetUrl"].Equals(Metadata["TargetUrl"]))
                   {
                     <li  class="active"><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
@@ -95,7 +81,8 @@
                     <li><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
                   } 
 
-                    parentPath = System.IO.Path.GetDirectoryName(currentTree.Value);
+                  isFirstEntry = false;                
+                  parentPath = System.IO.Path.GetDirectoryName(currentTree.Value);
                 }
                 <!--<li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
@@ -160,6 +147,49 @@
           @RenderBody()
           
       </div>
+
+<div>
+  @if(Metadata.ContainsKey("Tree")){
+  
+  var tree = Metadata["Tree"] as Tree<string,int>;
+  
+<nav>
+  <ul class="pager">
+  @if(tree.PreviousSilbling !=null){
+    @if(tree.PreviousSilbling.Childrean.Count>0)
+    {
+      <li class="previous"><a href="@tree.PreviousSilbling.Childrean[tree.PreviousSilbling.Childrean.Count-1].Value"><span aria-hidden="true">&larr;</span> Zurück</a></li>      
+    }
+    else
+    {
+      <li class="previous"><a href="@tree.PreviousSilbling.Value"><span aria-hidden="true">&larr;</span> Zurück</a></li>
+    }
+  }
+  else if(tree.Parent != null) 
+  {
+    <li class="previous"><a href="@tree.Parent.Value"><span aria-hidden="true">&larr;</span> Zurück</a></li>
+  }
+  else
+  {
+    <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Zurück</a></li>    
+  }
+  @if(tree.Childrean.Count !=0){
+    <li class="next"><a href="@tree.Childrean[0].Value">Weiter <span aria-hidden="true">&rarr;</span></a></li>    
+  }
+  else if(tree.NextSilbling !=null){
+    <li class="next"><a href="@tree.NextSilbling.Value">Weiter <span aria-hidden="true">&rarr;</span></a></li>
+  }
+  else
+  {
+    <li class="next disabled"><a href="#">Weiter <span aria-hidden="true">&rarr;</span></a></li>
+  }
+  
+  </ul>
+</nav>
+  
+    
+  }
+</div>
 
       <div id="push"></div>
     </div>

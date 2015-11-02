@@ -1,4 +1,5 @@
 Title: Grundregelbuch
+Book: R0
 Alias: ['Grundregeln']
 ---
 ## Welcome to my homepage!

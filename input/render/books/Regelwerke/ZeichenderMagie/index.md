@@ -1,4 +1,5 @@
-Title: Zeichen der Götter
+Title: Zeichen der Magie
+Book: R1
 ---
 ## Welcome to my homepage!
 Dies ist ein Test von . Viele B  sollte aber auch gehn.

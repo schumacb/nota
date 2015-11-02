@@ -20,7 +20,7 @@
 	"showOutput": "silent",
 
 	// args is the HelloWorld program to compile.
-	"args": [],
+	"args": ["--output-scripts"],
 	"tasks": [
 		{
 			"taskName": "build",
