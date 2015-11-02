@@ -110,3 +110,19 @@ Was ein Charakter kann oder auch nicht wird durch Talente festgehalten.
 Sie decken ein breites Feld von tätigkeiten ab welche ein Charakter ausüben kann.
 Jedem Talent ist ein Wert zugeordnet. Dieser bestimmt wie gut ein Charakter welches
 Talent beherscht.
+
+Ein Talent besitzt einen Basiswert und einen Effektiven wert. Wenn von
+Tallentwert gesprochen wir, ist in der Regel der effektive gemeint.
+Wenn man sich in einem Talent verbessern will, kann man den Basistalentwert
+steigern.
+
+Der effektive Tallentwert berechnet sich aus verschieden Teilen:
+ + Dem Basistalentwert
+ + Einem Eigenschaftsbonus für beteiligte eigenschaften.
+   Für jede eigenschaft welche in der Probe verlangt wird erhält man
+   einen Bonus von eins, falls die Eigenschaft maximal Stufe 9 ist.
+ + Für verwandte Talente. Wieviel dies ist hängt von dem jeweiligen
+   Talent ab. Im Normalfall steuert jedes verwandte Talent einen Wert
+   kleiner gleich 50% bei. 
+   
+   

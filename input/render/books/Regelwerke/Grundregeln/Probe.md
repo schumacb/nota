@@ -12,7 +12,7 @@ unterschiedliche. Für jede Eigenschaft würfelt man nun einen
 W20. Hat man den Wert der entsprechenden Eigenschaft erwürfelt,
 oder einen Höheren Wert, so hat man in dieser Eigenschaft bestanden.
 Hat man ihn jedoch nicht erreicht, so wird die erwürelte Zahl von dem
-Talentwert des Charakters abgezogen.
+effektiven Talentwert des Charakters abgezogen.
 Sollte nachdem man alle Eigenschaften gewürfelt hat der Talentwert noch
 Positiv sein, so hat man die Probe erfolgreich bestanden.
 
