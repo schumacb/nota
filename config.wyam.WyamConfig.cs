@@ -38,6 +38,8 @@ using Wyam.Modules.Yaml;
                     return null; // Root hat keine Geschwister
 
                 var parentIndex = IndexInParent;
+				if(parentIndex< 0)
+				  throw new ApplicationException("Not found in Parent");
                 if (parentIndex == 0)
                     return null;
                 return Parent.Childrean[parentIndex - 1];
@@ -52,6 +54,8 @@ using Wyam.Modules.Yaml;
                     return null; // Root hat keine Geschwister
 
                 var parentIndex = IndexInParent;
+				if(parentIndex< 0)
+				  throw new ApplicationException("Not found in Parent");
                 if (parentIndex == Parent.Childrean.Count - 1)
                     return null;
                 return Parent.Childrean[parentIndex + 1];
@@ -77,7 +81,7 @@ using Wyam.Modules.Yaml;
             {
                 if (parent != null)
                 {
-                    var index = parent.childrean.BinarySearch(parent, new TreeIndexSearcher());
+                    var index = parent.childrean.BinarySearch(this, new TreeIndexSearcher());
                     if (index < 0)
                         throw new ApplicationException($"The Element should have been in the Parrent Childrean {value}.");
                     parent.childrean.RemoveAt(index);
@@ -87,9 +91,9 @@ using Wyam.Modules.Yaml;
 
                 if (parent != null)
                 {
-                    var index = parent.childrean.BinarySearch(value, new TreeIndexSearcher());
+                    var index = parent.childrean.BinarySearch(this, new TreeIndexSearcher());
                     if (index < 0)
-                        index = ~index;
+                        index = ~index;						
                     parent.childrean.Insert(index, this);
                 }
             }
@@ -197,7 +201,7 @@ public static class AutoLinkHelper
                 {
                     public static void Run(IDictionary<string, object> Metadata, IPipelineCollection Pipelines, string RootFolder, string InputFolder, string OutputFolder)
                     {
-#line 178
+#line 182
 
 // Configuration code
 
