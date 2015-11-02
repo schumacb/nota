@@ -108,4 +108,5 @@ Positiver weise, manschmal aber auch in Negativer.
 
 Was ein Charakter kann oder auch nicht wird durch Talente festgehalten.
 Sie decken ein breites Feld von tätigkeiten ab welche ein Charakter ausüben kann.
-
+Jedem Talent ist ein Wert zugeordnet. Dieser bestimmt wie gut ein Charakter welches
+Talent beherscht.
