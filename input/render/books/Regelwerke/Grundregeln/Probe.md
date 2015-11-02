@@ -21,6 +21,38 @@ die Probe bestanden hat. Man kann jedoch nicht mehr übrighalten als
 seinen Basistalentwert. Sollte dieser Null betragen, so darf man nur
 einen Punkt übrighalten.
 
+## Patzer
+
 Sollten zwei oder mehr einsen bei einer Probe fallen, so ist etwas
 schief gegagnen. Dies muss nicht unbedingt mit dem Können des Charakters
 zu tun haben sondern kann auch ein äusserer einfluss sein.
+
+## Probenmodifikator
+
+Nicht jede Aufgabe ist gleich anspruchsvoll. So ist es z.B. einfacher einen Hocker
+herzustellen als eine verzierte Komode. Soll die Aufgabe anspruchsfoller sein, so
+wird die Probe modifiziert. In diesem Fall zieht man den Modifikator von dem
+Talentwert ab. Der umgekehrte Fall ist natürlich auch gegeben. In diesem Fall wird
+der Talentwert erhöt.
+
+## Langfristige Proben
+
+Mansche Aufgaben sind umfangreicher als andere. Während eine Einzelen Probe sich normalerweise
+auf eine Kurzweilige Aktion, wie das überspringen eines Flusses oder das Singen eines Liedes bezieht,
+können langfristige Aufgaben wie das Bauen eines Klavieres durchaus mehrere Proben beinhalten. 
+Die anzahl der beötigten Proben erlaubt es herauszufinden wie schnell die Aufgabe erledigt wurde.
+Um den Umfang einer aufgabe festzulegen gibt man einen Punktewert an den es zu erreichen gilt.
+Jeder übrbehaltene Punkt einer Probe kann einer der folgenden beiden Kategorien verorrtnet werden:
+ + **Fortschritt** 
+   Jeder Punkt in diesem bereich bringt einen auf dem Weg zum Ziel näher
+ + **Qualität**
+   Je mehr Punkte in diesen bereich gesteckt werden desto höher die Qualität des Werkes.
+   
+Sobald der Punktewert der den Umfang der Aufgabe angibt erreicht bzw. überschritten wurde, ist die
+Aufgabe beendet. Will man nun wissen wie gut die Aufgabe erledigt wurde teilt man die Punkte welche
+in die Kategorie Qualität investiert wurden durch die Anzahl der versuche.
+Natürlich können auch hier die einzelnen Proben modifiziert werden.
+
+## Vergleichened Proben
+
+## Gruppen Proben
