@@ -1,5 +1,5 @@
-Title: Grundregelbuch
-Alias: ['Grundregeln']
+Title: Welt
+Book: w1
 ---
 ## Welcome to my homepage!
 Dies ist ein Test von . Viele B  sollte aber auch gehn.
