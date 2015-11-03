@@ -56,3 +56,24 @@ Natürlich können auch hier die einzelnen Proben modifiziert werden.
 ## Vergleichened Proben
 
 ## Gruppen Proben
+
+Je nach Situation ist es ratsam das Mehrere Personen eine gemeinsame Probe ablegen, da es für
+eine Einzelen Person zu schwer wird.
+
+Dabei gibt es mehre Möglichkeiten wie man vorgehen kann. In welchen Situation welche vorgehnsweise möglich ist
+entscheidet der Spielleiter. 
+
+### Angewiesene Unterstützung
+Hierbei unterstützt ein Charakter einen anderen ohne selbst ahnung von der Materie zu haben. Dies trifft
+z.B. auf jemanden zu der Werkzeuge anreicht, oder irgendwo irgendwas festhält. Je nach situation kann
+die Probe um ein oder zwei Punkte erleichtert werden.
+
+### Vorarbeit
+Hierbei kann ein Charakter eine Probe vor der eigentlichen Aufgabe ablegen, die übrigbehaltenen
+Talentpunkte werden getrittelt und als erleichterung auf die eigentliche Probe angerechnet. Je
+nach art der vorbereitung kann diese Gedeckelt werden.
+
+### Zusammenarbeit
+Hierbei arbeiten mehrer Charaktere zusammen an dem Selben Problem, jeder muss hierbei das entsprechende
+Talent besitzen. Die Probe wird für jeden beteiligten um die anzahl der zusätzlichen Personen erschwert.
+Dafür werden die übrigbehaltenen Talentpunkte aller beteiligten Addiert.
