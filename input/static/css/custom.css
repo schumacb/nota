@@ -1,4 +1,8 @@
 
+@font-face {
+    font-family: 'InitialsFont'; /*a name to be used later*/
+    src: url('/font/RomantiqueInitials.ttf'); /*URL to font*/
+}
 
 
 /* Sticky footer styles
@@ -89,3 +93,20 @@ font-size: 80%;
 #footer .container > #license {
    margin-top: 15px;
 }
+
+.content {
+    
+}
+
+.content > p:first-of-type:first-letter  {
+font-family: 'InitialsFont'; 
+    font-weight: normal; 
+    font-style: normal;
+    font-size: 15em;
+    text-transform: lowercase;
+    margin-top: -0.33em;
+    margin-bottom: -0.33em;
+           float : left; 
+       width : 1em;
+        
+       color : #c00; }
