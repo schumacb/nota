@@ -146,9 +146,7 @@
           
           @RenderBody()
           
-      </div>
 
-<div>
   @if(Metadata.ContainsKey("Tree")){
   
   var tree = Metadata["Tree"] as Tree<string,int>;
@@ -173,6 +171,9 @@
   {
     <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Zurück</a></li>    
   }
+  
+    <li ><a href="#"><span aria-hidden="true">&uarr;</span> Top</a></li>      
+  
   @if(tree.Childrean.Count !=0){
     <li class="next"><a href="@tree.Childrean[0].Value">Weiter <span aria-hidden="true">&rarr;</span></a></li>    
   }
@@ -189,7 +190,8 @@
   
     
   }
-</div>
+      </div>
+
 
       <div id="push"></div>
     </div>
