@@ -39,3 +39,9 @@ Und dies geviel den Göttern sehr.
 Und der sechste Morgen brach an, und die Götter waren wütend. Denn die Wesen denen Sie den freien Willen
 schenkten taten nicht wie ihnen geheißen. Sie wiedersetzten sich ihren Schöpfern und lehten sich auf.
 Und dies missviel den Göttern sehr.
+
+<div class="hidden-information Meister Information">
+
+Die Welt wurde nicht aus dem Chaos erschaffen, sondern von ihm vernichtet.
+
+</div>
