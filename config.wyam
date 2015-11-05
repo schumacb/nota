@@ -241,7 +241,19 @@ Pipelines.Add("staticInput",
 			url = Path.GetDirectoryName(url);
 		url = "\\"+url;
 		return url;
-	})
+	}),
+	Where(Path.GetExtension(@doc.Source) != ".xmp"),
+	Xmp(errorsOnDoubleKeys:false)
+		.WithMetadata("xmpRights:UsageTerms", "Copyright")
+		.WithMetadata("dc:rights", "Copyright")
+		.WithMetadata("dc:creator", "Creator")
+		.WithMetadata("xmpRights:Marked", "RightsReserved"),
+	If(Path.GetExtension((string)@doc["TargetFile"]) != ".css" && Path.GetExtension((string)@doc["TargetFile"]) != ".js",
+		If(@doc.Get<string>("RightsReserved")!= "False" && !@doc.ContainsKey("Copyright"),
+			Trace($"Missing License Information {@doc.Source}"),
+			Where((@doc,@ctx)=> false)
+		)
+	)
 );
 
 //  888888888888                                           ad88                                           
