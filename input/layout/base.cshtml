@@ -328,7 +328,36 @@
             calculateTime();
             window.setInterval(calculateTime, 1000);
 
+
+function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
+var meisterInfos = $('.hidden-information');
+ // meisterInfos.append('</div>');
+  meisterInfos.removeClass("hidden-information");
+ 
+  meisterInfos.replaceWith(function(){
   
+  var id = '_'+guidGenerator();
+  
+    return ''
+    +'<div class="panel panel-info">'
+    + '<div class="panel-heading" data-toggle="collapse" data-target="#'+id+'" aria-expanded="false" aria-controls="collapseExample">'
+     + $(this).attr("class")
+     +'</div>'
+     +'<div class="panel-body collapse" id="'+id+'">'
+    + $( this ).text() 
+    +'</div>'
+     +'</div>'
+    ;
+  });
+    
+    
+  //meisterInfos.addClass("panel panel-info");
   
   
 });

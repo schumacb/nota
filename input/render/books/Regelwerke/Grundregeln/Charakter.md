@@ -16,14 +16,13 @@ Beachtliche Kultur aufgebaut haben.
 Die Art unterteilt die Mitglieder einer Gattung weiter. So stellen die Menschen (Homo Sapiens) und die
 Meermenschen (Homo Marinus) zwei Vertreter dar.
 
-<div class="panel panel-info">
-<div class="panel-heading">Information</div>
-<div class="panel-body">
+
+
+<div class="hidden-information Information">
 
 Da es in der Welt von Nota keine evulution gab, haben diese begriffe eine
 etwas andere Bedeutung.
 
-</div>
 </div>
 
 ## Kultur
