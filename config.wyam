@@ -247,11 +247,16 @@ Pipelines.Add("staticInput",
 		.WithMetadata("xmpRights:UsageTerms", "Copyright")
 		.WithMetadata("dc:rights", "Copyright")
 		.WithMetadata("dc:creator", "Creator")
+		.WithMetadata("cc:attributionName", "Creator")
+		.WithMetadata("cc:license", "CCLicense")
 		.WithMetadata("xmpRights:Marked", "RightsReserved"),
 	If(Path.GetExtension((string)@doc["TargetFile"]) != ".css" && Path.GetExtension((string)@doc["TargetFile"]) != ".js",
-		If(@doc.Get<string>("RightsReserved")!= "False" && !@doc.ContainsKey("Copyright"),
-			Trace($"Missing License Information {@doc.Source}"),
-			Where((@doc,@ctx)=> false)
+		If(@doc.Get<string>("RightsReserved")!= "False",
+			If((!@doc.ContainsKey("Copyright") && !@doc.ContainsKey("CCLicense"))
+			 	|| !@doc.ContainsKey("Creator"),
+				Trace($"Missing License Information {@doc.Source}"),
+				Where((@doc,@ctx)=> false)
+			)
 		)
 	)
 );
