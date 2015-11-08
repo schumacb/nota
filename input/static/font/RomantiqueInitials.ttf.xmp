@@ -5,9 +5,7 @@
         <xapRights:Marked>False</xapRights:Marked>
       </rdf:Description>
       <rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1/'>
-        <dc:Creator>
-          Character55
-        </dc:Creator>
+        <dc:creator>Character55</dc:creator>
       </rdf:Description>
     </rdf:RDF>
   </x:xmpmeta>

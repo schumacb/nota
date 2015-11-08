@@ -244,6 +244,11 @@
 
 <script>
   $(document).ready(function(){
+    
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+    
   $('#mitwirkende').popover({ 
     html : true,
     content: function() {

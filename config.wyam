@@ -1,13 +1,19 @@
 // Setup code
-//  Packages
-//      .Install("Twitter.Bootstrap.Less", "[3.3.5]")
-//      .Install("jQuery", "[2.1.1]");
+Packages
+//	.Install("AngleSharp")
+    .Install("Twitter.Bootstrap.Less", "[3.3.5]")
+    .Install("jQuery", "[2.1.1]");
     
 //Assemblies
 //    .Load("mscorlib , Version=1.0.2004.0, Culture=neutral, PublicKeyToken=8744b20f8da049e3");
 ===
 
 // Declaration code
+using AngleSharp.Dom;
+using AngleSharp.Dom.Html;
+using AngleSharp.Extensions;
+using AngleSharp.Parser.Html;
+using IDocument = Wyam.Common.Documents.IDocument;
 
 	public class Tree<T, K> : IComparable<Tree<T, K>> where K : IComparable<K>
     {
@@ -176,6 +182,47 @@ public static class AutoLinkHelper
 	.SelectMany(x=>x)
 	.ToLookup(x=> x.Keyword, x=> x.Document);
 		return erg;
+	}
+	
+	public static IDocument[] AddImageMetadata(IDocument doc, IExecutionContext ctx)
+	{
+			
+		// Alle Documente mit Xmp data finden:
+		var urlLookup = @ctx.Documents.FromPipeline("Write").Where(x=>x.ContainsKey("TargetUrl")).ToDictionary(x=> ((string)x["TargetUrl"]).Replace('\\','/'));
+		
+		
+		var parser = new AngleSharp.Parser.Html.HtmlParser();
+		//Source to be pared
+		var source = @doc.Content;
+		//Parse source to document
+		var document = parser.Parse(source);
+		//Do something with document like the following
+
+		var images = document.QuerySelectorAll("img");
+		foreach (var image in images)
+		{			
+			var url = image.GetAttribute("src");
+			if(!urlLookup.ContainsKey(url))
+				continue;	
+			var imgDoc = urlLookup[url];
+			String txt = "";
+			String title = null;
+			if(imgDoc.ContainsKey("RightsReserved"))
+				title = (bool.Parse(imgDoc["RightsReserved"].ToString())? "Urheberrechlich Geschützt" :"Gemeinfrei");
+			if(imgDoc.ContainsKey("Creator"))
+				txt +=$"<h4>{imgDoc["Creator"]}</h4>";
+			if(imgDoc.ContainsKey("Copyright"))
+				txt +=$"<p>{imgDoc["Copyright"]}</p>";
+			image.SetAttribute("data-toggle","popover");
+			image.SetAttribute("data-html","true");
+			image.SetAttribute("data-placement","auto");
+			image.SetAttribute("data-trigger","click focus");
+			if(title!=null)
+				image.SetAttribute("title",title);
+			image.SetAttribute("data-content", txt);
+		}			
+			
+		return new IDocument[]{@doc.Clone(document.DocumentElement.OuterHtml)};	
 	}
 }
 
@@ -515,6 +562,7 @@ Pipelines.Add("Write",
 
 	
 	If(Path.GetExtension((string)@doc["TargetFile"])==".html",
+		Execute(AutoLinkHelper.AddImageMetadata),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
 	),
 

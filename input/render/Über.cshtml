@@ -3,10 +3,10 @@ MainMenueOrder: 2
 ---
 
 <p>
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-	<img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
-</a>
-<br />
+  Diese Seite wurde erstellt mit der hilfe von Bootstrap, jQuerry und Wyam. Die Sourcen aus denen
+  sie generiert wird können auf <a href="@Constants.GitUrl">Github</a> gefunden werden.
+</p>
+<p>
 Die Texte dieser Seite unterstehen, sofern nicht anders angegeben,  
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz
@@ -21,8 +21,10 @@ der Daten eingesehen werden.
 Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.	
 </p>
 
-
-<table class="table table-hover">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#resourceTable" aria-expanded="false" aria-controls="resourceTable">
+  Genutzte Resourcen
+</button>
+<table class="table table-hover collapse" id="resourceTable">
 <thead>
   <th> Datei </th>
   <th> Public Domain status </th>
@@ -43,10 +45,10 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
         hasMetadata = true;
         rightsReserved = doc.Get<bool?>("RightsReserved");
       }
-      @if(!String.IsNullOrWhiteSpace(@doc.Get<string>("Creator")))
+      @if(doc.ContainsKey("Creator"))
       {
         hasMetadata = true;
-        creator = doc.Get<string>("Creator");
+        creator =(string) doc["Creator"];
       }      
       @if(@doc.ContainsKey("Copyright"))
       {
@@ -57,7 +59,7 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
         } 
         else
         {
-          @(copyright = doc["Copyright"].ToString());          
+          copyright = doc["Copyright"].ToString();          
         }
       }
 
@@ -83,7 +85,9 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
           else
           {
             <td>
+            <a class="img-responsive" href="@doc["TargetUrl"]">
             @doc["TargetUrl"]
+            </a>
             </td>
           }
           
