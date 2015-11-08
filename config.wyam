@@ -241,7 +241,9 @@ public static class AutoLinkHelper
 //                 88                               
 //                 88                  
 
-
+// Auf deutsche Kultur einstellen ( zur Compilezeit)
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
+System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
 
 Pipelines.Add("renderInput",
 	ReadFiles(@"render\*"),
