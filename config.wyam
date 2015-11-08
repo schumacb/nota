@@ -298,7 +298,9 @@ Pipelines.Add("staticInput",
 		.WithMetadata("dc:creator", "Creator")
 		.WithMetadata("cc:attributionName", "Creator")
 		.WithMetadata("xmpRights:Marked", "RightsReserved"),
-	If(Path.GetExtension((string)@doc["TargetFile"]) != ".css" && Path.GetExtension((string)@doc["TargetFile"]) != ".js",
+	If(Path.GetExtension((string)@doc["TargetFile"]) != ".css" 
+			&& Path.GetExtension((string)@doc["TargetFile"]) != ".js"
+			&& Path.GetExtension((string)@doc["TargetFile"]) != ".config",
 		If(@doc.Get<string>("RightsReserved")!= "False",
 			If((!@doc.ContainsKey("Copyright"))
 			 	|| !@doc.ContainsKey("Creator"),
