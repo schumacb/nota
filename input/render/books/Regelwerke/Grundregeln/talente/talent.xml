@@ -1,0 +1,42 @@
+template: 'template\talent.xslt'
+---
+<?xml version='1.0'?>
+<!-- This file represents a fragment of a book store inventory database -->
+<Talente  xmlns='http://nota.org/' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://nota.org/ talent.xsd">
+  <Talent Name="Fechtwaffen" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Mut/>
+      <Mut/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      <Max>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      </Max>
+    </Ableitungen>
+  </Talent>
+  <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Mut/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      <Max>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      </Max>
+    </Ableitungen>
+  </Talent>
+
+</Talente>

@@ -255,7 +255,7 @@ Pipelines.Add("renderInput",
 	{
 		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
 		var last = path[path.Length-1];
-		if(Path.GetExtension(last) == ".md" || Path.GetExtension(last) == ".cshtml")
+		if(Path.GetExtension(last) == ".md" || Path.GetExtension(last) == ".cshtml"|| Path.GetExtension(last) == ".xml")
 			path[path.Length-1] = last = Path.ChangeExtension(last, ".html");
 		return Path.Combine(path);
 	}),
@@ -355,7 +355,7 @@ Pipelines.Add("authorOutput",
 	Content(
 		ReadFiles(@"template\author.cshtml")		
 	),
-	BranchConcat(
+	ConcatBranch(
 		Execute((@doc, @ctx)=>{
 			var information = @doc["CommitInformation"] as IEnumerable<CommitInformation>;
 			var fileCommits =  information.GroupBy(x=>x.Path);
@@ -556,7 +556,12 @@ Pipelines.Add("Write",
 	If(Path.GetExtension(@doc.Source)==".md",
 		Markdown()
 	), 
-	If(Path.GetExtension(@doc.Source)==".md" || Path.GetExtension(@doc.Source)==".cshtml",
+	If(Path.GetExtension(@doc.Source)==".xml",
+		Xslt((string)@doc["template"])
+	), 
+	If(Path.GetExtension(@doc.Source)==".md" 
+			|| Path.GetExtension(@doc.Source)==".cshtml" 
+			|| Path.GetExtension(@doc.Source)==".xml",
 		Razor().WithViewStart(@"layout\viewstart.cshtml")
 	),
 	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
