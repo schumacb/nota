@@ -341,6 +341,23 @@ function guidGenerator() {
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
 
+var hiddenFooter = $('.compact-footer');
+hiddenFooter.removeClass('compact-footer');
+hiddenFooter.replaceWith(function(){
+  var id = '_'+guidGenerator();
+  
+    return ''
+    + '<div data-toggle="collapse" data-target="#'+id+'" aria-expanded="false" aria-controls="collapseExample" style="cursor: pointer;">'
+     + $(this).attr("class")
+     + ' <span class="glyphicon glyphicon-chevron-down"></span>'
+     +'</div>'
+     +'<div class="collapse" id="'+id+'">'
+    + $( this ).html()
+    +'</div>'
+    ;
+  
+});
+
 var meisterInfos = $('.hidden-information');
  // meisterInfos.append('</div>');
   meisterInfos.removeClass("hidden-information");

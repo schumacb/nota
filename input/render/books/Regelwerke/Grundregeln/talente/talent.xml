@@ -6,9 +6,9 @@ template: 'template\talent.xslt'
  xsi:schemaLocation="http://nota.org/ talent.xsd">
   <Talent Name="Fechtwaffen" Komplexität="B" Kategorie="Kampf">
     <Probe>
+      <Glück/>
       <Mut/>
-      <Mut/>
-      <Mut/>
+      <Intuition/>
     </Probe>
     <Beschreibung>
       Test
@@ -24,7 +24,7 @@ template: 'template\talent.xslt'
   <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
     <Probe>
       <Mut/>
-      <Mut/>
+      <Klugheit/>
       <Mut/>
     </Probe>
     <Beschreibung>
