@@ -94,9 +94,6 @@ font-size: 80%;
    margin-top: 15px;
 }
 
-.content {
-    
-}
 
 .content > p:first-of-type:first-letter  {
 font-family: 'InitialsFont'; 
@@ -111,7 +108,7 @@ font-family: 'InitialsFont';
         
        color : #c00; }
        
-.meister-info
-{
-    
-}       
+.panel {
+    display: inline-block;
+    width: 100%;
+}  

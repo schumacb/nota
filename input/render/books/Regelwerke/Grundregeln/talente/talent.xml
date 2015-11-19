@@ -38,5 +38,73 @@ template: 'template\talent.xslt'
       </Max>
     </Ableitungen>
   </Talent>
-
+  
+  <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      <Max>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      </Max>
+    </Ableitungen>
+  </Talent>
+  <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      <Max>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      </Max>
+    </Ableitungen>
+  </Talent>
+<Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      <Max>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      </Max>
+    </Ableitungen>
+  </Talent>
+<Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      <Max>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
+      </Max>
+    </Ableitungen>
+  </Talent>
 </Talente>
