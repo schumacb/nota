@@ -59,7 +59,7 @@ Task("Preview")
     {
         Wyam(new WyamSettings
         { 
-            Output  = websitePath
+            Output  = websitePath,
             Preview = true,
             Watch = true
         });        
