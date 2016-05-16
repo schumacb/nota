@@ -50,7 +50,7 @@ Task("Build")
     {
         Wyam(new WyamSettings
         { 
-            Output  = websitePath
+            OutputPath  = websitePath
         });        
     });
     
