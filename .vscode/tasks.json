@@ -11,7 +11,7 @@
 	"version": "0.1.0",
 
 	// The command is tsc. Assumes that tsc has been installed using npm install -g typescript
-	"command": "..\\Wyam\\Wyam\\bin\\Debug\\wyam.exe",
+	"command": "deploy.cmd",
 
 	// The command is a shell script
 	"isShellCommand": false,
@@ -32,10 +32,7 @@
 			"isBuildCommand": true,
 			"suppressTaskName": true,
 			"isWatching": true,
-			"args": [
-				"--watch",
-				"--preview"
-			],
+			
 			"problemMatcher": {
 				// The problem is owned by the typescript language service. Ensure that the problems
 				// are merged with problems produced by Visual Studio's language service.

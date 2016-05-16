@@ -9,22 +9,18 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 var target = Argument("target", "Default");
-
+var isRunningLocal = !Kudu.IsRunningOnKudu;
 ///////////////////////////////////////////////////////////////////////////////
 // GLOBAL VARIABLES
 ///////////////////////////////////////////////////////////////////////////////
 
 var websitePath     = MakeAbsolute(Directory("./src/TestWebSite"));
 
-if (!Kudu.IsRunningOnKudu)
-{
-    throw new Exception("Not running on Kudu");
-}
 
 var deploymentPath = Kudu.Deployment.Target;
-if (!DirectoryExists(deploymentPath))
+if (deploymentPath!=null && !DirectoryExists(deploymentPath) && !isRunningLocal)
 {
-    throw new DirectoryNotFoundException(
+     throw new DirectoryNotFoundException(
         string.Format(
             "Deployment target directory not found {0}",
             deploymentPath
@@ -41,6 +37,11 @@ Task("Publish")
     .IsDependentOn("Build")
     .Does(() =>
 {
+    if (!Kudu.IsRunningOnKudu)
+    {
+        throw new Exception("Not running on Kudu");
+    }
+
     Information("Deploying web from {0} to {1}", websitePath, deploymentPath);
     Kudu.Sync(websitePath);
 });
@@ -51,7 +52,8 @@ Task("Build")
     {
         Wyam(new WyamSettings
         { 
-            OutputPath  = websitePath
+            OutputPath  = websitePath,
+            LogFilePath = "wyam.log"
         });        
     });
     
@@ -60,14 +62,14 @@ Task("Preview")
     {
         Wyam(new WyamSettings
         { 
-            OutputPath  = websitePath,
+            OutputPath  = websitePath ?? "output",
             Preview = true,
             Watch = true
         });        
     });
 
 Task("Default")
-    .IsDependentOn("Publish");
+    .IsDependentOn(isRunningLocal?"Build":"Publish");
 
 ///////////////////////////////////////////////////////////////////////////////
 // EXECUTION
