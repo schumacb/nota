@@ -1,8 +1,11 @@
 #tool "KuduSync.NET" "https://www.nuget.org/api/v2/"
-#tool nuget:?package=Wyam&prerelease
 
 #addin "Cake.Kudu" "https://www.nuget.org/api/v2/"
+
+#tool nuget:?package=Wyam&prerelease
 #addin nuget:?package=Cake.Wyam&prerelease
+//#tool nuget:https://www.myget.org/F/wyam/api/v2?package=Wyam&prerelease
+//#addin nuget:https://www.myget.org/F/wyam/api/v2?package=Cake.Wyam&prerelease
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -14,7 +17,7 @@ var isRunningLocal = !Kudu.IsRunningOnKudu;
 // GLOBAL VARIABLES
 ///////////////////////////////////////////////////////////////////////////////
 
-var websitePath     = MakeAbsolute(Directory("./src/TestWebSite"));
+var websitePath     = MakeAbsolute(Directory("./output"));
 
 
 var deploymentPath = Kudu.Deployment.Target;
@@ -56,7 +59,7 @@ Task("Build")
             LogFilePath = "wyam.log"
         });        
     });
-    
+        
 Task("Preview")
     .Does(() =>
     {

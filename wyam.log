@@ -1,0 +1,57 @@
+Loading configuration from c:/Users/patri/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/patri/Source/Repos/nota
+Input path(s):
+  C:/Users/patri/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/patri/Source/Repos/nota/output
+Cleaning output path c:/Users/patri/Source/Repos/nota/output
+Cleaned output directory
+Executing 11 pipelines
+    Executing pipeline "Pipeline 1" (1/11) with 4 child module(s)
+        Executed pipeline "Pipeline 1" (1/11) in 1159 ms resulting in 15 output document(s)
+    Executing pipeline "renderInput" (2/11) with 7 child module(s)
+            Error while executing module ReadFiles
+        Error while executing pipeline renderInput
+Exception during execution: System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.ArgumentException: Path cannot be empty
+Parametername: path
+   bei Wyam.Common.IO.NormalizedPath..ctor(Tuple`2 providerAndPath, Nullable`1 absolute) in C:\projects\wyam\src\Wyam.Common\IO\NormalizedPath.cs:Zeile 135.
+   bei Wyam.Common.IO.FilePath.get_FileNameWithoutExtension() in C:\projects\wyam\src\Wyam.Common\IO\FilePath.cs:Zeile 114.
+   bei Wyam.Core.Modules.IO.ReadFiles.<>c__DisplayClass7_0.<Execute>b__1(IFile file) in C:\projects\wyam\src\Wyam.Core\Modules\IO\ReadFiles.cs:Zeile 119.
+   bei System.Linq.Parallel.SelectQueryOperator`2.SelectQueryOperatorEnumerator`1.MoveNext(TOutput& currentElement, TKey& currentKey)
+   bei System.Linq.Parallel.PipelineSpoolingTask`2.SpoolingWork()
+   bei System.Linq.Parallel.SpoolingTaskBase.Work()
+   bei System.Linq.Parallel.QueryTask.BaseWork(Object unused)
+   bei System.Linq.Parallel.QueryTask.<>c.<.cctor>b__10_0(Object o)
+   bei System.Threading.Tasks.Task.InnerInvoke()
+   bei System.Threading.Tasks.Task.Execute()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Linq.Parallel.QueryTaskGroupState.QueryEnd(Boolean userInitiatedDispose)
+   bei System.Linq.Parallel.AsynchronousChannelMergeEnumerator`1.MoveNextSlowPath()
+   bei System.Linq.Parallel.AsynchronousChannelMergeEnumerator`1.MoveNext()
+   bei System.Linq.Parallel.QueryOpeningEnumerator`1.MoveNext()
+   bei System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   bei System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   bei System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   bei System.Collections.Immutable.ImmutableArray.CreateRange[T](IEnumerable`1 items)
+   bei System.Collections.Immutable.ImmutableArray.ToImmutableArray[TSource](IEnumerable`1 items)
+   bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
+   bei Wyam.Core.Execution.Pipeline.Execute(Engine engine) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 212.
+   bei Wyam.Core.Execution.Engine.Execute() in C:\projects\wyam\src\Wyam.Core\Execution\Engine.cs:Zeile 147.
+---> (Interne Ausnahme #0) System.ArgumentException: Path cannot be empty
+Parametername: path
+   bei Wyam.Common.IO.NormalizedPath..ctor(Tuple`2 providerAndPath, Nullable`1 absolute) in C:\projects\wyam\src\Wyam.Common\IO\NormalizedPath.cs:Zeile 135.
+   bei Wyam.Common.IO.FilePath.get_FileNameWithoutExtension() in C:\projects\wyam\src\Wyam.Common\IO\FilePath.cs:Zeile 114.
+   bei Wyam.Core.Modules.IO.ReadFiles.<>c__DisplayClass7_0.<Execute>b__1(IFile file) in C:\projects\wyam\src\Wyam.Core\Modules\IO\ReadFiles.cs:Zeile 119.
+   bei System.Linq.Parallel.SelectQueryOperator`2.SelectQueryOperatorEnumerator`1.MoveNext(TOutput& currentElement, TKey& currentKey)
+   bei System.Linq.Parallel.PipelineSpoolingTask`2.SpoolingWork()
+   bei System.Linq.Parallel.SpoolingTaskBase.Work()
+   bei System.Linq.Parallel.QueryTask.BaseWork(Object unused)
+   bei System.Linq.Parallel.QueryTask.<>c.<.cctor>b__10_0(Object o)
+   bei System.Threading.Tasks.Task.InnerInvoke()
+   bei System.Threading.Tasks.Task.Execute()<---
+

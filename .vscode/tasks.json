@@ -14,7 +14,7 @@
 	"command": "deploy.cmd",
 
 	// The command is a shell script
-	"isShellCommand": false,
+	"isShellCommand": true,
 
 	// Show the output window only if unrecognized errors occur.
 	"showOutput": "silent",
@@ -24,15 +24,20 @@
 	"tasks": [
 		{
 			"taskName": "build",
-			"suppressTaskName": true
+			"suppressTaskName": true,
+			"isBuildCommand": true,
+			"echoCommand": true
 		},
 		{
+			"echoCommand": true,
+			"isTestCommand": true,
 			"taskName": "preview",
 			"showOutput": "silent",
-			"isBuildCommand": true,
 			"suppressTaskName": true,
-			"isWatching": true,
-			
+			"isWatching": false,
+			"args": [
+				"-target=preview"
+			],
 			"problemMatcher": {
 				// The problem is owned by the typescript language service. Ensure that the problems
 				// are merged with problems produced by Visual Studio's language service.
