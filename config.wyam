@@ -215,7 +215,7 @@ public static class AutoLinkHelper
 //#n Wyam.Modules.Yaml -p 
 //#n Wyam.Modules.Markdown -p 
 #n Wyam.Modules.All -p
-
+#n bootstrap
 
 public static class	Constants
 {
@@ -228,7 +228,23 @@ public static class	Constants
 	public static TimeZoneInfo TimeZone {get; } = TimeZoneInfo.FromSerializedString(timeZoneZerilisation); 
 }
 
-
+public static class Helper
+{
+	public static IModule TargetUrlModule()
+	{
+return 	Meta("TargetUrl",  (@doc, @ctx)=> 
+	{
+		var targetFile = (Wyam.Common.IO.FilePath)@doc["TargetFile"];
+		string url;
+		if(targetFile.FileName.FullPath == "index.html")
+			url = targetFile.Directory.FullPath;
+		else
+			url = targetFile.FullPath;			
+		url = "\\"+url;
+		return url;
+	});		
+	}
+}
 ---
 
 
@@ -256,24 +272,16 @@ Pipelines.Add("renderInput",
 		.WithMetadataFile(".inherited",true),
 	Meta("TargetFile",  (@doc, @ctx)=> 
 	{
-		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
-		var last = path[path.Length-1];
-		if(Path.GetExtension(last) == ".md" || Path.GetExtension(last) == ".cshtml"|| Path.GetExtension(last) == ".xml")
-			path[path.Length-1] = last = Path.ChangeExtension(last, ".html");
-		return Path.Combine(path);
+		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
+		if(path.Extension == ".md" || path.Extension == ".cshtml"|| path.Extension == ".xml")
+			path.ChangeExtension(".html");
+		return path;
 	}),
-	Meta("TargetUrl",  (@doc, @ctx)=> 
-	{
-		var url = (string)@doc["TargetFile"];
-		if(Path.GetFileName(url) == "index.html")
-			url = Path.GetDirectoryName(url);
-		url = "\\"+url;
-		return url;
-	}),
+	Helper.TargetUrlModule(),
 	Meta("ReposetoryUrl",  (@doc, @ctx)=> 
 	{		
 		//https://github.com/LokiMidgard/nota/blob/master/input/render/Downloads.md
-		var url = $"{Constants.GitUrl}/blob/{Constants.GitBranch}/input/"+ (string)@doc["RelativeFilePath"];
+		var url = $"{Constants.GitUrl}/blob/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).FullPath;
 		return url;
 	})
 );
@@ -283,18 +291,10 @@ Pipelines.Add("staticInput",
 	ReadFiles(@"static\**\*.*"),
 	Meta("TargetFile",  (@doc, @ctx)=> 
 	{
-		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
-		var last = path[path.Length-1];
-		return Path.Combine(path);
+		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
+		return path;
 	}),
-		Meta("TargetUrl",  (@doc, @ctx)=> 
-	{
-		var url = (string)@doc["TargetFile"];
-		if(Path.GetFileName(url) == "index.html")
-			url = Path.GetDirectoryName(url);
-		url = "\\"+url;
-		return url;
-	}),
+	Helper.TargetUrlModule(),
 	Where(@doc.Source.Extension != ".xmp"),
 	Xmp(errorsOnDoubleKeys:false)
 		.WithMetadata("cc:license", "Copyright")
@@ -303,9 +303,9 @@ Pipelines.Add("staticInput",
 		.WithMetadata("dc:creator", "Creator")
 		.WithMetadata("cc:attributionName", "Creator")
 		.WithMetadata("xmpRights:Marked", "RightsReserved"),
-	If(Path.GetExtension((string)@doc["TargetFile"]) != ".css" 
-			&& Path.GetExtension((string)@doc["TargetFile"]) != ".js"
-			&& Path.GetExtension((string)@doc["TargetFile"]) != ".config",
+	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".css" 
+			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".js"
+			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".config",
 		If(@doc.Get<string>("RightsReserved")!= "False",
 			If((!@doc.ContainsKey("Copyright"))
 			 	|| !@doc.ContainsKey("Creator"),
@@ -333,32 +333,23 @@ Pipelines.Add("staticInput",
 
  
 Pipelines.Add("bootstrapOutput",
-	ReadFiles(@"Scripts\*"),
-	Meta("TargetFile",  (@doc, @ctx)=> 
-	{
-		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').ToArray();
-		path[0]="js";
-		return Path.Combine(path);
-	}),
+	ReadFiles(@"Scripts\**\*.*"),
 	Concat(	
-		ReadFiles("bootstrap.less"),
-		Less(),
-		Meta("TargetFile",  @"css\bootstrap.css")
+		ReadFiles(@"Content\**\*.*")
 	),
 	Concat(	
-		ReadFiles(@"Content\fonts\*"),
-		Meta("TargetFile",  (@doc, @ctx)=> 
-		{
-			var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
-			return Path.Combine(path);
-		})
-	)
+		ReadFiles(@"fonts\**\*.*")
+	),
+	Meta("TargetFile",  (@doc, @ctx)=> 
+	{
+		return @doc["RelativeFilePath"];
+	})
 );
 
 
 Pipelines.Add("authorOutput",
 	GitContributors(),
-	Meta("TargetFile",  Path.Combine("author",@doc["ContributorEmail"]+".html")),
+	Meta("TargetFile",  new Wyam.Common.IO.DirectoryPath(NormalizedPath.AbstractProvider,"/author",true).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html")),
 	Meta("Title", @doc["ContributorName"]),
 	Meta("Layout", @"layout\book.cshtml"),
 	Content(
@@ -372,11 +363,14 @@ Pipelines.Add("authorOutput",
 				.SelectMany(x=> (x["Entries"] as IReadOnlyDictionary<Wyam.Common.IO.FilePath, string>)
 					.Select(entry => new { Entry = entry, Commit = x}))
 				.GroupBy(x=>x.Entry.Key);
-
-			return fileCommits.Select(x=>
+			return (IEnumerable<IDocument>) fileCommits.Select(x=>
 			{
-				var targetFile = Path.Combine("author",(@doc["ContributorEmail"]).ToString(),x.Key+".html");
+				var autherFolder =  new Wyam.Common.IO.DirectoryPath(NormalizedPath.AbstractProvider,"/author",true);
+				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
+				var commitetFile = emailFolder.CombineFile(x.Key);
+				var targetFile =  commitetFile.AppendExtension(".html");
 				var commits = x.Select(y=> y.Commit).ToArray();				
+				System.Console.WriteLine(targetFile);
 				return @ctx.GetDocument(new KeyValuePair<string,object>[]
 				{
 					new KeyValuePair<string,object>("ContributorName", @doc["ContributorName"]),
@@ -392,15 +386,8 @@ Pipelines.Add("authorOutput",
 			ReadFiles(@"template\CommitFile.cshtml")		
 		)
 	),
-	Meta("TargetUrl",  (@doc, @ctx)=> 
-	{
-		var url = (string)@doc["TargetFile"];
-		if(Path.GetFileName(url) == "index.html")
-			url = Path.GetDirectoryName(url);
-		url = "\\"+url;
-		return url;
-	}),
-	Execute(new IDocument[]{ @ctx.GetDocument(doc,Path.ChangeExtension((string)@doc["TargetFile"], ".cshtml"),@doc.Content)})
+	Helper.TargetUrlModule(),
+	Execute(new IDocument[]{ @ctx.GetDocument(doc,((Wyam.Common.IO.FilePath)@doc["TargetFile"]).ChangeExtension( ".cshtml"),@doc.Content)})
 );
 
 Pipelines.Add("renderOutput",
@@ -415,7 +402,7 @@ Pipelines.Add("renderOutput",
 			{
 
 				list.Add(@ctx.GetDocument(
-					@"ambiguis\"+a.Key + ".cshtml",
+					@"\ambiguis\"+a.Key + ".cshtml",
 					"",
 					new KeyValuePair<string,object>[]{
 					new KeyValuePair<string,object>("DisambigiusData", a),
@@ -427,18 +414,14 @@ Pipelines.Add("renderOutput",
 			}
 			return list;
 		}),
-		Meta("TargetFile",  Path.Combine("ambiguis",@doc["Keyword"]+".html")),
+		Meta("TargetFile", new Wyam.Common.IO.DirectoryPath(NormalizedPath.AbstractProvider,"/ambiguis",true).CombineFile(@doc["Keyword"]+".html")),
 		Meta("Title",  "begriffsklärung "+ @doc["Keyword"]),
-		Meta("TargetUrl",  (@doc, @ctx)=> 
-		{
-			var url = (string)@doc["TargetFile"];
-			if(Path.GetFileName(url) == "index.html")
-				url = Path.GetDirectoryName(url);
-			url = "\\"+url;
-			return url;
-		}),
-		ReadFiles(@"template\ambiguis.cshtml")
+		Helper.TargetUrlModule(),
+		Merge(
+			ReadFiles(@"template\ambiguis.cshtml")
+		)
 	),
+	Trace( @doc.Source+"\n"+@doc.String("TargetUrl")),
 	/// Adding Tree ///
 	Execute(@ctx => {
 	 	var input = @ctx.Documents.FromPipeline("renderOutput");
