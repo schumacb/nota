@@ -254,14 +254,6 @@ System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalizat
 System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
 
 
-Pipelines.Add(
-	ReadFiles("render/**/*.md"),
-	FrontMatter(Yaml()),
-	Markdown(),
-	WriteFiles(".html")
-);
-
-
 
 Pipelines.Add("renderInput",
 	ReadFiles(@"render\**\*.*"),
@@ -274,7 +266,7 @@ Pipelines.Add("renderInput",
 	{
 		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
 		if(path.Extension == ".md" || path.Extension == ".cshtml"|| path.Extension == ".xml")
-			path.ChangeExtension(".html");
+			path= path.ChangeExtension(".html");
 		return path;
 	}),
 	Helper.TargetUrlModule(),
@@ -349,7 +341,7 @@ Pipelines.Add("bootstrapOutput",
 
 Pipelines.Add("authorOutput",
 	GitContributors(),
-	Meta("TargetFile",  new Wyam.Common.IO.DirectoryPath(NormalizedPath.AbstractProvider,"/author",true).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html")),
+	Meta("TargetFile", @ctx.FileSystem.OutputPath.Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html")),
 	Meta("Title", @doc["ContributorName"]),
 	Meta("Layout", @"layout\book.cshtml"),
 	Content(
@@ -365,14 +357,15 @@ Pipelines.Add("authorOutput",
 				.GroupBy(x=>x.Entry.Key);
 			return (IEnumerable<IDocument>) fileCommits.Select(x=>
 			{
-				var autherFolder =  new Wyam.Common.IO.DirectoryPath(NormalizedPath.AbstractProvider,"/author",true);
+				var autherFolder = @ctx.FileSystem.OutputPath.Combine( new Wyam.Common.IO.DirectoryPath("author"));
 				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
 				var commitetFile = emailFolder.CombineFile(x.Key);
 				var targetFile =  commitetFile.AppendExtension(".html");
-				var commits = x.Select(y=> y.Commit).ToArray();				
+				var commits = x.ToDictionary(y=> y.Commit, y=>y.Entry.Value).ToArray();				
 				System.Console.WriteLine(targetFile);
 				return @ctx.GetDocument(new KeyValuePair<string,object>[]
 				{
+					new KeyValuePair<string,object>("Title", x.Key.ToString()),
 					new KeyValuePair<string,object>("ContributorName", @doc["ContributorName"]),
 					new KeyValuePair<string,object>("ContributorEmail", @doc["ContributorEmail"]),
 					new KeyValuePair<string,object>("ContributorSite", @doc["TargetFile"]),
@@ -414,10 +407,10 @@ Pipelines.Add("renderOutput",
 			}
 			return list;
 		}),
-		Meta("TargetFile", new Wyam.Common.IO.DirectoryPath(NormalizedPath.AbstractProvider,"/ambiguis",true).CombineFile(@doc["Keyword"]+".html")),
+		Meta("TargetFile", @ctx.FileSystem.OutputPath.Combine( new Wyam.Common.IO.DirectoryPath("ambiguis")).CombineFile(@doc["Keyword"]+".html")),
 		Meta("Title",  "begriffsklärung "+ @doc["Keyword"]),
 		Helper.TargetUrlModule(),
-		Merge(
+		Content(
 			ReadFiles(@"template\ambiguis.cshtml")
 		)
 	),
@@ -556,9 +549,13 @@ Pipelines.Add("Write",
 	If(@doc.Source.Extension==".xml",
 		Xslt((string)@doc["template"])
 	), 
+
 	If(@doc.Source.Extension==".md" 
 			|| @doc.Source.Extension==".cshtml" 
 			|| @doc.Source.Extension==".xml",
+		If(!@doc.Metadata.ContainsKey("Title"),
+			Trace(@doc.Source)
+		),
 		Razor().WithViewStart(@"layout\viewstart.cshtml")
 	),
 	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
@@ -567,346 +564,10 @@ Pipelines.Add("Write",
 		.WithMatchOnlyWholeWord(),
 
 	
-	If(Path.GetExtension((string)@doc["TargetFile"])==".html",
+	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension==".html",
 		Execute(AutoLinkHelper.AddImageMetadata),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
 	),
 
 	WriteFiles( @doc["TargetFile"])
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // // Setup code
-// // Packages
-// // //	.Install("AngleSharp")
-// //     .Install("Twitter.Bootstrap.Less", "[3.3.5]")
-// //     .Install("jQuery", "[2.1.1]");
-    
-// #n -p Wyam.Modules.All
-// //Assemblies
-// //    .Load("mscorlib , Version=1.0.2004.0, Culture=neutral, PublicKeyToken=8744b20f8da049e3");
-
-// // Declaration code
-// using AngleSharp.Dom;
-// using AngleSharp.Dom.Html;
-// using AngleSharp.Extensions;
-// using AngleSharp.Parser.Html;
-// using IDocument = Wyam.Common.Documents.IDocument;
-
-// 	public class Tree<T, K> : IComparable<Tree<T, K>> where K : IComparable<K>
-//     {
-
-//         public Tree<T, K> PreviousSilbling
-//         {
-//             get
-//             {
-//                 if (Parent == null)
-//                     return null; // Root hat keine Geschwister
-
-//                 var parentIndex = IndexInParent;
-// 				if(parentIndex< 0)
-// 				  throw new ApplicationException("Not found in Parent");
-//                 if (parentIndex == 0)
-//                     return null;
-//                 return Parent.Childrean[parentIndex - 1];
-//             }
-//         }
-
-//         public Tree<T, K> NextSilbling
-//         {
-//             get
-//             {
-//                 if (Parent == null)
-//                     return null; // Root hat keine Geschwister
-
-//                 var parentIndex = IndexInParent;
-// 				if(parentIndex< 0)
-// 				  throw new ApplicationException("Not found in Parent");
-//                 if (parentIndex == Parent.Childrean.Count - 1)
-//                     return null;
-//                 return Parent.Childrean[parentIndex + 1];
-//             }
-//         }
-
-//         public int IndexInParent
-//         {
-//             get
-//             {
-//                 return this.Parent.childrean.BinarySearch(this, new TreeIndexSearcher());
-//             }
-//         }
-
-
-//         private int Level => Parent == null ? 0 : Parent.Level + 1;
-
-//         private Tree<T, K> parent;
-//         public Tree<T, K> Parent
-//         {
-//             get { return parent; }
-//             set
-//             {
-//                 if (parent != null)
-//                 {
-//                     var index = parent.childrean.BinarySearch(this, new TreeIndexSearcher());
-//                     if (index < 0)
-//                         throw new ApplicationException($"The Element should have been in the Parrent Childrean {value}.");
-//                     parent.childrean.RemoveAt(index);
-//                 }
-
-//                 parent = value;
-
-//                 if (parent != null)
-//                 {
-//                     var index = parent.childrean.BinarySearch(this, new TreeIndexSearcher());
-//                     if (index < 0)
-//                         index = ~index;						
-//                     parent.childrean.Insert(index, this);
-//                 }
-//             }
-//         }
-
-//         public T Value { get; }
-//         public K Key { get; }
-
-//         public System.Collections.ObjectModel.ReadOnlyCollection<Tree<T, K>> Childrean => childrean.AsReadOnly();
-//         private readonly List<Tree<T, K>> childrean = new List<Tree<T, K>>();
-
-
-//         public Tree(T value, K key)
-//         {
-//             this.Value = value;
-//             this.Key = key;
-//         }
-
-//         public int CompareTo(Tree<T, K> other)
-//         {
-//             var me = this;
-// 			if(other == null)
-// 				throw new ArgumentException("other is null");
-//             while (me.Level > other.Level)
-//             {
-//                 if (me.Level - 1 == other.Level && me.Parent == other)
-//                     return -1;
-//                 me = me.Parent;
-//             }
-//             while (other.Level > me.Level)
-//             {
-//                 if (other.Level - 1 == me.Level && other.Parent == me)
-//                     return +1;
-//                 other = other.Parent;
-//             }
-//             while (me.Parent != null && other.Parent != null)
-//             {
-//                 if (other.Parent == me.Parent)
-//                 {
-//                     return me.IndexInParent.CompareTo(other.IndexInParent);
-//                 }
-//                 me = me.Parent;
-//                 other = other.Parent;
-//             }
-//             throw new ArgumentException("Both trees not comparable", nameof(other));
-//         }
-
-
-//         private class TreeIndexSearcher : IComparer<Tree<T, K>>
-//         {
-
-//             public int Compare(Tree<T, K> x, Tree<T, K> y)
-//             {
-// 				if(x == null)
-// 					throw new ArgumentNullException("Darf net null sein.",nameof(x));
-// 				if(y == null)
-// 					throw new ArgumentNullException("Darf net null sein.",nameof(y));
-//                 return x.Key.CompareTo(y.Key);
-//             }
-//         }
-//     }
-
-// public static class	Constants
-// {
-// 	public static string ProjectName {get; }= "nota";
-// 	public static string GitUrl {get; }= "https://github.com/LokiMidgard/nota";
-	
-// 	const string timeZoneZerilisation = "W. Europe Standard Time;60;(UTC+01:00) Amsterdam, Berlin, Bern, Rom, Stockholm, Wien;Mitteleuropäische Zeit;Mitteleuropäische Sommerzeit;[01:01:0001;12:31:9999;60;[0;02:00:00;3;5;0;];[0;03:00:00;10;5;0;];];";
-	
-// 	public static TimeZoneInfo TimeZone {get; } = TimeZoneInfo.FromSerializedString(timeZoneZerilisation); 
-// }
-
-// public static class AutoLinkHelper
-// {
-// 	public static IEnumerable<string> GetKeywords(IDocument doc, params String[] keywords)
-// 	{
-// 		foreach (var keyword in keywords)
-// 		{
-// 			if(doc.Metadata.ContainsKey(keyword))
-// 			{
-// 				var metadata = doc[keyword];
-// 				var strings = metadata as String[];
-// 				if(strings != null)
-// 					foreach (var s in strings)
-// 						yield return s;
-// 				else
-// 					yield return metadata.ToString();
-// 			}
-// 		}
-// 	}
-	
-// 	public static ILookup<string,IDocument> ToLookup(IExecutionContext ctx)
-// 	{
-// 		var erg = ctx.Documents
-//     .FromPipeline("renderOutput")  // Get documents from our current pipeline
-//     .Select(x =>  AutoLinkHelper.GetKeywords(x,"Title","Alias")
-// 					.Select(y => new {Document = x, Keyword = y}))
-// 	.SelectMany(x=>x)
-// 	.ToLookup(x=> x.Keyword, x=> x.Document);
-// 		return erg;
-// 	}
-	
-// 	public static IDocument[] AddImageMetadata(IDocument doc, IExecutionContext ctx)
-// 	{
-			
-// 		// Alle Documente mit Xmp data finden:
-// 		var urlLookup = @ctx.Documents.FromPipeline("Write").Where(x=>x.ContainsKey("TargetUrl")).ToDictionary(x=> ((string)x["TargetUrl"]).Replace('\\','/'));
-		
-		
-// 		var parser = new AngleSharp.Parser.Html.HtmlParser();
-// 		//Source to be pared
-// 		var source = @doc.Content;
-// 		//Parse source to document
-// 		var document = parser.Parse(source);
-// 		//Do something with document like the following
-
-// 		var images = document.QuerySelectorAll("img");
-// 		foreach (var image in images)
-// 		{			
-// 			var url = image.GetAttribute("src");
-// 			if(!urlLookup.ContainsKey(url))
-// 				continue;	
-// 			var imgDoc = urlLookup[url];
-// 			String txt = "";
-// 			String title = null;
-// 			if(imgDoc.ContainsKey("RightsReserved"))
-// 				title = (bool.Parse(imgDoc["RightsReserved"].ToString())? "Urheberrechlich Geschützt" :"Gemeinfrei");
-// 			if(imgDoc.ContainsKey("Creator"))
-// 				txt +=$"<h4>{imgDoc["Creator"]}</h4>";
-// 			if(imgDoc.ContainsKey("Copyright"))
-// 				txt +=$"<p>{imgDoc["Copyright"]}</p>";
-// 			image.SetAttribute("data-toggle","popover");
-// 			image.SetAttribute("data-html","true");
-// 			image.SetAttribute("data-placement","auto");
-// 			image.SetAttribute("data-trigger","click focus");
-// 			if(title!=null)
-// 				image.SetAttribute("title",title);
-// 			image.SetAttribute("data-content", txt);
-// 		}			
-			
-// 		return new IDocument[]{@doc.Clone(document.DocumentElement.OuterHtml)};	
-// 	}
-// }
-
-// ---
-
-// // Configuration code
-
-// //  88                                              
-// //  88                                       ,d     
-// //  88                                       88     
-// //  88 8b,dPPYba,  8b,dPPYba,  88       88 MM88MMM  
-// //  88 88P'   `"8a 88P'    "8a 88       88   88     
-// //  88 88       88 88       d8 88       88   88     
-// //  88 88       88 88b,   ,a8" "8a,   ,a88   88,    
-// //  88 88       88 88`YbbdP"'   `"YbbdP'Y8   "Y888  
-// //                 88                               
-// //                 88                  
-
-// // Auf deutsche Kultur einstellen ( zur Compilezeit)
-// System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
-// System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
-
-// Pipelines.Add("renderInput",
-// 	ReadFiles(@"render\*"),
-// 	FrontMatter(Yaml()),
-// 	GitContributor(),
-// 	DirectoryMeta()
-// 		.WithMetadataFile(".inherited",true),
-// 	Meta("TargetFile",  (@doc, @ctx)=> 
-// 	{
-// 		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
-// 		var last = path[path.Length-1];
-// 		if(Path.GetExtension(last) == ".md" || Path.GetExtension(last) == ".cshtml"|| Path.GetExtension(last) == ".xml")
-// 			path[path.Length-1] = last = Path.ChangeExtension(last, ".html");
-// 		return Path.Combine(path);
-// 	}),
-// 	Meta("TargetUrl",  (@doc, @ctx)=> 
-// 	{
-// 		var url = (string)@doc["TargetFile"];
-// 		if(Path.GetFileName(url) == "index.html")
-// 			url = Path.GetDirectoryName(url);
-// 		url = "\\"+url;
-// 		return url;
-// 	}),
-// 	Meta("ReposetoryUrl",  (@doc, @ctx)=> 
-// 	{		
-// 		//https://github.com/LokiMidgard/nota/blob/master/input/render/Downloads.md
-// 		var url = "https://github.com/LokiMidgard/nota/blob/master/input/"+ (string)@doc["RelativeFilePath"];
-// 		return url;
-// 	})
-// );
- 
-
-// Pipelines.Add("staticInput",
-// 	ReadFiles(@"static\*"),
-// 	Meta("TargetFile",  (@doc, @ctx)=> 
-// 	{
-// 		var path = ((string)@doc["RelativeFilePath"]).Split('\\','/').Skip(1).ToArray();
-// 		var last = path[path.Length-1];
-// 		return Path.Combine(path);
-// 	}),
-// 		Meta("TargetUrl",  (@doc, @ctx)=> 
-// 	{
-// 		var url = (string)@doc["TargetFile"];
-// 		if(Path.GetFileName(url) == "index.html")
-// 			url = Path.GetDirectoryName(url);
-// 		url = "\\"+url;
-// 		return url;
-// 	}),
-// 	Where(Path.GetExtension(@doc.Source) != ".xmp"),
-// 	Xmp(errorsOnDoubleKeys:false)
-// 		.WithMetadata("cc:license", "Copyright")
-// 		.WithMetadata("xmpRights:UsageTerms", "Copyright")
-// 		.WithMetadata("dc:rights", "Copyright")
-// 		.WithMetadata("dc:creator", "Creator")
-// 		.WithMetadata("cc:attributionName", "Creator")
-// 		.WithMetadata("xmpRights:Marked", "RightsReserved"),
-// 	If(Path.GetExtension((string)@doc["TargetFile"]) != ".css" 
-// 			&& Path.GetExtension((string)@doc["TargetFile"]) != ".js"
-// 			&& Path.GetExtension((string)@doc["TargetFile"]) != ".config",
-// 		If(@doc.Get<string>("RightsReserved")!= "False",
-// 			If((!@doc.ContainsKey("Copyright"))
-// 			 	|| !@doc.ContainsKey("Creator"),
-// 				Trace($"Missing License Information {@doc.Source}"),
-// 				Where((@doc,@ctx)=> false)
-// 			)
-// 		)
-// 	)
-// );
-

@@ -2,9 +2,9 @@
 
 <div class="well pull-right" >
     @{
-        var mailString = ((IEnumerable<CommitInformation>)Metadata["CommitInformation"]).FirstOrDefault()?.Author?.Email ??"";
+        var mailString = (string)((IEnumerable<IDocument>)Metadata["Commits"]).Select(x=>x["AuthorEmail"]).FirstOrDefault() ??"";
         var md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
-        var byteMail = System.Text.Encoding.Default.GetBytes (mailString);
+        var byteMail = System.Text.Encoding.Default.GetBytes(mailString);
         var result = md5.ComputeHash(byteMail); 
 
         var mailHash = System.BitConverter.ToString(result).Replace("-","").ToLower(); 
@@ -17,12 +17,12 @@
     
     <ul>
         
-    @foreach(var commit in ((IEnumerable<CommitInformation>)Metadata["CommitInformation"]).Select(c => c.Path).Distinct().OrderBy(x=>x))
+    @foreach(var commit in ((IEnumerable<IDocument>)Metadata["Commits"]).SelectMany(c => (c["Entries"] as IReadOnlyDictionary<Wyam.Common.IO.FilePath, string>).Keys).Distinct().OrderBy(x=>x.ToString()))
     {
     
-        var url = ((Author)Metadata["Contributor"]).Email+"/"+@commit + ".html";
+        var url = ((string)Metadata["ContributorEmail"])+"/"+@commit.FullPath + ".html";
     
-        <li><a href="@url" >@commit</a></li>            
+        <li><a href="@url" >@commit.FullPath</a></li>            
     
             
     }  

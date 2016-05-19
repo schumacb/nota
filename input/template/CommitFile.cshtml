@@ -4,10 +4,11 @@
 @{
     
     IDocument document = null;
-    string path = (string) Metadata["Path"];
+    
+    string path =((Wyam.Common.IO.FilePath) Metadata["Path"]).FullPath;
 }
 
-<a class="btn btn-default" href="/@Metadata["ContributorSite"]">Übersicht @Metadata["Contributor"] </a> 
+<a class="btn btn-default" href="/@Metadata["ContributorSite"]">Übersicht @Metadata["ContributorName"] </a> 
 
     @if(path.StartsWith(@"input\"))
     {       
@@ -25,7 +26,7 @@
         }   
 <ul>
     
-@foreach(var commit in ((IEnumerable<CommitInformation>)Metadata["Commits"]).OrderBy(x=> x.AuthorDateTime))
+@foreach(var commit in ((IEnumerable<KeyValuePair< IDocument,String>>)Metadata["Commits"]).OrderBy(x=> (DateTimeOffset) x.Key["AuthorWhen"]).Select(x=> new { Status = (ChangeKind)Enum.Parse(typeof(ChangeKind),  (string)  x.Value), AuthorDateTime = (DateTimeOffset) x.Key["AuthorWhen"], Message = x.Key["Message"] } ))
 {
     string style =null;
     switch(commit.Status)

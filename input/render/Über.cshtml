@@ -64,7 +64,7 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
       }
 
       
-      var extension = System.IO.Path.GetExtension((string)@doc["TargetFile"]);
+      var extension = ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension;
       
       @switch(extension)
       {
