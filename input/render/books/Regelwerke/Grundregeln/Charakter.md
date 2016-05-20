@@ -66,7 +66,8 @@ Jede Eigenschaft kann im normalfall Wertr zwichen 7 und 12 Annehmen.
 Dabei gillt je nidriger der Wert desto besser.
 
 ### Kraft
-Von diesem Wert hängt unter anderem ab wieviel ein Charakter tragen kann.
+Von diesem Wert hängt unter anderem ab wieviel ein Charakter tragen kann. Es
+stellt die Kraft in Abhänigkeit zur eigenen Körpermasse dar.
 
 ### Konstitution
 Wieviel ein Charakter einstecken kann und wie lange sein Atem hält wird
