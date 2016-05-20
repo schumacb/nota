@@ -232,7 +232,7 @@ public static class Helper
 {
 	public static IModule TargetUrlModule()
 	{
-return 	Meta("TargetUrl",  (@doc, @ctx)=> 
+	return 	Meta("TargetUrl",  (@doc, @ctx)=> 
 	{
 		var targetFile = (Wyam.Common.IO.FilePath)@doc["TargetFile"];
 		string url;
@@ -271,9 +271,9 @@ Pipelines.Add("renderInput",
 	}),
 	Helper.TargetUrlModule(),
 	Meta("ReposetoryUrl",  (@doc, @ctx)=> 
-	{		
-		//https://github.com/LokiMidgard/nota/blob/master/input/render/Downloads.md
-		var url = $"{Constants.GitUrl}/blob/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).FullPath;
+	{
+		//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
+		var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).FullPath;
 		return url;
 	})
 );
