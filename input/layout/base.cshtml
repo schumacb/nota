@@ -158,11 +158,12 @@
   var prevous = Metadata["Previous"] as IDocument;
   var next = Metadata["Next"] as IDocument;
   
-  while(prevous != null && prevous.Source==null){
+  while(prevous != null && !prevous.Metadata.ContainsKey("TargetUrl")){
     prevous = prevous.Get<IDocument>("Previous");
   }
+  
 
-  while(next != null && next.Source==null){
+  while(next != null && !next.Metadata.ContainsKey("TargetUrl")){
     next = next.Get<IDocument>("Next");
   }
   

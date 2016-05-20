@@ -241,6 +241,8 @@ return 	Meta("TargetUrl",  (@doc, @ctx)=>
 		else
 			url = targetFile.FullPath;			
 		url = "\\"+url;
+		url = url.Replace('\\','/');
+		url = url.Replace("//","/");
 		return url;
 	});		
 	}
@@ -256,7 +258,7 @@ System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globaliz
 
 
 Pipelines.Add("renderInput",
-	ReadFiles(@"render\**\*.*"),
+	ReadFiles(@"render\**\*.{*,!xsd}"),
 	FrontMatter(Yaml()),
 	GitContributors()
 		.ForEachInputDocument(),
@@ -443,10 +445,21 @@ Pipelines.Add("renderOutput",
 		Trace(@doc.Source)
 	),
 	Tree()
-		.WithParentValues(System.IO.Path.GetFileName((string)@doc["TargetUrl"])=="index.html")
 		.WithRoots(@doc.Get<bool>("IsBook"))
+		.WithPath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
+		.WithOrder(@doc.Get<int>("Order",int.MaxValue))
 	
 	/// Chapters ///
+	If(@doc.Metadata.ContainsKey("Parent"),
+		Meta("ParentBook", (@doc, @ctx)=>{
+			var parent = @doc;
+			while (parent.Get<IDocument>("Parent")!=null)
+			{
+				parent = parent.Get<IDocument>("Parent")
+			}
+			return parent;
+		})
+	)
 	// If( (@doc, @ctx)=> 
 	// 	{
 	// 		var tree = (Tree<string,int>)@doc["Tree"];
