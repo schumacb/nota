@@ -5,4 +5,4 @@ IF NOT EXIST "Tools" (md "Tools")
 IF NOT EXIST "Tools\Addins" (md "Tools\Addins")
 nuget install Cake -ExcludeVersion -OutputDirectory "Tools"
 .\Tools\Cake\Cake.exe deploy.cake -verbosity=Verbose %*
-IF EXIST "Tools" (rmdir "Tools")
+IF EXIST "Tools" (rmdir /S /Q "Tools" )
