@@ -283,7 +283,7 @@ Pipelines.Add("staticInput",
 	ReadFiles(@"static\**\*.*"),
 	Meta("TargetFile",  (@doc, @ctx)=> 
 	{
-		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
+		var path = ((Wyam.Common.IO.DirectoryPath)"static").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
 		return path;
 	}),
 	Helper.TargetUrlModule(),
@@ -341,7 +341,7 @@ Pipelines.Add("bootstrapOutput",
 
 Pipelines.Add("authorOutput",
 	GitContributors(),
-	Meta("TargetFile", @ctx.FileSystem.OutputPath.Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html")),
+	Meta("TargetFile", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html")),
 	Meta("Title", @doc["ContributorName"]),
 	Meta("Layout", @"layout\book.cshtml"),
 	Content(
@@ -357,12 +357,11 @@ Pipelines.Add("authorOutput",
 				.GroupBy(x=>x.Entry.Key);
 			return (IEnumerable<IDocument>) fileCommits.Select(x=>
 			{
-				var autherFolder = @ctx.FileSystem.OutputPath.Combine( new Wyam.Common.IO.DirectoryPath("author"));
+				var autherFolder = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author"));
 				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
 				var commitetFile = emailFolder.CombineFile(x.Key);
 				var targetFile =  commitetFile.AppendExtension(".html");
 				var commits = x.ToDictionary(y=> y.Commit, y=>y.Entry.Value).ToArray();				
-				System.Console.WriteLine(targetFile);
 				return @ctx.GetDocument(new KeyValuePair<string,object>[]
 				{
 					new KeyValuePair<string,object>("Title", x.Key.ToString()),
@@ -414,7 +413,6 @@ Pipelines.Add("renderOutput",
 			ReadFiles(@"template\ambiguis.cshtml")
 		)
 	),
-	Trace( @doc.Source+"\n"+@doc.String("TargetUrl")),
 	/// Adding Tree ///
 	Execute(@ctx => {
 	 	var input = @ctx.Documents.FromPipeline("renderOutput");
@@ -547,7 +545,13 @@ Pipelines.Add("Write",
 		Markdown()
 	), 
 	If(@doc.Source.Extension==".xml",
-		Xslt((string)@doc["template"])
+		If(!@doc.Metadata.ContainsKey("Title"),
+			Trace(@doc.Source)
+		),
+		Xslt((string)@doc["template"]),
+		If(!@doc.Metadata.ContainsKey("Title"),
+			Trace(@doc.Source)
+		)
 	), 
 
 	If(@doc.Source.Extension==".md" 

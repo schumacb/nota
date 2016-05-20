@@ -1,5 +1,5 @@
 template: 'template\talent.xslt'
-title: "Talente"
+Title: "Talente"
 ---
 <?xml version='1.0'?>
 <!-- This file represents a fragment of a book store inventory database -->

@@ -72,6 +72,12 @@
                 @foreach(var doc in Documents["Books"])
                 {                  
                   var currentTree =(Tree<string,int>)doc["Tree"];
+
+                  @if(!@doc.Metadata.ContainsKey("Title"))
+                  {
+                    <li><a href="@doc["TargetUrl"]">@doc.Source</a></li>
+                    continue;                    
+                  }
                 
                   @if(@doc["TargetUrl"].Equals(Metadata["TargetUrl"]))
                   {
@@ -236,8 +242,8 @@
     <!-- 
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery-2.1.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
 
 
 <script>

@@ -13881,3 +13881,1158 @@ Exception during execution: System.Collections.Generic.KeyNotFoundException: The
    bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
    bei Wyam.Core.Execution.Pipeline.Execute(Engine engine) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 212.
    bei Wyam.Core.Execution.Engine.Execute() in C:\projects\wyam\src\Wyam.Core\Execution\Engine.cs:Zeile 147.
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Error while loading configuration: System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.InvalidOperationException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> NuGet.Protocol.Core.Types.FatalProtocolException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> System.Net.Http.HttpRequestException: Fehler beim Senden der Anforderung. ---> System.Net.WebException: Der Remotename konnte nicht aufgelöst werden: 'api.nuget.org'
+   bei System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   bei System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.HttpRetryHandler.<SendAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<SendWithCredentialSupportAsync>d__28.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetThrottled>d__22.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<TryCreate>d__8.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.DependencyInfoResourceV3Provider.<TryCreate>d__1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<>c__DisplayClass30_0.<<InitializeResourcesAsync>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<InitializeResourcesAsync>d__30.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__19.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<InstallPackageAsync>d__32.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   bei System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   bei Wyam.Configuration.NuGet.Package.InstallPackage(PackageInstaller installer, Boolean updatePackages, SourceRepository localSourceRepository, List`1 sourceRepositories) in C:\projects\wyam\src\Wyam.Configuration\NuGet\Package.cs:Zeile 84.
+   bei Wyam.Configuration.NuGet.PackageInstaller.<>c__DisplayClass38_0.<InstallPackages>b__0(Package package) in C:\projects\wyam\src\Wyam.Configuration\NuGet\PackageInstaller.cs:Zeile 129.
+   bei System.Threading.Tasks.Parallel.<>c__DisplayClass31_0`2.<ForEachWorker>b__0(Int32 i)
+   bei System.Threading.Tasks.Parallel.<>c__DisplayClass17_0`1.<ForWorker>b__1()
+   bei System.Threading.Tasks.Task.InnerInvoke()
+   bei System.Threading.Tasks.Task.InnerInvokeWithArg(Task childTask)
+   bei System.Threading.Tasks.Task.<>c__DisplayClass176_0.<ExecuteSelfReplicating>b__0(Object )
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   bei System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   bei System.Threading.Tasks.Task.Wait()
+   bei System.Threading.Tasks.Parallel.ForWorker[TLocal](Int32 fromInclusive, Int32 toExclusive, ParallelOptions parallelOptions, Action`1 body, Action`2 bodyWithState, Func`4 bodyWithLocal, Func`1 localInit, Action`1 localFinally)
+   bei System.Threading.Tasks.Parallel.ForEachWorker[TSource,TLocal](IList`1 list, ParallelOptions parallelOptions, Action`1 body, Action`2 bodyWithState, Action`3 bodyWithStateAndIndex, Func`4 bodyWithStateAndLocal, Func`5 bodyWithEverything, Func`1 localInit, Action`1 localFinally)
+   bei System.Threading.Tasks.Parallel.ForEachWorker[TSource,TLocal](IEnumerable`1 source, ParallelOptions parallelOptions, Action`1 body, Action`2 bodyWithState, Action`3 bodyWithStateAndIndex, Func`4 bodyWithStateAndLocal, Func`5 bodyWithEverything, Func`1 localInit, Action`1 localFinally)
+   bei System.Threading.Tasks.Parallel.ForEach[TSource](IEnumerable`1 source, Action`1 body)
+   bei Wyam.Configuration.NuGet.PackageInstaller.InstallPackages() in C:\projects\wyam\src\Wyam.Configuration\NuGet\PackageInstaller.cs:Zeile 118.
+   bei Wyam.Configuration.Configurator.Initialize() in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 93.
+   bei Wyam.Configuration.Configurator.Configure(String script) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 85.
+   bei Wyam.EngineManager.Configure() in C:\projects\wyam\src\Wyam\EngineManager.cs:Zeile 97.
+---> (Interne Ausnahme #0) System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.InvalidOperationException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> NuGet.Protocol.Core.Types.FatalProtocolException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> System.Net.Http.HttpRequestException: Fehler beim Senden der Anforderung. ---> System.Net.WebException: Der Remotename konnte nicht aufgelöst werden: 'api.nuget.org'
+   bei System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   bei System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.HttpRetryHandler.<SendAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<SendWithCredentialSupportAsync>d__28.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetThrottled>d__22.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<TryCreate>d__8.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.DependencyInfoResourceV3Provider.<TryCreate>d__1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<>c__DisplayClass30_0.<<InitializeResourcesAsync>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<InitializeResourcesAsync>d__30.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__19.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<InstallPackageAsync>d__32.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   bei System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   bei Wyam.Configuration.NuGet.Package.InstallPackage(PackageInstaller installer, Boolean updatePackages, SourceRepository localSourceRepository, List`1 sourceRepositories) in C:\projects\wyam\src\Wyam.Configuration\NuGet\Package.cs:Zeile 84.
+   bei Wyam.Configuration.NuGet.PackageInstaller.<>c__DisplayClass38_0.<InstallPackages>b__0(Package package) in C:\projects\wyam\src\Wyam.Configuration\NuGet\PackageInstaller.cs:Zeile 129.
+   bei System.Threading.Tasks.Parallel.<>c__DisplayClass31_0`2.<ForEachWorker>b__0(Int32 i)
+   bei System.Threading.Tasks.Parallel.<>c__DisplayClass17_0`1.<ForWorker>b__1()
+   bei System.Threading.Tasks.Task.InnerInvoke()
+   bei System.Threading.Tasks.Task.InnerInvokeWithArg(Task childTask)
+   bei System.Threading.Tasks.Task.<>c__DisplayClass176_0.<ExecuteSelfReplicating>b__0(Object )
+---> (Interne Ausnahme #0) System.InvalidOperationException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> NuGet.Protocol.Core.Types.FatalProtocolException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> System.Net.Http.HttpRequestException: Fehler beim Senden der Anforderung. ---> System.Net.WebException: Der Remotename konnte nicht aufgelöst werden: 'api.nuget.org'
+   bei System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   bei System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.HttpRetryHandler.<SendAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<SendWithCredentialSupportAsync>d__28.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetThrottled>d__22.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<TryCreate>d__8.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.DependencyInfoResourceV3Provider.<TryCreate>d__1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<>c__DisplayClass30_0.<<InitializeResourcesAsync>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<InitializeResourcesAsync>d__30.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__19.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<InstallPackageAsync>d__32.MoveNext()<---
+<---
+
+---> (Interne Ausnahme #1) System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.InvalidOperationException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> NuGet.Protocol.Core.Types.FatalProtocolException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> System.Net.Http.HttpRequestException: Fehler beim Senden der Anforderung. ---> System.Net.WebException: Der Remotename konnte nicht aufgelöst werden: 'api.nuget.org'
+   bei System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   bei System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.HttpRetryHandler.<SendAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<SendWithCredentialSupportAsync>d__28.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetThrottled>d__22.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<TryCreate>d__8.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.DependencyInfoResourceV3Provider.<TryCreate>d__1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<>c__DisplayClass30_0.<<InitializeResourcesAsync>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<InitializeResourcesAsync>d__30.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__19.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<InstallPackageAsync>d__32.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   bei System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   bei Wyam.Configuration.NuGet.Package.InstallPackage(PackageInstaller installer, Boolean updatePackages, SourceRepository localSourceRepository, List`1 sourceRepositories) in C:\projects\wyam\src\Wyam.Configuration\NuGet\Package.cs:Zeile 84.
+   bei Wyam.Configuration.NuGet.PackageInstaller.<>c__DisplayClass38_0.<InstallPackages>b__0(Package package) in C:\projects\wyam\src\Wyam.Configuration\NuGet\PackageInstaller.cs:Zeile 129.
+   bei System.Threading.Tasks.Parallel.<>c__DisplayClass31_0`2.<ForEachWorker>b__0(Int32 i)
+   bei System.Threading.Tasks.Parallel.<>c__DisplayClass17_0`1.<ForWorker>b__1()
+   bei System.Threading.Tasks.Task.InnerInvoke()
+   bei System.Threading.Tasks.Task.InnerInvokeWithArg(Task childTask)
+   bei System.Threading.Tasks.Task.<>c__DisplayClass176_0.<ExecuteSelfReplicating>b__0(Object )
+---> (Interne Ausnahme #0) System.InvalidOperationException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> NuGet.Protocol.Core.Types.FatalProtocolException: Unable to load the service index for source https://api.nuget.org/v3/index.json. ---> System.Net.Http.HttpRequestException: Fehler beim Senden der Anforderung. ---> System.Net.WebException: Der Remotename konnte nicht aufgelöst werden: 'api.nuget.org'
+   bei System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   bei System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei NuGet.Protocol.HttpHandlerResourceV3Provider.CredentialPromptWebRequestHandler.<SendAsync>d__3.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.HttpRetryHandler.<SendAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<SendWithCredentialSupportAsync>d__28.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetThrottled>d__22.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.HttpSource.<GetAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<GetServiceIndexResourceV3>d__9.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.ServiceIndexResourceV3Provider.<TryCreate>d__8.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.v3.DependencyInfoResourceV3Provider.<TryCreate>d__1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.Protocol.Core.Types.SourceRepository.<GetResourceAsync>d__11`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<>c__DisplayClass30_0.<<InitializeResourcesAsync>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<InitializeResourcesAsync>d__30.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__20.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.ResolverGather.<GatherAsync>d__19.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei NuGet.PackageManagement.NuGetPackageManager.<PreviewInstallPackageAsync>d__48.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei NuGet.PackageManagement.NuGetPackageManager.<InstallPackageAsync>d__32.MoveNext()<---
+<---
+
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+    2 errors compiling configuration:
+Line 553: CS1003: Syntax error, ',' expected
+Line 556: CS1525: Invalid expression term ')'
+Error while loading configuration: System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.Exception: Line 553: CS1003: Syntax error, ',' expected
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei Wyam.Configuration.ConfigCompiler.Compile(String assemblyName, IEnumerable`1 referenceAssemblies, String code) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompiler.cs:Zeile 47.
+   bei Wyam.Configuration.ConfigCompilation.Compile(IEnumerable`1 referenceAssemblies) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompilation.cs:Zeile 141.
+   bei Wyam.Configuration.Configurator.Evaluate(ConfigParserResult parserResult) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 112.
+   bei Wyam.Configuration.Configurator.Configure(String script) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 86.
+   bei Wyam.EngineManager.Configure() in C:\projects\wyam\src\Wyam\EngineManager.cs:Zeile 97.
+---> (Interne Ausnahme #0) System.Exception: Line 553: CS1003: Syntax error, ',' expected<---
+
+---> (Interne Ausnahme #1) System.Exception: Line 556: CS1525: Invalid expression term ')'<---
+
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 3200 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 101 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 108 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 430 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 6 child module(s)
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+\books/QuellBuecher/Welt
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/Ajour.md
+\books/QuellBuecher/Welt/Völker/Ajour.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Probe.md
+\books/Regelwerke/Grundregeln/Probe.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+\books/Regelwerke/ZeichenderMagie
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Kalender.md
+\books/QuellBuecher/Welt/Kalender.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+\books/Regelwerke/Grundregeln
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+\books/Regelwerke/ZeichenderGoetter
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Aslan.md
+\glossar/Personen/Aslan.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/Downloads.md
+\Downloads.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/index.md
+\books
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Charakter.md
+\books/Regelwerke/Grundregeln/Charakter.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+\books/Regelwerke/Grundregeln/talente/talent.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/index.md
+\.
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/DieGechichteDerWelt/index.md
+\books/QuellBuecher/Welt/DieGechichteDerWelt
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/index.md
+\books/QuellBuecher/Welt/Völker
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xsd
+\books/Regelwerke/Grundregeln/talente/talent.xsd
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Alrik.md
+\glossar/Personen/Alrik.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/Über.cshtml
+\Über.html
+            /ambiguis/a.cshtml
+\c:/Users/Patrick/Source/Repos/nota/output/ambiguis/a.html
+        Executed pipeline "renderOutput" (5/10) in 22 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 1 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+                    c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+                    c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+                    c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+                Error while executing module Razor
+            Error while executing module If
+        Error while executing pipeline Write
+Exception during execution: System.Collections.Generic.KeyNotFoundException: The key Title was not found in metadata, use Get() to provide a default value.
+   bei Wyam.Core.Meta.Metadata.get_Item(String key) in C:\projects\wyam\src\Wyam.Core\Meta\Metadata.cs:Zeile 92.
+   bei Wyam.Core.Documents.Document.get_Item(String key) in C:\projects\wyam\src\Wyam.Core\Documents\Document.cs:Zeile 256.
+   bei Wyam.Modules.Razor.Wyam__layout_base_cshtml.<ExecuteAsync>d__1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderPageCoreAsync>d__15.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderPageAsync>d__14.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderLayoutAsync>d__17.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Razor.<>c__DisplayClass7_0.<Execute>b__2(IDocument input)
+   bei System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   bei System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   bei System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   bei System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   bei System.Collections.Immutable.ImmutableArray.CreateRange[T](IEnumerable`1 items)
+   bei System.Collections.Immutable.ImmutableArray.ToImmutableArray[TSource](IEnumerable`1 items)
+   bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
+   bei Wyam.Core.Execution.ExecutionContext.Execute(IEnumerable`1 modules, IEnumerable`1 inputs, IEnumerable`1 items) in C:\projects\wyam\src\Wyam.Core\Execution\ExecutionContext.cs:Zeile 199.
+   bei Wyam.Core.Execution.ExecutionContext.Execute(IEnumerable`1 modules, IEnumerable`1 inputs) in C:\projects\wyam\src\Wyam.Core\Execution\ExecutionContext.cs:Zeile 174.
+   bei Wyam.Core.Modules.Control.If.Execute(IReadOnlyList`1 inputs, IExecutionContext context) in C:\projects\wyam\src\Wyam.Core\Modules\Control\If.cs:Zeile 66.
+   bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
+   bei Wyam.Core.Execution.Pipeline.Execute(Engine engine) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 212.
+   bei Wyam.Core.Execution.Engine.Execute() in C:\projects\wyam\src\Wyam.Core\Execution\Engine.cs:Zeile 147.
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 1229 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 315 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 50 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 899 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 6 child module(s)
+            c:/Users/Patrick/Source/Repos/nota/input/render/Über.cshtml
+\Über.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+\books/Regelwerke/ZeichenderMagie
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+\books/Regelwerke/ZeichenderGoetter
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/index.md
+\books
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Alrik.md
+\glossar/Personen/Alrik.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+\books/QuellBuecher/Welt
+            c:/Users/Patrick/Source/Repos/nota/input/render/Downloads.md
+\Downloads.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/DieGechichteDerWelt/index.md
+\books/QuellBuecher/Welt/DieGechichteDerWelt
+            c:/Users/Patrick/Source/Repos/nota/input/render/index.md
+\.
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/index.md
+\books/QuellBuecher/Welt/Völker
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Probe.md
+\books/Regelwerke/Grundregeln/Probe.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+\books/Regelwerke/Grundregeln
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xsd
+\books/Regelwerke/Grundregeln/talente/talent.xsd
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+\books/Regelwerke/Grundregeln/talente/talent.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Aslan.md
+\glossar/Personen/Aslan.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Kalender.md
+\books/QuellBuecher/Welt/Kalender.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/Ajour.md
+\books/QuellBuecher/Welt/Völker/Ajour.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Charakter.md
+\books/Regelwerke/Grundregeln/Charakter.html
+            /ambiguis/a.cshtml
+\c:/Users/Patrick/Source/Repos/nota/output/ambiguis/a.html
+        Executed pipeline "renderOutput" (5/10) in 56 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 3 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 5 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+                Error while executing module Razor
+            Error while executing module If
+        Error while executing pipeline Write
+Exception during execution: System.Collections.Generic.KeyNotFoundException: The key Title was not found in metadata, use Get() to provide a default value.
+   bei Wyam.Core.Meta.Metadata.get_Item(String key) in C:\projects\wyam\src\Wyam.Core\Meta\Metadata.cs:Zeile 92.
+   bei Wyam.Core.Documents.Document.get_Item(String key) in C:\projects\wyam\src\Wyam.Core\Documents\Document.cs:Zeile 256.
+   bei Wyam.Modules.Razor.Wyam__layout_base_cshtml.<ExecuteAsync>d__1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderPageCoreAsync>d__15.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderPageAsync>d__14.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderLayoutAsync>d__17.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Razor.<>c__DisplayClass7_0.<Execute>b__2(IDocument input)
+   bei System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   bei System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   bei System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   bei System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   bei System.Collections.Immutable.ImmutableArray.CreateRange[T](IEnumerable`1 items)
+   bei System.Collections.Immutable.ImmutableArray.ToImmutableArray[TSource](IEnumerable`1 items)
+   bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
+   bei Wyam.Core.Execution.ExecutionContext.Execute(IEnumerable`1 modules, IEnumerable`1 inputs, IEnumerable`1 items) in C:\projects\wyam\src\Wyam.Core\Execution\ExecutionContext.cs:Zeile 199.
+   bei Wyam.Core.Execution.ExecutionContext.Execute(IEnumerable`1 modules, IEnumerable`1 inputs) in C:\projects\wyam\src\Wyam.Core\Execution\ExecutionContext.cs:Zeile 174.
+   bei Wyam.Core.Modules.Control.If.Execute(IReadOnlyList`1 inputs, IExecutionContext context) in C:\projects\wyam\src\Wyam.Core\Modules\Control\If.cs:Zeile 66.
+   bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
+   bei Wyam.Core.Execution.Pipeline.Execute(Engine engine) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 212.
+   bei Wyam.Core.Execution.Engine.Execute() in C:\projects\wyam\src\Wyam.Core\Execution\Engine.cs:Zeile 147.
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 1125 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 243 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 44 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 658 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 6 child module(s)
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+\books/Regelwerke/Grundregeln/talente/talent.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+\books/Regelwerke/ZeichenderMagie
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Aslan.md
+\glossar/Personen/Aslan.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/Downloads.md
+\Downloads.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+\books/QuellBuecher/Welt
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Probe.md
+\books/Regelwerke/Grundregeln/Probe.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/Ajour.md
+\books/QuellBuecher/Welt/Völker/Ajour.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+\books/Regelwerke/ZeichenderGoetter
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Charakter.md
+\books/Regelwerke/Grundregeln/Charakter.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xsd
+\books/Regelwerke/Grundregeln/talente/talent.xsd
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Alrik.md
+\glossar/Personen/Alrik.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/Über.cshtml
+\Über.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/DieGechichteDerWelt/index.md
+\books/QuellBuecher/Welt/DieGechichteDerWelt
+            c:/Users/Patrick/Source/Repos/nota/input/render/index.md
+\.
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/index.md
+\books
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Kalender.md
+\books/QuellBuecher/Welt/Kalender.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/index.md
+\books/QuellBuecher/Welt/Völker
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+\books/Regelwerke/Grundregeln
+            /ambiguis/a.cshtml
+\c:/Users/Patrick/Source/Repos/nota/output/ambiguis/a.html
+        Executed pipeline "renderOutput" (5/10) in 27 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 16 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+        Executed pipeline "Write" (10/10) in 6087 ms resulting in 106 output document(s)
+    Executed 10/10 pipelines in 8218 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 926 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 141 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 19 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 763 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 6 child module(s)
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/index.md
+\books/QuellBuecher/Welt/Völker
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+\books/Regelwerke/Grundregeln
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Probe.md
+\books/Regelwerke/Grundregeln/Probe.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+\books/Regelwerke/Grundregeln/talente/talent.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xsd
+\books/Regelwerke/Grundregeln/talente/talent.xsd
+            c:/Users/Patrick/Source/Repos/nota/input/render/Über.cshtml
+\Über.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+\books/Regelwerke/ZeichenderGoetter
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+\books/Regelwerke/ZeichenderMagie
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+\books/QuellBuecher/Welt
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Alrik.md
+\glossar/Personen/Alrik.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Kalender.md
+\books/QuellBuecher/Welt/Kalender.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Aslan.md
+\glossar/Personen/Aslan.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/Ajour.md
+\books/QuellBuecher/Welt/Völker/Ajour.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/index.md
+\.
+            c:/Users/Patrick/Source/Repos/nota/input/render/Downloads.md
+\Downloads.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/index.md
+\books
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/DieGechichteDerWelt/index.md
+\books/QuellBuecher/Welt/DieGechichteDerWelt
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Charakter.md
+\books/Regelwerke/Grundregeln/Charakter.html
+            /ambiguis/a.cshtml
+\c:/Users/Patrick/Source/Repos/nota/output/ambiguis/a.html
+        Executed pipeline "renderOutput" (5/10) in 39 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 2 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 6 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+                    2 errors compiling /layout\base.cshtml:
+/layout\base.cshtml(79,22): error CS0103: The name 'Continue' does not exist in the current context
+/layout\base.cshtml(70,24): warning CS0219: The variable 'isFirstEntry' is assigned but its value is never used
+                Error while executing module Razor
+            Error while executing module If
+        Error while executing pipeline Write
+Exception during execution: System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.Exception: /layout\base.cshtml(79,22): error CS0103: The name 'Continue' does not exist in the current context
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.Compilation.RazorCompilationService.Compile(RelativeFileInfo file, String compilationContent)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.Compilation.RazorCompilationService.Compile(RelativeFileInfo file)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.VirtualPathRazorPageFactory.CreateInstance(String relativePath, Stream stream)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.VirtualPathRazorPageFactory.CreateInstance(String relativePath)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorViewEngine.LocatePageFromViewLocations(ViewContext context, String pageName, Boolean isPartial)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorViewEngine.GetRazorPageResult(ViewContext context, String pageName, Boolean isPartial, Stream stream)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorViewEngine.FindPage(ViewContext context, String pageName)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String layoutPath)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderLayoutAsync>d__17.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Microsoft.AspNet.Mvc.Razor.RazorView.<RenderAsync>d__13.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Wyam.Modules.Razor.Razor.<>c__DisplayClass7_0.<Execute>b__2(IDocument input)
+   bei System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   bei System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   bei System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   bei System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   bei System.Collections.Immutable.ImmutableArray.CreateRange[T](IEnumerable`1 items)
+   bei System.Collections.Immutable.ImmutableArray.ToImmutableArray[TSource](IEnumerable`1 items)
+   bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
+   bei Wyam.Core.Execution.ExecutionContext.Execute(IEnumerable`1 modules, IEnumerable`1 inputs, IEnumerable`1 items) in C:\projects\wyam\src\Wyam.Core\Execution\ExecutionContext.cs:Zeile 199.
+   bei Wyam.Core.Execution.ExecutionContext.Execute(IEnumerable`1 modules, IEnumerable`1 inputs) in C:\projects\wyam\src\Wyam.Core\Execution\ExecutionContext.cs:Zeile 174.
+   bei Wyam.Core.Modules.Control.If.Execute(IReadOnlyList`1 inputs, IExecutionContext context) in C:\projects\wyam\src\Wyam.Core\Modules\Control\If.cs:Zeile 66.
+   bei Wyam.Core.Execution.Pipeline.Execute(ExecutionContext context, IEnumerable`1 modules, ImmutableArray`1 documents) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 188.
+   bei Wyam.Core.Execution.Pipeline.Execute(Engine engine) in C:\projects\wyam\src\Wyam.Core\Execution\Pipeline.cs:Zeile 212.
+   bei Wyam.Core.Execution.Engine.Execute() in C:\projects\wyam\src\Wyam.Core\Execution\Engine.cs:Zeile 147.
+---> (Interne Ausnahme #0) System.Exception: /layout\base.cshtml(79,22): error CS0103: The name 'Continue' does not exist in the current context<---
+
+---> (Interne Ausnahme #1) System.Exception: /layout\base.cshtml(70,24): warning CS0219: The variable 'isFirstEntry' is assigned but its value is never used<---
+
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 653 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 87 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 10 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 561 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 6 child module(s)
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/DieGechichteDerWelt/index.md
+\books/QuellBuecher/Welt/DieGechichteDerWelt
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Charakter.md
+\books/Regelwerke/Grundregeln/Charakter.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+\books/Regelwerke/Grundregeln/talente/talent.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Alrik.md
+\glossar/Personen/Alrik.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Kalender.md
+\books/QuellBuecher/Welt/Kalender.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/Ajour.md
+\books/QuellBuecher/Welt/Völker/Ajour.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/index.md
+\books/QuellBuecher/Welt/Völker
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+\books/Regelwerke/Grundregeln
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Probe.md
+\books/Regelwerke/Grundregeln/Probe.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xsd
+\books/Regelwerke/Grundregeln/talente/talent.xsd
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+\books/Regelwerke/ZeichenderGoetter
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+\books/Regelwerke/ZeichenderMagie
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Aslan.md
+\glossar/Personen/Aslan.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/Über.cshtml
+\Über.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/index.md
+\.
+            c:/Users/Patrick/Source/Repos/nota/input/render/Downloads.md
+\Downloads.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/index.md
+\books
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+\books/QuellBuecher/Welt
+            /ambiguis/a.cshtml
+\c:/Users/Patrick/Source/Repos/nota/output/ambiguis/a.html
+        Executed pipeline "renderOutput" (5/10) in 33 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 2 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+        Executed pipeline "Write" (10/10) in 5096 ms resulting in 106 output document(s)
+    Executed 10/10 pipelines in 6455 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 634 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 79 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 14 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 469 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 6 child module(s)
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Charakter.md
+\books/Regelwerke/Grundregeln/Charakter.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/Probe.md
+\books/Regelwerke/Grundregeln/Probe.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+\books/Regelwerke/ZeichenderGoetter
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Alrik.md
+\glossar/Personen/Alrik.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/Downloads.md
+\Downloads.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/Über.cshtml
+\Über.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/index.md
+\books
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xml
+\books/Regelwerke/Grundregeln/talente/talent.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/DieGechichteDerWelt/index.md
+\books/QuellBuecher/Welt/DieGechichteDerWelt
+            c:/Users/Patrick/Source/Repos/nota/input/render/glossar/Personen/Aslan.md
+\glossar/Personen/Aslan.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/index.md
+\books/QuellBuecher/Welt/Völker
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+\books/Regelwerke/Grundregeln
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/talente/talent.xsd
+\books/Regelwerke/Grundregeln/talente/talent.xsd
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+\books/Regelwerke/ZeichenderMagie
+            c:/Users/Patrick/Source/Repos/nota/input/render/index.md
+\.
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+\books/QuellBuecher/Welt
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Kalender.md
+\books/QuellBuecher/Welt/Kalender.html
+            c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/Völker/Ajour.md
+\books/QuellBuecher/Welt/Völker/Ajour.html
+            /ambiguis/a.cshtml
+\c:/Users/Patrick/Source/Repos/nota/output/ambiguis/a.html
+        Executed pipeline "renderOutput" (5/10) in 26 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 1 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+        Executed pipeline "Write" (10/10) in 4051 ms resulting in 106 output document(s)
+    Executed 10/10 pipelines in 5292 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 759 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 137 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 41 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 624 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 5 child module(s)
+        Executed pipeline "renderOutput" (5/10) in 21 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 2 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+        Executed pipeline "Write" (10/10) in 3674 ms resulting in 106 output document(s)
+    Executed 10/10 pipelines in 5273 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 713 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 87 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 13 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 10 child module(s)
+            c:/Users/Patrick/Source/Repos/nota/output
+            c:/Users/Patrick/Source/Repos/nota/output
+            True
+            True
+        Executed pipeline "authorOutput" (4/10) in 588 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 5 child module(s)
+        Executed pipeline "renderOutput" (5/10) in 20 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 2 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+        Executed pipeline "Write" (10/10) in 5000 ms resulting in 106 output document(s)
+    Executed 10/10 pipelines in 6436 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 791 ms resulting in 18 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 156 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 17 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 11 child module(s)
+            c:/Users/Patrick/Source/Repos/nota
+            c:/Users/Patrick/Source/Repos/nota
+            c:/Users/Patrick/Source/Repos/nota/output
+            c:/Users/Patrick/Source/Repos/nota/output
+            True
+            True
+        Executed pipeline "authorOutput" (4/10) in 577 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 5 child module(s)
+        Executed pipeline "renderOutput" (5/10) in 18 ms resulting in 19 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 106 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 12 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 1 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 7 child module(s)
+        Executed pipeline "Write" (10/10) in 4130 ms resulting in 106 output document(s)
+    Executed 10/10 pipelines in 5705 ms
