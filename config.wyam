@@ -415,39 +415,16 @@ Pipelines.Add("renderOutput",
 			ReadFiles(@"template\ambiguis.cshtml")
 		)
 	),
-	/// Adding Tree ///
-	// Execute(@ctx => {
-	//  	var input = @ctx.Documents.FromPipeline("renderOutput");
-		
-	// 	var treeLookup = input.ToDictionary(x=>x["TargetUrl"], x=> new Tree<string,int>((string)x["TargetUrl"], x.Get<int>("ChapterOrder",-1)));
-		
-	// 	return input.Select(x=>
-	// 	{
-	// 		var url = (string)x["TargetUrl"];
-	// 		var tree = treeLookup[url];
-	// 		string parentUrl = url;
-	// 		do{
-	// 		   parentUrl = Path.GetDirectoryName(parentUrl);
-				
-	// 		} while(parentUrl != null &&!treeLookup.ContainsKey(parentUrl) );
-	// 		if(parentUrl!=null)
-	// 		{
-	// 			var parentTree = treeLookup[parentUrl];
-	// 			tree.Parent = parentTree;
-	// 		}
-	// 		return ctx.GetDocument(x,new KeyValuePair<string,object>[]{new KeyValuePair<string,object>("Tree", tree)});
-			
-	// 	});
-	// }),
 	/// BOOKS /// 
 	If( @doc.Metadata.ContainsKey("Book"),
 		Meta("IsBook", true),
 		Trace(@doc.Source)
 	),
+	/// Adding Tree ///
 	Tree()
 		.WithRoots(@doc.Get<bool>("IsBook"))
 		.WithPath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
-		.WithOrder(@doc.Get<int>("Order",int.MaxValue))
+		.WithOrder(@doc.Get<int>("Order",int.MaxValue)),
 	
 	/// Chapters ///
 	If(@doc.Metadata.ContainsKey("Parent"),
@@ -455,7 +432,7 @@ Pipelines.Add("renderOutput",
 			var parent = @doc;
 			while (parent.Get<IDocument>("Parent")!=null)
 			{
-				parent = parent.Get<IDocument>("Parent")
+				parent = parent.Get<IDocument>("Parent");
 			}
 			return parent;
 		})

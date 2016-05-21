@@ -15036,3 +15036,105 @@ Executing 10 pipelines
     Executing pipeline "Write" (10/10) with 7 child module(s)
         Executed pipeline "Write" (10/10) in 4130 ms resulting in 106 output document(s)
     Executed 10/10 pipelines in 5705 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+    6 errors compiling configuration:
+Line 450: CS1003: Syntax error, ',' expected
+Line 458: CS1002: ; expected
+Line 450: CS0103: The name 'doc' does not exist in the current context
+Line 449: CS0103: The name 'doc' does not exist in the current context
+Line 448: CS0103: The name 'doc' does not exist in the current context
+Line 447: CS0305: Using the generic type 'Tree<T, K>' requires 2 type arguments
+Error while loading configuration: System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.Exception: Line 450: CS1003: Syntax error, ',' expected
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei Wyam.Configuration.ConfigCompiler.Compile(String assemblyName, IEnumerable`1 referenceAssemblies, String code) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompiler.cs:Zeile 47.
+   bei Wyam.Configuration.ConfigCompilation.Compile(IEnumerable`1 referenceAssemblies) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompilation.cs:Zeile 141.
+   bei Wyam.Configuration.Configurator.Evaluate(ConfigParserResult parserResult) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 112.
+   bei Wyam.Configuration.Configurator.Configure(String script) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 86.
+   bei Wyam.EngineManager.Configure() in C:\projects\wyam\src\Wyam\EngineManager.cs:Zeile 97.
+---> (Interne Ausnahme #0) System.Exception: Line 450: CS1003: Syntax error, ',' expected<---
+
+---> (Interne Ausnahme #1) System.Exception: Line 458: CS1002: ; expected<---
+
+---> (Interne Ausnahme #2) System.Exception: Line 450: CS0103: The name 'doc' does not exist in the current context<---
+
+---> (Interne Ausnahme #3) System.Exception: Line 449: CS0103: The name 'doc' does not exist in the current context<---
+
+---> (Interne Ausnahme #4) System.Exception: Line 448: CS0103: The name 'doc' does not exist in the current context<---
+
+---> (Interne Ausnahme #5) System.Exception: Line 447: CS0305: Using the generic type 'Tree<T, K>' requires 2 type arguments<---
+
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+    1 errors compiling configuration:
+Line 458: CS1002: ; expected
+Error while loading configuration: System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.Exception: Line 458: CS1002: ; expected
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei Wyam.Configuration.ConfigCompiler.Compile(String assemblyName, IEnumerable`1 referenceAssemblies, String code) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompiler.cs:Zeile 47.
+   bei Wyam.Configuration.ConfigCompilation.Compile(IEnumerable`1 referenceAssemblies) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompilation.cs:Zeile 141.
+   bei Wyam.Configuration.Configurator.Evaluate(ConfigParserResult parserResult) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 112.
+   bei Wyam.Configuration.Configurator.Configure(String script) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 86.
+   bei Wyam.EngineManager.Configure() in C:\projects\wyam\src\Wyam\EngineManager.cs:Zeile 97.
+---> (Interne Ausnahme #0) System.Exception: Line 458: CS1002: ; expected<---
+
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+    1 errors compiling configuration:
+Line 458: CS1002: ; expected
+Error while loading configuration: System.AggregateException: Mindestens ein Fehler ist aufgetreten. ---> System.Exception: Line 458: CS1002: ; expected
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei Wyam.Configuration.ConfigCompiler.Compile(String assemblyName, IEnumerable`1 referenceAssemblies, String code) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompiler.cs:Zeile 47.
+   bei Wyam.Configuration.ConfigCompilation.Compile(IEnumerable`1 referenceAssemblies) in C:\projects\wyam\src\Wyam.Configuration\ConfigCompilation.cs:Zeile 141.
+   bei Wyam.Configuration.Configurator.Evaluate(ConfigParserResult parserResult) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 112.
+   bei Wyam.Configuration.Configurator.Configure(String script) in C:\projects\wyam\src\Wyam.Configuration\Configurator.cs:Zeile 86.
+   bei Wyam.EngineManager.Configure() in C:\projects\wyam\src\Wyam\EngineManager.cs:Zeile 97.
+---> (Interne Ausnahme #0) System.Exception: Line 458: CS1002: ; expected<---
+
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 4384 ms resulting in 17 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 134 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 128 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 514 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 5 child module(s)
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+        Executed pipeline "renderOutput" (5/10) in 24 ms resulting in 31 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 118 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 6 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 8 child module(s)
+        Executed pipeline "Write" (10/10) in 8290 ms resulting in 104 output document(s)
+    Executed 10/10 pipelines in 13509 ms
