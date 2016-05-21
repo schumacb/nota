@@ -1,4 +1,4 @@
-@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
+REM @if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
 
 IF NOT EXIST "Tools" (md "Tools")
@@ -13,7 +13,7 @@ goto end
 
 :error
 endlocal
-echo An error has occurred during web site deployment.
+echo An error has occurred during web site deployment. !ERRORLEVEL!
 call :exitSetErrorLevel
 call :exitFromFunction 2>nul
 
