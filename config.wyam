@@ -241,6 +241,8 @@ public static class Helper
 		else
 			url = targetFile.FullPath;			
 		url = "\\"+url;
+		url = url.Replace('\\','/');
+		url = url.Replace("//","/");
 		return url;
 	});		
 	}
@@ -256,7 +258,7 @@ System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globaliz
 
 
 Pipelines.Add("renderInput",
-	ReadFiles(@"render\**\*.*"),
+	ReadFiles(@"render\**\*.{*,!xsd}"),
 	FrontMatter(Yaml()),
 	GitContributors()
 		.ForEachInputDocument(),
@@ -414,74 +416,80 @@ Pipelines.Add("renderOutput",
 		)
 	),
 	/// Adding Tree ///
-	Execute(@ctx => {
-	 	var input = @ctx.Documents.FromPipeline("renderOutput");
+	// Execute(@ctx => {
+	//  	var input = @ctx.Documents.FromPipeline("renderOutput");
 		
-		var treeLookup = input.ToDictionary(x=>x["TargetUrl"], x=> new Tree<string,int>((string)x["TargetUrl"], x.Get<int>("ChapterOrder",-1)));
+	// 	var treeLookup = input.ToDictionary(x=>x["TargetUrl"], x=> new Tree<string,int>((string)x["TargetUrl"], x.Get<int>("ChapterOrder",-1)));
 		
-		return input.Select(x=>
-		{
-			var url = (string)x["TargetUrl"];
-			var tree = treeLookup[url];
-			string parentUrl = url;
-			do{
-			   parentUrl = Path.GetDirectoryName(parentUrl);
+	// 	return input.Select(x=>
+	// 	{
+	// 		var url = (string)x["TargetUrl"];
+	// 		var tree = treeLookup[url];
+	// 		string parentUrl = url;
+	// 		do{
+	// 		   parentUrl = Path.GetDirectoryName(parentUrl);
 				
-			} while(parentUrl != null &&!treeLookup.ContainsKey(parentUrl) );
-			if(parentUrl!=null)
-			{
-				var parentTree = treeLookup[parentUrl];
-				tree.Parent = parentTree;
-			}
-			return ctx.GetDocument(x,new KeyValuePair<string,object>[]{new KeyValuePair<string,object>("Tree", tree)});
+	// 		} while(parentUrl != null &&!treeLookup.ContainsKey(parentUrl) );
+	// 		if(parentUrl!=null)
+	// 		{
+	// 			var parentTree = treeLookup[parentUrl];
+	// 			tree.Parent = parentTree;
+	// 		}
+	// 		return ctx.GetDocument(x,new KeyValuePair<string,object>[]{new KeyValuePair<string,object>("Tree", tree)});
 			
-		});
-	}),
+	// 	});
+	// }),
 	/// BOOKS /// 
-	If((@doc, @ctx)=> 
-		{
-			var tree = (Tree<string,int>)@doc["Tree"];
-			var parentUrl = tree.Parent?.Value;
-			if(parentUrl == @"\books")
-			{
-				tree.Parent = null;
-				return true;
-			}
-			return false;
-		},
-		Meta("IsBook", true)
+	If( @doc.Metadata.ContainsKey("Book"),
+		Meta("IsBook", true),
+		Trace(@doc.Source)
 	),
+	Tree()
+		.WithRoots(@doc.Get<bool>("IsBook"))
+		.WithPath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
+		.WithOrder(@doc.Get<int>("Order",int.MaxValue))
+	
 	/// Chapters ///
-	If( (@doc, @ctx)=> 
-		{
-			var tree = (Tree<string,int>)@doc["Tree"];
-			var parent = tree.Parent;
-			var parentUrl = parent?.Value;
-			if(parentUrl == @"\books" || parentUrl == null)
-				return false;
-			while(parentUrl != @"\books" && parentUrl != null)
-			{
-				 parent = parent.Parent;
-				 parentUrl = parent?.Value;	
-			}
-			return parentUrl != null;
-		},
+	If(@doc.Metadata.ContainsKey("Parent"),
 		Meta("ParentBook", (@doc, @ctx)=>{
-			var tree = (Tree<string,int>)@doc["Tree"];
-			string parentUrl;
-
-			do {
-				parentUrl = tree.Parent?.Value;
-				tree = tree.Parent;
-			} while(parentUrl != @"\books");
-			return tree.Value;
-		}),
-		If(!@doc.ContainsKey("ChapterOrder"),
-			Trace($"Chapter besitzt kein ChapterOrder Metadata: {@doc.Source}"),
-			Where((@doc, @ctx)=> false)
-		)
-			
+			var parent = @doc;
+			while (parent.Get<IDocument>("Parent")!=null)
+			{
+				parent = parent.Get<IDocument>("Parent")
+			}
+			return parent;
+		})
 	)
+	// If( (@doc, @ctx)=> 
+	// 	{
+	// 		var tree = (Tree<string,int>)@doc["Tree"];
+	// 		var parent = tree.Parent;
+	// 		var parentUrl = parent?.Value;
+	// 		if(parentUrl == @"\books" || parentUrl == null)
+	// 			return false;
+	// 		while(parentUrl != @"\books" && parentUrl != null)
+	// 		{
+	// 			 parent = parent.Parent;
+	// 			 parentUrl = parent?.Value;	
+	// 		}
+	// 		return parentUrl != null;
+	// 	},
+	// 	Meta("ParentBook", (@doc, @ctx)=>{
+	// 		var tree = (Tree<string,int>)@doc["Tree"];
+	// 		string parentUrl;
+
+	// 		do {
+	// 			parentUrl = tree.Parent?.Value;
+	// 			tree = tree.Parent;
+	// 		} while(parentUrl != @"\books");
+	// 		return tree.Value;
+	// 	}),
+	// 	If(!@doc.ContainsKey("ChapterOrder"),
+	// 		Trace($"Chapter besitzt kein ChapterOrder Metadata: {@doc.Source}"),
+	// 		Where((@doc, @ctx)=> false)
+	// 	)
+	// )
+			
 );
 
 Pipelines.Add("staticOutput",
@@ -541,25 +549,16 @@ Pipelines.Add("MainMenue",
 
 Pipelines.Add("Write",
 	Documents("output"),
+	Where(@doc.Source != null),
 	If(@doc.Source.Extension==".md",
 		Markdown()
 	), 
 	If(@doc.Source.Extension==".xml",
-		If(!@doc.Metadata.ContainsKey("Title"),
-			Trace(@doc.Source)
-		),
-		Xslt((string)@doc["template"]),
-		If(!@doc.Metadata.ContainsKey("Title"),
-			Trace(@doc.Source)
-		)
+		Xslt((string)@doc["template"])
 	), 
-
 	If(@doc.Source.Extension==".md" 
 			|| @doc.Source.Extension==".cshtml" 
 			|| @doc.Source.Extension==".xml",
-		If(!@doc.Metadata.ContainsKey("Title"),
-			Trace(@doc.Source)
-		),
 		Razor().WithViewStart(@"layout\viewstart.cshtml")
 	),
 	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
@@ -567,7 +566,6 @@ Pipelines.Add("Write",
 			x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
 		.WithMatchOnlyWholeWord(),
 
-	
 	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension==".html",
 		Execute(AutoLinkHelper.AddImageMetadata),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')

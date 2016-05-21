@@ -71,7 +71,6 @@
                 }
                 @foreach(var doc in Documents["Books"])
                 {                  
-                  var currentTree =(Tree<string,int>)doc["Tree"];
 
                   @if(!@doc.Metadata.ContainsKey("Title"))
                   {
@@ -88,7 +87,7 @@
                   } 
 
                   isFirstEntry = false;                
-                  parentPath = System.IO.Path.GetDirectoryName(currentTree.Value);
+                  //parentPath = System.IO.Path.GetDirectoryName(currentTree.Value);
                 }
                 <!--<li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
@@ -154,25 +153,24 @@
         @RenderBody()
           
 
-  @if(Metadata.ContainsKey("Tree")){
+  @if(Metadata.ContainsKey("Next")&&Metadata.ContainsKey("Previous")){
   
-  var tree = Metadata["Tree"] as Tree<string,int>;
+  var prevous = Metadata["Previous"] as IDocument;
+  var next = Metadata["Next"] as IDocument;
+  
+  while(prevous != null && !prevous.Metadata.ContainsKey("TargetUrl")){
+    prevous = prevous.Get<IDocument>("Previous");
+  }
+  
+
+  while(next != null && !next.Metadata.ContainsKey("TargetUrl")){
+    next = next.Get<IDocument>("Next");
+  }
   
 <nav>
   <ul class="pager">
-  @if(tree.PreviousSilbling !=null){
-    @if(tree.PreviousSilbling.Childrean.Count>0)
-    {
-      <li class="previous"><a href="@tree.PreviousSilbling.Childrean[tree.PreviousSilbling.Childrean.Count-1].Value"><span aria-hidden="true">&larr;</span> Zurück</a></li>      
-    }
-    else
-    {
-      <li class="previous"><a href="@tree.PreviousSilbling.Value"><span aria-hidden="true">&larr;</span> Zurück</a></li>
-    }
-  }
-  else if(tree.Parent != null) 
-  {
-    <li class="previous"><a href="@tree.Parent.Value"><span aria-hidden="true">&larr;</span> Zurück</a></li>
+  @if(prevous !=null){
+      <li class="previous"><a href="@prevous["TargetUrl"]"><span aria-hidden="true">&larr;</span> Zurück</a></li>
   }
   else
   {
@@ -181,11 +179,8 @@
   
     <li ><a href="#"><span aria-hidden="true">&uarr;</span> Top</a></li>      
   
-  @if(tree.Childrean.Count !=0){
-    <li class="next"><a href="@tree.Childrean[0].Value">Weiter <span aria-hidden="true">&rarr;</span></a></li>    
-  }
-  else if(tree.NextSilbling !=null){
-    <li class="next"><a href="@tree.NextSilbling.Value">Weiter <span aria-hidden="true">&rarr;</span></a></li>
+  @if(next !=null){
+    <li class="next"><a href="@next["TargetUrl"]">Weiter <span aria-hidden="true">&rarr;</span></a></li>    
   }
   else
   {
