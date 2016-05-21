@@ -15138,3 +15138,87 @@ Executing 10 pipelines
     Executing pipeline "Write" (10/10) with 8 child module(s)
         Executed pipeline "Write" (10/10) in 8290 ms resulting in 104 output document(s)
     Executed 10/10 pipelines in 13509 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 2082 ms resulting in 17 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 203 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 21 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 854 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 5 child module(s)
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+        Executed pipeline "renderOutput" (5/10) in 43 ms resulting in 31 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 118 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 1 ms resulting in 4 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 7 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 8 child module(s)
+        Executed pipeline "Write" (10/10) in 7650 ms resulting in 103 output document(s)
+    Executed 10/10 pipelines in 10889 ms
+Loading configuration from c:/Users/Patrick/Source/Repos/nota/config.wyam
+Installing NuGet packages
+Loading assemblies and scanning for types
+Evaluating configuration script
+Root path:
+  c:/Users/Patrick/Source/Repos/nota
+Input path(s):
+  C:/Users/Patrick/.nuget/packages/bootstrap.3.3.6/content
+  C:/Users/Patrick/.nuget/packages/jQuery.1.9.1/Content
+  C:/Users/Patrick/.nuget/packages/Rant.2.0.354/content
+  input
+Output path:
+  c:/Users/Patrick/Source/Repos/nota/output
+Cleaning output path c:/Users/Patrick/Source/Repos/nota/output
+Cleaned output directory
+Executing 10 pipelines
+    Executing pipeline "renderInput" (1/10) with 7 child module(s)
+        Executed pipeline "renderInput" (1/10) in 927 ms resulting in 17 output document(s)
+    Executing pipeline "staticInput" (2/10) with 6 child module(s)
+                        Missing License Information c:/Users/Patrick/Source/Repos/nota/input/static/font/RomantiqeInitials.txt
+        Executed pipeline "staticInput" (2/10) in 328 ms resulting in 4 output document(s)
+    Executing pipeline "bootstrapOutput" (3/10) with 4 child module(s)
+        Executed pipeline "bootstrapOutput" (3/10) in 130 ms resulting in 19 output document(s)
+    Executing pipeline "authorOutput" (4/10) with 8 child module(s)
+        Executed pipeline "authorOutput" (4/10) in 1703 ms resulting in 64 output document(s)
+    Executing pipeline "renderOutput" (5/10) with 5 child module(s)
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderMagie/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/QuellBuecher/Welt/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/Grundregeln/index.md
+                c:/Users/Patrick/Source/Repos/nota/input/render/books/Regelwerke/ZeichenderGoetter/index.md
+        Executed pipeline "renderOutput" (5/10) in 70 ms resulting in 31 output document(s)
+    Executing pipeline "staticOutput" (6/10) with 1 child module(s)
+        Executed pipeline "staticOutput" (6/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "output" (7/10) with 4 child module(s)
+        Executed pipeline "output" (7/10) in 0 ms resulting in 118 output document(s)
+    Executing pipeline "Books" (8/10) with 1 child module(s)
+        Executed pipeline "Books" (8/10) in 0 ms resulting in 4 output document(s)
+    Executing pipeline "MainMenue" (9/10) with 2 child module(s)
+        Executed pipeline "MainMenue" (9/10) in 3 ms resulting in 2 output document(s)
+    Executing pipeline "Write" (10/10) with 8 child module(s)
+        Executed pipeline "Write" (10/10) in 8329 ms resulting in 103 output document(s)
+    Executed 10/10 pipelines in 11511 ms
