@@ -19,6 +19,7 @@ var isRunningLocal = !Kudu.IsRunningOnKudu;
 ///////////////////////////////////////////////////////////////////////////////
 
 var websitePath     = MakeAbsolute(Directory("./output"));
+var toolsPath     = MakeAbsolute(Directory("./Tools"));
 
 
 var deploymentPath = Kudu.Deployment.Target;
@@ -40,15 +41,17 @@ if (deploymentPath!=null && !DirectoryExists(deploymentPath) && !isRunningLocal)
 Task("Publish")
     .IsDependentOn("Build")
     .Does(() =>
-{
-    if (!Kudu.IsRunningOnKudu)
     {
-        throw new Exception("Not running on Kudu");
-    }
+        if (!Kudu.IsRunningOnKudu)
+        {   
+            throw new Exception("Not running on Kudu");
+        }
 
-    Information("Deploying web from {0} to {1}", websitePath, deploymentPath);
-    Kudu.Sync(websitePath);
-});
+        Information("Deploying web from {0} to {1}", websitePath, deploymentPath);
+        Kudu.Sync(websitePath);
+        toolsPath.Delete(true);
+        websitePath.Delete(true);
+    });
 
 
 Task("Build")

@@ -9,14 +9,12 @@ IF %ERRORLEVEL% NEQ 0 goto error
 nuget install Cake -ExcludeVersion -OutputDirectory "Tools"
 .\Tools\Cake\Cake.exe deploy.cake -verbosity=Verbose %*
 IF %ERRORLEVEL% NEQ 0 goto error
-IF EXIST "Tools" (rmdir /S /Q "Tools" )
-IF %ERRORLEVEL% NEQ 0 goto error
 
 goto end
 
 :error
 endlocal
-echo An error has occurred during web site deployment. !ERRORLEVEL!
+echo An error has occurred during web site deployment. 
 call :exitSetErrorLevel
 call :exitFromFunction 2>nul
 
