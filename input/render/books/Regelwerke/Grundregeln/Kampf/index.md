@@ -13,7 +13,7 @@ Der Angreifer kann anstelle eines normalen Angriffes auch versuchen ein Speziell
 Je öffter ein Kämpfer verteidigen muss desto mehr Mali sammelt er an, da er in die Defensive gedrängt wird.
 
 
-#Schadensarten
+# Schadensarten
 
 + Stumpfe Waffen
 + Scharfe Waffen
@@ -27,11 +27,11 @@ Sonstige Schadensarten
 + Gift
 + Krankheit
 
-#Ausdauer
+# Ausdauer
 
 Während des Kampfes verbraucht der Kämpfer ausdauer um Angriffe durchzuführen. Der maximale Ausdauerwert kann auch durch Blutungen sinken.
 
-#Wunden
+# Wunden
 Jedes Körperteil besitzt Wunden in verschiedenen Kategorien. Leichte, Mitlere und Schwere. Einige Körperteile wie z.B. der Kopf besitzen noch eine 4. Stufe, diese führt unweigerlich zum Tod.
 
 ## Trefferzonen
@@ -40,7 +40,7 @@ Davon gibt es einige.
 # Rüstung
 Verschiedene Rüstung gegen verschiedene Schadensarten.
 
-#Positionierung
+# Positionierung
 
 Ein Charakter kann versuchen sich so zu Positionieren, das er bestimmte Körperteile schützt. Andere werden jedoch dabei Pominenter plazirt. Zudem kann die stellung dafür sorgen das bestimmte Waffen/Ausrüstung nicht mehr effektiv eingesetzt werden kann.
 
