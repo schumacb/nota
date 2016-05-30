@@ -1,5 +1,5 @@
 Title: Kalender
-ChapterOrder: 3
+Order: 3
 ---
 
 Das Jahr besitzt 364 Tage und ist unterteilt in 14 Monate a 26 Tage und 52 Wochen a 7 Tagen.

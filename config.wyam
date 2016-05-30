@@ -307,37 +307,7 @@ Pipelines.Add("renderOutput",
 			}
 			return parent;
 		})
-	)
-	// If( (@doc, @ctx)=> 
-	// 	{
-	// 		var tree = (Tree<string,int>)@doc["Tree"];
-	// 		var parent = tree.Parent;
-	// 		var parentUrl = parent?.Value;
-	// 		if(parentUrl == @"\books" || parentUrl == null)
-	// 			return false;
-	// 		while(parentUrl != @"\books" && parentUrl != null)
-	// 		{
-	// 			 parent = parent.Parent;
-	// 			 parentUrl = parent?.Value;	
-	// 		}
-	// 		return parentUrl != null;
-	// 	},
-	// 	Meta("ParentBook", (@doc, @ctx)=>{
-	// 		var tree = (Tree<string,int>)@doc["Tree"];
-	// 		string parentUrl;
-
-	// 		do {
-	// 			parentUrl = tree.Parent?.Value;
-	// 			tree = tree.Parent;
-	// 		} while(parentUrl != @"\books");
-	// 		return tree.Value;
-	// 	}),
-	// 	If(!@doc.ContainsKey("ChapterOrder"),
-	// 		Trace($"Chapter besitzt kein ChapterOrder Metadata: {@doc.Source}"),
-	// 		Where((@doc, @ctx)=> false)
-	// 	)
-	// )
-			
+	)			
 );
 
 Pipelines.Add("staticOutput",

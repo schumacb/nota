@@ -1,35 +1,27 @@
-ChapterOrder: 1
+Order: 1
 Title: 'Charakter'
 
 ---
-Der Charakter stellt eine in der Welt da. über sie interagiert der Spieler mit diser.
-Im folgendem werden die Wichtigsten Punkte zu einem Charakter erklärt. Dies gilt nicht
-nur für Spieler Charaktere sondern auch für nicht Spieler Charaktere.
+Der Charakter stellt eine in der Welt da. über sie interagiert der Spieler mit diser. Im folgendem werden die Wichtigsten Punkte zu einem Charakter erklärt. Dies gilt nicht nur für Spieler Charaktere sondern auch für nicht Spieler Charaktere.
 
 ## Gattung und Art
 
-In der Welt notas gibt es viele, mal mehr mal weniger, inteligente Spezies. Eine Gattung stellt
-z.B. Homo dar, die Meisten Spiler Charaktere werden wohl dieser angehören. Unter anderem gehört auch
-der Mensch dieser Gattung an, aber es gibt noch einige andere Vertreter dieser Gattung welche sich ein
-Beachtliche Kultur aufgebaut haben.
+In der Welt notas gibt es viele, mal mehr mal weniger, inteligente Spezies. Eine Gattung stellt z.B. Homo dar, die Meisten Spiler Charaktere werden wohl dieser angehören. Unter anderem gehört auch der Mensch dieser Gattung an, aber es gibt noch einige andere Vertreter dieser Gattung welche sich ein Beachtliche Kultur aufgebaut haben.
 
-Die Art unterteilt die Mitglieder einer Gattung weiter. So stellen die Menschen (Homo Sapiens) und die
-Meermenschen (Homo Marinus) zwei Vertreter dar.
+Die Art unterteilt die Mitglieder einer Gattung weiter. So stellen die Menschen (Homo Sapiens) und die Meermenschen (Homo Marinus) zwei Vertreter dar.
 
 
 
 <div class="hidden-information Information">
 
 Da es in der Welt von Nota keine evulution gab, haben diese begriffe eine
-etwas andere Bedeutung.
+etwas andere Bedeutung als in der Realität. 
 
 </div>
 
 ## Kultur
 
-Je nach Region in welcher ein Charakter aufgewachsen ist gehört er einer von vielen Kulturen an.
-Diese bestimmt im wesentlichen die Denkweise eines Charakters. Ob er ein Freiheitsliebender Normade oder 
-ein untertäniger Leibeigener ist wird im großen Maße ach durch die Kultur bestimmt.
+Je nach Region in welcher ein Charakter aufgewachsen ist gehört er einer von vielen Kulturen an. Diese bestimmt im wesentlichen die Denkweise eines Charakters. Ob er ein Freiheitsliebender Normade oder ein untertäniger Leibeigener ist wird im großen Maße ach durch die Kultur bestimmt.
 
 ## Ausbildung
 
@@ -37,14 +29,11 @@ Je nach werdegang kann ein Charakter eine oder auch mehrere Berufe ausgeübt hab
 
 ## Sigel des Gottes
 
-Einige Charaktere (vor allem Spieler Charaktere) wurden von den Göttern auserwählt.
-Wem diese zweifelhafte Ehre zu teil wurde trägt irgendwo auf seinem Körper das Zeichen
-eines Gottes.
+Einige Charaktere (vor allem Spieler Charaktere) wurden von den Göttern auserwählt. Wem diese zweifelhafte Ehre zu teil wurde trägt irgendwo auf seinem Körper das Zeichen eines Gottes.
 
 ## Charakter Eigenschaften
 
-Ein Charakter wird definiert über 5 Primäreigenschaften, welche sich in jeweils zwei Sub eigenschaften
-aufteilen. Diese Lauten wie folgt.
+Ein Charakter wird definiert über 5 Primäreigenschaften, welche sich in jeweils zwei Sub eigenschaften aufteilen. Diese Lauten wie folgt.
 
  + Körper
    - Kraft
@@ -71,28 +60,22 @@ Zusätzlich besitzen Charaktere noch Sekundäreigenschaften.
  + Erscheinung
 
 ### Kraft
-Von diesem Wert hängt unter anderem ab wieviel ein Charakter tragen kann. Es
-stellt die Kraft in Abhänigkeit zur eigenen Körpermasse dar.
+Von diesem Wert hängt unter anderem ab wieviel ein Charakter tragen kann. Es stellt die Kraft in Abhänigkeit zur eigenen Körpermasse dar.
 
 ### Konstitution
-Wieviel ein Charakter einstecken kann und wie lange sein Atem hält wird
-durch die Konstitution festgelegt.
+Wieviel ein Charakter einstecken kann und wie lange sein Atem hält wird durch die Konstitution festgelegt.
 
 ### Gewandheit
 Gewandheit gibt den grad der Kontrolle über den Körper als ganzes an.
 
 ### Feinmotorik
-Während Gewandheit im normalfall den ganzen Körper involviert, so stellt
-Feinmotorik vorallem das Fingerspizengefühl dar. Für filigrane arbeiten
-ist dies eine wichtige Eigenschaft.
+Während Gewandheit im normalfall den ganzen Körper involviert, so stellt Feinmotorik vorallem das Fingerspizengefühl dar. Für filigrane arbeiten ist dies eine wichtige Eigenschaft.
 
 ### Einschüchtern
-Dies ist teil der eigenen Ausstrahlung. Wie der Name vermuten läst dient
-sie dazu jemanden Angst zu machen.
+Dies ist teil der eigenen Ausstrahlung. Wie der Name vermuten läst dient sie dazu jemanden Angst zu machen.
 
 ### Sympathi
-Will man hingegen freundlich sein, so sollte man einen guten Sympathie wert
-haben.
+Will man hingegen freundlich sein, so sollte man einen guten Sympathie wert haben.
 
 ### Gelehrtheit
 Dies stellt dar wie gut man in der lage ist "Akademisches" Wissen zu verarbeiten.
@@ -101,12 +84,10 @@ Dies stellt dar wie gut man in der lage ist "Akademisches" Wissen zu verarbeiten
 Intuition hingegen stellt das Bauchgefühl dar. 
 
 ### Mut
-Ob ein Charakter vor einer drohenden Gefahr wegläuft oder sich ihr stellt
-hängt auch von seinem Mut ab.
+Ob ein Charakter vor einer drohenden Gefahr wegläuft oder sich ihr stellt hängt auch von seinem Mut ab.
 
 ### Glück
-Nicht immer muss es Können sein welches benötigt wird. Glück erlaubt es
-das Schicksal zu wenden. 
+Nicht immer muss es Können sein welches benötigt wird. Glück erlaubt es das Schicksal zu wenden. 
 
 ## Größe & Gewicht
 Wie zu vermuten stellt stellt dies die Körpergröße bzw. das Gewicht dar. Diese Eigenschaften hängen stark voneinander ab. Je größer eine Person ist, desto schwerer ist sie in der Regel auch. Zudem gibt einem ein höheres Gewicht auch Vorteile in Stärkebasierten tätigkeiten.
@@ -116,8 +97,7 @@ Gibt in der Regel an wie schnell sich ein Charaker vortbeweigt.
 
 
 ## Vor- und Nachteile
-Bestimmte eigenarten heben den Charakter von anderen ab. Manschmal in
-Positiver weise, manschmal aber auch in Negativer.
+Bestimmte eigenarten heben den Charakter von anderen ab. Manschmal in Positiver weise, manschmal aber auch in Negativer.
 
 ## Talente
 
