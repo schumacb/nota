@@ -49,8 +49,6 @@ Task("Publish")
 
         Information("Deploying web from {0} to {1}", websitePath, deploymentPath);
         Kudu.Sync(websitePath);
-        System.IO.Directory.Delete(toolsPath.FullPath, true);
-        System.IO.Directory.Delete(websitePath.FullPath, true);
     });
 
 
