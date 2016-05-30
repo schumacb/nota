@@ -5,135 +5,6 @@ using AngleSharp.Extensions;
 using AngleSharp.Parser.Html;
 using IDocument = Wyam.Common.Documents.IDocument;
 
-	public class Tree<T, K> : IComparable<Tree<T, K>> where K : IComparable<K>
-    {
-
-        public Tree<T, K> PreviousSilbling
-        {
-            get
-            {
-                if (Parent == null)
-                    return null; // Root hat keine Geschwister
-
-                var parentIndex = IndexInParent;
-				if(parentIndex< 0)
-				  throw new ApplicationException("Not found in Parent");
-                if (parentIndex == 0)
-                    return null;
-                return Parent.Childrean[parentIndex - 1];
-            }
-        }
-
-        public Tree<T, K> NextSilbling
-        {
-            get
-            {
-                if (Parent == null)
-                    return null; // Root hat keine Geschwister
-
-                var parentIndex = IndexInParent;
-				if(parentIndex< 0)
-				  throw new ApplicationException("Not found in Parent");
-                if (parentIndex == Parent.Childrean.Count - 1)
-                    return null;
-                return Parent.Childrean[parentIndex + 1];
-            }
-        }
-
-        public int IndexInParent
-        {
-            get
-            {
-                return this.Parent.childrean.BinarySearch(this, new TreeIndexSearcher());
-            }
-        }
-
-
-        private int Level => Parent == null ? 0 : Parent.Level + 1;
-
-        private Tree<T, K> parent;
-        public Tree<T, K> Parent
-        {
-            get { return parent; }
-            set
-            {
-                if (parent != null)
-                {
-                    var index = parent.childrean.BinarySearch(this, new TreeIndexSearcher());
-                    if (index < 0)
-                        throw new ApplicationException($"The Element should have been in the Parrent Childrean {value}.");
-                    parent.childrean.RemoveAt(index);
-                }
-
-                parent = value;
-
-                if (parent != null)
-                {
-                    var index = parent.childrean.BinarySearch(this, new TreeIndexSearcher());
-                    if (index < 0)
-                        index = ~index;						
-                    parent.childrean.Insert(index, this);
-                }
-            }
-        }
-
-        public T Value { get; }
-        public K Key { get; }
-
-        public System.Collections.ObjectModel.ReadOnlyCollection<Tree<T, K>> Childrean => childrean.AsReadOnly();
-        private readonly List<Tree<T, K>> childrean = new List<Tree<T, K>>();
-
-
-        public Tree(T value, K key)
-        {
-            this.Value = value;
-            this.Key = key;
-        }
-
-        public int CompareTo(Tree<T, K> other)
-        {
-            var me = this;
-			if(other == null)
-				throw new ArgumentException("other is null");
-            while (me.Level > other.Level)
-            {
-                if (me.Level - 1 == other.Level && me.Parent == other)
-                    return -1;
-                me = me.Parent;
-            }
-            while (other.Level > me.Level)
-            {
-                if (other.Level - 1 == me.Level && other.Parent == me)
-                    return +1;
-                other = other.Parent;
-            }
-            while (me.Parent != null && other.Parent != null)
-            {
-                if (other.Parent == me.Parent)
-                {
-                    return me.IndexInParent.CompareTo(other.IndexInParent);
-                }
-                me = me.Parent;
-                other = other.Parent;
-            }
-            throw new ArgumentException("Both trees not comparable", nameof(other));
-        }
-
-
-        private class TreeIndexSearcher : IComparer<Tree<T, K>>
-        {
-
-            public int Compare(Tree<T, K> x, Tree<T, K> y)
-            {
-				if(x == null)
-					throw new ArgumentNullException("Darf net null sein.",nameof(x));
-				if(y == null)
-					throw new ArgumentNullException("Darf net null sein.",nameof(y));
-                return x.Key.CompareTo(y.Key);
-            }
-        }
-    }
-
 
 public static class AutoLinkHelper
 {
@@ -212,8 +83,8 @@ public static class AutoLinkHelper
 
 // This directive installs packages from NuGet and it what yuo would normally use
 // NOTE: If running the example against a downloaded version of Wyam, uncomment this line and comment the next line
-//#n Wyam.Modules.Yaml -p 
-//#n Wyam.Modules.Markdown -p 
+//#a Wyam.Modules.Yaml -p 
+//#a Wyam.Modules.Markdown -p 
 #n Wyam.Modules.All -p
 #n bootstrap
 
