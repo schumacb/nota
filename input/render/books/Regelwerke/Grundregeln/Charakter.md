@@ -43,7 +43,7 @@ eines Gottes.
 
 ## Charakter Eigenschaften
 
-Ein Charakter wird definiert über 5 Grundeigenschaften, welche sich in jeweils zwei Sub eigenschaften
+Ein Charakter wird definiert über 5 Primäreigenschaften, welche sich in jeweils zwei Sub eigenschaften
 aufteilen. Diese Lauten wie folgt.
 
  + Körper
@@ -60,10 +60,15 @@ aufteilen. Diese Lauten wie folgt.
    - Intuition
  + Stuff
    - Mut
-   - Glück
-   
+   - Glück   
+
 Jede Eigenschaft kann im normalfall Wertr zwichen 7 und 12 Annehmen.
 Dabei gillt je nidriger der Wert desto besser.
+
+Zusätzlich besitzen Charaktere noch Sekundäreigenschaften.
+ + Größe
+ + Gewischt 
+ + Erscheinung
 
 ### Kraft
 Von diesem Wert hängt unter anderem ab wieviel ein Charakter tragen kann. Es
@@ -103,9 +108,12 @@ hängt auch von seinem Mut ab.
 Nicht immer muss es Können sein welches benötigt wird. Glück erlaubt es
 das Schicksal zu wenden. 
 
-## Abgeleitete Eigenschafte
-Diese Basieren auf den Eigenschaften und werden aus diesen berechnet. Einige diser
-Werte sind zum Beispiel die Größe oder Tragkraft.
+## Größe & Gewicht
+Wie zu vermuten stellt stellt dies die Körpergröße bzw. das Gewicht dar. Diese Eigenschaften hängen stark voneinander ab. Je größer eine Person ist, desto schwerer ist sie in der Regel auch. Zudem gibt einem ein höheres Gewicht auch Vorteile in Stärkebasierten tätigkeiten.
+
+## Geschwindigkeit
+Gibt in der Regel an wie schnell sich ein Charaker vortbeweigt.
+
 
 ## Vor- und Nachteile
 Bestimmte eigenarten heben den Charakter von anderen ab. Manschmal in
@@ -113,23 +121,14 @@ Positiver weise, manschmal aber auch in Negativer.
 
 ## Talente
 
-Was ein Charakter kann oder auch nicht wird durch Talente festgehalten.
-Sie decken ein breites Feld von tätigkeiten ab welche ein Charakter ausüben kann.
-Jedem Talent ist ein Wert zugeordnet. Dieser bestimmt wie gut ein Charakter welches
-Talent beherscht.
+Was ein Charakter kann oder auch nicht wird durch Talente festgehalten. Sie decken ein breites Feld von tätigkeiten ab welche ein Charakter ausüben kann. Jedem Talent ist ein Wert zugeordnet. Dieser bestimmt wie gut ein Charakter welches Talent beherscht.
 
-Ein Talent besitzt einen Basiswert und einen Effektiven wert. Wenn von
-Tallentwert gesprochen wir, ist in der Regel der effektive gemeint.
-Wenn man sich in einem Talent verbessern will, kann man den Basistalentwert
-steigern.
+Ein Talent besitzt einen Basiswert, Realwert und einen Effektivwert. Wenn von Tallentwert gesprochen wir, ist in der Regel der reale Wert gemeint.
 
-Der effektive Tallentwert berechnet sich aus verschieden Teilen:
+Der reale Tallentwert berechnet sich aus mehren Teilen welche addiert werden:
  + Dem Basistalentwert
- + Einem Eigenschaftsbonus für beteiligte eigenschaften.
-   Für jede eigenschaft welche in der Probe verlangt wird erhält man
-   einen Bonus von eins, falls die Eigenschaft maximal Stufe 9 ist.
- + Für verwandte Talente. Wieviel dies ist hängt von dem jeweiligen
-   Talent ab. Im Normalfall steuert jedes verwandte Talent einen Wert
-   kleiner gleich 50% bei. 
-   
-   
+ + Zudem für jedes verwandte Talent einen Teil dessen Basiswertes. Wieviel dies ist hängt von dem jeweiligen Talent ab. Im Normalfall steuert jedes verwandte Talent einen Wert kleiner gleich 50% bei. In der Auflistung der Talente wird für jedes Talent angegeben welche Talente mit diesem verwandt sind.
+ 
+ Der Effektive Tallentwert wiederum stellt 3/4 des reallen Wertes dar.
+ 
+ 
