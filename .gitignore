@@ -5,3 +5,4 @@
 /input/Scripts/*
 /config.wyam.WyamConfig.cs
 /config.wyam.WyamSetup.cs
+wyam.log
