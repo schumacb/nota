@@ -86,8 +86,8 @@ public static class AutoLinkHelper
 //#a Wyam.Modules.Yaml -p 
 //#a Wyam.Modules.Markdown -p 
 #n Wyam.Modules.All -p
-#n jQuery -v 2.2.3
-#n bootstrap -v 3.3.6
+#n jQuery -v [2.2.3]
+#n bootstrap -v [3.3.6]
 
 public static class	Constants
 {
