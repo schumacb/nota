@@ -1,3 +1,16 @@
+
+// This directive installs packages from NuGet and it what yuo would normally use
+// NOTE: If running the example against a downloaded version of Wyam, uncomment this line and comment the next line
+//#a Wyam.Modules.Yaml -p 
+//#a Wyam.Modules.Markdown -p
+#an System.IO
+#an System.Collections
+#n Wyam.All -p 
+#n jQuery -v [2.2.3]
+#n bootstrap -v [3.3.6]
+#n AngleSharp
+
+
 // Declaration code
 using AngleSharp.Dom;
 using AngleSharp.Dom.Html;
@@ -80,14 +93,6 @@ public static class AutoLinkHelper
 
 
 
-
-// This directive installs packages from NuGet and it what yuo would normally use
-// NOTE: If running the example against a downloaded version of Wyam, uncomment this line and comment the next line
-//#a Wyam.Modules.Yaml -p 
-//#a Wyam.Modules.Markdown -p 
-#n Wyam.Modules.All -p
-#n jQuery -v [2.2.3]
-#n bootstrap -v [3.3.6]
 
 public static class	Constants
 {
