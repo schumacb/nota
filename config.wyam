@@ -5,7 +5,7 @@
 //#a Wyam.Modules.Markdown -p
 #an System.IO
 #an System.Collections
-#n Wyam.All -p 
+#n Wyam.All -p -v [0.12.4-beta]
 #n jQuery -v [2.2.3]
 #n bootstrap -v [3.3.6]
 #n AngleSharp
