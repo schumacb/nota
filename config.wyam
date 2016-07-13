@@ -294,7 +294,7 @@ Pipelines.Add("renderOutput",
 	),
 	/// BOOKS /// 
 	If( @doc.Metadata.ContainsKey("Book"),
-		Meta("IsBook", true),
+		Meta("IsBook", true)
 	),
 	/// Adding Tree ///
 	Tree()
