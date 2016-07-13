@@ -8,7 +8,6 @@
 #n Wyam.All -p -v [0.12.4-beta]
 #n jQuery -v [2.2.3]
 #n bootstrap -v [3.3.6]
-#n AngleSharp
 
 
 // Declaration code
@@ -220,7 +219,7 @@ Pipelines.Add("bootstrapOutput",
 
 Pipelines.Add("authorOutput",
 	GitContributors(),
-	Meta("TargetFile", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html")),
+	Meta("TargetFile", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html"))),
 	Meta("Title", @doc["ContributorName"]),
 	Meta("Layout", @"layout\book.cshtml"),
 	Content(
@@ -230,7 +229,7 @@ Pipelines.Add("authorOutput",
 		Execute((@doc, @ctx)=>{
 			var information = @doc["Commits"] as IEnumerable<IDocument>;
 			
-			var fileCommits =  information
+			var fileCommits = information
 				.SelectMany(x=> (x["Entries"] as IReadOnlyDictionary<Wyam.Common.IO.FilePath, string>)
 					.Select(entry => new { Entry = entry, Commit = x}))
 				.GroupBy(x=>x.Entry.Key);
@@ -240,6 +239,7 @@ Pipelines.Add("authorOutput",
 				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
 				var commitetFile = emailFolder.CombineFile(x.Key);
 				var targetFile =  commitetFile.AppendExtension(".html");
+				targetFile = @ctx.FileSystem.OutputPath.GetRelativePath( targetFile );
 				var commits = x.ToDictionary(y=> y.Commit, y=>y.Entry.Value).ToArray();				
 				return @ctx.GetDocument(new KeyValuePair<string,object>[]
 				{
@@ -258,7 +258,7 @@ Pipelines.Add("authorOutput",
 		)
 	),
 	Helper.TargetUrlModule(),
-	Execute(new IDocument[]{ @ctx.GetDocument(doc,((Wyam.Common.IO.FilePath)@doc["TargetFile"]).ChangeExtension( ".cshtml"),@doc.Content)})
+	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).ChangeExtension( ".cshtml")),@doc.Content)})
 );
 
 Pipelines.Add("renderOutput",
@@ -285,7 +285,7 @@ Pipelines.Add("renderOutput",
 			}
 			return list;
 		}),
-		Meta("TargetFile", @ctx.FileSystem.OutputPath.Combine( new Wyam.Common.IO.DirectoryPath("ambiguis")).CombineFile(@doc["Keyword"]+".html")),
+		Meta("TargetFile",  new Wyam.Common.IO.DirectoryPath("ambiguis").CombineFile(@doc["Keyword"]+".html")),
 		Meta("Title",  "begriffsklärung "+ @doc["Keyword"]),
 		Helper.TargetUrlModule(),
 		Content(
@@ -295,7 +295,6 @@ Pipelines.Add("renderOutput",
 	/// BOOKS /// 
 	If( @doc.Metadata.ContainsKey("Book"),
 		Meta("IsBook", true),
-		Trace(@doc.Source)
 	),
 	/// Adding Tree ///
 	Tree()
@@ -394,6 +393,7 @@ Pipelines.Add("Write",
 		Execute(AutoLinkHelper.AddImageMetadata),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
 	),
+	Trace(@doc["TargetFile"]),
 
 	WriteFiles( @doc["TargetFile"])
 );
