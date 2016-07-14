@@ -2,8 +2,8 @@
 #addin "Cake.Kudu" "https://www.nuget.org/api/v2/"
 
 
-#tool nuget:?package=Wyam&prerelease&version=0.12.4-beta 
-#addin nuget:?package=Cake.Wyam&prerelease&version=0.12.4-beta 
+#tool nuget:?package=Wyam&prerelease&version=0.13.2-beta 
+#addin nuget:?package=Cake.Wyam&prerelease&version=0.13.2-beta 
 
 //#tool nuget:https://www.myget.org/F/wyam/api/v2?package=Wyam&prerelease
 //#addin nuget:https://www.myget.org/F/wyam/api/v2?package=Cake.Wyam&prerelease
