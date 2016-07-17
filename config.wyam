@@ -132,8 +132,9 @@ System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globaliz
 
 
 Pipelines.Add("renderInput",
-	ReadFiles(@"render\**\*.{*,!xsd}"),
+	ReadFiles(@"render\**\*.{*,!xsd,!meta}"),
 	FrontMatter(Yaml()),
+	Sidecar(Yaml()),
 	GitContributors()
 		.ForEachInputDocument(),
 	DirectoryMeta()
