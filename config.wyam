@@ -392,6 +392,5 @@ Pipelines.Add("Write",
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
 	),
 	Trace(@doc["TargetFile"]),
-
 	WriteFiles( @doc["TargetFile"])
 );
