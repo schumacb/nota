@@ -23,7 +23,7 @@ Je nach Aktion kann das misslingen dieser dazu führen das kein Effekt eintritt,
 Mansche Aktionen gelten als Devensiv und besitzen keine Ziele. In diesem fall zählt jeder als Ziel welcher den ausführenden Charakter als Ziel gewählt hat.
 
 Bsp.:  
-Alice will aus einem Kampf mit Bob und Charlie fliehen. Alice wählt Rückzug. Bub und Charlie wollen Alice Attackieren. Alice hat einen Kampfwert von 5, Bob jedoch nur von 2. Charlie hingegen einen Wert von 7. Somit ist Alice rückzug gescheitert da Charlie einen höheren Kampfwert besitzt. Zudem fügt Charlie Alice schaden zu. Bobs angriff hingegen ist gescheitert und er teilt keinen Schaden aus.
+Alice will aus einem Kampf mit Bob und Charlie fliehen. Alice wählt Rückzug. Bub und Charlie wollen Alice Attackieren. Alice hat einen Kampfwert von 5, Bob jedoch nur von 2. Charlie hingegen einen Wert von 7. Somit ist Alice rückzug gescheitert da Charlie einen höheren Kampfwert besitzt. Zudem fügt Charlie Alice schaden zu. Bobs angriff hingegen ist gescheitert und er teilt keinen Schaden aus. Hätte Bob und Charlie sich in dieser Runde gegenseitig angegriffen hätte Alice sich zurückziehen können obwohl Charlie einen Höheren kampfwert besitzt und mit ihr im Nahkampf war.
 
 Interressant wrden Konstelationen mit mehr als zwei beteiligten. Es wird immer davon ausgegangen das ein Gegner sich wehrt auch wenn er gerade mit einem anderem Ziel beschäftigt ist. Es wird aber immer nur eine Probe abgelegt, das ergebnis gilt sowohl für die Verteidigung vor dem Gegner als auch für den angriff auf den anderen Gegner.
 
@@ -104,7 +104,7 @@ Das Ziel erhällt einen Stellungsmalus.
 **Misserfolg**
 Keine Auswirkung
 
-## Schtz
+## Schutz
 Der Charakter muss zusätzlich die Aktion Abwarten nutzen. Der zu schützende Charakter erhät den (Verteidiguns-)Kampfwert dieses Charakters gegen jeden Angreifenden Charakter mit dem dieser Charakter in Kampf ist.
 
 _Ziel_
@@ -127,8 +127,6 @@ Keine Auswirkung
 **Misserfolg**
 Keine Auswirkung
 
-
-
 ## Erholen
 
 _Ziel_
@@ -139,6 +137,30 @@ Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).
 
 **Misserfolg**
 Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet).
+
+## Laufen
+Der Charakter bewegt sich die Hälfte seiner Bewegung in Meter. Sollte er die Aktion Rennen letzte Runde bereits genutzt haben, so darf er die Volle distanz seiner Bewegung in Metern zurücklegen. Hat er dies genutzt so muss er nächste runde wierder die Aktion Bewegung nutzen.
+
+_Ziel_
+Passiv.
+
+**Erfolg**
+Keine Auswirkung
+
+**Misserfolg**
+Keine Auswirkung
+
+
+# Eventuelle Nachteile des Systems
+- Welchen vorteil haben Schnelle Charaktere oder Schnelle Waffen?
+- Funktioniert es mit Fernkamp?
+- Bleibt es händelbar für den Spielleiter?
+- Gleicht die paralelle Entscheidungsfindung die Zeit für die Rechnerei aus?
+- Sind 10 Sekunden zu lange? oder 6?
+  + je Kürzer desto unmöglicher macht es nebnläufige Handlungen außerhalb des Kampfes. Selbst mit diesem System wäre eine Minute zum Schlossknacken gleichbedeutend mit 10 oder 6 Kampfrunden.
+  + 6 Erachte ich gerade noch als erträglich.
+- Schadensmodell würde ich immer noch gerne so machen wie in Variante 1.
+- Möglichkeit mit mehr erfolgen mehr schaden zu machen? Bsp.: Ein vielfaches des gegnerichen Verteidiguns wert ereichen => das selbe vielface an schaden? In diesem fall machen die mehreren Angriffe jedoch wenig sinn gegen einen Gegner zu richten, dies macht gute Charaktere wahrscheinlcih zu stark.
 
 
 Variante 1
