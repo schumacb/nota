@@ -238,7 +238,7 @@ Pipelines.Add("authorOutput",
 				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
 				var commitetFile = emailFolder.CombineFile(x.Key);
 				var targetFile =  commitetFile.AppendExtension(".html");
-				targetFile = @ctx.FileSystem.OutputPath.GetRelativePath( targetFile );
+				targetFile = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( targetFile );
 				var commits = x.ToDictionary(y=> y.Commit, y=>y.Entry.Value).ToArray();				
 				return @ctx.GetDocument(new KeyValuePair<string,object>[]
 				{
