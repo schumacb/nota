@@ -25,6 +25,8 @@ Mansche Aktionen gelten als Devensiv und besitzen keine Ziele. In diesem fall z�
 Bsp.:  
 Alice will aus einem Kampf mit Bob und Charlie fliehen. Alice wählt Rückzug. Bub und Charlie wollen Alice Attackieren. Alice hat einen Kampfwert von 5, Bob jedoch nur von 2. Charlie hingegen einen Wert von 7. Somit ist Alice rückzug gescheitert da Charlie einen höheren Kampfwert besitzt. Zudem fügt Charlie Alice schaden zu. Bobs angriff hingegen ist gescheitert und er teilt keinen Schaden aus. Hätte Bob und Charlie sich in dieser Runde gegenseitig angegriffen hätte Alice sich zurückziehen können obwohl Charlie einen Höheren kampfwert besitzt und mit ihr im Nahkampf war.
 
+Alle Aktionen aller Charaktere finden gleichzeitig statt. Kein Charakter hat einen Geschwindigkeitsvorteil bei seinen Aktionen. Auswirkungen einer Kampfrunde entfalten erst an dessen Ende bzw. zu beginn der nächsten Kampfrunde Wirkung. 
+
 Interressant wrden Konstelationen mit mehr als zwei beteiligten. Es wird immer davon ausgegangen das ein Gegner sich wehrt auch wenn er gerade mit einem anderem Ziel beschäftigt ist. Es wird aber immer nur eine Probe abgelegt, das ergebnis gilt sowohl für die Verteidigung vor dem Gegner als auch für den angriff auf den anderen Gegner.
 
 Bsp.:  
