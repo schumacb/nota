@@ -6,6 +6,45 @@ Title: 'Kampf'
 Initiative- oder Ticksystem? Oder was ganz anders?
 
 
+Variante 3
+================================
+
+Eine Kampfrunde besteht aus drei Phasen. Phase eins ist bewegung, Phase zwei aktion, Phase drei ausführen der angesagten Aktionen. Spieler verwenden Karten um ihre Aktionen festzulegen. Die Kampfrunde erstreckt sich hierbei auf 6 Sekunden.
+
+# Phase 1 Bewegung ansagen
+
+In dieser Phase sagen die Spieler ihre Bewegungen an. Dies geschieht in umgekehrter Reihenfolge ihrer Initiative, das heißt der Langsamste Charakter beginnt. Ein Charakter kann entweder eine bewegung ansagen, oder passen.
+
+Sobald ein Charakter eine bewegung ansagt haben alle Charaktere welche noch keine Bewegung angesagt haben die möglichkeit darauf zu reagieren, und ihrerseitz eine Bewegng ansagen. Wieder beginnend bei dem Langsamsten. Wenn alle Charaktere die chance hatten eine Bewegung anzusagen, jedoch gepasst haben, ist die Phase beendet.
+
+Beim festlegen der bewegung kann eine bis zu 4 Bewegunskarten gespielt wertden. Je mehr karten gespielt werden desto weiter kommt der Charakter in der Runde, aber desto mehr Abzüge bekommt er auf eventuelle weitere Aktionen. Pro gespielte Karte erhält der Charakter 1/4 seiner Bewegung. Wenn alle Karten gespielt wurden legt der Charakter zusätzlich einen Athletiktest ab, dieser kann seine Geschwindigkeit (zurückgelegte distanz) noch weiter erhöhen.
+
+Nachdem alle Charaktere ihre Bewegung festgelegthaben hat jeder Charakter noch einemal die Chancse, sofern er sich bewegt, seine Bewegung auf das Maximum (vier Karten) zu erhöhen oder auf eins zu reduzieren. Wieder beginnend bei dem Langsamsten Charakter. Dies erlaubt es einen Angreifer, der sich auf einen Gegner zubewegt nochmals seine Geschwindigkeit zu erhöhen falls dieser als reaktion auf den Angirff die Flucht ergreifen will.
+
+# Phase 2 Aktion Ansagen
+
+Die spieler wählen gleichzeitig, durch legen verdeckter Karten welche Aktionen sie ausführen wollen. 
+
+# Phase 3 Kampf abhandeln
+
+Siehe Variante 2. Wenn verschieden Aktionen verschiedene Talente benötigen, so wird jedes einzeln getestet, aber dennoch wird der jeweilige Talentwert durch die Anzahl der gespielten Katren geteilt. Für jedes Talent wird nur eine Probe abgelegt, auch wenn es für verschiedene Aktionen diese Runde verwendet wird. Alle aktionen verwenden dann das selbe Ergebniss.
+
+## Überlegungen
+
+- Die bewegungsphase könnte die Kampfrunde etwas verzögern. Im worst-case besitzt dies n * (n + 1) / 2 + n viele Schritte.
+- Vor der auswahl der Aktionen ist bereits bekannt, wo welcher Charakter steht. (Dadurch das Bewegung vorher abgehandelt wird). Sommit muss kein Charakter raten ob seine aktion überhaupt möglich ist.
+- Das testen der einzelen Charaktere sollte relativ zügig von statten gehen, da hier meistens nur ein Test durchgeführt wird. Lediglich Charakter die Unterschiedliche aktionen zum verteidigen und angreifen benötigen (bsp. kann mit einem Bogen nicht pariert werden), werden regelmäßig zwei tests im Nahkampf ablegen müssen.
+- Eine Minute benötigt 10 Kampfrunden. 
+  * Unter der Annahem das sich die Charaktere nach initialer annäherung nur bedingt bewegen, sollte die bewegungsphase im schnitt nach 15 Sekunden abgeschlossen sein.
+    - Voraussetzung dazu ist es existiert eine art Karte mit groben Positionen und die Spieler müssen nicht ständig die aktuelle situation beschrieben bekommen.
+  * Da die Spieler die Aktionen alle gleichzeitig bestimmen muss nur der langsamste Spieler berücksichtigt werden. Dies wird abgeschätzt mit 25 Sekunden.
+  * Die auswertung der Proben wird ebenfalls gleichzeitig bgehandelt. Jedoch muss der Spielleiter dies für alle Charaktere die er verwaltet durchführen. Wen er pro Wurf 2,5 Sekunden benötigt und 5 Charaktere impersoniert, so benötigt er aufgerundet 13 Sekunden.
+  * Die auswertung geschieht am einfachsten reihum. Je nach anzahl und Komplexität würde ich 10 bis 15 Sekunden pro Charakter abschätzen. das wären bei 10 Charakteren bis zu 150 Sekunden.
+  * hinzu kommen noch kurzr Zeiten bei den Übergängen der Phasen. ca. 30 Sekunden pro KR.
+  * Pro Kampfrunde wird demnach 15s + 25s + 13s + 150s + 30s = 233s oder 3:53, also Knapp 4 min.
+  * Für eine Minute ingame vergehen geschätzt 40 min outgame Zeit. :(
+    + Etwas zu hoch für meinen geschmack. Hoffentlcih habe ich das etwas zu hoch angestzt.
+
 Variante 2
 ================================
 
