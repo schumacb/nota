@@ -5,8 +5,8 @@
 //#tool nuget:?package=Wyam&prerelease&version=0.13.2-beta 
 //#addin nuget:?package=Cake.Wyam&prerelease&version=0.13.2-beta 
 
-#tool nuget:https://www.myget.org/F/wyam/api/v2?package=Wyam&prerelease&version=0.13.2-build-358
-#addin nuget:https://www.myget.org/F/wyam/api/v2?package=Cake.Wyam&prerelease&version=0.13.2-build-358
+#tool nuget:https://www.myget.org/F/wyam/api/v2?package=Wyam&prerelease
+#addin nuget:https://www.myget.org/F/wyam/api/v2?package=Cake.Wyam&prerelease
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
