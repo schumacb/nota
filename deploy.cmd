@@ -2,8 +2,8 @@
 
 IF %ERRORLEVEL% NEQ 0 goto error
 
-IF %ERRORLEVEL% NEQ 0 goto error
 IF EXIST "Tools" (rmdir /S /Q "Tools" ) 
+IF %ERRORLEVEL% NEQ 0 goto error
 
 IF NOT EXIST "Tools" (md "Tools")
 IF %ERRORLEVEL% NEQ 0 goto error
