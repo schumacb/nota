@@ -142,6 +142,8 @@ Pipelines.Add("renderInput",
 	Meta("TargetFile",  (@doc, @ctx)=> 
 	{
 		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
+		if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
+			path = path.Directory.CombineFile("index" + path.Extension);
 		if(path.Extension == ".md" || path.Extension == ".cshtml"|| path.Extension == ".xml")
 			path= path.ChangeExtension(".html");
 		return path;
