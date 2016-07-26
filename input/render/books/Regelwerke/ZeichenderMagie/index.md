@@ -1,6 +1,6 @@
 Title: Zeichen der Magie
-Book: R1
-Order: 2
+BookType: Regelbuch
+BookNumber: 2
 ---
 ## Welcome to my homepage!
 Dies ist ein Test von . Viele B  sollte aber auch gehn.

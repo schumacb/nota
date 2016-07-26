@@ -69,8 +69,13 @@
                   string parentPath = @"\books";
                   bool isFirstEntry = true;
                 }
-                @foreach(var doc in Documents["Books"])
+                @foreach(var group in Documents["Books"].GroupBy(x=>x["BookType"]))
                 {                  
+                  <li class="dropdown-header">@group.Key</li>
+
+                  @foreach(var doc in group.OrderBy(x=> x["BookNumber"]))
+                  {
+
 
                   @if(!@doc.Metadata.ContainsKey("Title"))
                   {
@@ -89,6 +94,7 @@
                   isFirstEntry = false;                
                   //parentPath = System.IO.Path.GetDirectoryName(currentTree.Value);
                 }
+                  }
                 <!--<li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>

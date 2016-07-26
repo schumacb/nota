@@ -1,6 +1,6 @@
 Title: Grundregelbuch
-Book: R0
-Order: 1
+BookType: Regelbuch
+BookNumber: 1
 Alias: ['Grundregeln']
 ---
 In Folgenden Abschnitten befinden sich die Grundregeln.

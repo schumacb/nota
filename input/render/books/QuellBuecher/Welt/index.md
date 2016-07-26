@@ -1,6 +1,6 @@
 Title: Welt
-Book: w1
-Order: 4
+BookType: Weltbeschreibung
+BookNumber: 1
 ---
 
 Tellos ist eine Welt mit vielen Gesichtern.
