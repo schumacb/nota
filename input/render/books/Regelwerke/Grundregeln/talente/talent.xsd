@@ -42,9 +42,12 @@
 
   <simpleType name="Kategorie">
     <restriction base="string">
+      <enumeration value="Geist"/>
       <enumeration value="Körper"/>
       <enumeration value="Geselchaft"/>
       <enumeration value="Kampf"/>
+      <enumeration value="Wissen"/>
+      <enumeration value="Handwerk"/>
     </restriction>
   </simpleType>
 
@@ -72,8 +75,16 @@
     </complexType>
   </element>
 
-  <element name="Max" type="bsp:AbleitungsAuswahl">
-
+  <element name="Max" >
+    <complexType>
+      <sequence>
+        <choice maxOccurs="unbounded" minOccurs="1">
+          <element ref="bsp:Ableitung"/>
+          <element ref="bsp:Max"/>
+        </choice>
+      </sequence>
+      <attribute name="Anzahl" type="int" default="1" use="optional" />
+    </complexType>
   </element>
 
 </schema>

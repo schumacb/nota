@@ -5,23 +5,318 @@ Title: "Talente"
 <!-- This file represents a fragment of a book store inventory database -->
 <Talente  xmlns='http://nota.org/' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://nota.org/ talent.xsd">
+  <!--KAMPF BEGINN-->
   <Talent Name="Fechtwaffen" Komplexität="B" Kategorie="Kampf">
     <Probe>
-      <Glück/>
+      <Gewandheit/>
       <Mut/>
       <Intuition/>
     </Probe>
     <Beschreibung>
       Test
     </Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      <Max>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      </Max>
-    </Ableitungen>
   </Talent>
+  <Talent Name="StumpfeHiebwaffen" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Einhandäxte" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Zweihandäxte" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Stäbe" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Schwerter" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Säbel" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Zweihandschwert" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Zweihandsäbel" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Tonfas" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Bogen" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Schaftwaffen" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Gewehre, Armbrüste
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Schild" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Ausweichen" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Stangenwaffe" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Peitche" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Dolch" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Flegel" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Waffenlos" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Chakram" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Das Chakram (von Sanskrit: चक्र, cakra n., Nom. Sg. cakram, dt.: „Kreis“ oder „Rad“) ist eine Wurfwaffe, die in Indien benutzt wurde. Sie besteht aus einem flachen Metallring mit einem scharfen äußeren Rand von 12 bis 30 cm Durchmesser.
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Wurfspeer" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Wurfaxt" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Wurfmesser" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Katar" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Das Katar, auch Coutar, Katah, Koutah, Kutah, Kutar, Bundi Dolch oder Jemdhar genannt, ist ein indischer Faustdolch. Der Ursprung liegt bei den Rajputen, aber die Waffe ist im indischen Raum weit verbreitet
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Wurfwaffe" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      z.B. Stein
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Schleuder" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Speerschleuder" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Nunchaku" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Dreigliederstab" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Kettenwaffe" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      z.B. Suruchin, Manriki Gusari
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Sense" Komplexität="B" Kategorie="Kampf">
+    <Probe>
+      <Gewandheit/>
+      <Mut/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+
+    </Beschreibung>
+  </Talent>
+  <!--Körper BEGINN-->
   <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
     <Probe>
       <Mut/>
@@ -31,16 +326,9 @@ Title: "Talente"
     <Beschreibung>
       Test
     </Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      <Max>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      </Max>
-    </Ableitungen>
   </Talent>
-  
-  <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+
+  <Talent Name="Laufen" Komplexität="B" Kategorie="Körper">
     <Probe>
       <Mut/>
       <Klugheit/>
@@ -49,15 +337,8 @@ Title: "Talente"
     <Beschreibung>
       Test
     </Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      <Max>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      </Max>
-    </Ableitungen>
   </Talent>
-  <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+  <Talent Name="Gewichtstemmen" Komplexität="B" Kategorie="Körper">
     <Probe>
       <Mut/>
       <Klugheit/>
@@ -66,15 +347,8 @@ Title: "Talente"
     <Beschreibung>
       Test
     </Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      <Max>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      </Max>
-    </Ableitungen>
   </Talent>
-<Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+  <Talent Name="Schwimmen" Komplexität="B" Kategorie="Körper">
     <Probe>
       <Mut/>
       <Klugheit/>
@@ -83,15 +357,9 @@ Title: "Talente"
     <Beschreibung>
       Test
     </Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      <Max>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      </Max>
-    </Ableitungen>
   </Talent>
-<Talent Name="Springen" Komplexität="B" Kategorie="Körper">
+
+  <Talent Name="Körperbeherschung" Komplexität="B" Kategorie="Körper">
     <Probe>
       <Mut/>
       <Klugheit/>
@@ -100,12 +368,263 @@ Title: "Talente"
     <Beschreibung>
       Test
     </Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      <Max>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-        <Ableitung Name="Fechtwaffen" Anzahl="3"/>
-      </Max>
-    </Ableitungen>
   </Talent>
-</Talente>
+  <Talent Name="Akrobatik" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Fingerübungen" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Fingerfertigkeit/>
+      <Fingerfertigkeit/>
+      <Intuition/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Klettern" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Schleichen" Komplexität="B" Kategorie="Körper">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+
+
+  <!--Geist BEGINN-->
+  <Talent Name="Selbstbeherchung" Komplexität="B" Kategorie="Geist">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Wahrnehmung" Komplexität="B" Kategorie="Geist">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+
+  <!--Gesellschaft BEGINN-->
+  <Talent Name="Menschenkentniss" Komplexität="B" Kategorie="Geselchaft">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Verführen" Komplexität="B" Kategorie="Geselchaft">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Lügen" Komplexität="B" Kategorie="Geselchaft">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Überreden" Komplexität="B" Kategorie="Geselchaft">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+
+  <Talent Name="Tanzen" Komplexität="B" Kategorie="Geselchaft">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+
+
+  <!--Wissen BEGINN-->
+  <Talent Name="Rechnen" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Sagen" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Astronomi" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Geograpie" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Schriftlicherausdruck" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Gesteinskunde" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+
+  <Talent Name="Recherche" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Das finden von informationen in Büchern und Bibliotheken.
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Buchführung" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Medizin" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Tierkunde" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Pflanzenkunde" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Kunst" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Gesteinskunde" Komplexität="B" Kategorie="Wissen">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+
+
+
+
+
+
+
+  <!--Handwerk BEGINN-->
+

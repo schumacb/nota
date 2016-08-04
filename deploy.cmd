@@ -11,8 +11,8 @@ nuget install Cake -ExcludeVersion -OutputDirectory "Tools"
 .\Tools\Cake\Cake.exe deploy.cake -verbosity=Verbose %*
 IF %ERRORLEVEL% NEQ 0 goto error
 
-IF EXIST "Tools" (rmdir /S /Q "Tools" ) 
-IF %ERRORLEVEL% NEQ 0 goto error
+REM  IF EXIST "Tools" (rmdir /S /Q "Tools" ) 
+REM IF %ERRORLEVEL% NEQ 0 goto error
 
 
 goto end
