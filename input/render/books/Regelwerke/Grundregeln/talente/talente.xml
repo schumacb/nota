@@ -432,6 +432,46 @@ Title: "Talente"
       Test
     </Beschreibung>
   </Talent>
+  <Talent Name="Sehen" Komplexität="B" Kategorie="Geist">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Hören" Komplexität="B" Kategorie="Geist">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="RichenSchmeken" Komplexität="B" Kategorie="Geist">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+  <Talent Name="Fühlen" Komplexität="B" Kategorie="Geist">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
 
   <!--Gesellschaft BEGINN-->
   <Talent Name="Menschenkentniss" Komplexität="B" Kategorie="Geselchaft">
@@ -609,7 +649,7 @@ Title: "Talente"
       Test
     </Beschreibung>
   </Talent>
-  <Talent Name="Gesteinskunde" Komplexität="B" Kategorie="Wissen">
+  <Talent Name="Alchemischeswissen" Komplexität="B" Kategorie="Wissen">
     <Probe>
       <Mut/>
       <Klugheit/>
@@ -620,11 +660,20 @@ Title: "Talente"
     </Beschreibung>
   </Talent>
 
-
-
-
-
-
-
   <!--Handwerk BEGINN-->
+  <Talent Name="Alchemie" Komplexität="B" Kategorie="Handwerk">
+    <Probe>
+      <Mut/>
+      <Klugheit/>
+      <Mut/>
+    </Probe>
+    <Beschreibung>
+      Test
+    </Beschreibung>
+  </Talent>
+</Talente>
+
+
+
+
 
