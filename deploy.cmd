@@ -20,7 +20,7 @@ goto end
 :error
 endlocal
 echo An error has occurred during web site deployment. 
-IF EXIST "Tools" (rmdir /S /Q "Tools" ) 
+REM IF EXIST "Tools" (rmdir /S /Q "Tools" ) 
 call :exitSetErrorLevel
 call :exitFromFunction 2>nul
 
