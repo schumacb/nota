@@ -1,6 +1,6 @@
 Title: Zeichen der Götter
 BookType: Regelbuch
-BookNumber: 3
+BookNumber: 4
 ---
 ## Welcome to my homepage!
 Dies ist ein Test von . Viele B  sollte aber auch gehn.

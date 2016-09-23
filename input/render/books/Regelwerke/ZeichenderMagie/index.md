@@ -1,6 +1,6 @@
 Title: Zeichen der Magie
 BookType: Regelbuch
-BookNumber: 2
+BookNumber: 3
 ---
 ## Welcome to my homepage!
 Dies ist ein Test von . Viele B  sollte aber auch gehn.
