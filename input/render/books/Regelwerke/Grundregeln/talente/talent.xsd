@@ -17,11 +17,11 @@
                       <element name="Glück" />
                       <element name="Klugheit" />
                       <element name="Intuition" />
-                      <element name="Gewandheit" />
-                      <element name="Fingerfertigkeit" />
+                      <element name="Gewandtheit" />
+                      <element name="Feinmotorik" />
                       <element name="Sympathie" />
                       <element name="Einschüchterung" />
-                      <element name="Kraft" />
+                      <element name="Stärke" />
                       <element name="Konstitution" />
                     </choice>
                   </sequence>

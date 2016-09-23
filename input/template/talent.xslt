@@ -67,7 +67,13 @@
 
   <xsl:template match="nota:Mut">MU</xsl:template>
   <xsl:template match="nota:Glück">GL</xsl:template>
-  <xsl:template match="nota:Intuition">IN</xsl:template>
   <xsl:template match="nota:Klugheit">KL</xsl:template>
+  <xsl:template match="nota:Intuition">IN</xsl:template>
+  <xsl:template match="nota:Gewandtheit">GE</xsl:template>
+  <xsl:template match="nota:Feinmotorik">IN</xsl:template>
+  <xsl:template match="nota:Sympathie">SY</xsl:template>
+  <xsl:template match="nota:Einschüchterung">ES</xsl:template>
+  <xsl:template match="nota:Stärke">ST</xsl:template>
+  <xsl:template match="nota:Konstitution">KO</xsl:template>
 
 </xsl:stylesheet>
