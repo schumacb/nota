@@ -1,1 +1,3 @@
 Order: 3
+template: 'template\talent.xslt'
+Title: "Talente"
