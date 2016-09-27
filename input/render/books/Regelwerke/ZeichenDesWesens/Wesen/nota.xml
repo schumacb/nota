@@ -1,0 +1,20 @@
+<?xml version='1.0'?>
+<!-- This file represents a fragment of a book store inventory database -->
+<Daten  xmlns='http://nota.org/schema/nota'
+        xmlns:geschöpf="http://nota.org/schema/wesen"
+        xmlns:kultur="http://nota.org/schema/kultur"
+        xmlns:profession="http://nota.org/schema/profession"
+        xmlns:talent="http://nota.org/schema/talent"
+        xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
+        xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://nota.org/schema/nota nota.xsd
+          http://nota.org/schema/geschöpf geschöpf.xsd
+          http://nota.org/schema/kultur kultur.xsd
+          http://nota.org/schema/profession profession.xsd
+          http://nota.org/schema/talent talent.xsd
+          http://nota.org/schema/fertigkeit fertigkeit.xsd
+          http://nota.org/schema/besonderheit besonderheit.xsd">
+  
+  
+</Daten>

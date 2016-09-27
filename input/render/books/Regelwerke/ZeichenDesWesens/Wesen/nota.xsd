@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+         xmlns:nota="http://nota.org/schema/nota"
+        xmlns:geschöpf="http://nota.org/schema/geschöpf"
+        xmlns:kultur="http://nota.org/schema/kultur"
+        xmlns:profession="http://nota.org/schema/profession"
+        xmlns:talent="http://nota.org/schema/talent"
+        xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
+        xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        targetNamespace="http://nota.org/schema/nota"
+        elementFormDefault="qualified"   >
+  <import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>
+  <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
+  <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
+  <import namespace="http://nota.org/schema/talent" schemaLocation="talent.xsd"></import>
+  <import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
+  <import namespace="http://nota.org/schema/besonderheit" schemaLocation="besonderheit.xsd"></import>
+  <element name="Daten">
+    <complexType>
+      <sequence>
+        <element ref="geschöpf:Geschöpfe"/>
+        <element ref="kultur:Kulturen"/>
+        <element ref="profession:Professionen"/>
+        <element ref="talent:Talente"/>
+        <element ref="fertigkeit:Fertigkeiten"/>
+        <element ref="besonderheit:Besonderheiten"/>
+      </sequence>
+    </complexType>
+
+    <key name="BesonderheitPK">
+      <selector xpath="besonderheit:Besonderheiten/besonderheit:Besonderheit"/>
+      <field xpath="@Name"/>
+    </key>
+
+    <key name="KulturPK">
+      <selector xpath="kultur:Kulturen/kultur:Kultur"/>
+      <field xpath="@Name"/>
+    </key>
+
+    <key name="ProfessionPK">
+      <selector xpath="profession:Professionen/profession:Profession"/>
+      <field xpath="@Name"/>
+    </key>
+
+    <key name="TalentPK">
+      <selector xpath="talent:Talente/talent:Talent"/>
+      <field xpath="@Name"/>
+    </key>
+
+    <key name="FertigkeitPK">
+      <selector xpath="fertigkeit:Fertigkeiten/fertigkeit:Fertigkeit"/>
+      <field xpath="@Name"/>
+    </key>
+
+    <keyref name="TalentFK" refer="nota:TalentPK">
+      <selector xpath=".//talent:Talent"/>
+      <field xpath="@Name"/>
+    </keyref>
+
+    <keyref name="FertigkeitFK" refer="nota:FertigkeitPK">
+      <selector xpath=".//fertigkeit:Fertigkeit"/>
+      <field xpath="@Name"/>
+    </keyref>
+
+    <keyref name="BesonderheitFK" refer="nota:BesonderheitPK">
+      <selector xpath=".//besonderheit:Besonderheit"/>
+      <field xpath="@Name"/>
+    </keyref>
+
+    <keyref name="KulturFK" refer="nota:KulturPK">
+      <selector xpath=".//kultur:Kultur"/>
+      <field xpath="@Name"/>
+    </keyref>
+
+    <keyref name="ProfessionFK" refer="nota:ProfessionPK">
+      <selector xpath=".//profession:Profession"/>
+      <field xpath="@Name"/>
+    </keyref>
+  </element>
+
+
+  <complexType name="NamedType">
+    <attribute name="Name" use="required"></attribute>
+  </complexType>
+
+  <complexType name="NamedTypeReqiredeValue">
+    <complexContent>
+      <extension base="nota:NamedType">
+        <attribute name="Wert" type="int" use="required"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="NamedTypeOptionalValue">
+    <complexContent>
+      <extension base="nota:NamedType">
+        <attribute name="Wert" type="int" use="optional"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+
+  <complexType name="Levels">
+    <sequence>
+      <element name="Level" maxOccurs="unbounded">
+        <complexType>
+          <sequence>
+            <element name="Bedingungen" minOccurs="0">
+              <complexType>
+                <sequence>
+                  <element ref="besonderheit:Besonderheit"/>
+                </sequence>
+              </complexType>
+            </element>
+            <choice maxOccurs="unbounded" minOccurs="0">
+              <element ref="fertigkeit:Fertigkeit"/>
+              <element ref="talent:Talent"/>
+            </choice>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+</schema>

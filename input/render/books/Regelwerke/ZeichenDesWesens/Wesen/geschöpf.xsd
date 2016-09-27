@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:nota="http://nota.org/schema/nota"
+        xmlns:geschöpf="http://nota.org/schema/geschöpf"
+        xmlns:kultur="http://nota.org/schema/kultur"
+        xmlns:profession="http://nota.org/schema/profession"
+        xmlns:talent="http://nota.org/schema/talent"
+        xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
+        xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        targetNamespace="http://nota.org/schema/geschöpf"
+        elementFormDefault="qualified">
+  <import namespace="http://nota.org/schema/nota" schemaLocation="nota.xsd"></import>
+  <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
+  <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
+  <import namespace="http://nota.org/schema/talent" schemaLocation="talent.xsd"></import>
+  <import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
+  <import namespace="http://nota.org/schema/besonderheit" schemaLocation="besonderheit.xsd"></import>
+  <element name="Geschöpfe">
+    <complexType>
+      <sequence>
+        <element name="Geschöpf" maxOccurs="unbounded" minOccurs="0" >
+          <complexType>
+            <sequence>
+              <element name="Eigenschaften">
+                <complexType>
+                  <sequence>
+                    <element name="Mut" type="geschöpf:EigenschaftsWert" />
+                    <element name="Glück" type="geschöpf:EigenschaftsWert" />
+                    <element name="Klugheit" type="geschöpf:EigenschaftsWert" />
+                    <element name="Intuition" type="geschöpf:EigenschaftsWert" />
+                    <element name="Gewandtheit" type="geschöpf:EigenschaftsWert" />
+                    <element name="Feinmotorik" type="geschöpf:EigenschaftsWert" />
+                    <element name="Sympathie" type="geschöpf:EigenschaftsWert" />
+                    <element name="Einschüchterung" type="geschöpf:EigenschaftsWert" />
+                    <element name="Stärke" type="geschöpf:EigenschaftsWert" />
+                    <element name="Konstitution" type="geschöpf:EigenschaftsWert" />
+                  </sequence>
+                </complexType>
+              </element>
+
+              <element name="Morphe" minOccurs="0">
+                <complexType>
+                  <choice>
+                    <element name="Morph" minOccurs="1" maxOccurs="unbounded" type="geschöpf:Morph" />
+                  </choice>
+                </complexType>
+              </element>
+              <element name="Besonderheiten"  minOccurs="0"  >
+                <complexType>
+                  <sequence>
+                    <element ref="besonderheit:Besonderheit" maxOccurs="unbounded"/>
+                  </sequence>
+                </complexType>
+              </element>
+              <element name="Beschreibung" type="string"/>
+              <element name="NPC" minOccurs="0"></element>
+              <element name="PC" minOccurs="0"></element>
+            </sequence>
+            <attribute type="string" name="Name" use="required"/>
+            <attribute type="string" name="Gattung" use="required"/>
+            <attribute type="string" name="Art" use="required"/>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="Geschöpf" type="nota:NamedType"/>
+
+  <complexType name="Morph" abstract="true">
+    <sequence>
+      <element name="Beschreibung" type="string"/>
+      <element name="EigenschaftModifikation" minOccurs="0" type="geschöpf:EigenschaftsMods"/>
+
+      <element name="Mods" minOccurs="0" type="geschöpf:Mods"/>
+    </sequence>
+    <attribute name="Name" use="optional" type="string" />
+
+  </complexType>
+
+  <complexType name="MorphWithLebensabschnitt">
+    <complexContent>
+      <extension base="geschöpf:Morph">
+        <sequence>
+          <element name="Lebensabschnitte" >
+            <complexType>
+              <sequence>
+                <element name="Lebensabschnitt" maxOccurs="unbounded" type="geschöpf:LebensabschnittWithSize">
+                </element>
+              </sequence>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="MorphWithoutLebensabschnitt">
+    <complexContent>
+      <extension base="geschöpf:Morph">
+        <sequence>
+          <element name="Lebensabschnitte" >
+            <complexType>
+              <sequence>
+                <element name="Lebensabschnitt" maxOccurs="unbounded" type="geschöpf:LebensabschnittWithOutSize">
+                </element>
+              </sequence>
+            </complexType>
+          </element>
+        </sequence>
+        <attribute name="größe" type="float" use="required"/>
+        <attribute name="gewicht" type="float" use="required"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+
+
+  <complexType name="Lebensabschnitt" abstract="true">
+    <sequence>
+      <element name="Beschreibung" type="string"/>
+      <element name="Mods" minOccurs="0" type="geschöpf:Mods"/>
+    </sequence>
+    <attribute name="startAlter" type="float" use="required"/>
+    <attribute name="endAlter" type="float" use="required"/>
+    <attribute name="Name" use="optional" type="string"/>
+  </complexType>
+
+  <complexType name="LebensabschnittWithOutSize">
+    <complexContent>
+      <extension base="geschöpf:Lebensabschnitt" />
+    </complexContent>
+
+  </complexType>
+  <complexType name="LebensabschnittWithSize">
+    <complexContent>
+      <extension base="geschöpf:Lebensabschnitt">
+        <attribute name="größe" type="float" use="required"/>
+        <attribute name="gewicht" type="float" use="required"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="EigenschaftsWert">
+    <attribute name="Durchschnitt" type="int" use="required"/>
+    <attribute name="Minimum" type="int" use="required"/>
+    <attribute name="Maximum" type="int" use="required"/>
+  </complexType>
+
+  <complexType name="ModWert">
+    <attribute name="Mod" type="int" use="required"/>
+  </complexType>
+
+  <complexType name="EigenschaftsMods">
+    <sequence>
+      <element minOccurs="0" name="Mut" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Glück" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Klugheit" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Intuition" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Gewandtheit" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Feinmotorik" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Sympathie" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Einschüchterung" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Stärke" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Konstitution" type="geschöpf:ModWert" />
+    </sequence>
+  </complexType>
+  <complexType name="Mods">
+    <sequence>
+      <element name="Eigenschaften" type="geschöpf:EigenschaftsMods" minOccurs="0" />
+      <element name="Besonderheiten"  minOccurs="0"  >
+        <complexType>
+          <sequence>
+            <element ref="besonderheit:Besonderheit" maxOccurs="unbounded"/>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+</schema>

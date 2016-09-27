@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:nota="http://nota.org/schema/nota"
+        xmlns:geschöpf="http://nota.org/schema/geschöpf"
+        xmlns:kultur="http://nota.org/schema/kultur"
+        xmlns:profession="http://nota.org/schema/profession"
+        xmlns:talent="http://nota.org/schema/talent"
+        xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
+        xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        targetNamespace="http://nota.org/schema/talent"
+        elementFormDefault="qualified">
+  <import namespace="http://nota.org/schema/nota" schemaLocation="nota.xsd"></import>
+  <import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>
+  <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
+  <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
+  <import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
+  <import namespace="http://nota.org/schema/besonderheit" schemaLocation="besonderheit.xsd"></import>
+
+  <element name="Talente">
+    <complexType>
+      <sequence>
+        <element name="Talent"  maxOccurs="unbounded" minOccurs="0" >
+          <complexType>
+            <sequence>
+              <element name="Probe">
+                <complexType>
+                  <sequence>
+                    <choice maxOccurs="3" minOccurs="3">
+                      <element name="Mut" />
+                      <element name="Glück" />
+                      <element name="Klugheit" />
+                      <element name="Intuition" />
+                      <element name="Gewandtheit" />
+                      <element name="Feinmotorik" />
+                      <element name="Sympathie" />
+                      <element name="Einschüchterung" />
+                      <element name="Stärke" />
+                      <element name="Konstitution" />
+                    </choice>
+                  </sequence>
+                </complexType>
+              </element>
+              <element name="Beschreibung"  type="string"/>
+              <element name="Bedingugen" minOccurs="0">
+                <complexType>
+                  <sequence>
+                    <element name="Bedingung" maxOccurs="unbounded">
+                      <complexType>
+                        <choice maxOccurs="unbounded">
+                          <element ref="talent:Talent"/>
+                          <element ref="fertigkeit:Fertigkeit"/>
+                        </choice>
+                        <attribute name="Wert"></attribute>
+                      </complexType>
+                      <unique name="WertUniqueForBedingung">
+                        <selector xpath=".//Bedingung"></selector>
+                        <field xpath="@Wert"/>
+                      </unique>
+                    </element>
+                  </sequence>
+                </complexType>
+              </element>
+              <element name="Ableitungen" minOccurs="0" maxOccurs="1"  type="talent:AbleitungsAuswahl">
+              </element>
+            </sequence>
+            <attribute type="string" name="Name" use="required"/>
+            <attribute type="talent:Kategorie" use="required" name="Kategorie"/>
+            <attribute type="talent:Komplexität" use="required" name="Komplexität"/>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+    <key name="TalentPK">
+      <selector xpath="talent:Talente/talent:Talent"/>
+      <field xpath="@Name"/>
+    </key>
+    <keyref name="TalentFK" refer="talent:TalentPK">
+      <selector xpath=".//nota:Ableitung"/>
+      <field xpath="@Name"/>
+    </keyref>
+  </element>
+
+  <element name="Talent"  type="nota:NamedTypeOptionalValue" />
+
+
+  <simpleType name="Kategorie">
+    <restriction base="string">
+      <enumeration value="Geist"/>
+      <enumeration value="Körper"/>
+      <enumeration value="Geselchaft"/>
+      <enumeration value="Kampf"/>
+      <enumeration value="Wissen"/>
+      <enumeration value="Handwerk"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="Komplexität">
+    <restriction base="string">
+      <pattern value="[A-K]"/>
+    </restriction>
+  </simpleType>
+
+
+  <complexType name="AbleitungsAuswahl">
+    <sequence>
+      <choice maxOccurs="unbounded">
+        <element ref="talent:Ableitung"/>
+        <element ref="talent:Max"/>
+      </choice>
+    </sequence>
+  </complexType>
+
+
+
+  <element name="Ableitung">
+    <complexType  >
+      <attribute name="Name" type="string" use="required" />
+      <attribute name="Anzahl" type="int" use="required" />
+    </complexType>
+  </element>
+
+  <element name="Max" >
+    <complexType>
+      <sequence>
+        <choice maxOccurs="unbounded" minOccurs="1">
+          <element ref="talent:Ableitung"/>
+          <element ref="talent:Max"/>
+        </choice>
+      </sequence>
+      <attribute name="Anzahl" type="int" default="1" use="optional" />
+    </complexType>
+  </element>
+
+</schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:nota="http://nota.org/schema/nota"
+        xmlns:wesen="http://nota.org/schema/geschöpf"
+        xmlns:kultur="http://nota.org/schema/kultur"
+        xmlns:profession="http://nota.org/schema/profession"
+        xmlns:talent="http://nota.org/schema/talent"
+        xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
+        xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        targetNamespace="http://nota.org/schema/fertigkeit"
+        elementFormDefault="qualified">
+  <import namespace="http://nota.org/schema/nota" schemaLocation="nota.xsd"></import>
+  <import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>
+  <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
+  <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
+  <import namespace="http://nota.org/schema/talent" schemaLocation="talent.xsd"></import>
+  <import namespace="http://nota.org/schema/besonderheit" schemaLocation="besonderheit.xsd"></import>
+  <element name="Fertigkeiten">
+    <complexType>
+      <sequence>
+        <element name="Fertigkeit" minOccurs="0" maxOccurs="unbounded">
+          <complexType>
+            <sequence>
+              <element name="Voraussetzung" minOccurs="0">
+                <complexType>
+                  <choice maxOccurs="unbounded">
+                    <element ref="talent:Talent" />
+                    <element ref="fertigkeit:Fertigkeit" />
+                  </choice>
+                </complexType>
+              </element>
+              <element name="Beschreibung" type="string"></element>
+            </sequence>
+            <attribute type="string" name="Name" use="required"/>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="Fertigkeit" type="nota:NamedType"/>
+  
+
+</schema>

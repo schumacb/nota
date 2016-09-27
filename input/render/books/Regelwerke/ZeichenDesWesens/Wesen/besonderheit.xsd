@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:nota="http://nota.org/schema/nota"
+        xmlns:wesen="http://nota.org/schema/geschöpf"
+        xmlns:kultur="http://nota.org/schema/kultur"
+        xmlns:profession="http://nota.org/schema/profession"
+        xmlns:talent="http://nota.org/schema/talent"
+        xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
+        xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        targetNamespace="http://nota.org/schema/besonderheit"
+        elementFormDefault="qualified">
+  <import namespace="http://nota.org/schema/nota" schemaLocation="nota.xsd"></import>
+  <import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>
+  <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
+  <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
+  <import namespace="http://nota.org/schema/talent" schemaLocation="talent.xsd"></import>
+  <import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
+  <element name="Besonderheiten">
+    <complexType>
+      <sequence>
+        <element name="Besonderheit" maxOccurs="unbounded" minOccurs="0">
+          <complexType>
+            <sequence>
+              <element name="Beschreibung" type="string"/>
+              <element name="Verbessert" minOccurs="0">
+                <complexType>
+                  <sequence>
+                    <element name="Besonderheit" type="nota:NamedType"/>
+                  </sequence>
+                </complexType>
+              </element>
+              <element name="Bedingung" type="besonderheit:BedingugsAuswahl" minOccurs="0" />
+            </sequence>
+            <attribute name="Name" type="string" use="required"/>
+            <attribute name="Kosten" type="int" use="required"/>
+          </complexType>
+          <unique name="BesonderheitUniqness">
+            <selector xpath=".//nota:Besonderheit"/>
+            <field xpath="@Name"/>
+          </unique>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="Besonderheit" type="nota:NamedType"/>
+
+  <complexType name="BedingugsAuswahl">
+    <choice>
+      <element ref="besonderheit:Or"></element>
+      <element ref="besonderheit:And"></element>
+      <element ref="besonderheit:Not"></element>
+      <element name="Besonderheit"  type="nota:NamedType"/>
+    </choice>
+  </complexType>
+  <complexType name="BedingugsAuswahlen">
+    <choice maxOccurs="unbounded">
+      <element ref="besonderheit:Or"></element>
+      <element ref="besonderheit:And"></element>
+      <element ref="besonderheit:Not"></element>
+      <element name="Besonderheit"  type="nota:NamedType"/>
+    </choice>
+  </complexType>
+
+  <element name="Or" type="besonderheit:BedingugsAuswahlen" />
+  <element name="And" type="besonderheit:BedingugsAuswahlen" />
+  <element name="Not" type="besonderheit:BedingugsAuswahl" />
+
+
+
+</schema>
