@@ -67,56 +67,30 @@
 
   <element name="Geschöpf" type="nota:NamedType"/>
 
-  <complexType name="Morph" abstract="true">
+  <complexType name="Morph" >
     <sequence>
       <element name="Beschreibung" type="string"/>
       <element name="EigenschaftModifikation" minOccurs="0" type="geschöpf:EigenschaftsMods"/>
 
       <element name="Mods" minOccurs="0" type="geschöpf:Mods"/>
+      <element name="Lebensabschnitte"  >
+        <complexType>
+          <sequence>
+            <element name="Lebensabschnitt" maxOccurs="unbounded" type="geschöpf:Lebensabschnitt">
+            </element>
+          </sequence>
+        </complexType>
+      </element>
     </sequence>
     <attribute name="Name" use="optional" type="string" />
-
-  </complexType>
-
-  <complexType name="MorphWithLebensabschnitt">
-    <complexContent>
-      <extension base="geschöpf:Morph">
-        <sequence>
-          <element name="Lebensabschnitte" >
-            <complexType>
-              <sequence>
-                <element name="Lebensabschnitt" maxOccurs="unbounded" type="geschöpf:LebensabschnittWithSize">
-                </element>
-              </sequence>
-            </complexType>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-
-  <complexType name="MorphWithoutLebensabschnitt">
-    <complexContent>
-      <extension base="geschöpf:Morph">
-        <sequence>
-          <element name="Lebensabschnitte" >
-            <complexType>
-              <sequence>
-                <element name="Lebensabschnitt" maxOccurs="unbounded" type="geschöpf:LebensabschnittWithOutSize">
-                </element>
-              </sequence>
-            </complexType>
-          </element>
-        </sequence>
-        <attribute name="größe" type="float" use="required"/>
-        <attribute name="gewicht" type="float" use="required"/>
-      </extension>
-    </complexContent>
+    <attribute name="größe" type="float" use="optional"/>
+    <attribute name="gewicht" type="float" use="optional"/>
   </complexType>
 
 
 
-  <complexType name="Lebensabschnitt" abstract="true">
+
+  <complexType name="Lebensabschnitt" >
     <sequence>
       <element name="Beschreibung" type="string"/>
       <element name="Mods" minOccurs="0" type="geschöpf:Mods"/>
@@ -124,21 +98,8 @@
     <attribute name="startAlter" type="float" use="required"/>
     <attribute name="endAlter" type="float" use="required"/>
     <attribute name="Name" use="optional" type="string"/>
-  </complexType>
-
-  <complexType name="LebensabschnittWithOutSize">
-    <complexContent>
-      <extension base="geschöpf:Lebensabschnitt" />
-    </complexContent>
-
-  </complexType>
-  <complexType name="LebensabschnittWithSize">
-    <complexContent>
-      <extension base="geschöpf:Lebensabschnitt">
-        <attribute name="größe" type="float" use="required"/>
-        <attribute name="gewicht" type="float" use="required"/>
-      </extension>
-    </complexContent>
+    <attribute name="größe" type="float" use="optional"/>
+    <attribute name="gewicht" type="float" use="optional"/>
   </complexType>
 
   <complexType name="EigenschaftsWert">
