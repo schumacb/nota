@@ -83,8 +83,10 @@
       </element>
     </sequence>
     <attribute name="Name" use="optional" type="string" />
-    <attribute name="größe" type="float" use="optional"/>
-    <attribute name="gewicht" type="float" use="optional"/>
+    <attribute name="minGröße" type="float" use="optional"/>
+    <attribute name="minGewicht" type="float" use="optional"/>
+    <attribute name="maxGröße" type="float" use="optional"/>
+    <attribute name="maxGewicht" type="float" use="optional"/>
   </complexType>
 
 
@@ -98,8 +100,10 @@
     <attribute name="startAlter" type="float" use="required"/>
     <attribute name="endAlter" type="float" use="required"/>
     <attribute name="Name" use="optional" type="string"/>
-    <attribute name="größe" type="float" use="optional"/>
-    <attribute name="gewicht" type="float" use="optional"/>
+    <attribute name="minGröße" type="float" use="optional"/>
+    <attribute name="minGewicht" type="float" use="optional"/>
+    <attribute name="maxGröße" type="float" use="optional"/>
+    <attribute name="maxGewicht" type="float" use="optional"/>
   </complexType>
 
   <complexType name="EigenschaftsWert">

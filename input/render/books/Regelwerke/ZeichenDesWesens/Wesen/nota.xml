@@ -19,19 +19,31 @@
   <Geschöpfe xmlns="http://nota.org/schema/geschöpf">
     <Geschöpf Name="Mensch" Gattung="Homo" Art="Sapiens">
       <Eigenschaften>
-        <Mut Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Glück Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Klugheit Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Intuition Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Gewandtheit Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Feinmotorik Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Sympathie Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Einschüchterung Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Stärke Durchschnitt="1" Minimum="1" Maximum="1" />
-        <Konstitution Durchschnitt="1" Minimum="1" Maximum="1" />
+        <Mut Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Glück Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Klugheit Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Intuition Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Gewandtheit Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Feinmotorik Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Sympathie Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Einschüchterung Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Stärke Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Konstitution Durchschnitt="1" Minimum="7" Maximum="13" />
       </Eigenschaften>
       <Morphe>
-        <Morph Name="Mann">
+        <Morph Name="Mann" minGröße="165" maxGröße="185" minGewicht="55" maxGewicht="195">
+          <Beschreibung>
+
+          </Beschreibung>
+          <Lebensabschnitte>
+            <Lebensabschnitt startAlter="0" endAlter="3">
+              <Beschreibung>
+                ...
+              </Beschreibung>
+            </Lebensabschnitt>
+          </Lebensabschnitte>
+        </Morph>
+        <Morph Name="Frau" minGröße="155" maxGröße="180" minGewicht="50" maxGewicht="190">
           <Beschreibung>
 
           </Beschreibung>

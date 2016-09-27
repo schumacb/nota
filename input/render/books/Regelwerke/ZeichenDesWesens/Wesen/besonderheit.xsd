@@ -25,7 +25,7 @@
               <element name="Verbessert" minOccurs="0">
                 <complexType>
                   <sequence>
-                    <element name="Besonderheit" type="nota:NamedType"/>
+                    <element ref="besonderheit:Besonderheit"/>
                   </sequence>
                 </complexType>
               </element>
@@ -33,9 +33,10 @@
             </sequence>
             <attribute name="Name" type="string" use="required"/>
             <attribute name="Kosten" type="int" use="required"/>
+            <attribute name="ArtGebunden" type="boolean" use="optional" default="false"/>
           </complexType>
           <unique name="BesonderheitUniqness">
-            <selector xpath=".//nota:Besonderheit"/>
+            <selector xpath=".//besonderheit:Besonderheit"/>
             <field xpath="@Name"/>
           </unique>
         </element>
@@ -50,7 +51,7 @@
       <element ref="besonderheit:Or"></element>
       <element ref="besonderheit:And"></element>
       <element ref="besonderheit:Not"></element>
-      <element name="Besonderheit"  type="nota:NamedType"/>
+      <element ref="besonderheit:Besonderheit"/>
     </choice>
   </complexType>
   <complexType name="BedingugsAuswahlen">
@@ -58,7 +59,7 @@
       <element ref="besonderheit:Or"></element>
       <element ref="besonderheit:And"></element>
       <element ref="besonderheit:Not"></element>
-      <element name="Besonderheit"  type="nota:NamedType"/>
+      <element ref="besonderheit:Besonderheit"/>
     </choice>
   </complexType>
 
