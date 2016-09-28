@@ -94,6 +94,9 @@ public static class AutoLinkHelper
 public static class	Constants
 {
 	public static string ProjectName {get; }= "nota";
+
+public static string SiteURL => GitBranch == "master" ? "nota-game.azurewebsites.net" : "nota-dev.azurewebsites.net";
+
 	public static string GitUrl {get; }= Environment.GetEnvironmentVariable("GIT_URL")?? "https://github.com/LokiMidgard/nota";
 	public static string GitBranch {get; }= Environment.GetEnvironmentVariable("GIT_BRANCH")?? "master";
 	
@@ -143,7 +146,10 @@ Pipelines.Add("renderInput",
 		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
 		if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
 			path = path.Directory.CombineFile("index" + path.Extension);
-		if(path.Extension == ".md" || path.Extension == ".cshtml"|| path.Extension == ".xml")
+		if(path.Extension == ".md" 
+		|| path.Extension == ".cshtml"
+		|| path.Extension == ".xslt"
+		|| path.Extension == ".xml")
 			path= path.ChangeExtension(".html");
 		return path;
 	}),
@@ -175,6 +181,8 @@ Pipelines.Add("staticInput",
 		.WithMetadata("xmpRights:Marked", "RightsReserved"),
 	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".css" 
 			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".js"
+			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".xsd"
+			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".xml"
 			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".config",
 		If(@doc.Get<string>("RightsReserved")!= "False",
 			If((!@doc.ContainsKey("Copyright"))
@@ -183,7 +191,8 @@ Pipelines.Add("staticInput",
 				Where((@doc,@ctx)=> false)
 			)
 		)
-	)
+	),
+	Replace("http://nota.org/", $"http://{Constants.SiteURL}/")
 );
 
 
@@ -376,11 +385,18 @@ Pipelines.Add("Write",
 	If(@doc.Source.Extension==".md",
 		Markdown()
 	), 
-	If(@doc.Source.Extension==".xml",
-		Xslt((string)@doc["template"])
+	
+	// If(@doc.Source.Extension==".xml",
+	// 	Xslt((string)@doc["template"])
+	// ), 
+	If(@doc.Source.Extension==".xslt",
+		Meta("src", @doc.Source),
+		Content(ReadFiles((string)@doc["data"])),
+		Xslt(@doc["src"])
 	), 
 	If(@doc.Source.Extension==".md" 
 			|| @doc.Source.Extension==".cshtml" 
+			|| @doc.Source.Extension==".xslt" 
 			|| @doc.Source.Extension==".xml",
 		Razor().WithViewStart(@"layout/viewstart.cshtml")
 	),
