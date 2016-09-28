@@ -329,10 +329,7 @@ Pipelines.Add("staticOutput",
 );
 
 Pipelines.Add("output",
-	Documents("staticOutput"),
-	Concat(
-		Documents("renderOutput")
-	),
+	Documents("renderOutput"),
 	Concat(
 		Documents("bootstrapOutput")
 	),
@@ -409,6 +406,10 @@ Pipelines.Add("Write",
 		Execute(AutoLinkHelper.AddImageMetadata),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
 	),
+	Concat(
+		Documents("staticOutput")
+	),
+	
 	Trace(@doc["TargetFile"]),
 	WriteFiles( @doc["TargetFile"])
 );
