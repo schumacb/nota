@@ -28,27 +28,27 @@
     </complexType>
 
     <key name="BesonderheitPK">
-      <selector xpath="besonderheit:Besonderheiten/besonderheit:Besonderheit"/>
+      <selector xpath="./besonderheit:Besonderheiten/besonderheit:Besonderheit"/>
       <field xpath="@Name"/>
     </key>
 
     <key name="KulturPK">
-      <selector xpath="kultur:Kulturen/kultur:Kultur"/>
+      <selector xpath="./kultur:Kulturen/kultur:Kultur"/>
       <field xpath="@Name"/>
     </key>
 
     <key name="ProfessionPK">
-      <selector xpath="profession:Professionen/profession:Profession"/>
+      <selector xpath="./profession:Professionen/profession:Profession"/>
       <field xpath="@Name"/>
     </key>
 
     <key name="TalentPK">
-      <selector xpath="talent:Talente/talent:Talent"/>
+      <selector xpath="./talent:Talente/talent:Talent"/>
       <field xpath="@Name"/>
     </key>
 
     <key name="FertigkeitPK">
-      <selector xpath="fertigkeit:Fertigkeiten/fertigkeit:Fertigkeit"/>
+      <selector xpath="./fertigkeit:Fertigkeiten/fertigkeit:Fertigkeit"/>
       <field xpath="@Name"/>
     </key>
 

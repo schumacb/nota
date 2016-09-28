@@ -71,16 +71,21 @@
       </sequence>
     </complexType>
     <key name="TalentPK">
-      <selector xpath="talent:Talente/talent:Talent"/>
+      <selector xpath="./talent:Talent"/>
       <field xpath="@Name"/>
     </key>
     <keyref name="TalentFK" refer="talent:TalentPK">
-      <selector xpath=".//nota:Ableitung"/>
+      <selector xpath=".//talent:Ableitung"/>
       <field xpath="@Name"/>
     </keyref>
   </element>
 
-  <element name="Talent"  type="nota:NamedTypeOptionalValue" />
+  <element name="Talent" >
+    <complexType>
+      <attribute name="Name" use="required"/>
+      <attribute name="Level" use="optional"/>
+    </complexType>
+  </element>
 
 
   <simpleType name="Kategorie">

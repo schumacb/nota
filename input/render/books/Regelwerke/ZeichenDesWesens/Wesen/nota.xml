@@ -767,6 +767,25 @@
       </Beschreibung>
     </Talent>
 
+    <Talent Name="Kochen" Komplexität="B" Kategorie="Handwerk">
+      <Probe>
+        <Mut/>
+        <Klugheit/>
+        <Mut/>
+      </Probe>
+      <Beschreibung>
+        Test
+      </Beschreibung>
+      <Bedingugen>
+        <Bedingung Wert="4">
+          <Talent Name="Backen" Level="2"/>
+        </Bedingung>
+      </Bedingugen>
+      <Ableitungen>
+        <Ableitung Name="Backen" Anzahl="2"/>
+      </Ableitungen>
+    </Talent>
+
 
   </Talente>
   <Fertigkeiten xmlns="http://nota.org/schema/fertigkeit">
