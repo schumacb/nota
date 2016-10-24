@@ -19,7 +19,11 @@
     <xsl:apply-templates select="talent:Talente"/>  
   </xsl:template>
 
+
   <xsl:template match="talent:Talente">
+  <p>
+  Eine übersciht der verschiedenen Talente
+  </p>
     <xsl:apply-templates select="talent:Talent"/>
   </xsl:template>
   <xsl:template match="talent:Talent">

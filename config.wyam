@@ -4,6 +4,7 @@
 //#a WyamYaml -p 
 //#a WyamMarkdown -p
 #n Wyam.All -p
+#n Wyam.Xslt2 -p
 #n jQuery -v [2.2.3]
 #n bootstrap -v [3.3.6]
 
@@ -388,8 +389,12 @@ Pipelines.Add("Write",
 	// ), 
 	If(@doc.Source.Extension==".xslt",
 		Meta("src", @doc.Source),
-		Content(ReadFiles((string)@doc["data"])),
-		Xslt(@doc["src"])
+		Trace("Is XSLT => "+@doc.Source),
+		Trace((string)@doc["data"]),
+		Content((string)@doc["data"]),
+		Trace("Readed Content"),
+		
+		Xslt2(@doc["src"])
 	), 
 	If(@doc.Source.Extension==".md" 
 			|| @doc.Source.Extension==".cshtml" 
