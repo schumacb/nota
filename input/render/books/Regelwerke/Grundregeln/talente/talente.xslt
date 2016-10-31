@@ -15,6 +15,7 @@
                 http://nota.org/schema/fertigkeit ..\..\..\..\..\static\schema\fertigkeit.xsd 
                 http://nota.org/schema/besonderheit ..\..\..\..\..\static\schema\besonderheit.xsd" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output method="html" indent="yes" />
   <xsl:template match="nota:Daten">
     <xsl:apply-templates select="talent:Talente"/>  
   </xsl:template>
@@ -24,8 +25,14 @@
   <p>
   Eine übersciht der verschiedenen Talente
   </p>
-    <xsl:apply-templates select="talent:Talent"/>
+  <xsl:for-each-group select="talent:Talent" group-by="@Kategorie">
+    <h2><xsl:value-of select="@Kategorie" /></h2>
+    <xsl:for-each select="current-group()">
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </xsl:for-each-group>
   </xsl:template>
+
   <xsl:template match="talent:Talent">
 
     <div class="panel panel-default">

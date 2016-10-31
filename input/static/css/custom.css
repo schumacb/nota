@@ -55,9 +55,20 @@ padding-right: 20px;
 }
 
 .twoColumn {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
 	column-count: 2;
+	-webkit-column-width: 25em;	
+	-moz-column-width: 25em;	
 	column-width: 25em;	
 }
+
+.twoColumn h2 {
+    column-span: all;
+    -webkit-column-span: all;
+    -moz-column-span: all;
+}
+
 .container .credit {
 	margin: 20px 0;
 }
@@ -93,21 +104,7 @@ font-size: 80%;
 #footer .container > #license {
    margin-top: 15px;
 }
-
-
-.content > p:first-of-type:first-letter  {
-font-family: 'InitialsFont'; 
-    font-weight: normal; 
-    font-style: normal;
-    font-size: 15em;
-    text-transform: lowercase;
-    margin-top: -0.33em;
-    margin-bottom: -0.33em;
-           float : left; 
-       width : 1em;
-        
-       color : #c00; }
-       
+      
 .panel {
     display: inline-block;
     width: 100%;

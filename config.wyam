@@ -4,7 +4,6 @@
 //#a WyamYaml -p 
 //#a WyamMarkdown -p
 #n Wyam.All -p
-#n Wyam.Xslt2 -p
 #n jQuery -v [2.2.3]
 #n bootstrap -v [3.3.6]
 
@@ -270,7 +269,6 @@ Pipelines.Add("authorOutput",
 	Helper.TargetUrlModule(),
 	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).ChangeExtension( ".cshtml")),@doc.Content)})
 );
-
 Pipelines.Add("renderOutput",
 	Documents("renderInput"),
 	Concat(
@@ -309,8 +307,8 @@ Pipelines.Add("renderOutput",
 	/// Adding Tree ///
 	Tree()
 		.WithRoots(@doc.Get<bool>("IsBook"))
-		.WithPath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
-		.WithOrder(@doc.Get<int>("Order",int.MaxValue)),
+		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
+		.WithSort(@doc.Get<int>("Order",int.MaxValue)),
 	
 	/// Chapters ///
 	If(@doc.Metadata.ContainsKey("Parent"),
@@ -337,7 +335,7 @@ Pipelines.Add("output",
 	Concat(
 		Documents("authorOutput")		
 	)
-);
+	);
 
 //  88                                 88                                          
 //  88                                 88                                          
@@ -389,11 +387,7 @@ Pipelines.Add("Write",
 	// ), 
 	If(@doc.Source.Extension==".xslt",
 		Meta("src", @doc.Source),
-		Trace("Is XSLT => "+@doc.Source),
-		Trace((string)@doc["data"]),
-		Content((string)@doc["data"]),
-		Trace("Readed Content"),
-		
+		Content(ReadFiles((string)@doc["data"])),
 		Xslt2(@doc["src"])
 	), 
 	If(@doc.Source.Extension==".md" 
