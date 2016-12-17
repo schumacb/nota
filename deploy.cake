@@ -58,7 +58,8 @@ Task("Build")
         Wyam(new WyamSettings
         { 
             OutputPath  = websitePath,
-            LogFilePath = "wyam.log"
+            LogFilePath = "wyam.log",
+            Verbose = true
         });        
     });
         
