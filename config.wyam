@@ -308,7 +308,7 @@ Pipelines.Add("renderOutput",
 	Tree()
 		.WithRoots(@doc.Get<bool>("IsBook"))
 		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
-		.WithSort(@doc.Get<int>("Order",int.MaxValue)),
+		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
 	
 	/// Chapters ///
 	If(@doc.Metadata.ContainsKey("Parent"),

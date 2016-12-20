@@ -70,6 +70,7 @@ Task("Preview")
         { 
             OutputPath  = websitePath ?? "output",
             Preview = true,
+            PreviewPort = 6080,
             Watch = true
         });        
     });
