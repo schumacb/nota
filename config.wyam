@@ -387,8 +387,12 @@ Pipelines.Add("Write",
 	// ), 
 	If(@doc.Source.Extension==".xslt",
 		Meta("src", @doc.Source),
-		Content(ReadFiles((string)@doc["data"])),
-		Xslt2(@doc["src"])
+		If(@doc.Metadata.ContainsKey("data"),
+			Content(System.IO.File.ReadAllText((string)@doc["data"])),
+			Xslt2(@doc["src"])
+		).ElseIf(!@doc.Metadata.ContainsKey("data"),
+			Trace("Faild data Metadata on"+ @doc.Source)
+		)
 	), 
 	If(@doc.Source.Extension==".md" 
 			|| @doc.Source.Extension==".cshtml" 

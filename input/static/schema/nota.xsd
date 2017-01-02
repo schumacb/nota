@@ -7,6 +7,7 @@
         xmlns:talent="http://nota.org/schema/talent"
         xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
         xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        xmlns:aktion="http://nota.org/schema/kampf/aktionen"
         targetNamespace="http://nota.org/schema/nota"
         elementFormDefault="qualified"   >
   <import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>
@@ -15,6 +16,7 @@
   <import namespace="http://nota.org/schema/talent" schemaLocation="talent.xsd"></import>
   <import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
   <import namespace="http://nota.org/schema/besonderheit" schemaLocation="besonderheit.xsd"></import>
+  <import namespace="http://nota.org/schema/kampf/aktionen" schemaLocation="kampf/aktionen.xsd"></import>
   <element name="Daten">
     <complexType>
       <sequence>
@@ -24,6 +26,7 @@
         <element ref="talent:Talente"/>
         <element ref="fertigkeit:Fertigkeiten"/>
         <element ref="besonderheit:Besonderheiten"/>
+        <element ref="aktion:Aktionen"/>
       </sequence>
     </complexType>
 

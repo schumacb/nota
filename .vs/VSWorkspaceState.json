@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\input",
+    "\\input\\render",
+    "\\input\\render\\books",
+    "\\input\\render\\books\\Regelwerke",
+    "\\input\\render\\books\\Regelwerke\\Grundregeln",
+    "\\input\\render\\books\\Regelwerke\\Grundregeln\\Kampf",
+    "\\input\\static",
+    "\\input\\static\\data",
+    "\\input\\static\\schema",
+    "\\input\\static\\schema\\kampf"
+  ],
+  "PreviewInSolutionExplorer": false
+}
