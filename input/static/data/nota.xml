@@ -822,7 +822,9 @@
       <aktionen:InstantEffekt>
         Erhöhe die Tallentpunkte für diese Aktion um 50%
       </aktionen:InstantEffekt>
-      <aktionen:Mod Type="Percent" Value="50"/>
+      <aktionen:Mod ModifierType="Bonus">
+        <aktionen:ConcreteModValueType Type="Percent" Value="50"/>
+      </aktionen:Mod>
     </aktionen:Aktion>
     
     <aktionen:Aktion Name="Rückzug" Kosten="1" Typ="Defensiv">
@@ -845,7 +847,9 @@
       <aktionen:Beschreibung>
 
       </aktionen:Beschreibung>
-      <aktionen:Mod Type="Absolute" Value="-3"/>
+      <aktionen:Mod ModifierType="Malus">
+        <aktionen:VariableModValueType Value="x"/>
+      </aktionen:Mod>
     </aktionen:Aktion>
     
     <aktionen:Aktion Name="Schutz"  Kosten="2" Typ="Defensiv">

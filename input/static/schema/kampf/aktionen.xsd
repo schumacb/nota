@@ -4,7 +4,7 @@
         xmlns:aktionen="http://nota.org/schema/kampf/aktionen"
         targetNamespace="http://nota.org/schema/kampf/aktionen"
         elementFormDefault="qualified">
-  <import namespace="http://nota.org/schema/nota" schemaLocation="../nota.xsd"></import>
+   <import namespace="http://nota.org/schema/nota" schemaLocation="../nota.xsd"></import>
 
   <element name="Aktionen">
     <complexType>
@@ -17,7 +17,16 @@
               <element name="GarantierterEffekt" type="string" minOccurs="0"/>
               <element name="ErfolgEffekt" type="string"   minOccurs="0"/>
               <element name="MisserfolgEffekt" type="string" minOccurs="0" />
-              <element name="Mod" type="aktionen:ModValueType" minOccurs="0" />
+              <element name="Mod" minOccurs="0" >
+                <complexType>
+                  <choice>
+                    <element ref="aktionen:ConcreteModValueType"/>
+                    <element ref="aktionen:VariableModValueType"/>
+                    <element ref="aktionen:AddModValueType"/>
+                  </choice>
+                  <attribute name="ModifierType" use="required" type="aktionen:ModifierType"/>
+                </complexType>
+              </element>
             </sequence>
             <attribute name="Name" type="string" use="required"/>
             <attribute name="Kosten" type="int" use="required"/>
@@ -28,11 +37,29 @@
     </complexType>
   </element>
 
+  <element name="ConcreteModValueType">
+    <complexType>
+      <attribute name="Value" type="int" />
+      <attribute name="Type" type="aktionen:ModType" />
+    </complexType>
+  </element>
 
-  <complexType name="ModValueType">
-    <attribute name="Value" type="int" />
-    <attribute name="Type" type="aktionen:ModType" />
-  </complexType>
+  <element name="VariableModValueType">
+    <complexType>
+      <attribute name="Value" type="string" />
+    </complexType>
+  </element>
+
+  <element name="AddModValueType" >
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <element ref="aktionen:ConcreteModValueType"/>
+        <element ref="aktionen:VariableModValueType"/>
+        <element ref="aktionen:AddModValueType"/>
+      </choice>
+    </complexType>
+  </element>
+
 
   <simpleType name="ActionType">
     <restriction base="string">
@@ -47,6 +74,13 @@
     <restriction base="string">
       <enumeration value="Percent"/>
       <enumeration value="Absolute"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="ModifierType">
+    <restriction base="string">
+      <enumeration value="Malus"/>
+      <enumeration value="Bonus"/>
     </restriction>
   </simpleType>
 

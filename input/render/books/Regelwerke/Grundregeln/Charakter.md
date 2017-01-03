@@ -42,7 +42,7 @@ Ein Charakter wird definiert über 5 Primäreigenschaften, welche sich in jeweil
    - Gewandheit
    - Feinmotorik
  + Charisma
-   - Einschüchtern
+   - Antipathie
    - Sympathi
  + Klugheit
    - Gelehrtheit
@@ -71,7 +71,7 @@ Gewandheit gibt den grad der Kontrolle über den Körper als ganzes an.
 ### Feinmotorik
 Während Gewandheit im normalfall den ganzen Körper involviert, so stellt Feinmotorik vorallem das Fingerspizengefühl dar. Für filigrane arbeiten ist dies eine wichtige Eigenschaft.
 
-### Einschüchtern
+### Antipathie
 Dies ist teil der eigenen Ausstrahlung. Wie der Name vermuten läst dient sie dazu jemanden Angst zu machen.
 
 ### Sympathi

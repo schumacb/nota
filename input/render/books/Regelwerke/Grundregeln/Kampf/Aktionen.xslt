@@ -80,16 +80,14 @@
           <xsl:if test="./aktionen:Mod">
             <dt>Modifikation</dt>
             <dd>
-              <xsl:if test="./aktionen:Mod/@Value > 0 ">
-                <span class="label label-success">+                        
-                  <xsl:value-of select="abs(./aktionen:Mod/@Value)"/>
-                  <xsl:if test="./aktionen:Mod[@Type='Percent']">%</xsl:if>
+              <xsl:if test="./aktionen:Mod/@ModifierType eq 'Bonus'">
+                <span class="label label-success">+                                                                                  
+                  <xsl:apply-templates select="./aktionen:Mod/*"/>
                 </span>
               </xsl:if>
-              <xsl:if test="0 > ./aktionen:Mod/@Value">
-                <span class="label label-danger">-
-                  <xsl:value-of select="abs(./aktionen:Mod/@Value)"/>
-                  <xsl:if test="./aktionen:Mod[@Type='Percent']">%</xsl:if>
+              <xsl:if test="./aktionen:Mod/@ModifierType eq 'Malus'">
+                <span class="label label-danger">-                                                          
+                  <xsl:apply-templates select="./aktionen:Mod/*"/>
                 </span>
               </xsl:if>
             </dd>
@@ -98,5 +96,20 @@
       </div>
     </div>
   </xsl:template>
-  <xsl:template match="*">[FEHLER IM XSLT]  </xsl:template>
+  <xsl:template match="aktionen:ConcreteModValueType">
+    <xsl:value-of select="@Value"/>
+    <xsl:if test="@Type='Percent'">%</xsl:if>
+  </xsl:template>
+  <xsl:template match="aktionen:VariableModValueType">
+    <var><xsl:value-of select="@Value"/></var>
+  </xsl:template>
+  <xsl:template match="aktionen:AddModValueType">
+    <xsl:apply-templates select="./*[1]"/>
+    <xsl:for-each select="./*[position()>1]">
+      + <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </xsl:template>
+  <xsl:template match="*">  [FEHLER IM XSLT]            
+    <xsl:value-of select="local-name()"/>
+  </xsl:template>
 </xsl:stylesheet>

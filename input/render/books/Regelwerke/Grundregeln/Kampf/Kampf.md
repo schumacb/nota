@@ -126,4 +126,3 @@ Um sich vor potenziellen verletzungen zu schützen, kann sich ein Charakter mit 
 Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
 
 Jeder Schadenstyp wird um eine entsprehende anzahl an Punkten reduziert. 
-
