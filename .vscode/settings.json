@@ -4,5 +4,6 @@
         ".wyam": "c#"
     },
     "editor.wrappingColumn": 80,
-    "editor.wrappingIndent": "indent"
+    "editor.wrappingIndent": "indent",
+    "editor.renderWhitespace": "boundary"
 }

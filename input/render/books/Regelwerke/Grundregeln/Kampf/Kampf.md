@@ -60,9 +60,24 @@ Während des Kampfes verbraucht der Kämpfer ausdauer um Aktionen durchzuführen
 
 Sollte ein Charakter genug in bedrängniss geraten, kann er verletzungen erleiden. Je nach schwere und Art des verursachten schadens können verschiedene Auswirkungen auftreten.
 
+### Trefferzonen
+
+Je nach art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt wurde (W20). 
+
++ Kopf 10% (1-2)
++ Brust / Rücken 20% (3-6)
++ Linker Arm 15% (7-9)
++ Rechter Arm 15% (10-12)
++ Hüfte 10% (13-14)
++ Linkes Bein 15% (15-17)
++ Rechtes Bein 15% (18-20)
+
+
 ### Wunden
 
 Jedes Körperteil kann Wunden in verschiedenen Kategorien besitzen. Leichte, Mitlere und Schwere. Zudem bestitzt jedes Körperteil noch eine weitere wundstufe die entweder die Amputation der entsprechenden Gliedmaße bedeuted, oder den direkten Tod. Die wenigsten Menschen überstehen die Amputation eines Kopfes oder des Torsos.
+
+Wunden können oberflächiche, innere Wunden oder Brüche sein.
 
 ### Blutungen
 
@@ -77,40 +92,38 @@ Andernfalls kann nur Medizinische versorgung die Wunde schließen.
 Neben Wunden, verursacht eine Verletzung auch Schmerzen. Diese fließen als weitere Mali in den Kampf ein. Jede Kampfrunde baut sich ein Schmerzensmali ab.
 
 ### Schadensarten
-
-+ Wucht Waffen
-  Knüppel, Stäbe, Hämmer
-+ Schnitt Waffen
-  Schwerter, Messer oder Säbel
-+ Stoß Waffen
-  Piken, Speere oder Degen
-
-Zusätzlich Elementarer Schaden wie
-+ Feuer
-+ Frost
-+ Elektro
-
-Sonstige Schadensarten
-+ Gift
-+ Krankheit
-
+Je nach art der Waffe versucht sie unterschiedliche arten von Schaden.
 Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt beispielsweise in erster linie Wucht schaden, aber auch zusätzlich Schnittschaden.
 
++ **Wucht**
+  _Knüppel, Stäbe, Hämmer_  
+  Versucht ein Treffer eine mittlere oder schwere Wunde so ist dies ein Bruch. Eine Wunde am Kopf kann ein Schädel-Hirn-Trauma verursachen.
++ **Schnitt**
+  _Schwerter, Messer oder Säbel_  
+  Wenn eine Schnittwaffe mehr als 3 Schaden anrichtet verursacht sie ein Blutung inhöhe des Schadens minus drei.
++ **Stoß**
+  _Piken, Speere_
++ **Stich**
+  _Degen oder Florett_  
+  Wenn eine Stichwaffe Schaden verursacht richtet sie eine Blutung Stufe eins an. Verursacht sie eine Mittlere oder schwere Wunde, ist dies eine Innere Verletzung.
 
+Zusätzlich Elementarer Schaden wie
++ **Feuer**
++ **Frost**
++ **Elektro**  
+  Jeder Punkt schaden verursachte einen zusätzlichen Malie Schmerzen
 
-## Trefferzonen
-Davon gibt es einige.
+Sonstige Schadensarten
++ **Gift**
++ **Krankheit**
 
-+ Kopf
-+ Brust / Rücken
-+ Linker Arm
-+ Rechter Arm
-+ Hüfte
-+ Linkes Bein
-+ Rechtes Bein
+Wenn eine Waffe mehrere schadenstypen besitzt, werden diese einzeln abgehandelt. Mail durch Schmerzen werden nur von dem höchsten schadenstyp verursacht. Zusatzeffekte durch die Scahdensart kommen aber alle zu tragen.
 
-## Rüstung
-Verschiedene Rüstung gegen verschiedene Schadensarten.
+### Rüstung
+
+Um sich vor potenziellen verletzungen zu schützen, kann sich ein Charakter mit verschiedenen arten von Rüstung schützen. Eine Rüstung schützt gegen verschiedene arten von Schaden.
 
 Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
+
+Jeder Schadenstyp wird um eine entsprehende anzahl an Punkten reduziert. 
 
