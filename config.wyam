@@ -300,16 +300,74 @@ Pipelines.Add("renderOutput",
 			ReadFiles(@"template\ambiguis.cshtml")
 		)
 	),
+
+	/// XSLT ///
+		If(@doc.Source.Extension==".xslt",
+		Meta("src", @doc.Source),
+		If(@doc.Metadata.ContainsKey("data"),
+			Content(System.IO.File.ReadAllText((string)@doc["data"])),
+			Xslt2(@doc["src"])
+		).ElseIf(!@doc.Metadata.ContainsKey("data"),
+			Trace("Faild data Metadata on"+ @doc.Source)
+		)
+	), 
 	/// BOOKS /// 
 	If( @doc.Metadata.ContainsKey("BookType"),
 		Meta("IsBook", true)
 	),
 	/// Adding Tree ///
+
+Execute((ctx)=>{
+		
+		System.Console.WriteLine(ctx.Documents.FromPipeline("renderOutput").Count());
+		return null;
+	}),
+
 	Tree()
 		.WithRoots(@doc.Get<bool>("IsBook"))
 		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
 		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
+
+	Where(@doc.Source != null), // Removing generated Documents...
+
+Execute((ctx)=>{
+		
+		System.Console.WriteLine(ctx.Documents.FromPipeline("renderOutput").Count());
+		return null;
+	}),
 	
+	Execute((ctx)=>{
+		var list = new List<IDocument>(ctx.Documents.FromPipeline("renderOutput"));
+
+		foreach(var doc in ctx.Documents.FromPipeline("renderOutput"))
+		{
+
+			if(doc.Metadata.ContainsKey("append")
+				&& bool.Parse(doc["append"].ToString()))
+			{
+				var docToAppendTo = doc.Metadata.Get<IDocument>("Previous");
+				
+				if(docToAppendTo == null)
+					continue;
+
+				var index = list.IndexOf(docToAppendTo);
+				Console.Write(" MetadataTags: " + list[index].Metadata.Count);
+				list[index] = ctx.GetDocument(docToAppendTo,docToAppendTo.Source, docToAppendTo.Content + doc.Content);
+				// list[index] = ctx.GetDocument(docToAppendTo,docToAppendTo.Source,"BLALA");
+				Console.WriteLine(" => " + list[index].Metadata.Count);
+				list.Remove(doc);
+				Console.WriteLine("Entered Append" + docToAppendTo.Source);
+			}
+		}
+		return list;
+	}),
+	
+	/// Adding Tree Againe ...///
+	Tree()
+		.WithRoots(@doc.Get<bool>("IsBook"))
+		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
+		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
+
 	/// Chapters ///
 	If(@doc.Metadata.ContainsKey("Parent"),
 		Meta("ParentBook", (@doc, @ctx)=>{
@@ -385,15 +443,7 @@ Pipelines.Add("Write",
 	// If(@doc.Source.Extension==".xml",
 	// 	Xslt((string)@doc["template"])
 	// ), 
-	If(@doc.Source.Extension==".xslt",
-		Meta("src", @doc.Source),
-		If(@doc.Metadata.ContainsKey("data"),
-			Content(System.IO.File.ReadAllText((string)@doc["data"])),
-			Xslt2(@doc["src"])
-		).ElseIf(!@doc.Metadata.ContainsKey("data"),
-			Trace("Faild data Metadata on"+ @doc.Source)
-		)
-	), 
+
 	If(@doc.Source.Extension==".md" 
 			|| @doc.Source.Extension==".cshtml" 
 			|| @doc.Source.Extension==".xslt" 

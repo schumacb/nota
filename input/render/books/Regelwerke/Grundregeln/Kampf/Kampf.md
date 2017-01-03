@@ -42,52 +42,41 @@ Je nach Aktion kann das misslingen dieser dazu führen das kein Effekt eintritt,
 
 # Schaden
 
+Während eines Kampfes tragen die beteiligten kleinere und größere Plessuren davon. Dies ist in der regel ja auch der sinn eines Kampfes. Jedoch ist nicht jeder Treffer gleich eine verletzung oder gar tödlich. Bevor ein Charakter einen anderen verletzen kann, muss er ihn erstmal in eine Position bringen, in der er einen Treffer landen kann.
 
+Und auch wenn ein Treffer zum gegner durchkommt, so muss das ende des Kampfes nicht aufgrund einer Wunde eintreten, sonder der kann auch durch erschöpfung oder Schmerzen kampfunfähig werden.
 
-# Überlegungen
+## Bedrängen
 
-- Die bewegungsphase könnte die Kampfrunde etwas verzögern. Im worst-case besitzt dies n * (n + 1) / 2 + n viele Schritte.
-- Vor der auswahl der Aktionen ist bereits bekannt, wo welcher Charakter steht. (Dadurch das Bewegung vorher abgehandelt wird). Sommit muss kein Charakter raten ob seine aktion überhaupt möglich ist.
-- Das testen der einzelen Charaktere sollte relativ zügig von statten gehen, da hier meistens nur ein Test durchgeführt wird. Lediglich Charakter die Unterschiedliche aktionen zum verteidigen und angreifen benötigen (bsp. kann mit einem Bogen nicht pariert werden), werden regelmäßig zwei tests im Nahkampf ablegen müssen.
-- Eine Minute benötigt 10 Kampfrunden. 
-  * Unter der Annahem das sich die Charaktere nach initialer annäherung nur bedingt bewegen, sollte die bewegungsphase im schnitt nach 15 Sekunden abgeschlossen sein.
-    - Voraussetzung dazu ist es existiert eine art Karte mit groben Positionen und die Spieler müssen nicht ständig die aktuelle situation beschrieben bekommen.
-  * Da die Spieler die Aktionen alle gleichzeitig bestimmen muss nur der langsamste Spieler berücksichtigt werden. Dies wird abgeschätzt mit 25 Sekunden.
-  * Die auswertung der Proben wird ebenfalls gleichzeitig bgehandelt. Jedoch muss der Spielleiter dies für alle Charaktere die er verwaltet durchführen. Wen er pro Wurf 2,5 Sekunden benötigt und 5 Charaktere impersoniert, so benötigt er aufgerundet 13 Sekunden.
-  * Die auswertung geschieht am einfachsten reihum. Je nach anzahl und Komplexität würde ich 10 bis 15 Sekunden pro Charakter abschätzen. das wären bei 10 Charakteren bis zu 150 Sekunden.
-  * hinzu kommen noch kurzr Zeiten bei den Übergängen der Phasen. ca. 30 Sekunden pro KR.
-  * Pro Kampfrunde wird demnach 15s + 25s + 13s + 150s + 30s = 233s oder 3:53, also Knapp 4 min.
-  * Für eine Minute ingame vergehen geschätzt 40 min outgame Zeit. :(
-    + Etwas zu hoch für meinen geschmack. Hoffentlcih habe ich das etwas zu hoch angestzt.
+Die meisten Angriffe bedrängen den Gegner das bedeuted er erhält auf seine weiteren Aktionen einen Malus. Erst wenn der Malus groß genug ist können Angriffe Schaden in form von Wunden verursachen.
 
-# Aktionen
+Hat ein Charkter etwas Zeit kann er seine stellung wieder verbessern und bedrängungs malus wieder abbauen.
 
+## Ausdauer
 
+Während des Kampfes verbraucht der Kämpfer ausdauer um Aktionen durchzuführen. Verbrauchte Ausdauer kann er mittels der Aktion Erholen durchführen. Ausserdem kann Ausdauer auch durch gegner verursacht werden. Der maximale Ausdauerwert kann auch durch Blutungen sinken.
 
-# Eventuelle Nachteile des Systems
-- Welchen vorteil haben Schnelle Charaktere oder Schnelle Waffen?
-- Funktioniert es mit Fernkamp?
-- Bleibt es händelbar für den Spielleiter?
-- Gleicht die paralelle Entscheidungsfindung die Zeit für die Rechnerei aus?
-- Sind 10 Sekunden zu lange? oder 6?
-  + je Kürzer desto unmöglicher macht es nebnläufige Handlungen außerhalb des Kampfes. Selbst mit diesem System wäre eine Minute zum Schlossknacken gleichbedeutend mit 10 oder 6 Kampfrunden.
-  + 6 Erachte ich gerade noch als erträglich.
-- Schadensmodell würde ich immer noch gerne so machen wie in Variante 1.
-- Möglichkeit mit mehr erfolgen mehr schaden zu machen? Bsp.: Ein vielfaches des gegnerichen Verteidiguns wert ereichen => das selbe vielface an schaden? In diesem fall machen die mehreren Angriffe jedoch wenig sinn gegen einen Gegner zu richten, dies macht gute Charaktere wahrscheinlcih zu stark.
+## Verletzungen
 
+Sollte ein Charakter genug in bedrängniss geraten, kann er verletzungen erleiden. Je nach schwere und Art des verursachten schadens können verschiedene Auswirkungen auftreten.
 
-Variante 1
-===========================
+### Wunden
 
+Jedes Körperteil kann Wunden in verschiedenen Kategorien besitzen. Leichte, Mitlere und Schwere. Zudem bestitzt jedes Körperteil noch eine weitere wundstufe die entweder die Amputation der entsprechenden Gliedmaße bedeuted, oder den direkten Tod. Die wenigsten Menschen überstehen die Amputation eines Kopfes oder des Torsos.
 
-Der Angreifer Trifft immer automatisch sein Ziel. Es ist Sache des Verteidigers entsprechenden Schaden zu verhindern. Hierzu legt der Verteiger eine Probe auf sein Verteidigungstalent ab. Sollte dies gelingen, so wurde der Schaden abgewendet.
+### Blutungen
 
-Der Angreifer kann anstelle eines normalen Angriffes auch versuchen ein Spezielles Manöver durchzuführen. In desem Fall muss auch ihm eine Probe auf sein entsprechendes Angrifstalent gelingen. Sollte dies nicht der Fall sein, muss er mit Mali für den Kampf rechnen. Im Normalfall verursacht der Angriff in jedem Fall schaden sollte er nicht abgehalten werden.
+Eine Blutung führt zur Regelmäßigen senkung der maximalen Ausdauer. Alle 5 Kampfrunden sinkt die maximale Ausdauer um die Stufe der Blutung.
 
-Je öffter ein Kämpfer verteidigen muss desto mehr Mali sammelt er an, da er in die Defensive gedrängt wird.
+Nachdem eine Blutung schaden verursacht kann sie sich selbst stoppen.  Wenn die Blutung Stufe eins ist, hat sie eine 25% chance ihre Stufe um eins zu reduzieren. Für jeweils bereits 5 Verlorene Maximal Ausdauerpunkte kann eine Blutung eine stufe höher reduziert werden.
 
+Andernfalls kann nur Medizinische versorgung die Wunde schließen.
 
-# Schadensarten
+## Schmerzen
+
+Neben Wunden, verursacht eine Verletzung auch Schmerzen. Diese fließen als weitere Mali in den Kampf ein. Jede Kampfrunde baut sich ein Schmerzensmali ab.
+
+### Schadensarten
 
 + Wucht Waffen
   Knüppel, Stäbe, Hämmer
@@ -98,6 +87,7 @@ Je öffter ein Kämpfer verteidigen muss desto mehr Mali sammelt er an, da er in
 
 Zusätzlich Elementarer Schaden wie
 + Feuer
++ Frost
 + Elektro
 
 Sonstige Schadensarten
@@ -106,15 +96,7 @@ Sonstige Schadensarten
 
 Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt beispielsweise in erster linie Wucht schaden, aber auch zusätzlich Schnittschaden.
 
-# Ausdauer
 
-Während des Kampfes verbraucht der Kämpfer ausdauer um Angriffe durchzuführen. Der maximale Ausdauerwert kann auch durch Blutungen sinken.
-
-# Wunden
-Jedes Körperteil kann Wunden in verschiedenen Kategorien besitzen. Leichte, Mitlere und Schwere. Zudem bestitzt jedes Körperteil noch eine weitere wundstufe die entweder die Amputation der entsprechenden Gliedmaße bedeuted, oder den direkten Tod. Die wenigsten Menschen überstehen die Amputation eines Kopfes oder des Torsos.
-
- # Schmerzen
- Neben Schwereren Verletzungen, verursacht ein Angriff auch Schmerzen. Diese fließen als weitere Mali in den Kampf ein.
 
 ## Trefferzonen
 Davon gibt es einige.
@@ -127,13 +109,8 @@ Davon gibt es einige.
 + Linkes Bein
 + Rechtes Bein
 
-# Rüstung
+## Rüstung
 Verschiedene Rüstung gegen verschiedene Schadensarten.
 
 Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
 
-# Positionierung
-
-Ein Charakter kann versuchen sich so zu Positionieren, das er bestimmte Körperteile schützt. Andere werden jedoch dabei Pominenter plazirt. Zudem kann die stellung dafür sorgen das bestimmte Waffen/Ausrüstung nicht mehr effektiv eingesetzt werden kann. (wahrscheinlich zu aufwendig)
-
-Zudem kann eine Positionierung vorteile im Kampf bringen, oder aber Mali auf eventuele Proben.

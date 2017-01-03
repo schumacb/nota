@@ -807,51 +807,61 @@
   <aktionen:Aktionen>
     <aktionen:Aktion Name="Angriff" Kosten="1" Typ="Ausgeglieschen">
       <aktionen:Beschreibung>
-        
+
       </aktionen:Beschreibung>
       <aktionen:ErfolgEffekt>
-        Gegner Erhält schaden
+        Wenn keine Devensivkarte des Ziels Punkte übrig behölt, verursacht die Waffe ihren Waffen Schaden.
+        Andernfalls erhält der Gegner stellungsmalie abhänig von der waffe.
       </aktionen:ErfolgEffekt>
     </aktionen:Aktion>
+    
     <aktionen:Aktion Name="Verteidigungshaltung" Kosten="1" Typ="Defensiv">
       <aktionen:Beschreibung>
-        
+
       </aktionen:Beschreibung>
       <aktionen:InstantEffekt>
         Erhöhe die Tallentpunkte für diese Aktion um 50%
       </aktionen:InstantEffekt>
+      <aktionen:Mod Type="Percent" Value="50"/>
     </aktionen:Aktion>
+    
     <aktionen:Aktion Name="Rückzug" Kosten="1" Typ="Defensiv">
       <aktionen:Beschreibung>
-        
+
       </aktionen:Beschreibung>
       <aktionen:ErfolgEffekt>
         Der Charakter lößt sich aus dem Nahkampf.
       </aktionen:ErfolgEffekt>
     </aktionen:Aktion>
+    
     <aktionen:Aktion Name="Flucht" Kosten="1" Typ="Keine">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:GarantierterEffekt>
         Der Charakter lößt sich aus dem Nahkampf.
       </aktionen:GarantierterEffekt>
     </aktionen:Aktion>
+    
     <aktionen:Aktion Name="Finte" Kosten="2" Typ="Ausgeglieschen" >
       <aktionen:Beschreibung>
-        
+
       </aktionen:Beschreibung>
+      <aktionen:Mod Type="Absolute" Value="-3"/>
     </aktionen:Aktion>
+    
     <aktionen:Aktion Name="Schutz"  Kosten="2" Typ="Defensiv">
       <aktionen:Beschreibung>
-        Der Charakter muss zusätzlich die Aktion Abwarten nutzen. 
+        Der Charakter muss zusätzlich die Aktion Abwarten nutzen.
       </aktionen:Beschreibung>
       <aktionen:GarantierterEffekt>
-        Der zu schützende Charakter erhät den (Verteidiguns-)Kampfwert dieses Charakters gegen jeden Angreifenden Charakter mit dem dieser Charakter in Kampf ist.
+        Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels.
       </aktionen:GarantierterEffekt>
     </aktionen:Aktion>
+    
     <aktionen:Aktion Name="Abwarte" Kosten="0" Typ="Defensiv">
       <aktionen:Beschreibung>Der Charakter tut nichts</aktionen:Beschreibung>
     </aktionen:Aktion>
-    <aktionen:Aktion Name="Erholen" Kosten="0" Typ="Defensiv">
+    
+    <aktionen:Aktion Name="Position" Kosten="1" Typ="Defensiv">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:ErfolgEffekt>
         Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).
@@ -861,5 +871,12 @@
       </aktionen:MisserfolgEffekt>
     </aktionen:Aktion>
     
+    <aktionen:Aktion Name="Erholen" Kosten="0" Typ="Keine">
+      <aktionen:Beschreibung></aktionen:Beschreibung>
+      <aktionen:GarantierterEffekt>
+        Der Charakter Generiert ausdauer Punkte.
+      </aktionen:GarantierterEffekt>
+    </aktionen:Aktion>
+
   </aktionen:Aktionen>
 </Daten>

@@ -17,6 +17,7 @@
               <element name="GarantierterEffekt" type="string" minOccurs="0"/>
               <element name="ErfolgEffekt" type="string"   minOccurs="0"/>
               <element name="MisserfolgEffekt" type="string" minOccurs="0" />
+              <element name="Mod" type="aktionen:ModValueType" minOccurs="0" />
             </sequence>
             <attribute name="Name" type="string" use="required"/>
             <attribute name="Kosten" type="int" use="required"/>
@@ -28,12 +29,24 @@
   </element>
 
 
+  <complexType name="ModValueType">
+    <attribute name="Value" type="int" />
+    <attribute name="Type" type="aktionen:ModType" />
+  </complexType>
+
   <simpleType name="ActionType">
     <restriction base="string">
       <enumeration value="Offensiv"/>
       <enumeration value="Defensiv"/>
       <enumeration value="Ausgeglieschen"/>
       <enumeration value="Keine"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="ModType">
+    <restriction base="string">
+      <enumeration value="Percent"/>
+      <enumeration value="Absolute"/>
     </restriction>
   </simpleType>
 

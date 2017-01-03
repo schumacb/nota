@@ -9,8 +9,8 @@
     "\\input\\render\\books\\Regelwerke\\Grundregeln\\Kampf",
     "\\input\\static",
     "\\input\\static\\data",
-    "\\input\\static\\schema",
     "\\input\\static\\schema\\kampf"
   ],
+  "SelectedNode": "\\input\\static\\data\\nota.xml",
   "PreviewInSolutionExplorer": false
 }

@@ -63,7 +63,7 @@ padding-right: 20px;
 	column-width: 25em;	
 }
 
-.twoColumn h2 {
+.twoColumn h1 {
     column-span: all;
     -webkit-column-span: all;
     -moz-column-span: all;
@@ -108,4 +108,8 @@ font-size: 80%;
 .panel {
     display: inline-block;
     width: 100%;
+}  
+
+dd .label {
+    line-height: 2;
 }  

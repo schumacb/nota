@@ -14,7 +14,7 @@
     <xsl:apply-templates select="aktionen:Aktionen"/>
   </xsl:template>
   <xsl:template match="aktionen:Aktionen">
-    <p>      Eine übersciht der verschiedenen Aktionen    </p>
+    <h1>Aktionen</h1>
     <xsl:apply-templates select="aktionen:Aktion"/>
   </xsl:template>
   <xsl:template match="aktionen:Aktion">
@@ -30,25 +30,33 @@
       <ul class="list-group">
         <xsl:if test="./aktionen:InstantEffekt">
           <li class="list-group-item">
-            <h4><small>Instant Effekt</small></h4>
+            <h4>
+              <small>Instant Effekt</small>
+            </h4>
             <xsl:value-of select="./aktionen:InstantEffekt"/>
           </li>
         </xsl:if>
         <xsl:if test="./aktionen:GarantierterEffekt">
           <li class="list-group-item">
-            <h4><small>Garantierter Effekt</small></h4>
+            <h4>
+              <small>Garantierter Effekt</small>
+            </h4>
             <xsl:value-of select="./aktionen:GarantierterEffekt"/>
           </li>
         </xsl:if>
         <xsl:if test="./aktionen:ErfolgEffekt">
           <li class="list-group-item">
-            <h4><small>Erfolg Effekt</small></h4>
+            <h4>
+              <small>Erfolg Effekt</small>
+            </h4>
             <xsl:value-of select="./aktionen:ErfolgEffekt"/>
           </li>
         </xsl:if>
         <xsl:if test="./aktionen:MisserfolgEffekt">
           <li class="list-group-item">
-            <h4><small>Misserfolg Effekt</small></h4>
+            <h4>
+              <small>Misserfolg Effekt</small>
+            </h4>
             <xsl:value-of select="./aktionen:MisserfolgEffekt"/>
           </li>
         </xsl:if>
@@ -62,16 +70,33 @@
           <dt>Typ</dt>
           <dd>
             <xsl:choose>
-              <xsl:when test="./@Typ='Offensiv'">Offensiv</xsl:when>
+              <xsl:when test="@Typ='Offensiv'">Offensiv</xsl:when>
               <xsl:when test="@Typ='Defensiv'">Defensiv</xsl:when>
-              <xsl:when test="@Typ='Ausgeglieschen'">Ausgeglieschen</xsl:when>
+              <xsl:when test="@Typ='Ausgeglieschen'">Offensiv und Passiv</xsl:when>
               <xsl:when test="@Typ='Keine'">Kein</xsl:when>
               <xsl:otherwise>[Ungültiger wert]</xsl:otherwise>
             </xsl:choose>
           </dd>
+          <xsl:if test="./aktionen:Mod">
+            <dt>Modifikation</dt>
+            <dd>
+              <xsl:if test="./aktionen:Mod/@Value > 0 ">
+                <span class="label label-success">+                        
+                  <xsl:value-of select="abs(./aktionen:Mod/@Value)"/>
+                  <xsl:if test="./aktionen:Mod[@Type='Percent']">%</xsl:if>
+                </span>
+              </xsl:if>
+              <xsl:if test="0 > ./aktionen:Mod/@Value">
+                <span class="label label-danger">-
+                  <xsl:value-of select="abs(./aktionen:Mod/@Value)"/>
+                  <xsl:if test="./aktionen:Mod[@Type='Percent']">%</xsl:if>
+                </span>
+              </xsl:if>
+            </dd>
+          </xsl:if>
         </dl>
       </div>
     </div>
   </xsl:template>
-  <xsl:template match="*">    [FEHLER IM XSLT]  </xsl:template>
+  <xsl:template match="*">[FEHLER IM XSLT]  </xsl:template>
 </xsl:stylesheet>
