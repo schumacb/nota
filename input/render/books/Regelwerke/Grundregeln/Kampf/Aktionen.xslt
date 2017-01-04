@@ -31,7 +31,7 @@
         <xsl:if test="./aktionen:InstantEffekt">
           <li class="list-group-item">
             <h4>
-              <small>Instant Effekt</small>
+              <small>Augenblicklicher Effekt</small>
             </h4>
             <xsl:value-of select="./aktionen:InstantEffekt"/>
           </li>
@@ -44,20 +44,36 @@
             <xsl:value-of select="./aktionen:GarantierterEffekt"/>
           </li>
         </xsl:if>
-        <xsl:if test="./aktionen:ErfolgEffekt">
+        <xsl:if test="./aktionen:OffensivErfolg">
           <li class="list-group-item">
             <h4>
-              <small>Erfolg Effekt</small>
+              <small>Offensiver Erfolg</small>
             </h4>
-            <xsl:value-of select="./aktionen:ErfolgEffekt"/>
+            <xsl:value-of select="./aktionen:OffensivErfolg"/>
           </li>
         </xsl:if>
-        <xsl:if test="./aktionen:MisserfolgEffekt">
+        <xsl:if test="./aktionen:DefensivErfolg">
           <li class="list-group-item">
             <h4>
-              <small>Misserfolg Effekt</small>
+              <small>Defensiver Erfolg</small>
             </h4>
-            <xsl:value-of select="./aktionen:MisserfolgEffekt"/>
+            <xsl:value-of select="./aktionen:DefensivErfolg"/>
+          </li>
+        </xsl:if>
+             <xsl:if test="./aktionen:OffensivMiserfolg">
+          <li class="list-group-item">
+            <h4>
+              <small>Offensiver Misserfolg</small>
+            </h4>
+            <xsl:value-of select="./aktionen:OffensivMiserfolg"/>
+          </li>
+        </xsl:if>
+        <xsl:if test="./aktionen:DefensivMiserfolg">
+          <li class="list-group-item">
+            <h4>
+              <small>Defensiver Misserfolg</small>
+            </h4>
+            <xsl:value-of select="./aktionen:DefensivMiserfolg"/>
           </li>
         </xsl:if>
       </ul>
@@ -81,12 +97,12 @@
             <dt>Modifikation</dt>
             <dd>
               <xsl:if test="./aktionen:Mod/@ModifierType eq 'Bonus'">
-                <span class="label label-success">+                                                                                  
+                <span class="label label-success">+
                   <xsl:apply-templates select="./aktionen:Mod/*"/>
                 </span>
               </xsl:if>
               <xsl:if test="./aktionen:Mod/@ModifierType eq 'Malus'">
-                <span class="label label-danger">-                                                          
+                <span class="label label-danger">-
                   <xsl:apply-templates select="./aktionen:Mod/*"/>
                 </span>
               </xsl:if>

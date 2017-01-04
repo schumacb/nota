@@ -4,7 +4,7 @@
         xmlns:aktionen="http://nota.org/schema/kampf/aktionen"
         targetNamespace="http://nota.org/schema/kampf/aktionen"
         elementFormDefault="qualified">
-   <import namespace="http://nota.org/schema/nota" schemaLocation="../nota.xsd"></import>
+  <import namespace="http://nota.org/schema/nota" schemaLocation="../nota.xsd"></import>
 
   <element name="Aktionen">
     <complexType>
@@ -15,8 +15,10 @@
               <element name="Beschreibung" type="string"/>
               <element name="InstantEffekt" type="string" minOccurs="0"/>
               <element name="GarantierterEffekt" type="string" minOccurs="0"/>
-              <element name="ErfolgEffekt" type="string"   minOccurs="0"/>
-              <element name="MisserfolgEffekt" type="string" minOccurs="0" />
+              <element name="OffensivErfolg" type="string" minOccurs="0"/>
+              <element name="DefensivErfolg" type="string" minOccurs="0"/>
+              <element name="OffensivMiserfolg" type="string" minOccurs="0"/>
+              <element name="DefensivMiserfolg" type="string" minOccurs="0"/>
               <element name="Mod" minOccurs="0" >
                 <complexType>
                   <choice>

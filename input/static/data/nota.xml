@@ -809,10 +809,10 @@
       <aktionen:Beschreibung>
 
       </aktionen:Beschreibung>
-      <aktionen:ErfolgEffekt>
+      <aktionen:OffensivErfolg>
         Wenn keine Devensivkarte des Ziels Punkte übrig behölt, verursacht die Waffe ihren Waffen Schaden.
         Andernfalls erhält der Gegner stellungsmalie abhänig von der waffe.
-      </aktionen:ErfolgEffekt>
+      </aktionen:OffensivErfolg>
     </aktionen:Aktion>
     
     <aktionen:Aktion Name="Verteidigungshaltung" Kosten="1" Typ="Defensiv">
@@ -831,9 +831,9 @@
       <aktionen:Beschreibung>
 
       </aktionen:Beschreibung>
-      <aktionen:ErfolgEffekt>
+      <aktionen:DefensivErfolg>
         Der Charakter lößt sich aus dem Nahkampf.
-      </aktionen:ErfolgEffekt>
+      </aktionen:DefensivErfolg>
     </aktionen:Aktion>
     
     <aktionen:Aktion Name="Flucht" Kosten="1" Typ="Keine">
@@ -867,12 +867,12 @@
     
     <aktionen:Aktion Name="Position" Kosten="1" Typ="Defensiv">
       <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:ErfolgEffekt>
+      <aktionen:DefensivErfolg>
         Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).
-      </aktionen:ErfolgEffekt>
-      <aktionen:MisserfolgEffekt>
+      </aktionen:DefensivErfolg>
+      <aktionen:DefensivMiserfolg>
         Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet).
-      </aktionen:MisserfolgEffekt>
+      </aktionen:DefensivMiserfolg>
     </aktionen:Aktion>
     
     <aktionen:Aktion Name="Erholen" Kosten="0" Typ="Keine">
