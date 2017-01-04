@@ -5,4 +5,8 @@
 /input/Scripts/*
 /config.wyam.WyamConfig.cs
 /config.wyam.WyamSetup.cs
+/.vs/*.slnx*
+/.vs/nota/
+.vs\VSWorkspaceState.json
+
 wyam.log
