@@ -26,7 +26,7 @@
   Eine übersciht der verschiedenen Talente
   </p>
   <xsl:for-each-group select="talent:Talent" group-by="@Kategorie">
-    <h2><xsl:value-of select="@Kategorie" /></h2>
+    <h1><xsl:value-of select="@Kategorie" /></h1>
     <xsl:for-each select="current-group()">
       <xsl:apply-templates select="."/>
     </xsl:for-each>
