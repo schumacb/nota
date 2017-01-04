@@ -807,7 +807,7 @@
   <aktionen:Aktionen>
     <aktionen:Aktion Name="Angriff" Kosten="1" Typ="Ausgeglieschen">
       <aktionen:Beschreibung>
-
+        Ein standard angriff mit ausgeglichener verteidigung.
       </aktionen:Beschreibung>
       <aktionen:OffensivErfolg>
         Wenn keine Devensivkarte des Ziels Punkte übrig behölt, verursacht die Waffe ihren Waffen Schaden.
@@ -817,7 +817,7 @@
     
     <aktionen:Aktion Name="Verteidigungshaltung" Kosten="1" Typ="Defensiv">
       <aktionen:Beschreibung>
-
+        Der Charakter konzentriert sich auf seine Verteidigung, auf kosten seiner Angriffe.
       </aktionen:Beschreibung>
       <aktionen:InstantEffekt>
         Erhöhe die Tallentpunkte für diese Aktion um 50%
