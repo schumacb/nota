@@ -26,19 +26,17 @@ Die spieler wählen gleichzeitig, durch legen verdeckter Karten welche Aktionen 
 
 Alle Aktionen aller Charaktere finden gleichzeitig statt. Kein Charakter hat einen Geschwindigkeitsvorteil bei seinen Aktionen. Auswirkungen einer Kampfrunde entfalten erst an dessen Ende bzw. zu beginn der nächsten Kampfrunde Wirkung. 
 
-Je nach gespielten Aktion werden Proben auf ein oder mehrere Talente benötigt. Benötigen mehrere Aktionen eine Probe auf das selbe Talent, so wird dennoch nur eine Probe abgelegt und das Ergebniss zählt für alle Aktionen.
+Je nach gespielten Aktion werden Proben auf ein oder mehrere Talente benötigt. Benötigen mehrere Aktionen eine Probe auf das selbe Talent, so wird dennoch nur eine Probe abgelegt und das Ergebniss zählt für alle Aktionen. Dieses Ergebniss nennt sich Aktionswert. Besitzt eine Aktion Modifikatioren, so wird in der Regel nur der Aktionswert der Probe modifiziert, nicht die Probe selbst. Führt beispielsweise ein Charakter zwei Aktionen durch eine mit einem Malus von 1, eine mit einem Bonus von 1 und Erreicht bei seiner Probe einen Wert von 3, so besitzt die erste Aktion einen Aktionswert von 2 und die zweite Aktion einen Aktionswert von 4. Es gibt verschiedene Arten von Modifikationen. Absolute und Prozentuale. Dabei gilt Punkt vor Strich. D.h. Prozentualle Modifikationen werden vor Absuluten angewendet.
+
+Je mehr aktionen ein Charakter durchführt desto weniger richtet die einzelne Aktion aus. Die Aktionswerte jeder Aktion wird durch die Anzahl der Aktionen (inkl. Bewegung) geteilt (abrunden).
+
+Jede Aktion hat gewisse Effekte. Es gibt 'Offensiver Erfolg' und 'Defensiver Erfolg' sowie Misserfolg. Zudem gibt es noch einen 'Generellen Effekt' der immer zum tragen kommt ganz gleich welches ergebniss erzielt wurde und einen 'Augenblicklichen Effekt'. Dieser wirkt sich bereits vor dem Ablegen der Probe aus und kann sommit auch alle anderen Aktionen beeinflussen.
+
+Ob eine Aktion nun ein Erfolg ist oder ein Misserfolg hängt von den ermittelten Aktionswerten ab. Eine offensve Aktion gellingt wenn das Ziel oder die Ziele der Aktion keinen größeren Aktionswert in einer defensiven Aktion besitzen als der ausführende Charakter. Hingegen gelingt eine defensive Aktion sobald keine offensive Aktion die diesen Charakter als Ziel hat einen höheren Aktionswert besitzt. Daraus folgt das bei einem Gleichstand beide Aktionen erfolgreich sind. Es gibt auch Aktionen welche weder offensiv noch defensiv sind. Diese Aktionen können daher weder Erfolg noch Misserfolg besitzen.
+
+Wird ein Charakter ziel mehrere offensiver Aktionen, so gilt sein Aktionswert im bezug zur verteidigung als um eins, für jede Aktion nach der ersten, reduziert. 
 
 Mehrere Aktionen können sich gegen das selbe Ziel richtigen, oder gegen unterschiedliche.
-
-Wird ein Charakter ziel mehrere Angriffe, so wird sein Kampfwert wenn er zur verteidugn herangezogen wird um eins reduziert für jede Aktion nach der ersten die ihn zum Ziel hat. 
-
-Je mehr aktionen ein Charakter durchführt desto weniger richtet die einzelne Aktion aus. Die anzahl der übrig gehaltenen Talentpunkte jeder Probe wird durch die Anzahl der ausgespielten Karten (Aktionen + Bewegung) geteilt (abrunden).
-
-Jede Aktion hat gewisse Effekte. Je nachdem ob eine Aktion gellingt oder fehlschlägt kann sie unterschidliche auswirkungen besitzen. Zudem wird jeder aktion zugeordnet ob sie offensiv und/oder defensiv ist.
-
-Eine offensve Aktion gellingt wenn das Ziel oder die Ziele der Aktion keinen größeren Kampfwert in einer defensiven Aktion besitzen als der ausführende Charakter. Eine defensive Aktion gelingt wenn kein Charakter dessen offensive Aktion diesen Charakter als Ziel hat einen Höheren wert in dieser Aktion hat. Daraus folgt das bei einem Gleichstand die Aktionen erfolgreich sind.
-
-Je nach Aktion kann das misslingen dieser dazu führen das kein Effekt eintritt, der Effekt vermindert wird oder sogar Negative auswirkungen auf den ausführenden Charakter hat.
 
 # Schaden
 
