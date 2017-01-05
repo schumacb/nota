@@ -28,6 +28,14 @@
         <xsl:value-of select="aktionen:Beschreibung"/>
       </div>
       <ul class="list-group">
+        <xsl:if test="./aktionen:Bedingung">
+          <li class="list-group-item">
+            <h4>
+              <small>Bedingung</small>
+            </h4>
+            <xsl:value-of select="./aktionen:Bedingung"/>
+          </li>
+        </xsl:if>
         <xsl:if test="./aktionen:InstantEffekt">
           <li class="list-group-item">
             <h4>
@@ -102,8 +110,8 @@
                 </span>
               </xsl:if>
               <xsl:if test="./aktionen:Mod/@ModifierType eq 'Malus'">
-                <span class="label label-danger">-
-                  <xsl:apply-templates select="./aktionen:Mod/*"/>
+                <span class="label label-danger"><var>-
+                  <xsl:apply-templates select="./aktionen:Mod/*"/></var>
                 </span>
               </xsl:if>
             </dd>
@@ -117,12 +125,18 @@
     <xsl:if test="@Type='Percent'">%</xsl:if>
   </xsl:template>
   <xsl:template match="aktionen:VariableModValueType">
-    <var><xsl:value-of select="@Value"/></var>
+    <xsl:value-of select="@Value"/>
   </xsl:template>
   <xsl:template match="aktionen:AddModValueType">
     <xsl:apply-templates select="./*[1]"/>
     <xsl:for-each select="./*[position()>1]">
       + <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </xsl:template>
+  <xsl:template match="aktionen:MultiplyModValueType">
+    <xsl:apply-templates select="./*[1]"/>
+    <xsl:for-each select="./*[position()>1]">
+      * <xsl:apply-templates select="."/>
     </xsl:for-each>
   </xsl:template>
   <xsl:template match="*">  [FEHLER IM XSLT]            

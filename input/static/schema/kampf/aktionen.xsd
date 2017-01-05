@@ -13,6 +13,7 @@
           <complexType>
             <sequence>
               <element name="Beschreibung" type="string"/>
+              <element name="Bedingung" type="string" minOccurs="0"/>
               <element name="InstantEffekt" type="string" minOccurs="0"/>
               <element name="GarantierterEffekt" type="string" minOccurs="0"/>
               <element name="OffensivErfolg" type="string" minOccurs="0"/>
@@ -25,6 +26,7 @@
                     <element ref="aktionen:ConcreteModValueType"/>
                     <element ref="aktionen:VariableModValueType"/>
                     <element ref="aktionen:AddModValueType"/>
+                    <element ref="aktionen:MultiplyModValueType"/>
                   </choice>
                   <attribute name="ModifierType" use="required" type="aktionen:ModifierType"/>
                 </complexType>
@@ -58,9 +60,22 @@
         <element ref="aktionen:ConcreteModValueType"/>
         <element ref="aktionen:VariableModValueType"/>
         <element ref="aktionen:AddModValueType"/>
+        <element ref="aktionen:MultiplyModValueType"/>
       </choice>
     </complexType>
   </element>
+
+  <element name="MultiplyModValueType" >
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <element ref="aktionen:ConcreteModValueType"/>
+        <element ref="aktionen:VariableModValueType"/>
+        <element ref="aktionen:AddModValueType"/>
+        <element ref="aktionen:MultiplyModValueType"/>
+      </choice>
+    </complexType>
+  </element>
+
 
 
   <simpleType name="ActionType">

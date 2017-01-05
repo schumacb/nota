@@ -7,7 +7,7 @@
 /config.wyam.WyamSetup.cs
 /.vs/*.slnx*
 /.vs/nota/
-.vs\VSWorkspaceState.json
+.vs/VSWorkspaceState.json
 .vs/slnx.sqlite
 
 wyam.log
