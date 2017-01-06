@@ -3,6 +3,47 @@ Title: 'Kampf'
 
 ---
 
+<div class="panel panel-default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aktionen="http://nota.org/schema/kampf/aktionen" xmlns:besonderheit="http://nota.org/schema/besonderheit" xmlns:fertigkeit="http://nota.org/schema/fertigkeit" xmlns:talent="http://nota.org/schema/talent" xmlns:profession="http://nota.org/schema/profession" xmlns:kultur="http://nota.org/schema/kultur" xmlns:gesch&ouml;pf="http://nota.org/schema/geschöpf" xmlns:nota="http://nota.org/schema/nota">
+   <div class="panel-heading">
+      <h3 class="panel-title">Waffe Platzieren</h3>
+   </div>
+   <div class="panel-body">
+
+Ein Angriff der die Waffe an eine empfindliche stelle wie beispielsweise Kehle Plaziert.
+
+<h4><small>Bedingung</small></h4>
+
+Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.
+
+<h4><small>Offensiver Erfolg</small></h4>
+
+Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder
+Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden
+nur erlitten falls diese ein Misserfolg ist.
+
+Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter
+einen Bonus von x.
+
+Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der
+Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle
+Aktionen bekannt gegeben wurden.
+
+   </div>
+   <div class="panel-footer">
+      <dl class="dl-horizontal" style="margin-bottom:0px;">
+         <dt>Ausdauerkosten</dt>
+         <dd>2</dd>
+         <dt>Typ</dt>
+         <dd>Offensiv</dd>
+         <dt>Modifikation</dt>
+         <dd><span class="label label-danger">−                  
+               <var>X</var>      ＋ 
+               <var>5</var></span></dd>
+      </dl>
+   </div>
+</div>
+
+# t
 Eine Kampfrunde besteht aus drei Phasen. Phase eins ist bewegung, Phase zwei aktion, Phase drei ausführen der angesagten Aktionen. Spieler verwenden Karten um ihre Aktionen festzulegen. Die Kampfrunde erstreckt sich hierbei auf 6 Sekunden.
 
 ## Phase 1 Bewegung ansagen
@@ -124,3 +165,4 @@ Um sich vor potenziellen verletzungen zu schützen, kann sich ein Charakter mit 
 Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
 
 Jeder Schadenstyp wird um eine entsprehende anzahl an Punkten reduziert. 
+

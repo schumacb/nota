@@ -323,7 +323,7 @@ Pipelines.Add("renderOutput",
 
 	Where(@doc.Source != null), // Removing generated Documents...
 	
-	Execute((ctx)=>{
+	Execute((ctx)=>{ // append to previous document
 		var list = new List<IDocument>(ctx.Documents.FromPipeline("renderOutput"));
 
 		foreach(var doc in ctx.Documents.FromPipeline("renderOutput"))
@@ -340,7 +340,9 @@ Pipelines.Add("renderOutput",
 				var index = list.IndexOf(docToAppendTo);
 				list[index] = ctx.GetDocument(docToAppendTo,docToAppendTo.Source, docToAppendTo.Content + doc.Content);
 
+				System.Console.WriteLine(list[index].Content);
 				list.Remove(doc);
+
 			}
 		}
 		return list;
@@ -422,6 +424,8 @@ Pipelines.Add("Write",
 	Where(@doc.Source != null),
 	If(@doc.Source.Extension==".md",
 		Markdown()
+		// .UseExtensions()
+		// .UseConfiguration("DisableHtml")
 	), 
 	
 	// If(@doc.Source.Extension==".xml",

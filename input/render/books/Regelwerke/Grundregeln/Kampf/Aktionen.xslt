@@ -9,7 +9,7 @@
   xmlns:aktionen="http://nota.org/schema/kampf/aktionen" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nota.org/schema/nota ..\..\..\..\..\static\schema\nota.xsd                http://nota.org/schema/geschöpf ..\..\..\..\..\static\schema\geschöpf.xsd                http://nota.org/schema/kultur ..\..\..\..\..\static\schema\kultur.xsd                http://nota.org/schema/profession ..\..\..\..\..\static\schema\profession.xsd                http://nota.org/schema/talent ..\..\..\..\..\static\schema\talent.xsd                http://nota.org/schema/fertigkeit ..\..\..\..\..\static\schema\fertigkeit.xsd                 http://nota.org/schema/besonderheit ..\..\..\..\..\static\schema\besonderheit.xsd                 http://nota.org/schema/kampf/aktionen ..\..\..\..\..\static\schema\kampf\aktionen.xsd" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html" indent="yes" />
+  <xsl:output method="html" indent="no" />
   <xsl:template match="nota:Daten">
     <xsl:apply-templates select="aktionen:Aktionen"/>
   </xsl:template>
@@ -25,7 +25,9 @@
         </h3>
       </div>
       <div class="panel-body">
-        <xsl:value-of select="aktionen:Beschreibung"/>
+
+<xsl:value-of select="aktionen:Beschreibung"/>
+
       </div>
       <ul class="list-group">
         <xsl:if test="./aktionen:Bedingung">
@@ -33,7 +35,9 @@
             <h4>
               <small>Bedingung</small>
             </h4>
-            <xsl:value-of select="./aktionen:Bedingung"/>
+
+<xsl:value-of select="./aktionen:Bedingung"/>
+
           </li>
         </xsl:if>
         <xsl:if test="./aktionen:InstantEffekt">
@@ -41,7 +45,9 @@
             <h4>
               <small>Augenblicklicher Effekt</small>
             </h4>
-            <xsl:value-of select="./aktionen:InstantEffekt"/>
+
+<xsl:value-of select="./aktionen:InstantEffekt"/>
+
           </li>
         </xsl:if>
         <xsl:if test="./aktionen:GarantierterEffekt">
@@ -49,7 +55,9 @@
             <h4>
               <small>Garantierter Effekt</small>
             </h4>
-            <xsl:value-of select="./aktionen:GarantierterEffekt"/>
+
+<xsl:value-of select="./aktionen:GarantierterEffekt"/>
+
           </li>
         </xsl:if>
         <xsl:if test="./aktionen:OffensivErfolg">
@@ -57,15 +65,20 @@
             <h4>
               <small>Offensiver Erfolg</small>
             </h4>
-            <xsl:value-of select="./aktionen:OffensivErfolg"/>
-          </li>
+
+<xsl:value-of select="./aktionen:OffensivErfolg"/>
+
+
+</li>
         </xsl:if>
         <xsl:if test="./aktionen:DefensivErfolg">
           <li class="list-group-item">
             <h4>
               <small>Defensiver Erfolg</small>
             </h4>
-            <xsl:value-of select="./aktionen:DefensivErfolg"/>
+
+<xsl:value-of select="./aktionen:DefensivErfolg"/>
+
           </li>
         </xsl:if>
              <xsl:if test="./aktionen:OffensivMiserfolg">
@@ -73,7 +86,9 @@
             <h4>
               <small>Offensiver Misserfolg</small>
             </h4>
-            <xsl:value-of select="./aktionen:OffensivMiserfolg"/>
+
+<xsl:value-of select="./aktionen:OffensivMiserfolg"/>
+
           </li>
         </xsl:if>
         <xsl:if test="./aktionen:DefensivMiserfolg">
@@ -81,7 +96,9 @@
             <h4>
               <small>Defensiver Misserfolg</small>
             </h4>
-            <xsl:value-of select="./aktionen:DefensivMiserfolg"/>
+
+<xsl:value-of select="./aktionen:DefensivMiserfolg"/>
+
           </li>
         </xsl:if>
       </ul>
@@ -105,13 +122,13 @@
             <dt>Modifikation</dt>
             <dd>
               <xsl:if test="./aktionen:Mod/@ModifierType eq 'Bonus'">
-                <span class="label label-success">+
+                <span class="label label-success"> &#65291;
                   <xsl:apply-templates select="./aktionen:Mod/*"/>
                 </span>
               </xsl:if>
               <xsl:if test="./aktionen:Mod/@ModifierType eq 'Malus'">
-                <span class="label label-danger"><var>-
-                  <xsl:apply-templates select="./aktionen:Mod/*"/></var>
+                <span class="label label-danger">&#x2212;
+                  <xsl:apply-templates select="./aktionen:Mod/*"/>
                 </span>
               </xsl:if>
             </dd>
@@ -121,22 +138,22 @@
     </div>
   </xsl:template>
   <xsl:template match="aktionen:ConcreteModValueType">
-    <xsl:value-of select="@Value"/>
-    <xsl:if test="@Type='Percent'">%</xsl:if>
+    <var><xsl:value-of select="@Value"/>
+    <xsl:if test="@Type='Percent'">%</xsl:if></var>
   </xsl:template>
   <xsl:template match="aktionen:VariableModValueType">
-    <xsl:value-of select="@Value"/>
+    <var><xsl:value-of select="@Value"/></var>
   </xsl:template>
   <xsl:template match="aktionen:AddModValueType">
     <xsl:apply-templates select="./*[1]"/>
     <xsl:for-each select="./*[position()>1]">
-      + <xsl:apply-templates select="."/>
+      &#65291; <xsl:apply-templates select="."/>
     </xsl:for-each>
   </xsl:template>
   <xsl:template match="aktionen:MultiplyModValueType">
     <xsl:apply-templates select="./*[1]"/>
     <xsl:for-each select="./*[position()>1]">
-      * <xsl:apply-templates select="."/>
+      &#8226; <xsl:apply-templates select="."/>
     </xsl:for-each>
   </xsl:template>
   <xsl:template match="*">  [FEHLER IM XSLT]            
