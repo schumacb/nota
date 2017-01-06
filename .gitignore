@@ -9,5 +9,6 @@
 /.vs/nota/
 .vs/VSWorkspaceState.json
 .vs/slnx.sqlite
+.vs/slnx.sqlite-journal
 
 wyam.log
