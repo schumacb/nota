@@ -638,12 +638,13 @@
       <Beschreibung></Beschreibung>
     </Besonderheit>
   </Besonderheiten>
+  
   <aktionen:Aktionen>
-    <aktionen:Aktion Name="Angriff" Kosten="1" Typ="Ausgeglieschen">
+    <aktionen:Aktion Name="Angriff" Kosten="2" Typ="Ausgeglieschen">
       <aktionen:Beschreibung>Ein standard angriff mit ausgeglichener verteidigung.</aktionen:Beschreibung>
       <aktionen:OffensivErfolg>Wenn keine Devensivkarte des Ziels Punkte übrig behölt, verursacht die Waffe ihren Waffen Schaden.Andernfalls erhält der Gegner stellungsmalie abhänig von der waffe.</aktionen:OffensivErfolg>
     </aktionen:Aktion>
-    <aktionen:Aktion Name="Verteidigungshaltung" Kosten="1" Typ="Defensiv">
+    <aktionen:Aktion Name="Verteidigungshaltung" Kosten="2" Typ="Defensiv">
       <aktionen:Beschreibung>Der Charakter konzentriert sich auf seine Verteidigung, auf kosten seiner Angriffe.</aktionen:Beschreibung>
       <aktionen:InstantEffekt>Erhöhe die Tallentpunkte für diese Aktion um 50%</aktionen:InstantEffekt>
       <aktionen:Mod ModifierType="Bonus">
@@ -651,17 +652,17 @@
       </aktionen:Mod>
     </aktionen:Aktion>
     
-    <aktionen:Aktion Name="Rückzug" Kosten="1" Typ="Defensiv">
+    <aktionen:Aktion Name="Rückzug" Kosten="2" Typ="Defensiv">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:DefensivErfolg>Der Charakter lößt sich aus dem Nahkampf.</aktionen:DefensivErfolg>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Flucht" Kosten="1" Typ="Sekundär">
+    <aktionen:Aktion Name="Flucht" Kosten="3" Typ="Sekundär">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:GarantierterEffekt>Der Charakter lößt sich aus dem Nahkampf.</aktionen:GarantierterEffekt>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Finte" Kosten="2" Typ="Ausgeglieschen">
+    <aktionen:Aktion Name="Finte" Kosten="3" Typ="Ausgeglieschen">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:OffensivErfolg>Das Ziel erhält Positions Mali in höhe von x.</aktionen:OffensivErfolg>
       <aktionen:DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</aktionen:DefensivMiserfolg>
@@ -670,7 +671,7 @@
       </aktionen:Mod>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Wuchtschlag" Kosten="2" Typ="Ausgeglieschen">
+    <aktionen:Aktion Name="Wuchtschlag" Kosten="4" Typ="Ausgeglieschen">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:InstantEffekt>Gillt als standard Angriff.</aktionen:InstantEffekt>
       <aktionen:OffensivErfolg>Erhöht den Wuchtschaden der Waffe um x.</aktionen:OffensivErfolg>
@@ -704,16 +705,16 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
       </aktionen:Mod>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Schutz" Kosten="2" Typ="Defensiv">
+    <aktionen:Aktion Name="Schutz" Kosten="3" Typ="Defensiv">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für ihn selbst.</aktionen:InstantEffekt>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Abwarte" Kosten="0" Typ="Defensiv">
+    <aktionen:Aktion Name="Abwarte" Kosten="0" Typ="Secundär">
       <aktionen:Beschreibung>Der Charakter tut nichts</aktionen:Beschreibung>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Position" Kosten="1" Typ="Defensiv">
+    <aktionen:Aktion Name="Position" Kosten="2" Typ="Defensiv">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:DefensivErfolg>Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).</aktionen:DefensivErfolg>
       <aktionen:DefensivMiserfolg>Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet).</aktionen:DefensivMiserfolg>

@@ -52,6 +52,24 @@ Die meisten Angriffe bedrängen den Gegner das bedeuted er erhält auf seine wei
 
 Hat ein Charkter etwas Zeit kann er seine stellung wieder verbessern und bedrängungs malus wieder abbauen.
 
+## Mali
+
+Mali die der Charakter im Kampf ansamelt können aus verschiedenen Quellen kommen. Sie sind alle kumutativ werden aber nicht direkt von den Proben abgezogen. Der eigentliche Malus auf die Proben wird über die anzahl der Mali bestimmt.
+
++--------+---------+--------+--------+---------+
+| Anzahl | Malus   |        | Anzahl | Malus   |
++========+=========+========+========+=========+
+| 5      | -1      |        | 24     | -6      |
++--------+---------+--------+--------+---------+
+| 10     | -2      |        | 26     | -7      |
++--------+---------+--------+--------+---------+
+| 14     | -3      |        | 28     | -8      |
++--------+---------+--------+--------+---------+
+| 18     | -4      |        | 29     | -9      |
++--------+---------+--------+--------+---------+
+| 21     | -5      |        | 30+x   | -(10+x) |
++--------+---------+--------+--------+---------+
+
 ## Ausdauer
 
 Während des Kampfes nutzt der Kämpfer ausdauer um Aktionen durchzuführen. Verbraucht er ausdauer erhält er dafür Erschöpfungspunkte. Zudem kann er durch gegnerische Aktionen Erschöpfung erhalten.
@@ -164,24 +182,7 @@ Zusätzlich Elementarer Schaden wie
 + **Säure**  
   Verletzungen durch, meist ätzede, Flüssigkeiten.
 
-Sonstige Schadensarten
-+ **Gift**
-+ **Krankheit**
-
 Wenn eine Waffe mehrere schadenstypen besitzt, werden diese einzeln abgehandelt. Mail durch Schmerzen werden nur von dem höchsten schadenstyp verursacht. Zusatzeffekte durch die Scahdensart kommen aber alle zu tragen.
-
-### Rüstung
-
-Um sich vor potenziellen verletzungen zu schützen, kann sich ein Charakter mit verschiedenen arten von Rüstung schützen. Eine Rüstung schützt gegen verschiedene arten von Schaden. 
-
-Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
-
-Hierzu ist jeder Trefferzone Schadenstyp kombination ein Rüstgrad zugeordnet. Ein treffer eines Schadenstyp in der Zone wird um eine entsprehende anzahl an Punkten reduziert. 
-
-Zudem besitzt jede Rüstung einen Schutzgrad, dies beschreibt wieviel angrifsfläche die Rüstung ungeschützt läßt. Dies kann ein Wert zwischen 0 und 20 sein. Wobei 20 eine komplette abschirmung der gesammten Trefferzone darstellt.
-
-Bestimmte prezise Waffen oder Aktionen können die Rüstung umgehen. Hierzu wird ein W20 gewürfelt und mit dem Schutzgrad verglichen. Sollte der Würfel höher sein als der Schutzgrad der Rüstung wird diese Ignoriert. Ein Schutzgrad von 20 kann durch Aktionen nicht reduziert werden.
-
 
 
 
