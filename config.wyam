@@ -86,6 +86,28 @@ public static class AutoLinkHelper
 			
 		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
 	}
+
+
+	public static IDocument[] AddClassToTable(IDocument doc, IExecutionContext ctx)
+	{
+		var parser = new AngleSharp.Parser.Html.HtmlParser();
+		//Source to be pared
+		var source = @doc.Content;
+		//Parse source to document
+		var document = parser.Parse(source);
+		//Do something with document like the following
+
+		var tables = document.QuerySelectorAll("table");
+		foreach (var table in tables)
+		{			
+			var url = table.GetAttribute("class");
+			if(!String.IsNullOrEmpty(url))
+				continue;
+			table.SetAttribute("class", "table");
+		}			
+			
+		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
+	}
 }
 
 
@@ -149,6 +171,7 @@ Pipelines.Add("renderInput",
 		if(path.Extension == ".md" 
 		|| path.Extension == ".cshtml"
 		|| path.Extension == ".xslt"
+		|| path.Extension == ".xlsx"
 		|| path.Extension == ".xml")
 			path= path.ChangeExtension(".html");
 		return path;
@@ -301,6 +324,14 @@ Pipelines.Add("renderOutput",
 		)
 	),
 
+	/// XLSX ///
+	If(@doc.Source.Extension==".xlsx",
+	 	ExcelToCsv(),
+		CsvToHtml()
+		 .WithHeader()
+	 ), 
+
+
 	/// XSLT ///
 		If(@doc.Source.Extension==".xslt",
 		Meta("src", @doc.Source),
@@ -325,26 +356,51 @@ Pipelines.Add("renderOutput",
 	
 	Execute((ctx)=>{ // append to previous document
 		var list = new List<IDocument>(ctx.Documents.FromPipeline("renderOutput"));
-
-		foreach(var doc in ctx.Documents.FromPipeline("renderOutput"))
+		bool foundAppend;
+do
+{
+foundAppend=false;
+		for (int i = list.Count - 1; i >= 0 ; i--)
 		{
+			var doc = list[i];
 
 			if(doc.Metadata.ContainsKey("append")
 				&& bool.Parse(doc["append"].ToString()))
 			{
-				var docToAppendTo = doc.Metadata.Get<IDocument>("Previous");
+				foundAppend=true;
+				var nextDoc = doc;
+				var docToAppend = nextDoc;
+			do{
+				docToAppend = nextDoc;
+				nextDoc = docToAppend.Metadata.Get<IDocument>("Next");
 				
-				if(docToAppendTo == null)
-					continue;
+			}while(nextDoc!=null
+					&& nextDoc.Metadata.ContainsKey("append")
+					&& bool.Parse(nextDoc["append"].ToString()));
+
+
+
+do{
+
+var docToAppendTo = docToAppend.Metadata.Get<IDocument>("Previous");
+if(docToAppendTo== null)
+break;
 
 				var index = list.IndexOf(docToAppendTo);
-				list[index] = ctx.GetDocument(docToAppendTo,docToAppendTo.Source, docToAppendTo.Content + doc.Content);
+				var newDoc = list[index] = ctx.GetDocument(docToAppendTo,docToAppendTo.Source, docToAppendTo.Content + "\n" + docToAppend.Content);
 
-				System.Console.WriteLine(list[index].Content);
-				list.Remove(doc);
+				list.Remove(docToAppend);
+				docToAppend =newDoc;
+			}while(docToAppend.Metadata.ContainsKey("append")
+					&& bool.Parse(docToAppend["append"].ToString()));
+
+					break;
 
 			}
-		}
+
+}
+		}while(foundAppend);
+
 		return list;
 	}),
 	
@@ -424,25 +480,23 @@ Pipelines.Add("Write",
 	Where(@doc.Source != null),
 	If(@doc.Source.Extension==".md",
 		Markdown()
-		// .UseExtensions()
+		 .UseExtensions()
 		// .UseConfiguration("DisableHtml")
 	), 
 	
-	// If(@doc.Source.Extension==".xml",
-	// 	Xslt((string)@doc["template"])
-	// ), 
 
 	If(@doc.Source.Extension==".md" 
 			|| @doc.Source.Extension==".cshtml" 
 			|| @doc.Source.Extension==".xslt" 
+			|| @doc.Source.Extension==".xlsx" 
 			|| @doc.Source.Extension==".xml",
-		Razor().WithViewStart(@"layout/viewstart.cshtml")
+		Razor().WithViewStart(@"layout/viewstart.cshtml"),
+		Execute(AutoLinkHelper.AddClassToTable)
 	),
 	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
 		.ToDictionary(x => x.Key, 
 			x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
 		.WithMatchOnlyWholeWord(),
-
 	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension==".html",
 		Execute(AutoLinkHelper.AddImageMetadata),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')

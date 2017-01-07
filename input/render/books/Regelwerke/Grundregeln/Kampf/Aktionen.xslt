@@ -14,7 +14,8 @@
     <xsl:apply-templates select="aktionen:Aktionen"/>
   </xsl:template>
   <xsl:template match="aktionen:Aktionen">
-    <h1>Aktionen</h1>
+
+<h1>Aktionen</h1>
     <xsl:apply-templates select="aktionen:Aktion"/>
   </xsl:template>
   <xsl:template match="aktionen:Aktion">
@@ -114,7 +115,8 @@
               <xsl:when test="@Typ='Offensiv'">Offensiv</xsl:when>
               <xsl:when test="@Typ='Defensiv'">Defensiv</xsl:when>
               <xsl:when test="@Typ='Ausgeglieschen'">Offensiv und Passiv</xsl:when>
-              <xsl:when test="@Typ='Keine'">Kein</xsl:when>
+              <xsl:when test="@Typ='Frei'">Frei</xsl:when>
+              <xsl:when test="@Typ='Sekundär'">Sekundär</xsl:when>
               <xsl:otherwise>[Ungültiger wert]</xsl:otherwise>
             </xsl:choose>
           </dd>
@@ -137,25 +139,30 @@
       </div>
     </div>
   </xsl:template>
+
   <xsl:template match="aktionen:ConcreteModValueType">
     <var><xsl:value-of select="@Value"/>
     <xsl:if test="@Type='Percent'">%</xsl:if></var>
   </xsl:template>
+
   <xsl:template match="aktionen:VariableModValueType">
     <var><xsl:value-of select="@Value"/></var>
   </xsl:template>
+
   <xsl:template match="aktionen:AddModValueType">
     <xsl:apply-templates select="./*[1]"/>
     <xsl:for-each select="./*[position()>1]">
       &#65291; <xsl:apply-templates select="."/>
     </xsl:for-each>
   </xsl:template>
+
   <xsl:template match="aktionen:MultiplyModValueType">
     <xsl:apply-templates select="./*[1]"/>
     <xsl:for-each select="./*[position()>1]">
       &#8226; <xsl:apply-templates select="."/>
     </xsl:for-each>
   </xsl:template>
+
   <xsl:template match="*">  [FEHLER IM XSLT]            
     <xsl:value-of select="local-name()"/>
   </xsl:template>

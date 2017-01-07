@@ -63,6 +63,14 @@ padding-right: 20px;
 	column-width: 25em;	
 }
 
+
+.twoColumn > .content > .span {
+    column-span: all;
+    -webkit-column-span: all;
+    -moz-column-span: all;
+}
+
+
 .twoColumn h1 {
     column-span: all;
     -webkit-column-span: all;

@@ -34,6 +34,8 @@ Jede Aktion hat gewisse Effekte. Es gibt 'Offensiver Erfolg' und 'Defensiver Erf
 
 Ob eine Aktion nun ein Erfolg ist oder ein Misserfolg hängt von den ermittelten Aktionswerten ab. Eine offensve Aktion gellingt wenn das Ziel oder die Ziele der Aktion keinen größeren Aktionswert in einer defensiven Aktion besitzen als der ausführende Charakter. Hingegen gelingt eine defensive Aktion sobald keine offensive Aktion die diesen Charakter als Ziel hat einen höheren Aktionswert besitzt. Daraus folgt das bei einem Gleichstand beide Aktionen erfolgreich sind. Es gibt auch Aktionen welche weder offensiv noch defensiv sind. Diese Aktionen können daher weder Erfolg noch Misserfolg besitzen.
 
+Neben offensiven und defensiven Aktionen gibt es noch Frei- und Sekundäraktionen. Freie Aktionen zählen nicht zur Anzahl an Aktionen die in der Runde gespielt werden und behindern daher auch nicht andere Aktionen. Sekundäre Aktionen sind Aktionen, welche zwar andere Aktionen erschweren, aber selbst weder offensiver noch defensiver Natur sind.
+
 Wird ein Charakter ziel mehrere offensiver Aktionen, so gilt sein Aktionswert im bezug zur verteidigung als um eins, für jede Aktion nach der ersten, reduziert. 
 
 Mehrere Aktionen können sich gegen das selbe Ziel richtigen, oder gegen unterschiedliche.
@@ -52,7 +54,22 @@ Hat ein Charkter etwas Zeit kann er seine stellung wieder verbessern und bedrän
 
 ## Ausdauer
 
-Während des Kampfes verbraucht der Kämpfer ausdauer um Aktionen durchzuführen. Verbrauchte Ausdauer kann er mittels der Aktion Erholen durchführen. Ausserdem kann Ausdauer auch durch gegner verursacht werden. Der maximale Ausdauerwert kann auch durch Blutungen sinken.
+Während des Kampfes verbraucht der Kämpfer ausdauer um Aktionen durchzuführen. Verbrauchte Ausdauer kann er mittels der Aktion Erholen Wiedererlangen. Ausserdem kann Ausdauer auch durch gegner verursacht werden. Der maximale Ausdauerwert kann auch durch Blutungen sinken.
+
+Für jeweils 5 Ausdauerpunkte die der Charakter verloren hat, erhält er einen Malus.
+
+Sinkt die Ausdauer auf zu nidrige Werte kann es gefährlich werden.
+
++----------------------------:+:---------------------------+
+| Verbleibende Ausdauerpunkte | Zustand                    |
++:===========================:+:==========================:+
+|  18                         | Ohnmacht                   |
++-----------------------------+----------------------------+
+|  24                         | Eingeschränkt Aktionsfähig |
++-----------------------------+----------------------------+
+
+Die Durschnittliche Ausdauer liegt bei 35 bis 45 Ausdauerpunkten
+
 
 ## Verletzungen
 
@@ -60,15 +77,25 @@ Sollte ein Charakter genug in bedrängniss geraten, kann er verletzungen erleide
 
 ### Trefferzonen
 
-Je nach art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt wurde (W20). 
+Je nach art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt wurde. 
 
-+ Kopf 10% (1-2)
-+ Brust / Rücken 20% (3-6)
-+ Linker Arm 15% (7-9)
-+ Rechter Arm 15% (10-12)
-+ Hüfte 10% (13-14)
-+ Linkes Bein 15% (15-17)
-+ Rechtes Bein 15% (18-20)
++:-----------:+:------------------:+------:+
+| Trefferzone | Wahrscheinlichkeit | W20   |
++:===========:+:==================:+======:+
+| Kopf        | 10%                | (1-2) |
++-------------+--------------------+-------+
+|Brust/Rücken | 20%                | (3-6) |
++-------------+--------------------+-------+
+| Linker Arm  | 15%                | (7-9) |
++-------------+--------------------+-------+
+| Rechter Arm | 15%                |(10-12)|
++-------------+--------------------+-------+
+| Hüfte       | 10%                |(13-14)|
++-------------+--------------------+-------+
+| Linkes Bein | 15%                |(15-17)|
++-------------+--------------------+-------+
+| Rechtes Bein| 15%                |(18-20)|
++-------------+--------------------+-------+
 
 
 ### Wunden
@@ -79,49 +106,11 @@ Wunden können oberflächiche, innere Wunden oder Brüche sein.
 
 ### Blutungen
 
-Eine Blutung führt zur Regelmäßigen senkung der maximalen Ausdauer. Alle 5 Kampfrunden sinkt die maximale Ausdauer um die Stufe der Blutung.
+Eine Blutung führt zur Regelmäßigen senkung der maximalen Ausdauer. Jede Kampfrunde sinkt die maximale Ausdauer um die Stufe der Blutung.
 
-Nachdem eine Blutung schaden verursacht kann sie sich selbst stoppen.  Wenn die Blutung Stufe eins ist, hat sie eine 25% chance ihre Stufe um eins zu reduzieren. Für jeweils bereits 5 Verlorene Maximal Ausdauerpunkte kann eine Blutung eine stufe höher reduziert werden.
+Nachdem eine Blutung schaden verursacht kann sie sich selbst stoppen. Die Chance das die Blutung ihre Stufe um eins verringert liegt bei 5% (20+ auf W20). Tabelle 1 zeigt die Wahrscheinlichkeit einer Blutung zu erligen falls diese nicht versorgt wird.
 
-Andernfalls kann nur Medizinische versorgung die Wunde schließen.
+Andernfalls kann nur Medizinische versorgung die Blutung schließen.
 
-## Schmerzen
-
-Neben Wunden, verursacht eine Verletzung auch Schmerzen. Diese fließen als weitere Mali in den Kampf ein. Jede Kampfrunde baut sich ein Schmerzensmali ab.
-
-### Schadensarten
-Je nach art der Waffe versucht sie unterschiedliche arten von Schaden.
-Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt beispielsweise in erster linie Wucht schaden, aber auch zusätzlich Schnittschaden.
-
-+ **Wucht**
-  _Knüppel, Stäbe, Hämmer_  
-  Versucht ein Treffer eine mittlere oder schwere Wunde so ist dies ein Bruch. Eine Wunde am Kopf kann ein Schädel-Hirn-Trauma verursachen.
-+ **Schnitt**
-  _Schwerter, Messer oder Säbel_  
-  Wenn eine Schnittwaffe mehr als 3 Schaden anrichtet verursacht sie ein Blutung inhöhe des Schadens minus drei.
-+ **Stoß**
-  _Piken, Speere_
-+ **Stich**
-  _Degen oder Florett_  
-  Wenn eine Stichwaffe Schaden verursacht richtet sie eine Blutung Stufe eins an. Verursacht sie eine Mittlere oder schwere Wunde, ist dies eine Innere Verletzung.
-
-Zusätzlich Elementarer Schaden wie
-+ **Feuer**
-+ **Frost**
-+ **Elektro**  
-  Jeder Punkt schaden verursachte einen zusätzlichen Malie Schmerzen
-
-Sonstige Schadensarten
-+ **Gift**
-+ **Krankheit**
-
-Wenn eine Waffe mehrere schadenstypen besitzt, werden diese einzeln abgehandelt. Mail durch Schmerzen werden nur von dem höchsten schadenstyp verursacht. Zusatzeffekte durch die Scahdensart kommen aber alle zu tragen.
-
-### Rüstung
-
-Um sich vor potenziellen verletzungen zu schützen, kann sich ein Charakter mit verschiedenen arten von Rüstung schützen. Eine Rüstung schützt gegen verschiedene arten von Schaden.
-
-Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
-
-Jeder Schadenstyp wird um eine entsprehende anzahl an Punkten reduziert. 
-
+<figure >
+<div class="table-responsive">

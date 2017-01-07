@@ -83,7 +83,8 @@
       <enumeration value="Offensiv"/>
       <enumeration value="Defensiv"/>
       <enumeration value="Ausgeglieschen"/>
-      <enumeration value="Keine"/>
+      <enumeration value="Frei"/>
+      <enumeration value="Sekundär"/>
     </restriction>
   </simpleType>
 
