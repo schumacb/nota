@@ -64,15 +64,15 @@ Für jeweils 5 Erschöpfungspunkte die der Charakter besitzt, erhält er einen M
 
 Ein Charakter kann nur begrenzt viele erschöpfungspunte ansameln. Übersteigt die Anzahl der Erschöpfungspunkte bestimmte grenzen, so hat dies nachteilige Auswirkungen auf den Charakter.
 
-+----------------------------:+:---------------------------+
-| Erschöpfungspunkte          | Zustand                    |
-+:===========================:+:==========================:+
-| Maximum Ausdauer            | Tod                        |
-+-----------------------------+----------------------------+
-| Maximum Ausdauer - 18       | Ohnmacht                   |
-+-----------------------------+----------------------------+
-| Maximum Ausdauer - 24       | Eingeschränkt Aktionsfähig |
-+-----------------------------+----------------------------+
++-------------------:+:---------------------------+
+| Erschöpfungspunkte | Zustand                    |
++:==================:+:==========================:+
+|  Ausdauer          | Tod                        |
++--------------------+----------------------------+
+|  Ausdauer - 18     | Ohnmacht                   |
++--------------------+----------------------------+
+|  Ausdauer - 24     | Eingeschränkt Aktionsfähig |
++--------------------+----------------------------+
 
 Die Durschnittliche Ausdauer liegt zwichen 35 bis 45.
 
