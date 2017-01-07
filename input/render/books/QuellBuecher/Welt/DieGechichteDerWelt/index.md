@@ -18,8 +18,7 @@ Und der fünfte Morgen brach an, und die Götter beschlossen Wesen zu erschaffen
 
 Und der sechste Morgen brach an, und die Götter waren wütend. Denn die Wesen denen Sie den freien Willen schenkten taten nicht wie ihnen geheißen. Sie wiedersetzten sich ihren Schöpfern und lehten sich auf. Und dies missviel den Göttern sehr.
 
-<div class="hidden-information Meister Information">
-
+:::{.hidden-information .Meister .Information}
 Die Welt wurde nicht aus dem Chaos erschaffen, sondern von ihm vernichtet. Das letzte Zeitalter bestand nicht nur aus einer Welt, es bestand aus vielen. Ein ganzes Universum voller Planeten Sonnen und anderem. Erfüllt mit Leben.
 
 Die Grundsteine des Universums waren 13 Elemente. Die fünf Elemente wie wir sie auch heute kennen, Erde, Metal, Wasser, Holz, Feuer und ein weiters für die Seele. Diese sechs Elemente gab es in zwei ausprägungen. Einer Positive und einer Negativen. Diese reagieren sehr stark auf einander und setzen dabei viel Energie frei.
@@ -43,5 +42,4 @@ Und die Götter fanden eine neue Macht die sie vorher nicht kannten. Die Magie. 
 Und so sammelten sie die letzten reste dessen was von dem dreizehten Element im Universum übriggeblieben war und schaften daraus eine gewaltige Sphäre, einen Schutzwall gegen das Chaos, den Raum und die Zeit. Dies war der Anfang einer neuen Welt eines neuen Zeitalters. Der kümerliche rest von dem was vom dreizehten Element brigblieb reichte jedoch nicht aus um ordnung in das Chaos innerhalb der Sphäre zu bringen. Denn es gab weit mehr der anderen Elemente als von dem letzen verblibe. Daher entschlossen sich die Götter die Elemente zu trennen. Sie schufen mithilfe der Magie eine weitere Dimension und trennten mit ihrer hilfe die inkompatiblen Elemente voneinander. Der Rest des neutralen Elementes nutzten Sie um eine weitere Bariere zu schaffen auf das sich die Elemente nie wieder vermischen sollten.
 
 Die beiden Welten Gaä und Tallos waren geschaffen. Und die Götter füllten sie mit leben. Als vorbild nahmen sie sich dinge, an die sie sich noch aus ihrer alten Welt errinnern konnten. Beide Welten wurden unter der Regie der Götter mit Leben erfüllt und gediehen. Die tatsache das den meisten Wesen die jeweils andere Welt als dämonische welt erscheint, rührt daher das sie gänzlich aus, zur eingenen inkompatiblen, Elementen besteht. Dies führt zu starken veränderungen an allem und jedem das aus der einen in die andere Welt wechselt. So entstehen gefährliche dämonenartige Wesen die alles um sich herum verseuchen und ebenfalls korupieren. 
-
-</div>
+:::

@@ -127,7 +127,7 @@ Je nach art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt 
 +-------------+--------------------+-------+
 | Rechter Arm | 15%                |(10-12)|
 +-------------+--------------------+-------+
-| Hüfte       | 10%                |(13-14)|
+| Bauch/Hüfte | 10%                |(13-14)|
 +-------------+--------------------+-------+
 | Linkes Bein | 15%                |(15-17)|
 +-------------+--------------------+-------+
@@ -163,19 +163,29 @@ Je nach art der Waffe versucht sie unterschiedliche arten von Schaden.
 Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt beispielsweise in erster linie Wucht schaden, aber auch zusätzlich Schnittschaden.
 
 + **Wucht**
-  _Knüppel, Stäbe, Hämmer_  
+  _Knüppel, Stäbe, Hämmer, Fäuste_  
   Versucht ein Treffer eine mittlere oder schwere Wunde so ist dies ein Bruch. Eine Wunde am Kopf kann ein Schädel-Hirn-Trauma verursachen.
+
+  Jeder Treffer versucht ausserdem einen Ausdauerverlust in höhe des Schadens, bis zu einem Maximum von 5.
+
+  Wuchtwaffen varieren stark je nach Waffe zwischen 3 und 8 Schaden.  
+  Waffenlose Angrife verursachen 1-3 Schaden.
 + **Schnitt**
   _Schwerter, Messer oder Säbel_  
-  Wenn eine Schnittwaffe mehr als zwei Schaden anrichtet verursacht sie ein Blutung inhöhe des Schadens minus zwei.
-+ **Stoß**
-  _Piken, Speere_
+  Eine Schnittwaffe verursacht eine Blutung inhöhe des Schadens.
+
+  Schnittwaffen verursachen 2-4 Schaden.
 + **Stich**
   _Degen oder Florett_  
-  Wenn eine Stichwaffe Schaden verursacht richtet sie eine Blutung Stufe eins an. Verursacht sie eine Mittlere oder schwere Wunde, ist dies eine Innere Verletzung.
+  Eine Stichwaffe verursacht Blutungen in Höhe des Schadens. Sie kann in anderen Trefferzonen als dem Bauch und der Brust nur leichte Wunden zufügen.
+
+  In der Trefferzone Bauch und Brust haben die verursachten Blutungen die doppelte Stufe.
+
+  Stichwaffen verursachen 1-3 Schaden.
 
 Zusätzlich Elementarer Schaden wie
 + **Feuer**
+  Verursacht ein Feuer angriff genug Schaden kann man Feuer Fangen.
 + **Frost**
 + **Elektro**  
   Jeder Punkt schaden verursachte einen zusätzlichen Malie Schmerzen

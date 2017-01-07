@@ -12,12 +12,12 @@ Die Art unterteilt die Mitglieder einer Gattung weiter. So stellen die Menschen 
 
 
 
-<div class="hidden-information Information">
 
+:::{.hidden-information .Information}
 Da es in der Welt von Nota keine evulution gab, haben diese begriffe eine
 etwas andere Bedeutung als in der Realität. 
+:::
 
-</div>
 
 ## Kultur
 
