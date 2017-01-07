@@ -54,22 +54,41 @@ Hat ein Charkter etwas Zeit kann er seine stellung wieder verbessern und bedrän
 
 ## Ausdauer
 
-Während des Kampfes verbraucht der Kämpfer ausdauer um Aktionen durchzuführen. Verbrauchte Ausdauer kann er mittels der Aktion Erholen Wiedererlangen. Ausserdem kann Ausdauer auch durch gegner verursacht werden. Der maximale Ausdauerwert kann auch durch Blutungen sinken.
+Während des Kampfes nutzt der Kämpfer ausdauer um Aktionen durchzuführen. Verbraucht er ausdauer erhält er dafür Erschöpfungspunkte. Zudem kann er durch gegnerische Aktionen Erschöpfung erhalten.
 
-Für jeweils 5 Ausdauerpunkte die der Charakter verloren hat, erhält er einen Malus.
+Erschöpfung kann er wieder mittels der Aktion Erholen Abbauen. Dabei sammelt sich jedoch Verausgabung an. Der Abbau jeweils 5 Punkte Erschöpfung erzeugt einen Punkt Verausgabung. Verausgabung kann nur über rasten abgebaut werden. Eine Halbe stunde Rast entfernt eine Verausgabung. Ein Charakter kann maximal 5 Punkte Verausgabung besitzen. Sollte er Verausgabung darüber hinaus erhalten, erhält er statt dessen entsprechend viele Punkte Strapazierung. Ein Punkt Strapazierung abzubauen dauert zwei Stunden.
 
-Sinkt die Ausdauer auf zu nidrige Werte kann es gefährlich werden.
+Abgesehen von der Art wie sie abgebaut werden gelten Strapazierung und Verausgabung in allen belangen als Erschöpfungspunkte.
+
+Für jeweils 5 Erschöpfungspunkte die der Charakter besitzt, erhält er einen Malus.
+
+Ein Charakter kann nur begrenzt viele erschöpfungspunte ansameln. Übersteigt die Anzahl der Erschöpfungspunkte bestimmte grenzen, so hat dies nachteilige Auswirkungen auf den Charakter.
 
 +----------------------------:+:---------------------------+
-| Verbleibende Ausdauerpunkte | Zustand                    |
+| Erschöpfungspunkte          | Zustand                    |
 +:===========================:+:==========================:+
-|  18                         | Ohnmacht                   |
+| Maximum Ausdauer            | Tod                        |
 +-----------------------------+----------------------------+
-|  24                         | Eingeschränkt Aktionsfähig |
+| Maximum Ausdauer - 18       | Ohnmacht                   |
++-----------------------------+----------------------------+
+| Maximum Ausdauer - 24       | Eingeschränkt Aktionsfähig |
 +-----------------------------+----------------------------+
 
-Die Durschnittliche Ausdauer liegt bei 35 bis 45 Ausdauerpunkten
+Die Durschnittliche Ausdauer liegt zwichen 35 bis 45.
 
+### Eingeschränkt Aktionsfähig
+
+Der Charakter erhält auf alle Proben einen Zusätzlichen Malus von 3.
+
+### Ohnmacht
+
+Der Charakter hat das bewustsein verloren. Währenddessen baut er Erschöpfung ab als würde er die Aktion Erholen nutzen zusammen mit einer anderen Aktion.
+
+Nachdem er genügend erschöpfung abgebaut hat um nicht mehr ohnmächtig zu sein, dauert es noch W3 Kampfrunden bis er das bewustsein wieder erlangt. In dieser zeit darf seine Erschöpfung natürlich den schwellenwert nicht mehr überschreiten. Anschließend ist er noch für W3 Runden benommen, und gillt als nur Eingeschränkt Aktionsfähig auch wenn er bereits mehr Erschöpfung abgebaut hat.
+
+### Tod
+
+Der Charakter hat nicht mehr genug Kraft zum leben. Er hat das Zeitliche gesegnet.
 
 ## Verletzungen
 
@@ -106,11 +125,65 @@ Wunden können oberflächiche, innere Wunden oder Brüche sein.
 
 ### Blutungen
 
-Eine Blutung führt zur Regelmäßigen senkung der maximalen Ausdauer. Jede Kampfrunde sinkt die maximale Ausdauer um die Stufe der Blutung.
+Eine Blutung führt zum regelmäßigen erhalt von Blutungspunkten. Jede Kampfrunde erhält der Charakter Blutungspunkte in höhe der Stufe der Blutung. Diese Punkte werden wie Erschöpfungspunkte behandelt, jedoch regeneriert die Aktion Erholen diese nicht.
 
-Nachdem eine Blutung schaden verursacht kann sie sich selbst stoppen. Die Chance das die Blutung ihre Stufe um eins verringert liegt bei 5% (20+ auf W20). Tabelle 1 zeigt die Wahrscheinlichkeit einer Blutung zu erligen falls diese nicht versorgt wird.
+Nachdem eine Blutung schaden verursacht kann sie sich selbst stoppen. Die Chance das die Blutung ihre Stufe um eins verringert liegt bei 10% (19+ auf W20). Tabelle 1 zeigt die Wahrscheinlichkeit einer Blutung zu überleben falls diese nicht versorgt wird.
 
 Andernfalls kann nur Medizinische versorgung die Blutung schließen.
+
+Vorhandene Blutungspunkte werden sie Täglich abgebaut. Pro Tag verliert ein Charakter Blutpunkte in höhe von 10% (abgerundet minimum 1) seiner Ausdauer. Weitere möglichkeiten Blutpunkte abzubauen liegen in einer Bluttransfusion, vorausgesetzt das medizinische wissen dazu ist vorhanden.
+
+Foraussetzung zum Abbau der Blutpunkte ist Ruhe und genügend flüssigkeit und Nahrung. Andernfalls kann der Abbau geringer ausfallen.
+
+
+### Schmerzen
+
+Neben Wunden, verursacht eine Verletzung auch Schmerzen. Diese fließen als weitere Mali in den Kampf ein. Jede Kampfrunde baut sich ein Schmerzensmali ab.
+
+### Schadensarten
+Je nach art der Waffe versucht sie unterschiedliche arten von Schaden.
+Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt beispielsweise in erster linie Wucht schaden, aber auch zusätzlich Schnittschaden.
+
++ **Wucht**
+  _Knüppel, Stäbe, Hämmer_  
+  Versucht ein Treffer eine mittlere oder schwere Wunde so ist dies ein Bruch. Eine Wunde am Kopf kann ein Schädel-Hirn-Trauma verursachen.
++ **Schnitt**
+  _Schwerter, Messer oder Säbel_  
+  Wenn eine Schnittwaffe mehr als zwei Schaden anrichtet verursacht sie ein Blutung inhöhe des Schadens minus zwei.
++ **Stoß**
+  _Piken, Speere_
++ **Stich**
+  _Degen oder Florett_  
+  Wenn eine Stichwaffe Schaden verursacht richtet sie eine Blutung Stufe eins an. Verursacht sie eine Mittlere oder schwere Wunde, ist dies eine Innere Verletzung.
+
+Zusätzlich Elementarer Schaden wie
++ **Feuer**
++ **Frost**
++ **Elektro**  
+  Jeder Punkt schaden verursachte einen zusätzlichen Malie Schmerzen
++ **Säure**  
+  Verletzungen durch, meist ätzede, Flüssigkeiten.
+
+Sonstige Schadensarten
++ **Gift**
++ **Krankheit**
+
+Wenn eine Waffe mehrere schadenstypen besitzt, werden diese einzeln abgehandelt. Mail durch Schmerzen werden nur von dem höchsten schadenstyp verursacht. Zusatzeffekte durch die Scahdensart kommen aber alle zu tragen.
+
+### Rüstung
+
+Um sich vor potenziellen verletzungen zu schützen, kann sich ein Charakter mit verschiedenen arten von Rüstung schützen. Eine Rüstung schützt gegen verschiedene arten von Schaden. 
+
+Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
+
+Hierzu ist jeder Trefferzone Schadenstyp kombination ein Rüstgrad zugeordnet. Ein treffer eines Schadenstyp in der Zone wird um eine entsprehende anzahl an Punkten reduziert. 
+
+Zudem besitzt jede Rüstung einen Schutzgrad, dies beschreibt wieviel angrifsfläche die Rüstung ungeschützt läßt. Dies kann ein Wert zwischen 0 und 20 sein. Wobei 20 eine komplette abschirmung der gesammten Trefferzone darstellt.
+
+Bestimmte prezise Waffen oder Aktionen können die Rüstung umgehen. Hierzu wird ein W20 gewürfelt und mit dem Schutzgrad verglichen. Sollte der Würfel höher sein als der Schutzgrad der Rüstung wird diese Ignoriert. Ein Schutzgrad von 20 kann durch Aktionen nicht reduziert werden.
+
+
+
 
 <figure >
 <div class="table-responsive">

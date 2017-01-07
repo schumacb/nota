@@ -744,7 +744,7 @@ Alle Offensiven Aktionen erhalten den Malus in abhänigkeit des anvisierten Kör
 
     <aktionen:Aktion Name="Erholen" Kosten="0" Typ="Sekundär">
       <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:GarantierterEffekt>Der Charakter regeneriert ausdauerpunkte in höhe seines 10tels ausdauer.Wenn dies deine einzige Aktion ist wird die doppellte anzahl von Punkten regeneriert.</aktionen:GarantierterEffekt>
+      <aktionen:GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</aktionen:GarantierterEffekt>
     </aktionen:Aktion>
   </aktionen:Aktionen>
 </Daten>
