@@ -164,7 +164,15 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-    <Talent Name="Schaftwaffen" Komplexität="B" Kategorie="Kampf">
+    <Talent Name="FaustProjektielwaffen" Komplexität="B" Kategorie="Kampf">
+      <Probe>
+        <Gewandtheit/>
+        <Mut/>
+        <Intuition/>
+      </Probe>
+      <Beschreibung>Gewehre, Armbrüste</Beschreibung>
+    </Talent>
+    <Talent Name="ZweihandProjektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
         <Mut/>

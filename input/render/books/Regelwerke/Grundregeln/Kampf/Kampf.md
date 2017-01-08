@@ -46,7 +46,25 @@ Während eines Kampfes tragen die beteiligten kleinere und größere Plessuren d
 
 Und auch wenn ein Treffer zum gegner durchkommt, so muss das ende des Kampfes nicht aufgrund einer Wunde eintreten, sonder der kann auch durch erschöpfung oder Schmerzen kampfunfähig werden.
 
+Waffen verursachen entweder Schaden oder bedrängen den gegner. Trifft eine Waffe und der gegner hat eine erfolgreiche defensive Aktion gespielt (die zugehörige Probe muss gelingen), wird der Gegner bedrängt. Ist keine defiensive Aktion erfolgreich (zugehörige Probe nicht gelungen) verursacht die Waffe Waffenschaden.
+
 ## Bedrängen
+
+Wird ein Charakter bedrängt, erhält er Positions mali abhänig von den verwendeten Waffen. Je nach Distanzklasse der Waffen ist die Menge des Mali unterschiedlich.
+
++----------------------------------------+----------------+
+| Distanzklasse                          | Positions mali |
++========================================+================+
+| Angreifer ist 2 Distanzklassen größer  | 6              |
++----------------------------------------+----------------+
+| Angreifer ist 1 Distanzklassen größer  | 6              |
++----------------------------------------+----------------+
+| Angreifer ist selbe distanzklasse      | 4              |
++----------------------------------------+----------------+
+| Angreifer ist 1 Distanzklassen kleiner | 2              |
++----------------------------------------+----------------+
+| Angreifer ist 2 Distanzklassen kleiner | 1              |
++----------------------------------------+----------------+
 
 Die meisten Angriffe bedrängen den Gegner das bedeuted er erhält auf seine weiteren Aktionen einen Malus. Erst wenn der Malus groß genug ist können Angriffe Schaden in form von Wunden verursachen.
 
