@@ -188,6 +188,9 @@ Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt b
 
   Wuchtwaffen varieren stark je nach Waffe zwischen 3 und 8 Schaden.  
   Waffenlose Angrife verursachen 1-3 Schaden.
+
+  Die Wucht hängt auch von der Kraft des Charakters ab, so erhöt sich der Wuchtschaden einer Waffe in abhänigkeit der Körperkraft. Der Entsprechende Wuchtschaden kann somit maximal verdoppelt werden.
+
 + **Schnitt**
   _Schwerter, Messer oder Säbel_  
   Eine Schnittwaffe verursacht eine Blutung inhöhe des Schadens.
