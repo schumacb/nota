@@ -22,7 +22,7 @@
         <Gewandtheit Durchschnitt="1" Minimum="7" Maximum="13" />
         <Feinmotorik Durchschnitt="1" Minimum="7" Maximum="13" />
         <Sympathie Durchschnitt="1" Minimum="7" Maximum="13" />
-        <Einschüchterung Durchschnitt="1" Minimum="7" Maximum="13" />
+        <Antipathie Durchschnitt="1" Minimum="7" Maximum="13" />
         <Stärke Durchschnitt="1" Minimum="7" Maximum="13" />
         <Konstitution Durchschnitt="1" Minimum="7" Maximum="13" />
       </Eigenschaften>
@@ -682,7 +682,7 @@
     <aktionen:Aktion Name="Wuchtschlag" Kosten="4" Typ="Ausgeglieschen">
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:InstantEffekt>Gillt als standard Angriff.</aktionen:InstantEffekt>
-      <aktionen:OffensivErfolg>Erhöht den Wuchtschaden der Waffe um x.</aktionen:OffensivErfolg>
+      <aktionen:OffensivErfolg>Erhöht den Wuchtschaden der Waffe um x. Der Wuchtschaden kann maximal um den basis Wuchtschaden der Waffe erhöt werden.</aktionen:OffensivErfolg>
       <aktionen:DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</aktionen:DefensivMiserfolg>
       <aktionen:Mod ModifierType="Malus">
         <aktionen:MultiplyModValueType>

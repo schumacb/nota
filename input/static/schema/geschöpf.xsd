@@ -31,7 +31,7 @@
                     <element name="Gewandtheit" type="geschöpf:EigenschaftsWert" />
                     <element name="Feinmotorik" type="geschöpf:EigenschaftsWert" />
                     <element name="Sympathie" type="geschöpf:EigenschaftsWert" />
-                    <element name="Einschüchterung" type="geschöpf:EigenschaftsWert" />
+                    <element name="Antipathie" type="geschöpf:EigenschaftsWert" />
                     <element name="Stärke" type="geschöpf:EigenschaftsWert" />
                     <element name="Konstitution" type="geschöpf:EigenschaftsWert" />
                   </sequence>
@@ -125,7 +125,7 @@
       <element minOccurs="0" name="Gewandtheit" type="geschöpf:ModWert" />
       <element minOccurs="0" name="Feinmotorik" type="geschöpf:ModWert" />
       <element minOccurs="0" name="Sympathie" type="geschöpf:ModWert" />
-      <element minOccurs="0" name="Einschüchterung" type="geschöpf:ModWert" />
+      <element minOccurs="0" name="Antipathie" type="geschöpf:ModWert" />
       <element minOccurs="0" name="Stärke" type="geschöpf:ModWert" />
       <element minOccurs="0" name="Konstitution" type="geschöpf:ModWert" />
     </sequence>

@@ -101,7 +101,7 @@
   <xsl:template match="talent:Gewandtheit">GE</xsl:template>
   <xsl:template match="talent:Feinmotorik">IN</xsl:template>
   <xsl:template match="talent:Sympathie">SY</xsl:template>
-  <xsl:template match="talent:Einschüchterung">ES</xsl:template>
+  <xsl:template match="talent:Antipathie">ES</xsl:template>
   <xsl:template match="talent:Stärke">ST</xsl:template>
   <xsl:template match="talent:Konstitution">KO</xsl:template>
 

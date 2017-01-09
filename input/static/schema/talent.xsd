@@ -33,7 +33,7 @@
                       <element name="Gewandtheit" />
                       <element name="Feinmotorik" />
                       <element name="Sympathie" />
-                      <element name="Einschüchterung" />
+                      <element name="Antipathie" />
                       <element name="Stärke" />
                       <element name="Konstitution" />
                     </choice>
