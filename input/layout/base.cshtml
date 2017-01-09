@@ -273,7 +273,7 @@
         e.preventDefault();
      });
   
-          @{  
+          @{
             var generated = true; // false falls es sich um eine bearbeitbare datei in git handelt.
             var lastEditDateTimeOffset = DateTimeOffset.Now; 
             @if(Metadata.ContainsKey("Contributors"))
@@ -294,7 +294,16 @@
           var calculateTime = function(){              
               var currentDate = new Date();
               var pastDate = new Date(@lastEdit.Year, @lastEdit.Month-1, @lastEdit.Day, @lastEdit.Hour, @lastEdit.Minute, @lastEdit.Second );
+
+              var currentDateInDays = new Date(currentDate.getFullYear(), currentDate.getMonth(),currentDate.getDate());
+              var pastDateInDays = new Date(pastDate.getFullYear(), pastDate.getMonth(),pastDate.getDate() );
+
               var diference = currentDate.getTime() - pastDate.getTime();
+              var diferenceDays = (currentDateInDays - pastDateInDays)/1000 /60 /60 /24;
+
+              
+
+
               diference /=1000; //seconds
               var showString;
               if(diference<60)
@@ -313,14 +322,15 @@
                   else 
                     showString = "vor " + Math.floor(diference/60/60) +" Stunden";
                 }
-              else if(diference/60/60/24 < 7)
+              else if(diferenceDays < 7)
                 {
-                  if(diference/60/60/24 < 2)
+                  var days = currentDate.getDate() - pastDate.getDate();
+                  if(days <2)
                     showString = "vor einem Tag";
                   else 
-                    showString = "vor " + Math.floor(diference/60/60/24) +" Tagen";
+                    showString = "vor " +days +" Tagen";
                 }
-              else if(diference/60/60/24 < 14)
+              else if(diferenceDays < 14 && (currentDate.getDay()+6) % 7> (pastDate.getDay()+6)%7 )
                 showString = "vor einer Woche";
               else 
               {
