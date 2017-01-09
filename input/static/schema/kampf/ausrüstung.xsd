@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:nota="http://nota.org/schema/nota"
+        xmlns:wesen="http://nota.org/schema/geschöpf"
+        xmlns:kultur="http://nota.org/schema/kultur"
+        xmlns:profession="http://nota.org/schema/profession"
+        xmlns:talent="http://nota.org/schema/talent"
+        xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
+        xmlns:besonderheit="http://nota.org/schema/besonderheit"
+        xmlns:ausrüstung="http://nota.org/schema/kampf/ausrüstung"
+        targetNamespace="http://nota.org/schema/kampf/ausrüstung"
+        elementFormDefault="qualified">
+  <import namespace="http://nota.org/schema/nota" schemaLocation="../nota.xsd"></import>
+  <!--<import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>-->
+  <!--<import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>-->
+  <!--<import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>-->
+  <import namespace="http://nota.org/schema/talent" schemaLocation="../talent.xsd"></import>
+  <!--<import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>-->
+  <!--<import namespace="http://nota.org/schema/besonderheit" schemaLocation="besonderheit.xsd"></import>-->
+  <!--<import namespace="http://nota.org/schema/kampf/aktionen" schemaLocation="kampf/aktionen.xsd"></import>-->
+  <element name="Ausrüstung">
+    <complexType>
+      <sequence>
+
+        <element name="Waffen">
+          <complexType>
+            <sequence>
+              <element name="Waffe" maxOccurs="unbounded" minOccurs="0">
+                <complexType>
+                  <sequence>
+                    <element name="Schaden">
+                      <complexType>
+                        <sequence>
+                          <element name="Wucht"   type="ausrüstung:Schaden" minOccurs="0"/>
+                          <element name="Schnitt" type="ausrüstung:Schaden" minOccurs="0"/>
+                          <element name="Stich"   type="ausrüstung:Schaden" minOccurs="0"/>
+                          <element name="Feuer"   type="ausrüstung:Schaden" minOccurs="0"/>
+                          <element name="Frost"   type="ausrüstung:Schaden" minOccurs="0"/>
+                          <element name="Elektro" type="ausrüstung:Schaden" minOccurs="0"/>
+                          <element name="Säure"   type="ausrüstung:Schaden" minOccurs="0"/>
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="Eigenschaften" minOccurs="0">
+                      <complexType>
+                        <sequence maxOccurs="unbounded">
+                          <element ref="ausrüstung:Eigenschaft"/>
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="Talente" minOccurs="0">
+                      <complexType>
+                        <sequence maxOccurs="unbounded">
+                          <element ref="talent:Talent"/>
+                        </sequence>
+                      </complexType>
+                    </element>
+                  </sequence>
+                  <attribute name="WaffenTyp" type="ausrüstung:WaffenTyp" use="optional" default="Offensiv|Defensiv"/>
+                  <attribute name="DefensivModifizierer" type="int" use="optional" default="0"/>
+                  <attribute name="OffensivModifizierer" type="int" use="optional" default="0"/>
+                  <attribute name="Distanzklasse" type="int" use="required"/>
+                  <attribute name="Name" type="string" use="required"/>
+
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+
+        <element name="Rüstungen">
+          <complexType>
+            <sequence>
+              <element name="Rüstung" minOccurs="0" maxOccurs="unbounded">
+                <complexType>
+                  <sequence>
+                    <element name="Schutz">
+                      <complexType>
+                        <sequence>
+                          <element name="Kopf" type ="ausrüstung:Rüstschutz"         minOccurs="0"/>
+                          <element name="Brust" type ="ausrüstung:Rüstschutz"        minOccurs="0"/>
+                          <element name="Rücken" type ="ausrüstung:Rüstschutz"       minOccurs="0"/>
+                          <element name="Bauch" type ="ausrüstung:Rüstschutz"        minOccurs="0"/>
+                          <element name="LinkerArm" type ="ausrüstung:Rüstschutz"    minOccurs="0"/>
+                          <element name="RechterArm" type ="ausrüstung:Rüstschutz"   minOccurs="0"/>
+                          <element name="LinkesBein" type ="ausrüstung:Rüstschutz"   minOccurs="0"/>
+                          <element name="RechtesBein" type ="ausrüstung:Rüstschutz"  minOccurs="0"/>
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="Eigenschaften" minOccurs="0">
+                      <complexType>
+                        <sequence maxOccurs="unbounded">
+                          <element ref="ausrüstung:Eigenschaft"/>
+                        </sequence>
+                      </complexType>
+                    </element>
+                  </sequence>
+                  <attribute name="Erschwernis" type="int" use="required"/>
+                  <attribute name="Name" type="string" use="required"/>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+
+        <element name="Eigenschaften">
+          <complexType>
+            <sequence>
+              <element name="Eigenschaft" minOccurs="0" maxOccurs="unbounded">
+                <complexType>
+                  <sequence>
+                    <element name="Beschreibung" type="string" />
+                  </sequence>
+                  <attribute type="string" name="Name" use="required"/>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+
+      </sequence>
+
+    </complexType>
+  </element>
+
+  <complexType name="Schaden">
+    <attribute type="ausrüstung:SchadensWurf" name="Schaden"/>
+  </complexType>
+
+  <simpleType name="SchadensWurf">
+    <restriction base="string">
+      <pattern value="(([1-9][0-9]*)?W[1-9][0-9]*(\+[1-9][0-9]*)?)|([1-9][0-9]*)" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="WaffenTyp">
+    <restriction base="string">
+      <enumeration value="Offensiv"/>
+      <enumeration value="Defensiv"/>
+      <enumeration value="Offensiv|Defensiv"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="Rüstschutz">
+    <sequence>
+      <element name="Wucht"   type="ausrüstung:Schutzwert" minOccurs="0"/>
+      <element name="Schnitt" type="ausrüstung:Schutzwert" minOccurs="0"/>
+      <element name="Stich"   type="ausrüstung:Schutzwert" minOccurs="0"/>
+      <element name="Feuer"   type="ausrüstung:Schutzwert" minOccurs="0"/>
+      <element name="Frost"   type="ausrüstung:Schutzwert" minOccurs="0"/>
+      <element name="Elektro" type="ausrüstung:Schutzwert" minOccurs="0"/>
+      <element name="Säure"   type="ausrüstung:Schutzwert" minOccurs="0"/>
+    </sequence>
+    <attribute name="Schutzgrad">
+      <simpleType>
+        <restriction base="int">
+          <minInclusive value="1"/>
+          <maxInclusive value="20"/>
+        </restriction>
+      </simpleType>
+    </attribute>
+  </complexType>
+
+  <complexType name="Schutzwert">
+    <attribute type="nonNegativeInteger" name="Wert"/>
+  </complexType>
+
+
+  <element name="Eigenschaft" >
+    <complexType>
+      <attribute name="Name" type="string" use="required"/>
+    </complexType>
+  </element>
+
+</schema>

@@ -9,8 +9,9 @@
   xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
   xmlns:besonderheit="http://nota.org/schema/besonderheit"
   xmlns:aktionen="http://nota.org/schema/kampf/aktionen"
+  xmlns:ausrüstung="http://nota.org/schema/kampf/ausrüstung"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/geschöpf ../schema/geschöpf.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd">
+  xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/geschöpf ../schema/geschöpf.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd http://nota.org/schema/kampf/ausrüstung ../schema/kampf/ausrüstung.xsd">
   <Geschöpfe 
     xmlns="http://nota.org/schema/geschöpf">
     <Geschöpf Name="Mensch" Gattung="Homo" Art="Sapiens">
@@ -718,7 +719,7 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
       <aktionen:InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für ihn selbst.</aktionen:InstantEffekt>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Abwarte" Kosten="0" Typ="Secundär">
+    <aktionen:Aktion Name="Abwarte" Kosten="0" Typ="Sekundär">
       <aktionen:Beschreibung>Der Charakter tut nichts</aktionen:Beschreibung>
     </aktionen:Aktion>
 
@@ -756,4 +757,48 @@ Alle Offensiven Aktionen erhalten den Malus in abhänigkeit des anvisierten Kör
       <aktionen:GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</aktionen:GarantierterEffekt>
     </aktionen:Aktion>
   </aktionen:Aktionen>
+  <ausrüstung:Ausrüstung>
+    <ausrüstung:Waffen>
+      <ausrüstung:Waffe Name="Floret"  Distanzklasse="2"  >
+        <ausrüstung:Schaden>
+          <ausrüstung:Stich  Schaden="W2+1"/>
+        </ausrüstung:Schaden>
+        <ausrüstung:Eigenschaften>
+          <ausrüstung:Eigenschaft Name="Präzise"/>
+        </ausrüstung:Eigenschaften>
+        <ausrüstung:Talente>
+          <talent:Talent Name="Fechtwaffen"/>
+        </ausrüstung:Talente>
+      </ausrüstung:Waffe>
+    </ausrüstung:Waffen>
+    <ausrüstung:Rüstungen>
+      <ausrüstung:Rüstung Name="Lederharnisch" Erschwernis="1">
+        <ausrüstung:Schutz >
+          <ausrüstung:Brust Schutzgrad="18">
+            <ausrüstung:Wucht Wert="1"/>
+            <ausrüstung:Schnitt Wert="2"/>
+            <ausrüstung:Stich Wert="1"/>
+          </ausrüstung:Brust>
+          <ausrüstung:Rücken Schutzgrad="18">
+            <ausrüstung:Wucht Wert="1"/>
+            <ausrüstung:Schnitt Wert="2"/>
+            <ausrüstung:Stich Wert="1"/>
+          </ausrüstung:Rücken>
+          <ausrüstung:Bauch Schutzgrad="18">
+            <ausrüstung:Wucht Wert="1"/>
+            <ausrüstung:Schnitt Wert="2"/>
+            <ausrüstung:Stich Wert="1"/>
+          </ausrüstung:Bauch>
+        </ausrüstung:Schutz>
+      </ausrüstung:Rüstung>
+      
+    </ausrüstung:Rüstungen>
+    <ausrüstung:Eigenschaften>
+      <ausrüstung:Eigenschaft Name="Präzise">
+        <ausrüstung:Beschreibung>
+          Eine Waffe mit der Eigenschaft Präzise ist in der Lage die Rüstung des Gegners zu umgehen.
+        </ausrüstung:Beschreibung>
+      </ausrüstung:Eigenschaft>
+    </ausrüstung:Eigenschaften>
+  </ausrüstung:Ausrüstung>
 </Daten>

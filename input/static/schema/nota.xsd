@@ -8,6 +8,7 @@
         xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
         xmlns:besonderheit="http://nota.org/schema/besonderheit"
         xmlns:aktion="http://nota.org/schema/kampf/aktionen"
+        xmlns:ausrüstung="http://nota.org/schema/kampf/ausrüstung"
         targetNamespace="http://nota.org/schema/nota"
         elementFormDefault="qualified"   >
   <import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>
@@ -17,6 +18,7 @@
   <import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
   <import namespace="http://nota.org/schema/besonderheit" schemaLocation="besonderheit.xsd"></import>
   <import namespace="http://nota.org/schema/kampf/aktionen" schemaLocation="kampf/aktionen.xsd"></import>
+  <import namespace="http://nota.org/schema/kampf/ausrüstung" schemaLocation="kampf/ausrüstung.xsd"></import>
   <element name="Daten">
     <complexType>
       <sequence>
@@ -27,6 +29,7 @@
         <element ref="fertigkeit:Fertigkeiten"/>
         <element ref="besonderheit:Besonderheiten"/>
         <element ref="aktion:Aktionen"/>
+        <element ref="ausrüstung:Ausrüstung"/>
       </sequence>
     </complexType>
 
@@ -55,6 +58,11 @@
       <field xpath="@Name"/>
     </key>
 
+    <key name="AusrüstungEigenschaftPK">
+      <selector xpath="./ausrüstung:Ausrüstung/ausrüstung:Eigenschaften/ausrüstung:Eigenschaft"/>
+      <field xpath="@Name"/>
+    </key>
+
     <keyref name="TalentFK" refer="nota:TalentPK">
       <selector xpath=".//talent:Talent"/>
       <field xpath="@Name"/>
@@ -77,6 +85,11 @@
 
     <keyref name="ProfessionFK" refer="nota:ProfessionPK">
       <selector xpath=".//profession:Profession"/>
+      <field xpath="@Name"/>
+    </keyref>
+
+    <keyref name="AusrüstungEigenschaftFK" refer="nota:AusrüstungEigenschaftPK">
+      <selector xpath=".//ausrüstung:Eigenschaft"/>
       <field xpath="@Name"/>
     </keyref>
   </element>

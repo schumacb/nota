@@ -82,8 +82,8 @@
 
   <element name="Talent" >
     <complexType>
-      <attribute name="Name" use="required"/>
-      <attribute name="Level" use="optional"/>
+      <attribute name="Name" type="string" use="required"/>
+      <attribute name="Level" type="int" use="optional"/>
     </complexType>
   </element>
 
