@@ -251,7 +251,7 @@ Pipelines.Add("bootstrapOutput",
 
 Pipelines.Add("authorOutput",
 	GitContributors(),
-	Meta("TargetFile", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]).ChangeExtension(".html"))),
+	Meta("TargetFile", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]+".html").ChangeExtension(".html"))),
 	Meta("Title", @doc["ContributorName"]),
 	Meta("Layout", @"book.cshtml"),
 	Content(

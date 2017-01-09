@@ -277,7 +277,7 @@
             var lastEditDateTimeOffset = DateTimeOffset.Now; 
             @if(Metadata.ContainsKey("Contributors"))
             {          
-              var commitTimeOfset = (DateTimeOffset?) (Metadata["Contributors"] as IEnumerable<IDocument>).Select(x=> ((IEnumerable<IDocument>)x["Commits"]).Select(y=>(DateTimeOffset?)y["AuthorWhen"]).OrderBy(y=>y).FirstOrDefault()).OrderBy(x=>x).FirstOrDefault();
+              var commitTimeOfset = (DateTimeOffset?) (Metadata["Contributors"] as IEnumerable<IDocument>).Select(x=> ((IEnumerable<IDocument>)x["Commits"]).Select(y=>(DateTimeOffset?)y["AuthorWhen"]).OrderByDescending(y=>y).FirstOrDefault()).OrderBy(x=>x).FirstOrDefault();
               @if(commitTimeOfset == null){
                 lastEditDateTimeOffset = DateTimeOffset.Now;
               }
