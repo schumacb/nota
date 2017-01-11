@@ -205,9 +205,9 @@ Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt b
   Stichwaffen verursachen 1-3 Schaden.
 
 Zusätzlich Elementarer Schaden wie
-+ **Feuer**
++ **Feuer**  
   Verursacht ein Feuer angriff genug Schaden kann man Feuer Fangen.
-+ **Frost**
++ **Frost**  
 + **Elektro**  
   Jeder Punkt schaden verursachte einen zusätzlichen Malie Schmerzen
   Erhält das Ziel zusätzlich stich oder Schnittschaden, wird Elektro Rüstung ignoriert.

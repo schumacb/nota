@@ -60,3 +60,4 @@ Bestimmte prezise Waffen oder Aktionen können die Rüstung umgehen. Hierzu wird
 
 Eine Rüstung besitzt zusätzlich noch eine Erschwerniss für Proben.
 
+Eine Rüstung ist auch nicht immer schnell angezogen. Für mansche Rüstungen benötigt man sogar Hilfe. Jede Rüstung hat angegeben wie lange man braucht sie aleine Anzuziehen, und wie lange man mit hilfe braucht.
