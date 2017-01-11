@@ -210,6 +210,7 @@ Zusätzlich Elementarer Schaden wie
 + **Frost**
 + **Elektro**  
   Jeder Punkt schaden verursachte einen zusätzlichen Malie Schmerzen
+  Erhält das Ziel zusätzlich stich oder Schnittschaden, wird Elektro Rüstung ignoriert.
 + **Säure**  
   Verletzungen durch, meist ätzede, Flüssigkeiten.
 
