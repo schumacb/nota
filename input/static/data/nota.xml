@@ -680,9 +680,8 @@
       </aktionen:Mod>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Wuchtschlag" Kosten="4" Typ="Ausgeglieschen">
-      <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:InstantEffekt>Gillt als standard Angriff.</aktionen:InstantEffekt>
+    <aktionen:Aktion Name="Wuchtschlag" Kosten="4" Typ="Unterstützend">
+      <aktionen:Beschreibung>Setzt mehr Wucht in einen auszuführenden Angriff.</aktionen:Beschreibung>
       <aktionen:OffensivErfolg>Erhöht den Wuchtschaden der Waffe um x. Der Wuchtschaden kann maximal um den basis Wuchtschaden der Waffe erhöt werden.</aktionen:OffensivErfolg>
       <aktionen:DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</aktionen:DefensivMiserfolg>
       <aktionen:Mod ModifierType="Malus">
@@ -719,7 +718,7 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
       <aktionen:InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für ihn selbst.</aktionen:InstantEffekt>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Abwarte" Kosten="0" Typ="Sekundär">
+    <aktionen:Aktion Name="Abwarten" Kosten="0" Typ="Sekundär">
       <aktionen:Beschreibung>Der Charakter tut nichts</aktionen:Beschreibung>
     </aktionen:Aktion>
 
@@ -727,10 +726,6 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:DefensivErfolg>Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).</aktionen:DefensivErfolg>
       <aktionen:DefensivMiserfolg>Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet).</aktionen:DefensivMiserfolg>
-    </aktionen:Aktion>
-
-    <aktionen:Aktion Name="Abwarten" Kosten="0" Typ="Sekundär">
-      <aktionen:Beschreibung>Der Charakter tut nichts</aktionen:Beschreibung>
     </aktionen:Aktion>
 
     <aktionen:Aktion Name="Reden" Kosten="1" Typ="Frei">
@@ -745,17 +740,22 @@ Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige
     <aktionen:Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
       <aktionen:Beschreibung>Bei diesem Angriff nutzt der Charakter die Schneide seiner Waffe an einer äußerst empfindlichen stelle, wie beispielsweise dem Hals. Oder Durschtößt mit der Klinge den Körper des Gegners. Ein bevorzugter Angriff von meuchlern.</aktionen:Beschreibung>
       <aktionen:OffensivErfolg>Die verwendete Waffe verursacht anstatt Schnittschaden Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</aktionen:OffensivErfolg>
+      <aktionen:Mod ModifierType="Malus">
+        <aktionen:ConcreteModValueType Type="Percent" Value="50"/>
+        
+      </aktionen:Mod>
+
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Gezielter Angriff" Kosten="1" Typ="Frei">
+    <aktionen:Aktion Name="Gezielter Angriff" Kosten="1" Typ="Unterstützend">
       <aktionen:Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</aktionen:Beschreibung>
-      <aktionen:InstantEffekt>
+      <aktionen:OffensivErfolg>
 
 Die Trefferzone wird nicht mehr zufällig bestimmt.
 
-Alle Offensiven Aktionen erhalten den Malus in abhänigkeit des anvisierten Körperteils:
+Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
 +-------------+-------------+
-| Trefferzone | Malus       |
+| Trefferzone | Malus x     |
 +=============+=============+
 | Kopf        | 4           |
 +-------------+-------------+
@@ -767,7 +767,11 @@ Alle Offensiven Aktionen erhalten den Malus in abhänigkeit des anvisierten Kör
 +-------------+-------------+
  
 
-</aktionen:InstantEffekt>
+</aktionen:OffensivErfolg>
+      <aktionen:Mod ModifierType="Malus">
+          <aktionen:VariableModValueType Value="X"/>
+      </aktionen:AddModValueType>
+      </aktionen:Mod>
     </aktionen:Aktion>
 
     <aktionen:Aktion Name="Erholen" Kosten="0" Typ="Sekundär">
@@ -775,6 +779,7 @@ Alle Offensiven Aktionen erhalten den Malus in abhänigkeit des anvisierten Kör
       <aktionen:GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</aktionen:GarantierterEffekt>
     </aktionen:Aktion>
   </aktionen:Aktionen>
+
   <ausrüstung:Ausrüstung>
     <ausrüstung:Waffen>
       <ausrüstung:Waffe Name="Floret"  Distanzklasse="2"  >
