@@ -145,6 +145,15 @@ public static class Helper
 		return url;
 	});		
 	}
+
+	public static IModule ChangeSourceExtension(string newExtension)
+	{
+		return new Execute((@doc, @ctx)=> 
+			{
+				return new IDocument[] {@ctx.GetDocument(doc, doc.Source.ChangeExtension(newExtension) )};
+			});
+	}
+
 }
 
 
@@ -154,6 +163,67 @@ System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalizat
 System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
 
 
+
+Pipelines.Add("books",
+	ReadFiles(@"books\**\*.{*,!xsd,!meta}"),
+	FrontMatter(Yaml()),
+	Sidecar(Yaml()),
+	DirectoryMeta()
+		.WithMetadataFile(".inherited",true),
+	/// ID for later reference in Replace ///
+	Meta("ID",(@doc, @ctx)=> 
+	{
+		var path = (Wyam.Common.IO.FilePath)@doc["RelativeFilePath"];
+		path = path.ChangeExtension("");
+		if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
+			return path.Directory.ToString();
+		return path.ToString();
+	}),
+	/// Neded for git modules and history ///
+	Meta("OriginalSource", @doc.Source),
+
+	/// XLSX ///
+	If(@doc.Source.Extension==".xlsx",
+		ExcelToCsv(),
+		CsvToHtml() // TODO: CsvToMarkdown
+			.WithHeader(),
+		Helper.ChangeSourceExtension(".md")
+	),
+	/// TODO: Replace  (including md files into another) ///
+
+	/// TODO: Filter Content that will not be shown (already included) ///
+
+	/// XSLT ///
+	If(@doc.Source.Extension==".xslt",
+		Meta("src", @doc.Source),
+		If(@doc.Metadata.ContainsKey("data"),
+			Content(System.IO.File.ReadAllText((string)@doc["data"])),
+			Xslt2(@doc["src"])
+		).ElseIf(!@doc.Metadata.ContainsKey("data"),
+			Trace("Faild data Metadata on"+ @doc.Source)
+		),
+		Helper.ChangeSourceExtension(".md")
+	), 
+
+	/// BOOKS /// 
+	If( @doc.Metadata.ContainsKey("BookType"),
+		Meta("IsBook", true)
+	),
+
+	/// Adding Tree ///
+	Tree()
+		.WithRoots(@doc.Get<bool>("IsBook"))
+		.WithTreePath(((string)@doc["ID"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
+		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
+
+);
+
+
+/// TODO: HTML Pieplines ///
+
+/// TODO: PDF Pieplines ///
+
+/// OLD
 
 Pipelines.Add("renderInput",
 	ReadFiles(@"render\**\*.{*,!xsd,!meta}"),
