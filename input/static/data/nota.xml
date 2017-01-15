@@ -769,7 +769,6 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
 </aktionen:OffensivErfolg>
       <aktionen:Mod ModifierType="Malus">
           <aktionen:VariableModValueType Value="X"/>
-      </aktionen:AddModValueType>
       </aktionen:Mod>
     </aktionen:Aktion>
 
@@ -777,6 +776,43 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
       <aktionen:Beschreibung></aktionen:Beschreibung>
       <aktionen:GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</aktionen:GarantierterEffekt>
     </aktionen:Aktion>
+  
+  <aktionen:Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
+    <aktionen:Beschreibung>
+      Der Charakter bereitet einen gezielten Schuss vor.
+    </aktionen:Beschreibung>
+  <aktionen:SekundärErfolg>
+    Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
+  </aktionen:SekundärErfolg>
+  </aktionen:Aktion>
+    
+    <aktionen:Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
+    <aktionen:Beschreibung>
+      Der Charakter führt einen gezielten Schuss durch.
+    </aktionen:Beschreibung>
+    <aktionen:InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</aktionen:InstantEffekt>
+    <aktionen:Mod ModifierType="Bonus">
+      <aktionen:ConcreteModValueType Value="3" Type="Absolute"/>
+    </aktionen:Mod>
+  </aktionen:Aktion>
+
+    <aktionen:Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
+      <aktionen:Beschreibung>
+        Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.
+      </aktionen:Beschreibung>
+      <aktionen:InstantEffekt>Der Angriff erfolgt diese Kampfrunde, trifft sein Ziel aber erst nächste. Dabei ist das Problem weniger den Anvisierten Punkt zu treffe, als vorherzusehen wo sich der gegner zu diesem Zeitpunkt befinden wird.</aktionen:InstantEffekt>
+      <aktionen:Mod ModifierType="Malus">
+        <aktionen:ConcreteModValueType Value="2" Type="Absolute"/>
+      </aktionen:Mod>
+    </aktionen:Aktion>
+
+    <aktionen:Aktion Kosten="3" Name="Ausweichen" Typ="Defensiv">
+      <aktionen:Beschreibung>
+        In manschen situation ist es ratsam nicht mit der Waffe zu parieren, sondern dem Angriff aus dem Weg zughen.
+      </aktionen:Beschreibung>
+    </aktionen:Aktion>
+  
+  
   </aktionen:Aktionen>
 
   <ausrüstung:Ausrüstung>

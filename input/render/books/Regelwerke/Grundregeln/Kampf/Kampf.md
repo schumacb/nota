@@ -83,7 +83,7 @@ Für jeweils 3 Punkte die der Aktionswert des Fernkämpfers über dem Defensviwe
 Ein Fernkämpfer unterliegt weiteren Erschwernissen
 
 +------------------------------------------+--------------+
-| Situation                                | Erschwerniss | 
+| Situation                                | Erschwerniss |
 +==========================================+==============+
 | Distanz zum Ziel                         | Siehe Waffe  |
 +------------------------------------------+--------------+
