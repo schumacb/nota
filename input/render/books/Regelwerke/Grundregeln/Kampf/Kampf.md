@@ -84,7 +84,7 @@ Ein Fernkämpfer unterliegt weiteren Erschwernissen
 
 +------------------------------------------+--------------+
 | Situation                                | Erschwerniss | 
-+==========================================|==============|
++==========================================+==============+
 | Distanz zum Ziel                         | Siehe Waffe  |
 +------------------------------------------+--------------+
 | Ziel bewegt sich horizontal zum Schützen | GS / 2       |
