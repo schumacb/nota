@@ -648,53 +648,53 @@
     </Besonderheit>
   </Besonderheiten>
   
-  <aktionen:Aktionen>
-    <aktionen:Aktion Name="Angriff" Kosten="2" Typ="Ausgeglieschen">
-      <aktionen:Beschreibung>Ein standard angriff mit ausgeglichener verteidigung.</aktionen:Beschreibung>
-      <aktionen:OffensivErfolg>Die Waffe Trift.</aktionen:OffensivErfolg>
-    </aktionen:Aktion>
-    <aktionen:Aktion Name="Verteidigungshaltung" Kosten="2" Typ="Defensiv">
-      <aktionen:Beschreibung>Der Charakter konzentriert sich auf seine Verteidigung, auf kosten seiner Angriffe.</aktionen:Beschreibung>
-      <aktionen:Mod ModifierType="Bonus">
-        <aktionen:ConcreteModValueType Type="Percent" Value="50"/>
-      </aktionen:Mod>
-    </aktionen:Aktion>
+  <Aktionen xmlns="http://nota.org/schema/kampf/aktionen">
+    <Aktion Name="Angriff" Kosten="2" Typ="Ausgeglieschen">
+      <Beschreibung>Ein standard angriff mit ausgeglichener verteidigung.</Beschreibung>
+      <OffensivErfolg>Die Waffe Trift.</OffensivErfolg>
+    </Aktion>
+    <Aktion Name="Verteidigungshaltung" Kosten="2" Typ="Defensiv">
+      <Beschreibung>Der Charakter konzentriert sich auf seine Verteidigung, auf kosten seiner Angriffe.</Beschreibung>
+      <Mod ModifierType="Bonus">
+        <ConcreteModValueType Type="Percent" Value="50"/>
+      </Mod>
+    </Aktion>
     
-    <aktionen:Aktion Name="Rückzug" Kosten="2" Typ="Defensiv">
-      <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:DefensivErfolg>Der Charakter lößt sich aus dem Nahkampf.</aktionen:DefensivErfolg>
-    </aktionen:Aktion>
+    <Aktion Name="Rückzug" Kosten="2" Typ="Defensiv">
+      <Beschreibung></Beschreibung>
+      <DefensivErfolg>Der Charakter lößt sich aus dem Nahkampf.</DefensivErfolg>
+    </Aktion>
 
-    <aktionen:Aktion Name="Flucht" Kosten="3" Typ="Sekundär">
-      <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:GarantierterEffekt>Der Charakter lößt sich aus dem Nahkampf.</aktionen:GarantierterEffekt>
-    </aktionen:Aktion>
+    <Aktion Name="Flucht" Kosten="3" Typ="Sekundär">
+      <Beschreibung></Beschreibung>
+      <GarantierterEffekt>Der Charakter lößt sich aus dem Nahkampf.</GarantierterEffekt>
+    </Aktion>
 
-    <aktionen:Aktion Name="Finte" Kosten="3" Typ="Unterstützend">
-      <aktionen:Beschreibung>Der Charakter versucht mit dem Angriff den gegner eine Falle zu stellen und so stärker zu bedrängen.</aktionen:Beschreibung>
-      <aktionen:OffensivErfolg>Das Ziel erhält Positions Mali in höhe von x.</aktionen:OffensivErfolg>
-      <aktionen:DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</aktionen:DefensivMiserfolg>
-      <aktionen:Mod ModifierType="Malus">
-        <aktionen:VariableModValueType Value="X"/>
-      </aktionen:Mod>
-    </aktionen:Aktion>
+    <Aktion Name="Finte" Kosten="3" Typ="Unterstützend">
+      <Beschreibung>Der Charakter versucht mit dem Angriff den gegner eine Falle zu stellen und so stärker zu bedrängen.</Beschreibung>
+      <OffensivErfolg>Das Ziel erhält Positions Mali in höhe von x.</OffensivErfolg>
+      <DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</DefensivMiserfolg>
+      <Mod ModifierType="Malus">
+        <VariableModValueType Value="X"/>
+      </Mod>
+    </Aktion>
 
-    <aktionen:Aktion Name="Wuchtschlag" Kosten="4" Typ="Unterstützend">
-      <aktionen:Beschreibung>Setzt mehr Wucht in einen auszuführenden Angriff.</aktionen:Beschreibung>
-      <aktionen:OffensivErfolg>Erhöht den Wuchtschaden der Waffe um x. Der Wuchtschaden kann maximal um den basis Wuchtschaden der Waffe erhöt werden.</aktionen:OffensivErfolg>
-      <aktionen:DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</aktionen:DefensivMiserfolg>
-      <aktionen:Mod ModifierType="Malus">
-        <aktionen:MultiplyModValueType>
-          <aktionen:ConcreteModValueType Value="3" Type="Absolute"/>
-          <aktionen:VariableModValueType Value="X"/>
-        </aktionen:MultiplyModValueType>
-      </aktionen:Mod>
-    </aktionen:Aktion>
+    <Aktion Name="Wuchtschlag" Kosten="4" Typ="Unterstützend">
+      <Beschreibung>Setzt mehr Wucht in einen auszuführenden Angriff.</Beschreibung>
+      <OffensivErfolg>Erhöht den Wuchtschaden der Waffe um x. Der Wuchtschaden kann maximal um den basis Wuchtschaden der Waffe erhöt werden.</OffensivErfolg>
+      <DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</DefensivMiserfolg>
+      <Mod ModifierType="Malus">
+        <MultiplyModValueType>
+          <ConcreteModValueType Value="3" Type="Absolute"/>
+          <VariableModValueType Value="X"/>
+        </MultiplyModValueType>
+      </Mod>
+    </Aktion>
 
-    <aktionen:Aktion Name="Waffe Platzieren" Kosten="2" Typ="Offensiv">
-      <aktionen:Beschreibung>Ein Angriff der die Waffe an eine empfindliche stelle wie beispielsweise Kehle Plaziert.</aktionen:Beschreibung>
-      <aktionen:Bedingung>Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.</aktionen:Bedingung>
-      <aktionen:OffensivErfolg>
+    <Aktion Name="Waffe Platzieren" Kosten="2" Typ="Offensiv">
+      <Beschreibung>Ein Angriff der die Waffe an eine empfindliche stelle wie beispielsweise Kehle Plaziert.</Beschreibung>
+      <Bedingung>Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.</Bedingung>
+      <OffensivErfolg>
 
 Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
 
@@ -703,52 +703,52 @@ Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und
 Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
 
 
-</aktionen:OffensivErfolg>
-      <aktionen:Mod ModifierType="Malus">
-        <aktionen:AddModValueType>
-          <aktionen:VariableModValueType Value="X"/>
-          <aktionen:ConcreteModValueType Type="Absolute" Value="5"/>
-        </aktionen:AddModValueType>
-      </aktionen:Mod>
-    </aktionen:Aktion>
+</OffensivErfolg>
+      <Mod ModifierType="Malus">
+        <AddModValueType>
+          <VariableModValueType Value="X"/>
+          <ConcreteModValueType Type="Absolute" Value="5"/>
+        </AddModValueType>
+      </Mod>
+    </Aktion>
 
-    <aktionen:Aktion Name="Schutz" Kosten="3" Typ="Defensiv">
-      <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für den ausführenden Charakter.</aktionen:InstantEffekt>
-    </aktionen:Aktion>
+    <Aktion Name="Schutz" Kosten="3" Typ="Defensiv">
+      <Beschreibung></Beschreibung>
+      <InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für den ausführenden Charakter.</InstantEffekt>
+    </Aktion>
 
-    <aktionen:Aktion Name="Abwarten" Kosten="0" Typ="Sekundär">
-      <aktionen:Beschreibung>Der Charakter tut nichts</aktionen:Beschreibung>
-    </aktionen:Aktion>
+    <Aktion Name="Abwarten" Kosten="0" Typ="Sekundär">
+      <Beschreibung>Der Charakter tut nichts</Beschreibung>
+    </Aktion>
 
-    <aktionen:Aktion Name="Position" Kosten="2" Typ="Defensiv">
-      <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:DefensivErfolg>Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).</aktionen:DefensivErfolg>
-      <aktionen:DefensivMiserfolg>Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet).</aktionen:DefensivMiserfolg>
-    </aktionen:Aktion>
+    <Aktion Name="Position" Kosten="2" Typ="Defensiv">
+      <Beschreibung></Beschreibung>
+      <DefensivErfolg>Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).</DefensivErfolg>
+      <DefensivMiserfolg>Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet).</DefensivMiserfolg>
+    </Aktion>
 
-    <aktionen:Aktion Name="Reden" Kosten="1" Typ="Frei">
-      <aktionen:Beschreibung>Der Charakter kann am ende der Kampfrunde mehr sagen als er eigentlich dürfte. Er kann einen ungefähr 5 sekunden lange nachricht von sich geben.</aktionen:Beschreibung>
-      <aktionen:InstantEffekt>
+    <Aktion Name="Reden" Kosten="1" Typ="Frei">
+      <Beschreibung>Der Charakter kann am ende der Kampfrunde mehr sagen als er eigentlich dürfte. Er kann einen ungefähr 5 sekunden lange nachricht von sich geben.</Beschreibung>
+      <InstantEffekt>
 
 Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
 
-</aktionen:InstantEffekt>
-    </aktionen:Aktion>
+</InstantEffekt>
+    </Aktion>
 
-    <aktionen:Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
-      <aktionen:Beschreibung>Bei diesem Angriff nutzt der Charakter die Schneide seiner Waffe an einer äußerst empfindlichen stelle, wie beispielsweise dem Hals. Oder Durschtößt mit der Klinge den Körper des Gegners. Ein bevorzugter Angriff von meuchlern.</aktionen:Beschreibung>
-      <aktionen:OffensivErfolg>Die Waffe Trift. Die verwendete Waffe verursacht anstatt Schnittschaden Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</aktionen:OffensivErfolg>
-      <aktionen:Mod ModifierType="Malus">
-        <aktionen:ConcreteModValueType Type="Percent" Value="50"/>
+    <Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
+      <Beschreibung>Bei diesem Angriff nutzt der Charakter die Schneide seiner Waffe an einer äußerst empfindlichen stelle, wie beispielsweise dem Hals. Oder Durschtößt mit der Klinge den Körper des Gegners. Ein bevorzugter Angriff von meuchlern.</Beschreibung>
+      <OffensivErfolg>Die Waffe Trift. Die verwendete Waffe verursacht anstatt Schnittschaden Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</OffensivErfolg>
+      <Mod ModifierType="Malus">
+        <ConcreteModValueType Type="Percent" Value="50"/>
         
-      </aktionen:Mod>
+      </Mod>
 
-    </aktionen:Aktion>
+    </Aktion>
 
-    <aktionen:Aktion Name="Gezielter Angriff" Kosten="1" Typ="Unterstützend">
-      <aktionen:Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</aktionen:Beschreibung>
-      <aktionen:OffensivErfolg>
+    <Aktion Name="Gezielter Angriff" Kosten="1" Typ="Unterstützend">
+      <Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</Beschreibung>
+      <OffensivErfolg>
 
 Die Trefferzone wird nicht mehr zufällig bestimmt.
 
@@ -766,97 +766,103 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
 +-------------+-------------+
  
 
-</aktionen:OffensivErfolg>
-      <aktionen:Mod ModifierType="Malus">
-          <aktionen:VariableModValueType Value="X"/>
-      </aktionen:Mod>
-    </aktionen:Aktion>
+</OffensivErfolg>
+      <Mod ModifierType="Malus">
+          <VariableModValueType Value="X"/>
+      </Mod>
+    </Aktion>
 
-    <aktionen:Aktion Name="Erholen" Kosten="0" Typ="Sekundär">
-      <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</aktionen:GarantierterEffekt>
-    </aktionen:Aktion>
+    <Aktion Name="Erholen" Kosten="0" Typ="Sekundär">
+      <Beschreibung></Beschreibung>
+      <GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</GarantierterEffekt>
+    </Aktion>
   
-  <aktionen:Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
-    <aktionen:Beschreibung>
+  <Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
+    <Beschreibung>
       Der Charakter bereitet einen gezielten Schuss vor.
-    </aktionen:Beschreibung>
-  <aktionen:SekundärErfolg>
+    </Beschreibung>
+  <SekundärErfolg>
     Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
-  </aktionen:SekundärErfolg>
-  </aktionen:Aktion>
+  </SekundärErfolg>
+  </Aktion>
     
-    <aktionen:Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
-    <aktionen:Beschreibung>
+    <Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
+    <Beschreibung>
       Der Charakter führt einen gezielten Schuss durch.
-    </aktionen:Beschreibung>
-    <aktionen:InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</aktionen:InstantEffekt>
-    <aktionen:Mod ModifierType="Bonus">
-      <aktionen:ConcreteModValueType Value="3" Type="Absolute"/>
-    </aktionen:Mod>
-  </aktionen:Aktion>
+    </Beschreibung>
+    <InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</InstantEffekt>
+    <Mod ModifierType="Bonus">
+      <ConcreteModValueType Value="3" Type="Absolute"/>
+    </Mod>
+  </Aktion>
 
-    <aktionen:Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
-      <aktionen:Beschreibung>
+    <Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
+      <Beschreibung>
         Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.
-      </aktionen:Beschreibung>
-      <aktionen:InstantEffekt>Der Angriff erfolgt diese Kampfrunde, trifft sein Ziel aber erst nächste. Dabei ist das Problem weniger den Anvisierten Punkt zu treffe, als vorherzusehen wo sich der gegner zu diesem Zeitpunkt befinden wird.</aktionen:InstantEffekt>
-      <aktionen:Mod ModifierType="Malus">
-        <aktionen:ConcreteModValueType Value="2" Type="Absolute"/>
-      </aktionen:Mod>
-    </aktionen:Aktion>
+      </Beschreibung>
+      <InstantEffekt>Der Angriff erfolgt diese Kampfrunde, trifft sein Ziel aber erst nächste. Dabei ist das Problem weniger den Anvisierten Punkt zu treffe, als vorherzusehen wo sich der gegner zu diesem Zeitpunkt befinden wird.</InstantEffekt>
+      <Mod ModifierType="Malus">
+        <ConcreteModValueType Value="2" Type="Absolute"/>
+      </Mod>
+    </Aktion>
 
-    <aktionen:Aktion Kosten="3" Name="Ausweichen" Typ="Defensiv">
-      <aktionen:Beschreibung>
+    <Aktion Name="Schnellschuss" Kosten="2" Typ="Offensiv">
+      <Beschreibung>
+        Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
+      </Beschreibung>
+    </Aktion>
+    
+    <Aktion Kosten="3" Name="Ausweichen" Typ="Defensiv">
+      <Beschreibung>
         In manschen situation ist es ratsam nicht mit der Waffe zu parieren, sondern dem Angriff aus dem Weg zughen.
-      </aktionen:Beschreibung>
-    </aktionen:Aktion>
+      </Beschreibung>
+    </Aktion>
   
   
-  </aktionen:Aktionen>
+  </Aktionen>
 
-  <ausrüstung:Ausrüstung>
-    <ausrüstung:Waffen>
-      <ausrüstung:Waffe Name="Floret"  Distanzklasse="2"  >
-        <ausrüstung:Schaden>
-          <ausrüstung:Stich  Schaden="W2+1"/>
-        </ausrüstung:Schaden>
-        <ausrüstung:Eigenschaften>
-          <ausrüstung:Eigenschaft Name="Präzise"/>
-        </ausrüstung:Eigenschaften>
-        <ausrüstung:Talente>
+  <Ausrüstung xmlns="http://nota.org/schema/kampf/ausrüstung">
+    <Waffen>
+      <Waffe Name="Floret"  Distanzklasse="2"  >
+        <Schaden>
+          <Stich  Schaden="W2+1"/>
+        </Schaden>
+        <Eigenschaften>
+          <Eigenschaft Name="Präzise"/>
+        </Eigenschaften>
+        <Talente>
           <talent:Talent Name="Fechtwaffen"/>
-        </ausrüstung:Talente>
-      </ausrüstung:Waffe>
-    </ausrüstung:Waffen>
-    <ausrüstung:Rüstungen>
-      <ausrüstung:Rüstung Name="Lederharnisch" Erschwernis="1">
-        <ausrüstung:Schutz >
-          <ausrüstung:Brust Schutzgrad="18">
-            <ausrüstung:Wucht Wert="1"/>
-            <ausrüstung:Schnitt Wert="2"/>
-            <ausrüstung:Stich Wert="1"/>
-          </ausrüstung:Brust>
-          <ausrüstung:Rücken Schutzgrad="18">
-            <ausrüstung:Wucht Wert="1"/>
-            <ausrüstung:Schnitt Wert="2"/>
-            <ausrüstung:Stich Wert="1"/>
-          </ausrüstung:Rücken>
-          <ausrüstung:Bauch Schutzgrad="18">
-            <ausrüstung:Wucht Wert="1"/>
-            <ausrüstung:Schnitt Wert="2"/>
-            <ausrüstung:Stich Wert="1"/>
-          </ausrüstung:Bauch>
-        </ausrüstung:Schutz>
-      </ausrüstung:Rüstung>
+        </Talente>
+      </Waffe>
+    </Waffen>
+    <Rüstungen>
+      <Rüstung Name="Lederharnisch" Erschwernis="1">
+        <Schutz >
+          <Brust Schutzgrad="18">
+            <Wucht Wert="1"/>
+            <Schnitt Wert="2"/>
+            <Stich Wert="1"/>
+          </Brust>
+          <Rücken Schutzgrad="18">
+            <Wucht Wert="1"/>
+            <Schnitt Wert="2"/>
+            <Stich Wert="1"/>
+          </Rücken>
+          <Bauch Schutzgrad="18">
+            <Wucht Wert="1"/>
+            <Schnitt Wert="2"/>
+            <Stich Wert="1"/>
+          </Bauch>
+        </Schutz>
+      </Rüstung>
       
-    </ausrüstung:Rüstungen>
-    <ausrüstung:Eigenschaften>
-      <ausrüstung:Eigenschaft Name="Präzise">
-        <ausrüstung:Beschreibung>
+    </Rüstungen>
+    <Eigenschaften>
+      <Eigenschaft Name="Präzise">
+        <Beschreibung>
           Eine Waffe mit der Eigenschaft Präzise ist in der Lage die Rüstung des Gegners zu umgehen.
-        </ausrüstung:Beschreibung>
-      </ausrüstung:Eigenschaft>
-    </ausrüstung:Eigenschaften>
-  </ausrüstung:Ausrüstung>
+        </Beschreibung>
+      </Eigenschaft>
+    </Eigenschaften>
+  </Ausrüstung>
 </Daten>
