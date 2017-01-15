@@ -26,17 +26,37 @@ Die spieler wählen gleichzeitig, durch legen verdeckter Karten welche Aktionen 
 
 Alle Aktionen aller Charaktere finden gleichzeitig statt. Kein Charakter hat einen Geschwindigkeitsvorteil bei seinen Aktionen. Auswirkungen einer Kampfrunde entfalten erst an dessen Ende bzw. zu beginn der nächsten Kampfrunde Wirkung. 
 
-Je nach gespielten Aktion werden Proben auf ein oder mehrere Talente benötigt. Benötigen mehrere Aktionen eine Probe auf das selbe Talent, so wird dennoch nur eine Probe abgelegt und das Ergebniss zählt für alle Aktionen. Dieses Ergebniss nennt sich Aktionswert. Besitzt eine Aktion Modifikatioren, so wird in der Regel nur der Aktionswert der Probe modifiziert, nicht die Probe selbst. Führt beispielsweise ein Charakter zwei Aktionen durch eine mit einem Malus von 1, eine mit einem Bonus von 1 und Erreicht bei seiner Probe einen Wert von 3, so besitzt die erste Aktion einen Aktionswert von 2 und die zweite Aktion einen Aktionswert von 4. Es gibt verschiedene Arten von Modifikationen. Absolute und Prozentuale. Dabei gilt Punkt vor Strich. D.h. Prozentualle Modifikationen werden vor Absuluten angewendet.
+Je nach gespielten Aktion werden Proben auf ein oder mehrere Talente benötigt. Benötigen mehrere Aktionen eine Probe auf das selbe Talent, so wird dennoch nur eine Probe abgelegt und das Ergebniss zählt für alle Aktionen. Dieses Ergebniss nennt sich Aktionswert.
 
-Je mehr aktionen ein Charakter durchführt desto weniger richtet die einzelne Aktion aus. Die Aktionswerte jeder Aktion wird durch die Anzahl der Aktionen (inkl. Bewegung) geteilt (abrunden).
+Je mehr Aktionen ein Charakter durchführt desto weniger richtet die einzelne Aktion aus. Die Aktionswerte jeder Aktion werden durch die Anzahl der Aktionen (inkl. Bewegung) geteilt (abrunden).
 
-Jede Aktion hat gewisse Effekte. Es gibt 'Offensiver Erfolg' und 'Defensiver Erfolg' sowie Misserfolg. Zudem gibt es noch einen 'Generellen Effekt' der immer zum tragen kommt ganz gleich welches ergebniss erzielt wurde und einen 'Augenblicklichen Effekt'. Dieser wirkt sich bereits vor dem Ablegen der Probe aus und kann sommit auch alle anderen Aktionen beeinflussen.
+Besitzt eine Aktion Modifikatioren, so wird in der Regel nur der Aktionswert der Probe modifiziert, nicht aber die Probe selbst. Es gibt verschiedene Arten von Modifikationen. Absolute und Prozentuale. Dabei gilt Prozentualle Modifikationen werden vor Absuluten angewendet und mehrer prozentuale Modifikatoren werden addiert bevor sie angewendet werden. Werden Aktionswerte miteinander verglichen, so gillt ist der Aktionswert einer Aktion dessen Probe nicht geglückt ist kleiner als jede Aktion deren Probe gelungen ist.
 
-Ob eine Aktion nun ein Erfolg ist oder ein Misserfolg hängt von den ermittelten Aktionswerten ab. Eine offensve Aktion gellingt wenn das Ziel oder die Ziele der Aktion keinen größeren Aktionswert in einer defensiven Aktion besitzen als der ausführende Charakter. Hingegen gelingt eine defensive Aktion sobald keine offensive Aktion die diesen Charakter als Ziel hat einen höheren Aktionswert besitzt. Daraus folgt das bei einem Gleichstand beide Aktionen erfolgreich sind. Es gibt auch Aktionen welche weder offensiv noch defensiv sind. Diese Aktionen können daher weder Erfolg noch Misserfolg besitzen.
+:::Bsp
+Führt ein Charakter zwei Aktionen durch eine mit einem Malus von 1, eine mit einem Bonus von 1 und Erreicht bei seiner Probe einen Wert von 3, so besitzt die erste Aktion einen Aktionswert von 2 und die zweite Aktion einen Aktionswert von 4.
+:::
 
-Neben offensiven und defensiven Aktionen gibt es noch Frei- und Sekundäraktionen. Freie Aktionen zählen nicht zur Anzahl an Aktionen die in der Runde gespielt werden und behindern daher auch nicht andere Aktionen. Sekundäre Aktionen sind Aktionen, welche zwar andere Aktionen erschweren, aber selbst weder offensiver noch defensiver Natur sind.
+Mansche Modifikatoren betreffen nur Offensive, oder Defensive Aktionen. Sollte eine Aktion Offensiv und Defensiv gleichzeitig sein, so kann ihre Aktionswert durch eine solche Modifikation unterschiedliche Werte aufweisen, jenachdem ob man sie als Offensiv oder Defensiv betrachtet.
+
+Jede Aktion hat gewisse Effekte. Es gibt 'Offensiver-', 'Defensiver -' und 'Sekundärer Erfolg' bzw. '-Misserfolg'. Zudem gibt es noch einen 'Generellen Effekt' der immer zum tragen kommt ganz gleich welches ergebniss erzielt wurde und einen 'Augenblicklichen Effekt'. Dieser wirkt sich bereits vor dem Ablegen der Probe aus und kann sommit auch alle anderen Aktionen beeinflussen.
+
+Ob eine Aktion nun ein Erfolg ist hängt von den ermittelten Aktionswerten ab und ob die zugehörige Tallentprobe überhaupt gelingt. Damit eine Aktion ein Erfolg sein kann, muss die zugehörige Probe gelingen, falls die Aktion eine Offensive oder Defensive Aktion ist, müssen noch zusätzliche bedingungen erfuüllt werden.
+
+Eine offensve Aktion muss neben dem gelingen der Probe auch einen mindest Aktionswert erreichen. Die höhe des Wertes hängt von den gewählten Zielen der Aktion ab. Keines der Ziele darf in einer Defensiven Aktion einen höheren Aktionswert aufweisen als diese Aktion.
+
+Hingegen gelingt eine defensive Aktion sobald keine offensive Aktion die diesen Charakter als Ziel hat einen höheren Aktionswert besitzt. 
+
+Ob eine Aktion einen Misserfolg aufweißt hängt ebenfalls von der Art der Aktion ab. Eine Sekundäre Aktion ist bereits ein misserfolg, falls die zugehörige Probe misslingt.
+
+Eine Offensive Aktion ist ein Misserfolg, falls eines der Ziele einen höheren Aktionswert in einer Defensiven Aktion besitzt als diese Aktion aufweist. Dabei ist es unabhänig ob die Aktion dieser Probe gelungen ist oder nicht.
+
+Eine Defensive Aktion ist ein Misserfolg, sobald eine Offensive Aktion die diesen Charakter als Ziel bestimmt einen höheren Aktionswert aufweißt als diese Aktion. Auch hierbei ist es unabhänig ob die zugehörige Probe gelingt oder fehlschlägt.
+
+Neben den bereits genannten Aktionen gibt es noch Frei- und Unterstützendeaktionen. Freie Aktionen zählen nicht zur Anzahl an Aktionen die in der Runde gespielt werden und behindern daher auch nicht andere Aktionen. Unterstützende Aktionen sind Aktionen, die ander Aktionen Modifizizeren, selbst aber nicht als Aktion gelten. Sie können der Aktion zusätzliche Modifikatoren und Effekte verpassen.
 
 Wird ein Charakter ziel mehrere offensiver Aktionen, so gilt sein Aktionswert im bezug zur verteidigung als um eins, für jede Aktion nach der ersten, reduziert. 
+
+Ein Charakter kann sich auch nur gegen bekannte Angriffe verteidigen, eine Defensive Aktion funktioniert daher nur gegen eine Offensive Aktion, wenn der Charakter diese Offensive Aktion auch Wahrnimmt. Allerdings erhält er auch keine Mali durch unbemerkte Aktionen.
 
 Mehrere Aktionen können sich gegen das selbe Ziel richtigen, oder gegen unterschiedliche.
 
@@ -46,25 +66,57 @@ Während eines Kampfes tragen die beteiligten kleinere und größere Plessuren d
 
 Und auch wenn ein Treffer zum gegner durchkommt, so muss das ende des Kampfes nicht aufgrund einer Wunde eintreten, sonder der kann auch durch erschöpfung oder Schmerzen kampfunfähig werden.
 
-Waffen verursachen entweder Schaden oder bedrängen den gegner. Trifft eine Waffe und der gegner hat eine erfolgreiche defensive Aktion gespielt (die zugehörige Probe muss gelingen), wird der Gegner bedrängt. Ist keine defiensive Aktion erfolgreich (zugehörige Probe nicht gelungen) verursacht die Waffe Waffenschaden.
+## Nahkampf
+
+Trifft eine Waffe, so verursacht sie entweder Waffenschaden, oder bedrängt den gegener. Welche der beiden Möglichkeiten eintreten hängt davon ab wie hoch die Aktionswerte der defensiven Aktionen der Ziele dieser Aktion sind.
+
+Jedes Ziel welches von einer Waffe getroffen wird und mindestens eine Defensive Aktion gespielt hat deren Aktionswert größer 0 ist wird bedrängt. Alle anderen Ziele erhalten den Waffenschaden der Waffe.
+
+## Fernkampf
+
+Im gegensatz zum Nahkampf werden gegner im Fernkampf nicht bedrängt, da der Angreifer weniger gut die bewegungen des gegenübers Kontrolieren kann. Im ausgleich dazu kann ein Fernkämpfer sich jedoch auf sein Ziel einschießen, sofern es keine Ausweichbewegungen macht. Für jeden schuss den der Charakter letzte Kampfrunde auf das selbe Ziel abgefeuert hat, erhält er einen Bonus von 1 auf den Aktionswert.
+
+Viele Distanzwaffen sind in der lage mehrere schuss in einer Kampfrunde abzugeben. Auch wenn effektiv nur eine Aktion ausgeführt wird die mehere Schuss auf das Ziel abgibt, so zählt für das Ziel jedoch jeder Schuss als eine seperate Aktion. Dies führt dazu das jeder Schuss nach dem ersten der in der Kampfrunde auf das Ziel abgegeben wird seinen Defensiven Aktionswert um eins reduziert.
+
+Für jeweils 3 Punkte die der Aktionswert des Fernkämpfers über dem Defensviwert des Ziels liegt trifft ein Pfeil und verursacht Waffenschaden. 
+
+Ein Fernkämpfer unterliegt weiteren Erschwernissen
+
++------------------------------------------+--------------+
+| Situation                                | Erschwerniss | 
++==========================================|==============|
+| Distanz zum Ziel                         | Siehe Waffe  |
++------------------------------------------+--------------+
+| Ziel bewegt sich horizontal zum Schützen | GS / 2       |
++------------------------------------------+--------------+
+| Ziel bewegt sich verikal zum Schützen    | GS / 4       |
++------------------------------------------+--------------+
+| Ziel vollführt Ausweichbewegungen        | GS           |
++------------------------------------------+--------------+
+| Ziel sucht Deckung                       | GS + 4       |
++------------------------------------------+--------------+
+| Ziel nicht sichtbar                      | Unmöglich    |
++------------------------------------------+--------------+
+| Schlechte sicht auf Ziel                 | 3-9          |
++------------------------------------------+--------------+
+| Seitenwind                               | 2-8          |
++------------------------------------------+--------------+
 
 ## Bedrängen
 
 Wird ein Charakter bedrängt, erhält er Positions mali abhänig von den verwendeten Waffen. Je nach Distanzklasse der Waffen ist die Menge des Mali unterschiedlich.
 
-+----------------------------------------+----------------+
-| Distanzklasse                          | Positions mali |
-+========================================+================+
-| Angreifer ist 2 Distanzklassen größer  | 6              |
-+----------------------------------------+----------------+
-| Angreifer ist 1 Distanzklassen größer  | 6              |
-+----------------------------------------+----------------+
-| Angreifer ist selbe distanzklasse      | 4              |
-+----------------------------------------+----------------+
-| Angreifer ist 1 Distanzklassen kleiner | 2              |
-+----------------------------------------+----------------+
-| Angreifer ist 2 Distanzklassen kleiner | 1              |
-+----------------------------------------+----------------+
++--------------------------------------------------+----------------+
+| Distanzklasse                                    | Positions mali |
++==================================================+================+
+| Angreifer ist 1 Distanzklassen oder mehr größer  | 6              |
++--------------------------------------------------+----------------+
+| Angreifer ist selbe distanzklasse                | 4              |
++--------------------------------------------------+----------------+
+| Angreifer ist 1 Distanzklassen kleiner           | 3              |
++--------------------------------------------------+----------------+
+| Angreifer ist 2 Distanzklassen oder mehr kleiner | 2              |
++--------------------------------------------------+----------------+
 
 Die meisten Angriffe bedrängen den Gegner das bedeuted er erhält auf seine weiteren Aktionen einen Malus. Erst wenn der Malus groß genug ist können Angriffe Schaden in form von Wunden verursachen.
 

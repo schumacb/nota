@@ -651,11 +651,10 @@
   <aktionen:Aktionen>
     <aktionen:Aktion Name="Angriff" Kosten="2" Typ="Ausgeglieschen">
       <aktionen:Beschreibung>Ein standard angriff mit ausgeglichener verteidigung.</aktionen:Beschreibung>
-      <aktionen:OffensivErfolg>Wenn keine Devensivkarte des Ziels Punkte übrig behölt, verursacht die Waffe ihren Waffen Schaden.Andernfalls erhält der Gegner stellungsmalie abhänig von der waffe.</aktionen:OffensivErfolg>
+      <aktionen:OffensivErfolg>Die Waffe Trift.</aktionen:OffensivErfolg>
     </aktionen:Aktion>
     <aktionen:Aktion Name="Verteidigungshaltung" Kosten="2" Typ="Defensiv">
       <aktionen:Beschreibung>Der Charakter konzentriert sich auf seine Verteidigung, auf kosten seiner Angriffe.</aktionen:Beschreibung>
-      <aktionen:InstantEffekt>Erhöhe die Tallentpunkte für diese Aktion um 50%</aktionen:InstantEffekt>
       <aktionen:Mod ModifierType="Bonus">
         <aktionen:ConcreteModValueType Type="Percent" Value="50"/>
       </aktionen:Mod>
@@ -671,8 +670,8 @@
       <aktionen:GarantierterEffekt>Der Charakter lößt sich aus dem Nahkampf.</aktionen:GarantierterEffekt>
     </aktionen:Aktion>
 
-    <aktionen:Aktion Name="Finte" Kosten="3" Typ="Ausgeglieschen">
-      <aktionen:Beschreibung></aktionen:Beschreibung>
+    <aktionen:Aktion Name="Finte" Kosten="3" Typ="Unterstützend">
+      <aktionen:Beschreibung>Der Charakter versucht mit dem Angriff den gegner eine Falle zu stellen und so stärker zu bedrängen.</aktionen:Beschreibung>
       <aktionen:OffensivErfolg>Das Ziel erhält Positions Mali in höhe von x.</aktionen:OffensivErfolg>
       <aktionen:DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</aktionen:DefensivMiserfolg>
       <aktionen:Mod ModifierType="Malus">
@@ -715,7 +714,7 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
 
     <aktionen:Aktion Name="Schutz" Kosten="3" Typ="Defensiv">
       <aktionen:Beschreibung></aktionen:Beschreibung>
-      <aktionen:InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für ihn selbst.</aktionen:InstantEffekt>
+      <aktionen:InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für den ausführenden Charakter.</aktionen:InstantEffekt>
     </aktionen:Aktion>
 
     <aktionen:Aktion Name="Abwarten" Kosten="0" Typ="Sekundär">
@@ -739,7 +738,7 @@ Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige
 
     <aktionen:Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
       <aktionen:Beschreibung>Bei diesem Angriff nutzt der Charakter die Schneide seiner Waffe an einer äußerst empfindlichen stelle, wie beispielsweise dem Hals. Oder Durschtößt mit der Klinge den Körper des Gegners. Ein bevorzugter Angriff von meuchlern.</aktionen:Beschreibung>
-      <aktionen:OffensivErfolg>Die verwendete Waffe verursacht anstatt Schnittschaden Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</aktionen:OffensivErfolg>
+      <aktionen:OffensivErfolg>Die Waffe Trift. Die verwendete Waffe verursacht anstatt Schnittschaden Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</aktionen:OffensivErfolg>
       <aktionen:Mod ModifierType="Malus">
         <aktionen:ConcreteModValueType Type="Percent" Value="50"/>
         
