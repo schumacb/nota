@@ -88,7 +88,7 @@
     <Talent Name="StumpfeHiebwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
-        <Mut/>
+        <Stärke/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
@@ -96,16 +96,16 @@
     <Talent Name="Einhandäxte" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
-        <Mut/>
+        <Stärke/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Zweihandäxte" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
+        <Stärke/>
         <Mut/>
-        <Intuition/>
+        <Gewandtheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
@@ -160,23 +160,23 @@
     <Talent Name="Bogen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
-        <Mut/>
+        <Stärke/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="FaustProjektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Mut/>
+        <Feinmotorik/>
+        <Feinmotorik/>
         <Intuition/>
       </Probe>
       <Beschreibung>Gewehre, Armbrüste</Beschreibung>
     </Talent>
     <Talent Name="ZweihandProjektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Mut/>
+        <Feinmotorik/>
+        <Feinmotorik/>
         <Intuition/>
       </Probe>
       <Beschreibung>Gewehre, Armbrüste</Beschreibung>
@@ -207,7 +207,7 @@
     </Talent>
     <Talent Name="Peitche" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
+        <Feinmotorik/>
         <Mut/>
         <Intuition/>
       </Probe>
@@ -337,48 +337,48 @@
     <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
       <Probe>
         <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Stärke/>
+        <Gewandtheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Laufen" Komplexität="B" Kategorie="Körper">
       <Probe>
-        <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Konstitution/>
+        <Stärke/>
+        <Gewandtheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Gewichtstemmen" Komplexität="B" Kategorie="Körper">
       <Probe>
-        <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Stärke/>
+        <Stärke/>
+        <Gewandtheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Schwimmen" Komplexität="B" Kategorie="Körper">
       <Probe>
-        <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Konstitution/>
+        <Stärke/>
+        <Gewandtheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Körperbeherschung" Komplexität="B" Kategorie="Körper">
       <Probe>
-        <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Stärke/>
+        <Gewandtheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Akrobatik" Komplexität="B" Kategorie="Körper">
       <Probe>
         <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Stärke/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
@@ -388,7 +388,7 @@
         <Feinmotorik/>
         <Intuition/>
       </Probe>
-      <Beschreibung>Test</Beschreibung>
+      <Beschreibung>Manschmal muss ein Charakter sehr prezise arbeit mit seinen Fingern durchführen. Seien es Taschenspieler Triks, wie das Hervorziehen einer Münze, oder den Bolzen möglichst zügig aus einer Felsspalte zu ziehen. In solchen Fällen steht das Tallent Fingerübungen zur verfügung.</Beschreibung>
     </Talent>
     <Talent Name="Klettern" Komplexität="B" Kategorie="Körper">
       <Probe>
