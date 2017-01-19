@@ -50,3 +50,6 @@ Hierbei kann ein Charakter eine Probe vor der eigentlichen Aufgabe ablegen, die 
 
 ### Zusammenarbeit
 Hierbei arbeiten mehrer Charaktere zusammen an dem Selben Problem, jeder muss hierbei das entsprechende Talent besitzen. Die Probe wird für jeden beteiligten um die anzahl der zusätzlichen Personen erschwert. Dafür werden die übrigbehaltenen Talentpunkte aller beteiligten Addiert.
+
+## Eigenschafts Proben
+Proben auf eine Eigenschaft sollte wenn möglich vermieden werden. Stattdessen sollte ein entsprechendes Talent zu rate gezogen werden, welches auch Teschnik und Erfahrung wiederspiegelt. Muss dennoch auf eine einzelne Eigenschaft geürpft werden, so wird eine Talent Probe abgelegt bei der zweimal auf die zu testende Eigenschaft gewürfelt wird und einmal auf die jeweils andere zur Primäreigenschaften gehörende Subeigenschaft (für Kraft wäre die Probe also KR/KR/KO). Als Talentwert wird 15 minus dem Eigenschaftswert gerechnet.
