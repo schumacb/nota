@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <!-- This file represents a fragment of a book store inventory database -->
-<Daten 
+<Daten
   xmlns='http://nota.org/schema/nota'
   xmlns:geschöpf="http://nota.org/schema/wesen"
   xmlns:kultur="http://nota.org/schema/kultur"
@@ -12,7 +12,7 @@
   xmlns:ausrüstung="http://nota.org/schema/kampf/ausrüstung"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/geschöpf ../schema/geschöpf.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd http://nota.org/schema/kampf/ausrüstung ../schema/kampf/ausrüstung.xsd">
-  <Geschöpfe 
+  <Geschöpfe
     xmlns="http://nota.org/schema/geschöpf">
     <Geschöpf Name="Mensch" Gattung="Homo" Art="Sapiens">
       <Eigenschaften>
@@ -48,7 +48,7 @@
       <Beschreibung>...</Beschreibung>
     </Geschöpf>
   </Geschöpfe>
-  <Kulturen 
+  <Kulturen
     xmlns="http://nota.org/schema/kultur">
     <Kultur Name="Alan" Kosten="0">
       <Beschreibung></Beschreibung>
@@ -56,26 +56,28 @@
         <profession:Profession Name="Bäcker"/>
       </Professionen>
       <Level>
-        <Level 
+        <Level
           xmlns="http://nota.org/schema/nota">
           <fertigkeit:Fertigkeit Name="Kulturkunde Alan"/>
         </Level>
       </Level>
     </Kultur>
   </Kulturen>
-  <Professionen 
+  <Professionen
     xmlns="http://nota.org/schema/profession">
     <Profession Name="Bäcker" Kosten="3">
       <Beschreibung></Beschreibung>
       <Level>
-        <Level 
+        <Level
           xmlns="http://nota.org/schema/nota">
-          <talent:Talent Name="Backen"/>
+          <talent:Talent Name="Backen" Level="3"/>
+          <talent:Talent Name="Backen" Level="2"/>
+          <talent:Talent Name="Backen" Level="1"/>
         </Level>
       </Level>
     </Profession>
   </Professionen>
-  <Talente 
+  <Talente
     xmlns="http://nota.org/schema/talent">
     <Talent Name="Fechtwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -100,6 +102,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+      <Ableitungen>
+        <Ableitung Name="Stumpfe Hiebwaffen" Anzahl="2"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Zweihandäxte" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -124,6 +129,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Säbel" Anzahl="3"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Säbel" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -132,6 +140,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Säbel" Anzahl="2"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Zweihandschwert" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -165,21 +176,27 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-    <Talent Name="FaustProjektielwaffen" Komplexität="B" Kategorie="Kampf">
+    <Talent Name="Faust Projektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Feinmotorik/>
         <Feinmotorik/>
         <Intuition/>
       </Probe>
       <Beschreibung>Gewehre, Armbrüste</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Zweihandprojektielwaffen" Anzahl="3"/>
+    </Ableitungen>
     </Talent>
-    <Talent Name="ZweihandProjektielwaffen" Komplexität="B" Kategorie="Kampf">
+    <Talent Name="Zweihandprojektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Feinmotorik/>
         <Feinmotorik/>
         <Intuition/>
       </Probe>
       <Beschreibung>Gewehre, Armbrüste</Beschreibung>
+      <Ableitungen>
+        <Ableitung Name="Faust Projektielwaffen" Anzahl="2"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Schild" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -236,6 +253,13 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+      <Ableitungen>
+        <Max Anzahl="3">
+          <Ableitung Name="Schwerter" Anzahl="4"/>
+          <Ableitung Name="Säbel" Anzahl="4"/>
+          <Ableitung Name="Stumpfe Hiebwaffen" Anzahl="3"/>
+        </Max>
+      </Ableitungen>
     </Talent>
     <Talent Name="Chakram" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -410,65 +434,83 @@
     <Talent Name="Selbstbeherchung" Komplexität="B" Kategorie="Geist">
       <Probe>
         <Mut/>
-        <Klugheit/>
         <Mut/>
+        <Klugheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Wahrnehmung" Komplexität="B" Kategorie="Geist">
       <Probe>
-        <Mut/>
+        <Intuition/>
+        <Intuition/>
         <Klugheit/>
-        <Mut/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Sehen" Anzahl="3"/>
+      <Ableitung Name="Hören" Anzahl="3"/>
+      <Ableitung Name="Fühlen" Anzahl="4"/>
+      <Ableitung Name="Richen und Schmeken" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Sehen" Komplexität="B" Kategorie="Geist">
       <Probe>
-        <Mut/>
+        <Intuition/>
+        <Intuition/>
         <Klugheit/>
-        <Mut/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+      <Ableitungen>
+        <Ableitung Name="Wahrnehmung" Anzahl="4"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Hören" Komplexität="B" Kategorie="Geist">
       <Probe>
-        <Mut/>
+        <Intuition/>
+        <Intuition/>
         <Klugheit/>
-        <Mut/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+      <Ableitungen>
+        <Ableitung Name="Wahrnehmung" Anzahl="4"/>
+      </Ableitungen>
     </Talent>
-    <Talent Name="RichenSchmeken" Komplexität="B" Kategorie="Geist">
+    <Talent Name="Richen und Schmeken" Komplexität="B" Kategorie="Geist">
       <Probe>
-        <Mut/>
+        <Intuition/>
+        <Intuition/>
         <Klugheit/>
-        <Mut/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+      <Ableitungen>
+        <Ableitung Name="Wahrnehmung" Anzahl="6"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Fühlen" Komplexität="B" Kategorie="Geist">
       <Probe>
-        <Mut/>
+        <Intuition/>
+        <Feinmotorik/>
         <Klugheit/>
-        <Mut/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+      <Ableitungen>
+        <Ableitung Name="Wahrnehmung" Anzahl="5"/>
+      </Ableitungen>
     </Talent>
     <!--Gesellschaft BEGINN-->
     <Talent Name="Menschenkentniss" Komplexität="B" Kategorie="Geselchaft">
       <Probe>
-        <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Intuition/>
+        <Antipathie/>
+        <Sympathie/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Verführen" Komplexität="B" Kategorie="Geselchaft">
       <Probe>
         <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Intuition/>
+        <Sympathie/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
@@ -476,38 +518,46 @@
       <Probe>
         <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Sympathie/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Überreden" Komplexität="B" Kategorie="Geselchaft">
       <Probe>
-        <Mut/>
+        <Intuition/>
         <Klugheit/>
+        <Sympathie/>
+      </Probe>
+      <Beschreibung>Test</Beschreibung>
+    </Talent>
+        <Talent Name="Einschüchtern" Komplexität="B" Kategorie="Geselchaft">
+      <Probe>
         <Mut/>
+        <Intuition/>
+        <Antipathie/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Tanzen" Komplexität="B" Kategorie="Geselchaft">
       <Probe>
-        <Mut/>
-        <Klugheit/>
-        <Mut/>
+        <Intuition/>
+        <Gewandtheit/>
+        <Konstitution/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <!--Wissen BEGINN-->
     <Talent Name="Rechnen" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Sagen" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
+        <Klugheit/>
         <Klugheit/>
         <Mut/>
       </Probe>
@@ -515,114 +565,117 @@
     </Talent>
     <Talent Name="Astronomi" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Geograpie" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Schriftlicherausdruck" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Feinmotorik/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Gesteinskunde" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
+        <Intuition/>
         <Klugheit/>
-        <Mut/>
+        <Feinmotorik/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Recherche" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Das finden von informationen in Büchern und Bibliotheken.</Beschreibung>
     </Talent>
     <Talent Name="Buchführung" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Feinmotorik/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Medizin" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Tierkunde" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Pflanzenkunde" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Kunst" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
-        <Klugheit/>
+        <Intuition/>
+        <Glück/>
         <Mut/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Alchemischeswissen" Komplexität="B" Kategorie="Wissen">
       <Probe>
-        <Mut/>
+        <Intuition/>
         <Klugheit/>
-        <Mut/>
+        <Klugheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <!--Handwerk BEGINN-->
     <Talent Name="Alchemie" Komplexität="B" Kategorie="Handwerk">
       <Probe>
-        <Mut/>
+        <Feinmotorik/>
         <Klugheit/>
-        <Mut/>
+        <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
     <Talent Name="Backen" Komplexität="B" Kategorie="Handwerk">
       <Probe>
-        <Mut/>
+        <Intuition/>
         <Klugheit/>
-        <Mut/>
+        <Feinmotorik/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Richen und Schmeken" Anzahl="3"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Kochen" Komplexität="B" Kategorie="Handwerk">
       <Probe>
-        <Mut/>
+        <Intuition/>
+        <Feinmotorik/>
         <Klugheit/>
-        <Mut/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
       <Bedingugen>
@@ -635,19 +688,19 @@
       </Ableitungen>
     </Talent>
   </Talente>
-  <Fertigkeiten 
+  <Fertigkeiten
     xmlns="http://nota.org/schema/fertigkeit">
     <Fertigkeit Name="Kulturkunde Alan">
       <Beschreibung>Das Wissen um die Kultur der Alan</Beschreibung>
     </Fertigkeit>
   </Fertigkeiten>
-  <Besonderheiten 
+  <Besonderheiten
     xmlns="http://nota.org/schema/besonderheit">
     <Besonderheit Name="Beidhändig" Kosten="3">
       <Beschreibung></Beschreibung>
     </Besonderheit>
   </Besonderheiten>
-  
+
   <Aktionen xmlns="http://nota.org/schema/kampf/aktionen">
     <Aktion Name="Angriff" Kosten="2" Typ="Ausgeglieschen">
       <Beschreibung>Ein standard angriff mit ausgeglichener verteidigung.</Beschreibung>
@@ -659,7 +712,7 @@
         <ConcreteModValueType Type="Percent" Value="50"/>
       </Mod>
     </Aktion>
-    
+
     <Aktion Name="Rückzug" Kosten="2" Typ="Defensiv">
       <Beschreibung></Beschreibung>
       <DefensivErfolg>Der Charakter lößt sich aus dem Nahkampf.</DefensivErfolg>
@@ -696,14 +749,14 @@
       <Bedingung>Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.</Bedingung>
       <OffensivErfolg>
 
-Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
+        Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
 
-Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
+        Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
 
-Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
+        Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
 
 
-</OffensivErfolg>
+      </OffensivErfolg>
       <Mod ModifierType="Malus">
         <AddModValueType>
           <VariableModValueType Value="X"/>
@@ -731,9 +784,9 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
       <Beschreibung>Der Charakter kann am ende der Kampfrunde mehr sagen als er eigentlich dürfte. Er kann einen ungefähr 5 sekunden lange nachricht von sich geben.</Beschreibung>
       <InstantEffekt>
 
-Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
+        Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
 
-</InstantEffekt>
+      </InstantEffekt>
     </Aktion>
 
     <Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
@@ -741,7 +794,7 @@ Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige
       <OffensivErfolg>Die Waffe Trift. Die verwendete Waffe verursacht anstatt Schnittschaden Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</OffensivErfolg>
       <Mod ModifierType="Malus">
         <ConcreteModValueType Type="Percent" Value="50"/>
-        
+
       </Mod>
 
     </Aktion>
@@ -750,25 +803,25 @@ Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige
       <Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</Beschreibung>
       <OffensivErfolg>
 
-Die Trefferzone wird nicht mehr zufällig bestimmt.
+        Die Trefferzone wird nicht mehr zufällig bestimmt.
 
-Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
-+-------------+-------------+
-| Trefferzone | Malus x     |
-+=============+=============+
-| Kopf        | 4           |
-+-------------+-------------+
-| Brust       | 1           |
-+-------------+-------------+
-| Arm         | 2           |
-+-------------+-------------+
-| Bein        | 3           |
-+-------------+-------------+
- 
+        Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
+        +-------------+-------------+
+        | Trefferzone | Malus x     |
+        +=============+=============+
+        | Kopf        | 4           |
+        +-------------+-------------+
+        | Brust       | 1           |
+        +-------------+-------------+
+        | Arm         | 2           |
+        +-------------+-------------+
+        | Bein        | 3           |
+        +-------------+-------------+
 
-</OffensivErfolg>
+
+      </OffensivErfolg>
       <Mod ModifierType="Malus">
-          <VariableModValueType Value="X"/>
+        <VariableModValueType Value="X"/>
       </Mod>
     </Aktion>
 
@@ -776,25 +829,25 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
       <Beschreibung></Beschreibung>
       <GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</GarantierterEffekt>
     </Aktion>
-  
-  <Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
-    <Beschreibung>
-      Der Charakter bereitet einen gezielten Schuss vor.
-    </Beschreibung>
-  <SekundärErfolg>
-    Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
-  </SekundärErfolg>
-  </Aktion>
-    
+
+    <Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
+      <Beschreibung>
+        Der Charakter bereitet einen gezielten Schuss vor.
+      </Beschreibung>
+      <SekundärErfolg>
+        Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
+      </SekundärErfolg>
+    </Aktion>
+
     <Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
-    <Beschreibung>
-      Der Charakter führt einen gezielten Schuss durch.
-    </Beschreibung>
-    <InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</InstantEffekt>
-    <Mod ModifierType="Bonus">
-      <ConcreteModValueType Value="3" Type="Absolute"/>
-    </Mod>
-  </Aktion>
+      <Beschreibung>
+        Der Charakter führt einen gezielten Schuss durch.
+      </Beschreibung>
+      <InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</InstantEffekt>
+      <Mod ModifierType="Bonus">
+        <ConcreteModValueType Value="3" Type="Absolute"/>
+      </Mod>
+    </Aktion>
 
     <Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
       <Beschreibung>
@@ -811,14 +864,14 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
         Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
       </Beschreibung>
     </Aktion>
-    
+
     <Aktion Kosten="3" Name="Ausweichen" Typ="Defensiv">
       <Beschreibung>
         In manschen situation ist es ratsam nicht mit der Waffe zu parieren, sondern dem Angriff aus dem Weg zughen.
       </Beschreibung>
     </Aktion>
-  
-  
+
+
   </Aktionen>
 
   <Ausrüstung xmlns="http://nota.org/schema/kampf/ausrüstung">
@@ -855,7 +908,7 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
           </Bauch>
         </Schutz>
       </Rüstung>
-      
+
     </Rüstungen>
     <Eigenschaften>
       <Eigenschaft Name="Präzise">
