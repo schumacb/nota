@@ -83,15 +83,15 @@
         <Mut/>
         <Intuition/>
       </Probe>
-      <Beschreibung>Test</Beschreibung>
+      <Beschreibung>Eine leichte und schnelle Waffe die vorallem auf präzision statt kraft setzt.</Beschreibung>
     </Talent>
-    <Talent Name="StumpfeHiebwaffen" Komplexität="B" Kategorie="Kampf">
+    <Talent Name="Stumpfe Hiebwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
         <Stärke/>
         <Intuition/>
       </Probe>
-      <Beschreibung>Test</Beschreibung>
+      <Beschreibung>Eine brachiale Waffe die ihre effiktivität aus der Kraft des nutzers zieht.</Beschreibung>
     </Talent>
     <Talent Name="Einhandäxte" Komplexität="B" Kategorie="Kampf">
       <Probe>
