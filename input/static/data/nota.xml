@@ -749,14 +749,14 @@
       <Bedingung>Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.</Bedingung>
       <OffensivErfolg>
 
-        Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
+Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
 
-        Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
+Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
 
-        Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
+Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
 
 
-      </OffensivErfolg>
+</OffensivErfolg>
       <Mod ModifierType="Malus">
         <AddModValueType>
           <VariableModValueType Value="X"/>
@@ -784,9 +784,9 @@
       <Beschreibung>Der Charakter kann am ende der Kampfrunde mehr sagen als er eigentlich dürfte. Er kann einen ungefähr 5 sekunden lange nachricht von sich geben.</Beschreibung>
       <InstantEffekt>
 
-        Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
+Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
 
-      </InstantEffekt>
+</InstantEffekt>
     </Aktion>
 
     <Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
@@ -803,23 +803,23 @@
       <Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</Beschreibung>
       <OffensivErfolg>
 
-        Die Trefferzone wird nicht mehr zufällig bestimmt.
+Die Trefferzone wird nicht mehr zufällig bestimmt.
 
-        Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
-        +-------------+-------------+
-        | Trefferzone | Malus x     |
-        +=============+=============+
-        | Kopf        | 4           |
-        +-------------+-------------+
-        | Brust       | 1           |
-        +-------------+-------------+
-        | Arm         | 2           |
-        +-------------+-------------+
-        | Bein        | 3           |
-        +-------------+-------------+
+Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
++-------------+-------------+
+| Trefferzone | Malus x     |
++=============+=============+
+| Kopf        | 4           |
++-------------+-------------+
+| Brust       | 1           |
++-------------+-------------+
+| Arm         | 2           |
++-------------+-------------+
+| Bein        | 3           |
++-------------+-------------+
 
 
-      </OffensivErfolg>
+</OffensivErfolg>
       <Mod ModifierType="Malus">
         <VariableModValueType Value="X"/>
       </Mod>
@@ -851,8 +851,7 @@
 
     <Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
       <Beschreibung>
-        Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.
-      </Beschreibung>
+Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.</Beschreibung>
       <InstantEffekt>Der Angriff erfolgt diese Kampfrunde, trifft sein Ziel aber erst nächste. Dabei ist das Problem weniger den Anvisierten Punkt zu treffe, als vorherzusehen wo sich der gegner zu diesem Zeitpunkt befinden wird.</InstantEffekt>
       <Mod ModifierType="Malus">
         <ConcreteModValueType Value="2" Type="Absolute"/>
@@ -866,9 +865,7 @@
     </Aktion>
 
     <Aktion Kosten="3" Name="Ausweichen" Typ="Defensiv">
-      <Beschreibung>
-        In manschen situation ist es ratsam nicht mit der Waffe zu parieren, sondern dem Angriff aus dem Weg zughen.
-      </Beschreibung>
+      <Beschreibung>In manschen situation ist es ratsam nicht mit der Waffe zu parieren, sondern dem Angriff aus dem Weg zughen.</Beschreibung>
     </Aktion>
 
 
