@@ -18,8 +18,10 @@
               <element name="GarantierterEffekt" type="string" minOccurs="0"/>
               <element name="OffensivErfolg" type="string" minOccurs="0"/>
               <element name="DefensivErfolg" type="string" minOccurs="0"/>
+              <element name="SekundärErfolg" type="string" minOccurs="0"/>
               <element name="OffensivMiserfolg" type="string" minOccurs="0"/>
               <element name="DefensivMiserfolg" type="string" minOccurs="0"/>
+              <element name="SekundärMiserfolg" type="string" minOccurs="0"/>
               <element name="Mod" minOccurs="0" >
                 <complexType>
                   <choice>
