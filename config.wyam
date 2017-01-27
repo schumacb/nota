@@ -185,13 +185,10 @@ Pipelines.Add("books",
 	/// XLSX ///
 	If(@doc.Source.Extension==".xlsx",
 		ExcelToCsv(),
-		CsvToHtml() // TODO: CsvToMarkdown
+		CsvToMarkdown() 
 			.WithHeader(),
 		Helper.ChangeSourceExtension(".md")
 	),
-	/// TODO: Replace  (including md files into another) ///
-
-	/// TODO: Filter Content that will not be shown (already included) ///
 
 	/// XSLT ///
 	If(@doc.Source.Extension==".xslt",
@@ -204,6 +201,23 @@ Pipelines.Add("books",
 		),
 		Helper.ChangeSourceExtension(".md")
 	), 
+
+	/// TODO: Replace  (including md files into another) ///
+	If(@doc.Source.Extension==".md",
+		Replace("§\"(?<id>[^\"]+)\"", match =>
+		{
+			var id = match.Groups["id"].Value;
+			var files = 
+			return null;
+		}
+		
+		)
+	), 
+
+	
+
+
+	/// TODO: Filter Content that will not be shown (already included) ///
 
 	/// BOOKS /// 
 	If( @doc.Metadata.ContainsKey("BookType"),
