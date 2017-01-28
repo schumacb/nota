@@ -27,7 +27,7 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
   <th> Lizenz </th>
   </thead>
   <tbody>
-    @foreach(var doc in Documents["Write"])
+    @foreach(var doc in Documents["htmlWrite"])
     {
       var hasMetadata = false;
       bool? rightsReserved = null;
@@ -59,7 +59,7 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
       }
 
       
-      var extension = ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension;
+      var extension = ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension;
       
       @switch(extension)
       {
@@ -74,14 +74,14 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
           @if(isImage)
           {
             <td>
-            <img class="img-responsive" src="@doc["TargetUrl"]" />
+            <img class="img-responsive" src="@doc["RelativeFilePath"]" />
             </td>
           }                      
           else
           {
             <td>
-            <a class="img-responsive" href="@doc["TargetUrl"]">
-            @doc["TargetUrl"]
+            <a class="img-responsive" href="@doc["RelativeFilePath"]">
+            @doc["RelativeFilePath"]
             </a>
             </td>
           }

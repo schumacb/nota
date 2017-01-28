@@ -1,8 +1,8 @@
 #tool "KuduSync.NET" "https://www.nuget.org/api/v2/"
 #addin "Cake.Kudu" "https://www.nuget.org/api/v2/"
 
-#tool nuget:?package=Wyam&version=0.16.1 
-#addin nuget:?package=Cake.Wyam&version=0.16.1 
+#tool nuget:?package=Wyam&version=0.16.0 
+#addin nuget:?package=Cake.Wyam&version=0.16.0 
 
 //#tool nuget:https://www.myget.org/F/wyam/api/v2?package=Wyam&prerelease
 //#addin nuget:https://www.myget.org/F/wyam/api/v2?package=Cake.Wyam&prerelease

@@ -29,6 +29,9 @@
 
   <body>
 
+@{
+  var currentFile = Metadata["RelativeFilePath"] as FilePath;
+}
 
 
     <!-- Part 1: Wrap all page content here -->
@@ -47,7 +50,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav">
-                  @if(@"\".Equals(Metadata["TargetUrl"]))
+                  @if(@"\".Equals(Metadata["RelativeFilePath"]))
                   {
                     <li class="active"><a href="/">Home</a></li>
                   }
@@ -55,7 +58,7 @@
                     <li><a href="/">Home</a></li>
                   } 
 
-                  @if(Documents["Books"].Any(doc => doc["TargetUrl"].Equals(Metadata["TargetUrl"])))
+                  @if(Documents["books"].Any(doc => doc["RelativeFilePath"].Equals(Metadata["RelativeFilePath"])))
                   {
                     @:<li class="dropdown active">
                   }
@@ -69,7 +72,9 @@
                   string parentPath = @"\books";
                   bool isFirstEntry = true;
                 }
-                @foreach(var group in Documents["Books"].GroupBy(x=>x["BookType"]))
+                @foreach(var group in Documents["books"]
+                    .Where(x=>x.Metadata.ContainsKey("BookType"))
+                    .GroupBy(x=>x["BookType"]))
                 {                  
                   <li class="dropdown-header">@group.Key</li>
 
@@ -79,16 +84,16 @@
 
                   @if(!@doc.Metadata.ContainsKey("Title"))
                   {
-                    <li><a href="@doc["TargetUrl"]">@doc.Source</a></li>
+                    <li><a href="/@doc["RelativeFilePath"]">@doc.Source</a></li>
                     continue;                    
                   }
                 
-                  @if(@doc["TargetUrl"].Equals(Metadata["TargetUrl"]))
+                  @if(@doc["RelativeFilePath"].Equals(Metadata["RelativeFilePath"]))
                   {
-                    <li  class="active"><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
+                    <li  class="active"><a href="/@doc["RelativeFilePath"]">@doc["Title"]</a></li>
                   }
                   else{
-                    <li><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
+                    <li><a href="/@doc["RelativeFilePath"]">@doc["Title"]</a></li>
                   } 
 
                   isFirstEntry = false;                
@@ -106,12 +111,28 @@
             </li>
                 @foreach(var doc in Documents["MainMenue"])
                 {  
-                  @if(@doc["TargetUrl"].Equals(Metadata["TargetUrl"]))
+                  @if(@doc["RelativeFilePath"].Equals(Metadata["RelativeFilePath"]))
                   {
-                    <li class="active"><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
+                    @if(@doc.Metadata.ContainsKey("Title"))
+                    {
+                      <li class="active"><a href="/@doc["RelativeFilePath"]">@doc["Title"]</a></li>
+                    }
+                    else
+                    {
+                      <li class="active"><a href="/@doc["RelativeFilePath"]">Missing Title</a></li>
+
+                    }
                   }
                   else{
-                    <li><a href="@doc["TargetUrl"]">@doc["Title"]</a></li>
+                    @if(@doc.Metadata.ContainsKey("Title"))
+                    {
+                      <li><a href="/@doc["RelativeFilePath"]">@doc["Title"]</a></li>
+                    }
+                    else
+                    {
+                      <li><a href="/@doc["RelativeFilePath"]">Missing Title</a></li>
+
+                    }
                   } 
                     
                 } 
@@ -163,20 +184,20 @@
   
   var prevous = Metadata["Previous"] as IDocument;
   var next = Metadata["Next"] as IDocument;
-  
-  while(prevous != null && !prevous.Metadata.ContainsKey("TargetUrl")){
+ 
+  while(prevous != null && !prevous.Metadata.ContainsKey("RelativeFilePath")){
     prevous = prevous.Get<IDocument>("Previous");
   }
   
 
-  while(next != null && !next.Metadata.ContainsKey("TargetUrl")){
+  while(next != null && !next.Metadata.ContainsKey("RelativeFilePath")){
     next = next.Get<IDocument>("Next");
   }
   
 <nav>
   <ul class="pager">
   @if(prevous !=null){
-      <li class="previous"><a href="@prevous["TargetUrl"]"><span aria-hidden="true">&larr;</span> Zurück</a></li>
+      <li class="previous"><a href="@currentFile.Directory.GetRelativePath((FilePath)prevous["RelativeFilePath"])"><span aria-hidden="true">&larr;</span> Zurück</a></li>
   }
   else
   {
@@ -186,7 +207,7 @@
     <li ><a href="#"><span aria-hidden="true">&uarr;</span> Top</a></li>      
   
   @if(next !=null){
-    <li class="next"><a href="@next["TargetUrl"]">Weiter <span aria-hidden="true">&rarr;</span></a></li>    
+    <li class="next"><a href="@currentFile.Directory.GetRelativePath((FilePath)next["RelativeFilePath"])">Weiter <span aria-hidden="true">&rarr;</span></a></li>
   }
   else
   {

@@ -15,94 +15,68 @@
                 http://nota.org/schema/fertigkeit ..\..\..\..\..\static\schema\fertigkeit.xsd 
                 http://nota.org/schema/besonderheit ..\..\..\..\..\static\schema\besonderheit.xsd" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html" indent="yes" />
-  <xsl:template match="nota:Daten">
-    <xsl:apply-templates select="talent:Talente"/>  
-  </xsl:template>
+<xsl:output method="text" indent="no" />
+<xsl:template match="nota:Daten">
+<xsl:apply-templates select="talent:Talente"/>  
+</xsl:template>
 
 
-  <xsl:template match="talent:Talente">
-  <p>
-  Eine übersciht der verschiedenen Talente
-  </p>
-  <xsl:for-each-group select="talent:Talent" group-by="@Kategorie">
-    <h1><xsl:value-of select="@Kategorie" /></h1>
-    <xsl:for-each select="current-group()">
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </xsl:for-each-group>
-  </xsl:template>
+<xsl:template match="talent:Talente">
+<p>
+Eine übersciht der verschiedenen Talente
+</p>
+<xsl:for-each-group select="talent:Talent" group-by="@Kategorie">
+# <xsl:value-of select="@Kategorie" />
+<xsl:for-each select="current-group()">
 
-  <xsl:template match="talent:Talent">
+:::Talent
+<xsl:apply-templates select="."/>
+:::
 
-    <div class="panel panel-default">
-      <div class="panel-body">
+</xsl:for-each>
+</xsl:for-each-group>
+</xsl:template>
 
-        <h3>
-          <xsl:value-of select="@Name"/>
-          <span class="small">
-            (<xsl:apply-templates  select="talent:Probe/*[1]" />,
-            <xsl:apply-templates  select="talent:Probe/*[2]" />,
-            <xsl:apply-templates  select="talent:Probe/*[3]" />)
-          </span>
-        </h3>
-        <h4>
-          <span class="small"> Komplexität: </span>
-          <xsl:value-of select="@Komplexität"/>
-        </h4>
-        <p>
-          <xsl:value-of select="talent:Beschreibung"/>
-        </p>
-      </div>
-      <xsl:if test="talent:Ableitungen">
-        <div class="panel-footer">
-          <div class="compact-footer Ableitungen">
+<xsl:template match="talent:Talent">
+## <xsl:value-of select="@Name"/> *(<xsl:apply-templates  select="talent:Probe/*[1]" />, <xsl:apply-templates  select="talent:Probe/*[2]" />, <xsl:apply-templates  select="talent:Probe/*[3]" />)*
+**Komplexität**: <xsl:value-of select="@Komplexität"/>
 
-            <div class="small">
-              <ul>
-                <xsl:apply-templates select="talent:Ableitungen"/>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </xsl:if>
-    </div>
+:::
+<xsl:value-of select="talent:Beschreibung"/>
+:::
 
-  </xsl:template>
+<xsl:if test="talent:Ableitungen">
+Ableitung
+<xsl:apply-templates select="talent:Ableitungen"/>
+</xsl:if>
+</xsl:template>
 
-  <xsl:template match="talent:Ableitungen">
+<xsl:template match="talent:Ableitungen">
+  <xsl:apply-templates select="*" />
+</xsl:template>
+
+<xsl:template match="*">
+[FEHLER IM XSLT]
+</xsl:template>
+
+<xsl:template match="talent:Max">
+  + Maximum
     <xsl:apply-templates select="*" />
-  </xsl:template>
+</xsl:template>
 
-  <xsl:template match="*">
-    [FEHLER IM XSLT]
-  </xsl:template>
+<xsl:template match="talent:Ableitung">
+  +<xsl:value-of select="@Name" />_(<xsl:value-of select="@Anzahl" />)_
+</xsl:template>
 
-  <xsl:template match="talent:Max">
-    <li>
-      Maximum
-      <ul>
-        <xsl:apply-templates select="*" />
-      </ul>
-    </li>
-  </xsl:template>
-
-  <xsl:template match="talent:Ableitung">
-    <li>
-      <xsl:value-of select="@Name" />
-      (<xsl:value-of select="@Anzahl" />)
-    </li>
-  </xsl:template>
-
-  <xsl:template match="talent:Mut">MU</xsl:template>
-  <xsl:template match="talent:Glück">GL</xsl:template>
-  <xsl:template match="talent:Klugheit">KL</xsl:template>
-  <xsl:template match="talent:Intuition">IN</xsl:template>
-  <xsl:template match="talent:Gewandtheit">GE</xsl:template>
-  <xsl:template match="talent:Feinmotorik">IN</xsl:template>
-  <xsl:template match="talent:Sympathie">SY</xsl:template>
-  <xsl:template match="talent:Antipathie">AP</xsl:template>
-  <xsl:template match="talent:Stärke">ST</xsl:template>
-  <xsl:template match="talent:Konstitution">KO</xsl:template>
+<xsl:template match="talent:Mut">MU</xsl:template>
+<xsl:template match="talent:Glück">GL</xsl:template>
+<xsl:template match="talent:Klugheit">KL</xsl:template>
+<xsl:template match="talent:Intuition">IN</xsl:template>
+<xsl:template match="talent:Gewandtheit">GE</xsl:template>
+<xsl:template match="talent:Feinmotorik">IN</xsl:template>
+<xsl:template match="talent:Sympathie">SY</xsl:template>
+<xsl:template match="talent:Antipathie">AP</xsl:template>
+<xsl:template match="talent:Stärke">ST</xsl:template>
+<xsl:template match="talent:Konstitution">KO</xsl:template>
 
 </xsl:stylesheet>

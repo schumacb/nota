@@ -6,7 +6,7 @@
 #n Wyam.All
 #n jQuery -v [2.2.3]
 #n bootstrap -v [3.3.6]
-
+#n Wyam.Tables
 
 // Declaration code
 using AngleSharp.Dom;
@@ -108,6 +108,36 @@ public static class AutoLinkHelper
 			
 		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
 	}
+
+	public static IDocument[] FixLink(IDocument doc, IExecutionContext ctx)
+	{
+		var parser = new AngleSharp.Parser.Html.HtmlParser();
+		//Source to be pared
+		var source = @doc.Content;
+		//Parse source to document
+		var document = parser.Parse(source);
+		//Do something with document like the following
+
+		var tables = document.QuerySelectorAll("a");
+		foreach (var table in tables)
+		{			
+			var url = table.GetAttribute("href");
+
+			if(String.IsNullOrEmpty(url))
+				continue;
+Console.WriteLine(url);
+var extension = System.IO.Path.GetExtension(url);
+			
+			if(extension == ".cshtml"
+			   || extension == ".md")
+				url = System.IO.Path.ChangeExtension(url ,".html");
+Console.WriteLine(url);
+
+			table.SetAttribute("href", url);
+		}			
+			
+		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
+	}
 }
 
 
@@ -146,13 +176,19 @@ public static class Helper
 	});		
 	}
 
-	public static IModule ChangeSourceExtension(string newExtension)
+	public static IModule ChangeExtension(string newExtension)
 	{
 		return new Execute((@doc, @ctx)=> 
 			{
-				return new IDocument[] {@ctx.GetDocument(doc, doc.Source.ChangeExtension(newExtension) )};
+				return new IDocument[] {@ctx.GetDocument(doc, doc.Source, new KeyValuePair<string, object>[]{new KeyValuePair<string, object>("RelativeFilePath",((FilePath)@doc["RelativeFilePath"]).ChangeExtension(newExtension))} )};
 			});
 	}
+
+	public static bool IsExtension(IDocument document , string newExtension)
+	{
+		return ((FilePath)document["RelativeFilePath"]).Extension== newExtension;
+	}
+
 
 }
 
@@ -163,6 +199,7 @@ System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalizat
 System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
 
 
+IExecutionContext currentContext = null;
 
 Pipelines.Add("books",
 	ReadFiles(@"books\**\*.{*,!xsd,!meta}"),
@@ -174,10 +211,12 @@ Pipelines.Add("books",
 	Meta("ID",(@doc, @ctx)=> 
 	{
 		var path = (Wyam.Common.IO.FilePath)@doc["RelativeFilePath"];
-		path = path.ChangeExtension("");
 		if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
 			return path.Directory.ToString();
-		return path.ToString();
+
+		path = path.ChangeExtension("");
+
+		return path.Directory.CombineFile(path.FileNameWithoutExtension).ToString();
 	}),
 	/// Neded for git modules and history ///
 	Meta("OriginalSource", @doc.Source),
@@ -185,9 +224,9 @@ Pipelines.Add("books",
 	/// XLSX ///
 	If(@doc.Source.Extension==".xlsx",
 		ExcelToCsv(),
-		CsvToMarkdown() 
-			.WithHeader(),
-		Helper.ChangeSourceExtension(".md")
+		// CsvToMarkdown() 
+		// 	.WithHeader(),
+		Helper.ChangeExtension(".md")
 	),
 
 	/// XSLT ///
@@ -199,16 +238,24 @@ Pipelines.Add("books",
 		).ElseIf(!@doc.Metadata.ContainsKey("data"),
 			Trace("Faild data Metadata on"+ @doc.Source)
 		),
-		Helper.ChangeSourceExtension(".md")
+		Helper.ChangeExtension(".md")
 	), 
+
+
+	Execute(context=> {currentContext = context;}),
 
 	/// TODO: Replace  (including md files into another) ///
 	If(@doc.Source.Extension==".md",
 		Replace("§\"(?<id>[^\"]+)\"", match =>
 		{
 			var id = match.Groups["id"].Value;
-			var files = 
-			return null;
+			// var p = currentContext["books"];
+//System.Linq.Enumerable.FirstOrDefault();
+
+			var referencedDocument = currentContext.Documents.FromPipeline("books").FirstOrDefault(d=> d.Metadata.String("ID", null) == id);
+var test = currentContext.Documents.FromPipeline("books").Select(d=> d.Metadata.String("ID", null));
+
+			return referencedDocument?.Content ?? "[Error refference not found]";
 		}
 		
 		)
@@ -225,59 +272,72 @@ Pipelines.Add("books",
 	),
 
 	/// Adding Tree ///
+	If(@doc.Metadata.Bool("hide", false)),
 	Tree()
 		.WithRoots(@doc.Get<bool>("IsBook"))
 		.WithTreePath(((string)@doc["ID"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
-		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
+		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue)))
 
+);
+
+Pipelines.Add("WriteMarkDown",
+ 	Documents("books"),
+	WriteFiles( new DirectoryPath("MarkDown",PathKind.Relative).CombineFile((FilePath)@doc["RelativeFilePath"]))
 );
 
 
 /// TODO: HTML Pieplines ///
 
-/// TODO: PDF Pieplines ///
-
-/// OLD
-
-Pipelines.Add("renderInput",
+Pipelines.Add("MainMenue",
 	ReadFiles(@"render\**\*.{*,!xsd,!meta}"),
 	FrontMatter(Yaml()),
 	Sidecar(Yaml()),
-	GitContributors()
-		.ForEachInputDocument(),
 	DirectoryMeta()
 		.WithMetadataFile(".inherited",true),
-	Meta("TargetFile",  (@doc, @ctx)=> 
+	Meta("RelativeFilePath",  (@doc, @ctx)=> 
 	{
 		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
-		if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
-			path = path.Directory.CombineFile("index" + path.Extension);
-		if(path.Extension == ".md" 
-		|| path.Extension == ".cshtml"
-		|| path.Extension == ".xslt"
-		|| path.Extension == ".xlsx"
-		|| path.Extension == ".xml")
-			path= path.ChangeExtension(".html");
 		return path;
-	}),
-	Helper.TargetUrlModule(),
-	Meta("ReposetoryUrl",  (@doc, @ctx)=> 
-	{
-		//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
-		var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).FullPath;
-		return url;
-	})
+	})	
 );
- 
 
-Pipelines.Add("staticInput",
+
+Pipelines.Add("htmlBooksPrepare",
+	Documents("books")
+ 	// GitContributors()
+	// 	.ForEachInputDocument(),
+	// Meta("RelativeFilePath",  (@doc, @ctx)=> 
+	// {
+	// 	var path = (Wyam.Common.IO.FilePath)@doc["RelativeFilePath"];
+	// 	if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
+	// 		path = path.Directory.CombineFile("index" + path.Extension);
+	// 	return path;
+	// }),
+	// Meta("ReposetoryUrl",  (@doc, @ctx)=> 
+	// {
+	// 	//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
+	// 	var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc.Source).FullPath;
+	// 	return url;
+	// })
+);
+
+Pipelines.Add("htmlBootstrap",
+	ReadFiles(@"Scripts\**\*.*"),
+	Concat(	
+		ReadFiles(@"Content\**\*.*")
+	),
+	Concat(	
+		ReadFiles(@"fonts\**\*.*")
+	)
+);
+
+Pipelines.Add("htmlStatic",
 	ReadFiles(@"static\**\*.*"),
-	Meta("TargetFile",  (@doc, @ctx)=> 
+	Meta("RelativeFilePath",  (@doc, @ctx)=> 
 	{
 		var path = ((Wyam.Common.IO.DirectoryPath)"static").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
 		return path;
 	}),
-	Helper.TargetUrlModule(),
 	Where(@doc.Source.Extension != ".xmp"),
 	Xmp(errorsOnDoubleKeys:false)
 		.WithMetadata("cc:license", "Copyright")
@@ -286,11 +346,11 @@ Pipelines.Add("staticInput",
 		.WithMetadata("dc:creator", "Creator")
 		.WithMetadata("cc:attributionName", "Creator")
 		.WithMetadata("xmpRights:Marked", "RightsReserved"),
-	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".css" 
-			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".js"
-			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".xsd"
-			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".xml"
-			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".config",
+	If(((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension != ".css" 
+			&& ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension != ".js"
+			&& ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension != ".xsd"
+			&& ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension != ".xml"
+			&& ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension != ".config",
 		If(@doc.Get<string>("RightsReserved")!= "False",
 			If((!@doc.ContainsKey("Copyright"))
 			 	|| !@doc.ContainsKey("Creator"),
@@ -303,292 +363,427 @@ Pipelines.Add("staticInput",
 );
 
 
-
-
-
-
-
-//  888888888888                                           ad88                                           
-//       88                                               d8"                                             
-//       88                                               88                                              
-//       88 8b,dPPYba, ,adPPYYba, 8b,dPPYba,  ,adPPYba, MM88MMM ,adPPYba,  8b,dPPYba, 88,dPYba,,adPYba,   
-//       88 88P'   "Y8 ""     `Y8 88P'   `"8a I8[    ""   88   a8"     "8a 88P'   "Y8 88P'   "88"    "8a  
-//       88 88         ,adPPPPP88 88       88  `"Y8ba,    88   8b       d8 88         88      88      88  
-//       88 88         88,    ,88 88       88 aa    ]8I   88   "8a,   ,a8" 88         88      88      88  
-//       88 88         `"8bbdP"Y8 88       88 `"YbbdP"'   88    `"YbbdP"'  88         88      88      88  
-
- 
-Pipelines.Add("bootstrapOutput",
-	ReadFiles(@"Scripts\**\*.*"),
+Pipelines.Add("htmlWrite",
+	Documents("htmlBooksPrepare"),
 	Concat(	
-		ReadFiles(@"Content\**\*.*")
+		Documents("htmlBootstrap")
 	),
 	Concat(	
-		ReadFiles(@"fonts\**\*.*")
+		Documents("MainMenue")
 	),
-	Meta("TargetFile",  (@doc, @ctx)=> 
-	{
-		return @doc["RelativeFilePath"];
-	})
-);
-
-
-Pipelines.Add("authorOutput",
-	GitContributors(),
-	Meta("TargetFile", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]+".html").ChangeExtension(".html"))),
-	Meta("Title", @doc["ContributorName"]),
-	Meta("Layout", @"book.cshtml"),
-	Content(
-		ReadFiles(@"template\author.cshtml")		
+	Concat(	
+		Documents("htmlStatic")
 	),
-	ConcatBranch(
-		Execute((@doc, @ctx)=>{
-			var information = @doc["Commits"] as IEnumerable<IDocument>;
-			
-			var fileCommits = information
-				.SelectMany(x=> (x["Entries"] as IReadOnlyDictionary<Wyam.Common.IO.FilePath, string>)
-					.Select(entry => new { Entry = entry, Commit = x}))
-				.GroupBy(x=>x.Entry.Key);
-			return (IEnumerable<IDocument>) fileCommits.Select(x=>
-			{
-				var autherFolder = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author"));
-				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
-				var commitetFile = emailFolder.CombineFile(x.Key);
-				var targetFile =  commitetFile.AppendExtension(".html");
-				targetFile = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( targetFile );
-				var commits = x.ToDictionary(y=> y.Commit, y=>y.Entry.Value).ToArray();				
-				return @ctx.GetDocument(new KeyValuePair<string,object>[]
-				{
-					new KeyValuePair<string,object>("Title", x.Key.ToString()),
-					new KeyValuePair<string,object>("ContributorName", @doc["ContributorName"]),
-					new KeyValuePair<string,object>("ContributorEmail", @doc["ContributorEmail"]),
-					new KeyValuePair<string,object>("ContributorSite", @doc["TargetFile"]),
-					new KeyValuePair<string,object>("TargetFile", targetFile),
-					new KeyValuePair<string,object>("Commits", commits),
-					new KeyValuePair<string,object>("Path", x.Key),
-				});				
-			});
-		}),
-		Content(
-			ReadFiles(@"template\CommitFile.cshtml")		
-		)
-	),
-	Helper.TargetUrlModule(),
-	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).ChangeExtension( ".cshtml")),@doc.Content)})
-);
-Pipelines.Add("renderOutput",
-	Documents("renderInput"),
-	Concat(
-		Execute((@ctx)=>
-		{
-			var ambigiusElements = AutoLinkHelper.ToLookup(@ctx).Where(x=> x.Skip(1).Any());
-			
-			var list = new List<IDocument>();
-			foreach (var a in ambigiusElements)
-			{
-
-				list.Add(@ctx.GetDocument(
-					@"\ambiguis\"+a.Key + ".cshtml",
-					"",
-					new KeyValuePair<string,object>[]{
-					new KeyValuePair<string,object>("DisambigiusData", a),
-					new KeyValuePair<string,object>("Keyword", a.Key),
-					new KeyValuePair<string,object>("Alias", a.Key),
-					new KeyValuePair<string,object>("Documents", a),
-					new KeyValuePair<string,object>("IsDisambigiusPage", true),
-				}));
-			}
-			return list;
-		}),
-		Meta("TargetFile",  new Wyam.Common.IO.DirectoryPath("ambiguis").CombineFile(@doc["Keyword"]+".html")),
-		Meta("Title",  "begriffsklärung "+ @doc["Keyword"]),
-		Helper.TargetUrlModule(),
-		Content(
-			ReadFiles(@"template\ambiguis.cshtml")
-		)
-	),
-
-	/// XLSX ///
-	If(@doc.Source.Extension==".xlsx",
-	 	ExcelToCsv(),
-		CsvToHtml()
-		 .WithHeader()
-	 ), 
-
-
-	/// XSLT ///
-		If(@doc.Source.Extension==".xslt",
-		Meta("src", @doc.Source),
-		If(@doc.Metadata.ContainsKey("data"),
-			Content(System.IO.File.ReadAllText((string)@doc["data"])),
-			Xslt2(@doc["src"])
-		).ElseIf(!@doc.Metadata.ContainsKey("data"),
-			Trace("Faild data Metadata on"+ @doc.Source)
-		)
-	), 
-	/// BOOKS /// 
-	If( @doc.Metadata.ContainsKey("BookType"),
-		Meta("IsBook", true)
-	),
-	/// Adding Tree ///
-	Tree()
-		.WithRoots(@doc.Get<bool>("IsBook"))
-		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
-		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
-
-	Where(@doc.Source != null), // Removing generated Documents...
-	
-	Execute((ctx)=>{ // append to previous document
-		var list = new List<IDocument>(ctx.Documents.FromPipeline("renderOutput"));
-		bool foundAppend;
-do
-{
-foundAppend=false;
-		for (int i = list.Count - 1; i >= 0 ; i--)
-		{
-			var doc = list[i];
-
-			if(doc.Metadata.ContainsKey("append")
-				&& bool.Parse(doc["append"].ToString()))
-			{
-				foundAppend=true;
-				var nextDoc = doc;
-				var docToAppend = nextDoc;
-			do{
-				docToAppend = nextDoc;
-				nextDoc = docToAppend.Metadata.Get<IDocument>("Next");
-				
-			}while(nextDoc!=null
-					&& nextDoc.Metadata.ContainsKey("append")
-					&& bool.Parse(nextDoc["append"].ToString()));
-
-
-
-do{
-
-var docToAppendTo = docToAppend.Metadata.Get<IDocument>("Previous");
-if(docToAppendTo== null)
-break;
-
-				var index = list.IndexOf(docToAppendTo);
-				var newDoc = list[index] = ctx.GetDocument(docToAppendTo,docToAppendTo.Source, docToAppendTo.Content + "\n" + docToAppend.Content);
-
-				list.Remove(docToAppend);
-				docToAppend =newDoc;
-			}while(docToAppend.Metadata.ContainsKey("append")
-					&& bool.Parse(docToAppend["append"].ToString()));
-
-					break;
-
-			}
-
-}
-		}while(foundAppend);
-
-		return list;
-	}),
-	
-	/// Adding Tree Againe ...///
-	Tree()
-		.WithRoots(@doc.Get<bool>("IsBook"))
-		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
-		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
-
-	/// Chapters ///
-	If(@doc.Metadata.ContainsKey("Parent"),
-		Meta("ParentBook", (@doc, @ctx)=>{
-			var parent = @doc;
-			while (parent.Get<IDocument>("Parent")!=null)
-			{
-				parent = parent.Get<IDocument>("Parent");
-			}
-			return parent;
-		})
-	)			
-);
-
-Pipelines.Add("staticOutput",
-	Documents("staticInput")	
-);
-
-Pipelines.Add("output",
-	Documents("renderOutput"),
-	Concat(
-		Documents("bootstrapOutput")
-	),
-	Concat(
-		Documents("authorOutput")		
-	)
-	);
-
-//  88                                 88                                          
-//  88                                 88                                          
-//  88                                 88                                          
-//  88          ,adPPYba,   ,adPPYba,  88   ,d8 88       88 8b,dPPYba,  ,adPPYba,  
-//  88         a8"     "8a a8"     "8a 88 ,a8"  88       88 88P'    "8a I8[    ""  
-//  88         8b       d8 8b       d8 8888[    88       88 88       d8  `"Y8ba,   
-//  88         "8a,   ,a8" "8a,   ,a8" 88`"Yba, "8a,   ,a88 88b,   ,a8" aa    ]8I  
-//  88888888888 `"YbbdP"'   `"YbbdP"'  88   `Y8a `"YbbdP'Y8 88`YbbdP"'  `"YbbdP"'  
-//                                                          88                     
-//                                                          88                     
-
-
-
-Pipelines.Add("Books",
-	Documents("renderOutput").Where(@doc.Get<bool>("IsBook")  )	
-);
-
-
-
-
-Pipelines.Add("MainMenue",
-	Documents("output").Where( (@doc, @ctx)=> 
-	{
-		return @doc.Metadata.ContainsKey("MainMenueOrder");
-	}),
-	OrderBy(@doc["MainMenueOrder"])	
-);
-
-//  I8,        8        ,8I          88                    
-//  `8b       d8b       d8'          ""   ,d               
-//   "8,     ,8"8,     ,8"                88               
-//    Y8     8P Y8     8P 8b,dPPYba, 88 MM88MMM ,adPPYba,  
-//    `8b   d8' `8b   d8' 88P'   "Y8 88   88   a8P_____88  
-//     `8a a8'   `8a a8'  88         88   88   8PP"""""""  
-//      `8a8'     `8a8'   88         88   88,  "8b,   ,aa  
-//       `8'       `8'    88         88   "Y888 `"Ybbd8"'  
- 
-
-Pipelines.Add("Write",
-	Documents("output"),
 	Where(@doc.Source != null),
-	If(@doc.Source.Extension==".md",
+	If(Helper.IsExtension(@doc, ".md"),
 		Markdown()
-		 .UseExtensions()
+		 .UseExtensions(),
 		// .UseConfiguration("DisableHtml")
+		Helper.ChangeExtension(".cshtml")
+	), 
+	If(Helper.IsExtension(@doc, ".cshtml"),
+		Razor().WithViewStart(@"layout/viewstart.cshtml"),
+		Helper.ChangeExtension(".html")
 	), 
 	
-
-	If(@doc.Source.Extension==".md" 
-			|| @doc.Source.Extension==".cshtml" 
-			|| @doc.Source.Extension==".xslt" 
-			|| @doc.Source.Extension==".xlsx" 
-			|| @doc.Source.Extension==".xml",
-		Razor().WithViewStart(@"layout/viewstart.cshtml"),
-		Execute(AutoLinkHelper.AddClassToTable)
-	),
-	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
-		.ToDictionary(x => x.Key, 
-			x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
-		.WithMatchOnlyWholeWord(),
-	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension==".html",
-		Execute(AutoLinkHelper.AddImageMetadata),
+	// AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
+	// 	.ToDictionary(x => x.Key, 
+	// 		x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
+	// 	.WithMatchOnlyWholeWord(),
+	If(Helper.IsExtension(@doc, ".html"),
+		// Execute(AutoLinkHelper.AddImageMetadata),
+		Execute(AutoLinkHelper.AddClassToTable),
+		Execute(AutoLinkHelper.FixLink),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
 	),
-	Concat(
-		Documents("staticOutput")
-	),
+	// Concat(
+	// 	Documents("staticOutput")
+	// ),
 	
 	// Trace(@doc["TargetFile"]),
-	WriteFiles( @doc["TargetFile"])
+	WriteFiles()
 );
+
+
+
+// 	If(@doc.Source.Extension==".md" 
+// 			|| @doc.Source.Extension==".cshtml" 
+// 			|| @doc.Source.Extension==".xslt" 
+// 			|| @doc.Source.Extension==".xlsx" 
+// 			|| @doc.Source.Extension==".xml",
+// 		Razor().WithViewStart(@"layout/viewstart.cshtml"),
+// 		Execute(AutoLinkHelper.AddClassToTable)
+// 	),
+// 	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
+// 		.ToDictionary(x => x.Key, 
+// 			x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
+// 		.WithMatchOnlyWholeWord(),
+// 	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension==".html",
+// 		Execute(AutoLinkHelper.AddImageMetadata),
+// 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
+// 	),
+// 	Concat(
+// 		Documents("staticOutput")
+// 	),
+	
+// 	// Trace(@doc["TargetFile"]),
+// 	WriteFiles( @doc["TargetFile"])
+// );
+
+/// TODO: PDF Pieplines ///
+
+/// OLD
+
+// Pipelines.Add("renderInput",
+// 	ReadFiles(@"render\**\*.{*,!xsd,!meta}"),
+// 	FrontMatter(Yaml()),
+// 	Sidecar(Yaml()),
+// 	GitContributors()
+// 		.ForEachInputDocument(),
+// 	DirectoryMeta()
+// 		.WithMetadataFile(".inherited",true),
+// 	Meta("TargetFile",  (@doc, @ctx)=> 
+// 	{
+// 		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
+// 		if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
+// 			path = path.Directory.CombineFile("index" + path.Extension);
+// 		if(path.Extension == ".md" 
+// 		|| path.Extension == ".cshtml"
+// 		|| path.Extension == ".xslt"
+// 		|| path.Extension == ".xlsx"
+// 		|| path.Extension == ".xml")
+// 			path= path.ChangeExtension(".html");
+// 		return path;
+// 	}),
+// 	Helper.TargetUrlModule(),
+// 	Meta("ReposetoryUrl",  (@doc, @ctx)=> 
+// 	{
+// 		//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
+// 		var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).FullPath;
+// 		return url;
+// 	})
+// );
+ 
+
+// Pipelines.Add("staticInput",
+// 	ReadFiles(@"static\**\*.*"),
+// 	Meta("TargetFile",  (@doc, @ctx)=> 
+// 	{
+// 		var path = ((Wyam.Common.IO.DirectoryPath)"static").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
+// 		return path;
+// 	}),
+// 	Helper.TargetUrlModule(),
+// 	Where(@doc.Source.Extension != ".xmp"),
+// 	Xmp(errorsOnDoubleKeys:false)
+// 		.WithMetadata("cc:license", "Copyright")
+// 		.WithMetadata("xmpRights:UsageTerms", "Copyright")
+// 		.WithMetadata("dc:rights", "Copyright")
+// 		.WithMetadata("dc:creator", "Creator")
+// 		.WithMetadata("cc:attributionName", "Creator")
+// 		.WithMetadata("xmpRights:Marked", "RightsReserved"),
+// 	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".css" 
+// 			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".js"
+// 			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".xsd"
+// 			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".xml"
+// 			&& ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension != ".config",
+// 		If(@doc.Get<string>("RightsReserved")!= "False",
+// 			If((!@doc.ContainsKey("Copyright"))
+// 			 	|| !@doc.ContainsKey("Creator"),
+// 				Trace($"Missing License Information {@doc.Source}"),
+// 				Where((@doc,@ctx)=> false)
+// 			)
+// 		)
+// 	),
+// 	Replace("http://nota.org/", $"http://{Constants.SiteURL}/")
+// );
+
+
+
+
+
+
+
+// //  888888888888                                           ad88                                           
+// //       88                                               d8"                                             
+// //       88                                               88                                              
+// //       88 8b,dPPYba, ,adPPYYba, 8b,dPPYba,  ,adPPYba, MM88MMM ,adPPYba,  8b,dPPYba, 88,dPYba,,adPYba,   
+// //       88 88P'   "Y8 ""     `Y8 88P'   `"8a I8[    ""   88   a8"     "8a 88P'   "Y8 88P'   "88"    "8a  
+// //       88 88         ,adPPPPP88 88       88  `"Y8ba,    88   8b       d8 88         88      88      88  
+// //       88 88         88,    ,88 88       88 aa    ]8I   88   "8a,   ,a8" 88         88      88      88  
+// //       88 88         `"8bbdP"Y8 88       88 `"YbbdP"'   88    `"YbbdP"'  88         88      88      88  
+
+ 
+// Pipelines.Add("bootstrapOutput",
+// 	ReadFiles(@"Scripts\**\*.*"),
+// 	Concat(	
+// 		ReadFiles(@"Content\**\*.*")
+// 	),
+// 	Concat(	
+// 		ReadFiles(@"fonts\**\*.*")
+// 	),
+// 	Meta("TargetFile",  (@doc, @ctx)=> 
+// 	{
+// 		return @doc["RelativeFilePath"];
+// 	})
+// );
+
+
+// Pipelines.Add("authorOutput",
+// 	GitContributors(),
+// 	Meta("TargetFile", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]+".html").ChangeExtension(".html"))),
+// 	Meta("Title", @doc["ContributorName"]),
+// 	Meta("Layout", @"book.cshtml"),
+// 	Content(
+// 		ReadFiles(@"template\author.cshtml")		
+// 	),
+// 	ConcatBranch(
+// 		Execute((@doc, @ctx)=>{
+// 			var information = @doc["Commits"] as IEnumerable<IDocument>;
+			
+// 			var fileCommits = information
+// 				.SelectMany(x=> (x["Entries"] as IReadOnlyDictionary<Wyam.Common.IO.FilePath, string>)
+// 					.Select(entry => new { Entry = entry, Commit = x}))
+// 				.GroupBy(x=>x.Entry.Key);
+// 			return (IEnumerable<IDocument>) fileCommits.Select(x=>
+// 			{
+// 				var autherFolder = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author"));
+// 				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
+// 				var commitetFile = emailFolder.CombineFile(x.Key);
+// 				var targetFile =  commitetFile.AppendExtension(".html");
+// 				targetFile = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( targetFile );
+// 				var commits = x.ToDictionary(y=> y.Commit, y=>y.Entry.Value).ToArray();				
+// 				return @ctx.GetDocument(new KeyValuePair<string,object>[]
+// 				{
+// 					new KeyValuePair<string,object>("Title", x.Key.ToString()),
+// 					new KeyValuePair<string,object>("ContributorName", @doc["ContributorName"]),
+// 					new KeyValuePair<string,object>("ContributorEmail", @doc["ContributorEmail"]),
+// 					new KeyValuePair<string,object>("ContributorSite", @doc["TargetFile"]),
+// 					new KeyValuePair<string,object>("TargetFile", targetFile),
+// 					new KeyValuePair<string,object>("Commits", commits),
+// 					new KeyValuePair<string,object>("Path", x.Key),
+// 				});				
+// 			});
+// 		}),
+// 		Content(
+// 			ReadFiles(@"template\CommitFile.cshtml")		
+// 		)
+// 	),
+// 	Helper.TargetUrlModule(),
+// 	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["TargetFile"]).ChangeExtension( ".cshtml")),@doc.Content)})
+// );
+// Pipelines.Add("renderOutput",
+// 	Documents("renderInput"),
+// 	Concat(
+// 		Execute((@ctx)=>
+// 		{
+// 			var ambigiusElements = AutoLinkHelper.ToLookup(@ctx).Where(x=> x.Skip(1).Any());
+			
+// 			var list = new List<IDocument>();
+// 			foreach (var a in ambigiusElements)
+// 			{
+
+// 				list.Add(@ctx.GetDocument(
+// 					@"\ambiguis\"+a.Key + ".cshtml",
+// 					"",
+// 					new KeyValuePair<string,object>[]{
+// 					new KeyValuePair<string,object>("DisambigiusData", a),
+// 					new KeyValuePair<string,object>("Keyword", a.Key),
+// 					new KeyValuePair<string,object>("Alias", a.Key),
+// 					new KeyValuePair<string,object>("Documents", a),
+// 					new KeyValuePair<string,object>("IsDisambigiusPage", true),
+// 				}));
+// 			}
+// 			return list;
+// 		}),
+// 		Meta("TargetFile",  new Wyam.Common.IO.DirectoryPath("ambiguis").CombineFile(@doc["Keyword"]+".html")),
+// 		Meta("Title",  "begriffsklärung "+ @doc["Keyword"]),
+// 		Helper.TargetUrlModule(),
+// 		Content(
+// 			ReadFiles(@"template\ambiguis.cshtml")
+// 		)
+// 	),
+
+// 	/// XLSX ///
+// 	If(@doc.Source.Extension==".xlsx",
+// 	 	ExcelToCsv(),
+// 		CsvToHtml()
+// 		 .WithHeader()
+// 	 ), 
+
+
+// 	/// XSLT ///
+// 		If(@doc.Source.Extension==".xslt",
+// 		Meta("src", @doc.Source),
+// 		If(@doc.Metadata.ContainsKey("data"),
+// 			Content(System.IO.File.ReadAllText((string)@doc["data"])),
+// 			Xslt2(@doc["src"])
+// 		).ElseIf(!@doc.Metadata.ContainsKey("data"),
+// 			Trace("Faild data Metadata on"+ @doc.Source)
+// 		)
+// 	), 
+// 	/// BOOKS /// 
+// 	If( @doc.Metadata.ContainsKey("BookType"),
+// 		Meta("IsBook", true)
+// 	),
+// 	/// Adding Tree ///
+// 	Tree()
+// 		.WithRoots(@doc.Get<bool>("IsBook"))
+// 		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
+// 		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
+
+// 	Where(@doc.Source != null), // Removing generated Documents...
+	
+// 	Execute((ctx)=>{ // append to previous document
+// 		var list = new List<IDocument>(ctx.Documents.FromPipeline("renderOutput"));
+// 		bool foundAppend;
+// do
+// {
+// foundAppend=false;
+// 		for (int i = list.Count - 1; i >= 0 ; i--)
+// 		{
+// 			var doc = list[i];
+
+// 			if(doc.Metadata.ContainsKey("append")
+// 				&& bool.Parse(doc["append"].ToString()))
+// 			{
+// 				foundAppend=true;
+// 				var nextDoc = doc;
+// 				var docToAppend = nextDoc;
+// 			do{
+// 				docToAppend = nextDoc;
+// 				nextDoc = docToAppend.Metadata.Get<IDocument>("Next");
+				
+// 			}while(nextDoc!=null
+// 					&& nextDoc.Metadata.ContainsKey("append")
+// 					&& bool.Parse(nextDoc["append"].ToString()));
+
+
+
+// do{
+
+// var docToAppendTo = docToAppend.Metadata.Get<IDocument>("Previous");
+// if(docToAppendTo== null)
+// break;
+
+// 				var index = list.IndexOf(docToAppendTo);
+// 				var newDoc = list[index] = ctx.GetDocument(docToAppendTo,docToAppendTo.Source, docToAppendTo.Content + "\n" + docToAppend.Content);
+
+// 				list.Remove(docToAppend);
+// 				docToAppend =newDoc;
+// 			}while(docToAppend.Metadata.ContainsKey("append")
+// 					&& bool.Parse(docToAppend["append"].ToString()));
+
+// 					break;
+
+// 			}
+
+// }
+// 		}while(foundAppend);
+
+// 		return list;
+// 	}),
+	
+// 	/// Adding Tree Againe ...///
+// 	Tree()
+// 		.WithRoots(@doc.Get<bool>("IsBook"))
+// 		.WithTreePath(((string)@doc["TargetUrl"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
+// 		.WithSort((x1,x2)=> x1.Get<int>("Order",int.MaxValue).CompareTo(x2.Get<int>("Order",int.MaxValue))),
+
+// 	/// Chapters ///
+// 	If(@doc.Metadata.ContainsKey("Parent"),
+// 		Meta("ParentBook", (@doc, @ctx)=>{
+// 			var parent = @doc;
+// 			while (parent.Get<IDocument>("Parent")!=null)
+// 			{
+// 				parent = parent.Get<IDocument>("Parent");
+// 			}
+// 			return parent;
+// 		})
+// 	)			
+// );
+
+// Pipelines.Add("staticOutput",
+// 	Documents("staticInput")	
+// );
+
+// Pipelines.Add("output",
+// 	Documents("renderOutput"),
+// 	Concat(
+// 		Documents("bootstrapOutput")
+// 	),
+// 	Concat(
+// 		Documents("authorOutput")		
+// 	)
+// 	);
+
+// //  88                                 88                                          
+// //  88                                 88                                          
+// //  88                                 88                                          
+// //  88          ,adPPYba,   ,adPPYba,  88   ,d8 88       88 8b,dPPYba,  ,adPPYba,  
+// //  88         a8"     "8a a8"     "8a 88 ,a8"  88       88 88P'    "8a I8[    ""  
+// //  88         8b       d8 8b       d8 8888[    88       88 88       d8  `"Y8ba,   
+// //  88         "8a,   ,a8" "8a,   ,a8" 88`"Yba, "8a,   ,a88 88b,   ,a8" aa    ]8I  
+// //  88888888888 `"YbbdP"'   `"YbbdP"'  88   `Y8a `"YbbdP'Y8 88`YbbdP"'  `"YbbdP"'  
+// //                                                          88                     
+// //                                                          88                     
+
+
+
+// Pipelines.Add("Books",
+// 	Documents("renderOutput").Where(@doc.Get<bool>("IsBook")  )	
+// );
+
+
+
+
+// Pipelines.Add("MainMenue",
+// 	Documents("output").Where( (@doc, @ctx)=> 
+// 	{
+// 		return @doc.Metadata.ContainsKey("MainMenueOrder");
+// 	}),
+// 	OrderBy(@doc["MainMenueOrder"])	
+// );
+
+// //  I8,        8        ,8I          88                    
+// //  `8b       d8b       d8'          ""   ,d               
+// //   "8,     ,8"8,     ,8"                88               
+// //    Y8     8P Y8     8P 8b,dPPYba, 88 MM88MMM ,adPPYba,  
+// //    `8b   d8' `8b   d8' 88P'   "Y8 88   88   a8P_____88  
+// //     `8a a8'   `8a a8'  88         88   88   8PP"""""""  
+// //      `8a8'     `8a8'   88         88   88,  "8b,   ,aa  
+// //       `8'       `8'    88         88   "Y888 `"Ybbd8"'  
+ 
+
+// Pipelines.Add("Write",
+// 	Documents("output"),
+// 	Where(@doc.Source != null),
+// 	If(@doc.Source.Extension==".md",
+// 		Markdown()
+// 		 .UseExtensions()
+// 		// .UseConfiguration("DisableHtml")
+// 	), 
+	
+
+// 	If(@doc.Source.Extension==".md" 
+// 			|| @doc.Source.Extension==".cshtml" 
+// 			|| @doc.Source.Extension==".xslt" 
+// 			|| @doc.Source.Extension==".xlsx" 
+// 			|| @doc.Source.Extension==".xml",
+// 		Razor().WithViewStart(@"layout/viewstart.cshtml"),
+// 		Execute(AutoLinkHelper.AddClassToTable)
+// 	),
+// 	AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
+// 		.ToDictionary(x => x.Key, 
+// 			x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
+// 		.WithMatchOnlyWholeWord(),
+// 	If(((Wyam.Common.IO.FilePath)@doc["TargetFile"]).Extension==".html",
+// 		Execute(AutoLinkHelper.AddImageMetadata),
+// 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
+// 	),
+// 	Concat(
+// 		Documents("staticOutput")
+// 	),
+	
+// 	// Trace(@doc["TargetFile"]),
+// 	WriteFiles( @doc["TargetFile"])
+// );
