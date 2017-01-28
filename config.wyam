@@ -125,13 +125,13 @@ public static class AutoLinkHelper
 
 			if(String.IsNullOrEmpty(url))
 				continue;
-Console.WriteLine(url);
+
 var extension = System.IO.Path.GetExtension(url);
 			
 			if(extension == ".cshtml"
 			   || extension == ".md")
 				url = System.IO.Path.ChangeExtension(url ,".html");
-Console.WriteLine(url);
+
 
 			table.SetAttribute("href", url);
 		}			
