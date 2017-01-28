@@ -303,22 +303,24 @@ Pipelines.Add("MainMenue",
 
 
 Pipelines.Add("htmlBooksPrepare",
-	Documents("books")
- 	// GitContributors()
-	// 	.ForEachInputDocument(),
-	// Meta("RelativeFilePath",  (@doc, @ctx)=> 
-	// {
-	// 	var path = (Wyam.Common.IO.FilePath)@doc["RelativeFilePath"];
-	// 	if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
-	// 		path = path.Directory.CombineFile("index" + path.Extension);
-	// 	return path;
-	// }),
-	// Meta("ReposetoryUrl",  (@doc, @ctx)=> 
-	// {
-	// 	//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
-	// 	var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc.Source).FullPath;
-	// 	return url;
-	// })
+	Documents("books"),
+	If(@doc.Source != null,
+		GitContributors()
+			.ForEachInputDocument(),
+		// Meta("RelativeFilePath",  (@doc, @ctx)=> 
+		// {
+		// 	var path = (Wyam.Common.IO.FilePath)@doc["RelativeFilePath"];
+		// 	if(path.Directory.Name == path.FileNameWithoutExtension.ToString())
+		// 		path = path.Directory.CombineFile("index" + path.Extension);
+		// 	return path;
+		// }),
+		Meta("ReposetoryUrl",  (@doc, @ctx)=> 
+		{
+			//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
+			var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ ((Wyam.Common.IO.FilePath)@doc.Source).FullPath;
+			return url;
+		})
+	)
 );
 
 Pipelines.Add("htmlBootstrap",
