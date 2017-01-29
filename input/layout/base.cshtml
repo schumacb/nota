@@ -109,9 +109,11 @@
                 <li><a href="#">One more separated link</a></li>-->
               </ul>
             </li>
+            
+
                 @foreach(var doc in Documents["MainMenue"])
                 {  
-                  @if(@doc["RelativeFilePath"].Equals(Metadata["RelativeFilePath"]))
+                  @if(@doc.Source.Equals(Model.Source))
                   {
                     @if(@doc.Metadata.ContainsKey("Title"))
                     {
@@ -185,19 +187,19 @@
   var prevous = Metadata["Previous"] as IDocument;
   var next = Metadata["Next"] as IDocument;
  
-  while(prevous != null && !prevous.Metadata.ContainsKey("RelativeFilePath")){
+  while(prevous != null && !prevous.Metadata.ContainsKey("RelativeFilePath") && !prevous.Metadata.Bool("hide",false)){
     prevous = prevous.Get<IDocument>("Previous");
   }
   
 
-  while(next != null && !next.Metadata.ContainsKey("RelativeFilePath")){
+  while(next != null && (!next.Metadata.ContainsKey("RelativeFilePath")|| next.Metadata.Bool("hide",false))){
     next = next.Get<IDocument>("Next");
   }
   
 <nav>
   <ul class="pager">
   @if(prevous !=null){
-      <li class="previous"><a href="@currentFile.Directory.GetRelativePath((FilePath)prevous["RelativeFilePath"])"><span aria-hidden="true">&larr;</span> Zurück</a></li>
+      <li class="previous"><a href="/@prevous["RelativeFilePath"]"><span aria-hidden="true">&larr;</span> Zurück</a></li>
   }
   else
   {
@@ -207,7 +209,7 @@
     <li ><a href="#"><span aria-hidden="true">&uarr;</span> Top</a></li>      
   
   @if(next !=null){
-    <li class="next"><a href="@currentFile.Directory.GetRelativePath((FilePath)next["RelativeFilePath"])">Weiter <span aria-hidden="true">&rarr;</span></a></li>
+    <li class="next"><a href="/@next["RelativeFilePath"]">Weiter <span aria-hidden="true">&rarr;</span></a></li>
   }
   else
   {

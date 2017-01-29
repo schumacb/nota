@@ -41,7 +41,7 @@ Eine übersciht der verschiedenen Talente
 ## <xsl:value-of select="@Name"/> *(<xsl:apply-templates  select="talent:Probe/*[1]" />, <xsl:apply-templates  select="talent:Probe/*[2]" />, <xsl:apply-templates  select="talent:Probe/*[3]" />)*
 **Komplexität**: <xsl:value-of select="@Komplexität"/>
 
-:::
+:::Description
 <xsl:value-of select="talent:Beschreibung"/>
 :::
 

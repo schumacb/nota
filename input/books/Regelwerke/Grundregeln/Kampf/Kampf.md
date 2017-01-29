@@ -223,6 +223,7 @@ Vorhandene Blutungspunkte werden sie Täglich abgebaut. Pro Tag verliert ein Cha
 
 Foraussetzung zum Abbau der Blutpunkte ist Ruhe und genügend flüssigkeit und Nahrung. Andernfalls kann der Abbau geringer ausfallen.
 
+§"books/Regelwerke/Grundregeln/Kampf/BlutungsTabelle"
 
 ### Schmerzen
 
@@ -269,7 +270,7 @@ Zusätzlich Elementarer Schaden wie
 Wenn eine Waffe mehrere schadenstypen besitzt, werden diese einzeln abgehandelt. Mail durch Schmerzen werden nur von dem höchsten schadenstyp verursacht. Zusatzeffekte durch die Scahdensart kommen aber alle zu tragen.
 
 
-§"books/Regelwerke/Grundregeln/Kampf/BlutungsTabelle"
+
 
 
 # Ausrüstung
@@ -324,3 +325,6 @@ Bestimmte prezise Waffen oder Aktionen können die Rüstung umgehen. Hierzu wird
 Eine Rüstung besitzt zusätzlich noch eine Erschwerniss für Proben.
 
 Eine Rüstung ist auch nicht immer schnell angezogen. Für mansche Rüstungen benötigt man sogar Hilfe. Jede Rüstung hat angegeben wie lange man braucht sie aleine Anzuziehen, und wie lange man mit hilfe braucht.
+
+
+§"books/Regelwerke/Grundregeln/Kampf/Aktionen"

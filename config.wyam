@@ -376,6 +376,7 @@ Pipelines.Add("htmlWrite",
 	Concat(	
 		Documents("htmlStatic")
 	),
+	Where(!@doc.Metadata.Bool("hide", false)),
 	Where(@doc.Source != null),
 	If(Helper.IsExtension(@doc, ".md"),
 		Markdown()

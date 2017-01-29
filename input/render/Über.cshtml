@@ -16,6 +16,15 @@ Als Namennennung reicht "Unterstützer des @Constants.ProjectName Projekt". Fall
 Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.	
 </p>
 
+<ul>
+                  <li>@GetType()</li>
+                @foreach(var t in GetType().GetMembers())
+                {
+                  <li>@t</li>
+
+                }
+</ul>
+
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#resourceTable" aria-expanded="false" aria-controls="resourceTable">
   Genutzte Resourcen
 </button>
@@ -61,6 +70,8 @@ Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
       
       var extension = ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension;
       
+
+
       @switch(extension)
       {
         case ".png":
