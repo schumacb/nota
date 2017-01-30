@@ -18,126 +18,68 @@
 <h1>Aktionen</h1>
     <xsl:apply-templates select="aktionen:Aktion"/>
   </xsl:template>
-  <xsl:template match="aktionen:Aktion">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <xsl:value-of select="@Name"/>
-        </h3>
-      </div>
-      <div class="panel-body">
+
+  <xsl:template match="aktionen:Aktion" xml:space="preserve">
+
+:::Action
+
+# <xsl:value-of select="@Name"/>  
 
 <xsl:value-of select="aktionen:Beschreibung"/>
 
-      </div>
-      <ul class="list-group">
         <xsl:if test="./aktionen:Bedingung">
-          <li class="list-group-item">
-            <h4>
-              <small>Bedingung</small>
-            </h4>
-
+## Bedingung
 <xsl:value-of select="./aktionen:Bedingung"/>
-
-          </li>
         </xsl:if>
         <xsl:if test="./aktionen:InstantEffekt">
-          <li class="list-group-item">
-            <h4>
-              <small>Augenblicklicher Effekt</small>
-            </h4>
-
+## Augenblicklicher Effekt
 <xsl:value-of select="./aktionen:InstantEffekt"/>
-
-          </li>
         </xsl:if>
         <xsl:if test="./aktionen:GarantierterEffekt">
-          <li class="list-group-item">
-            <h4>
-              <small>Garantierter Effekt</small>
-            </h4>
-
+## Garantierter Effekt
 <xsl:value-of select="./aktionen:GarantierterEffekt"/>
-
-          </li>
         </xsl:if>
         <xsl:if test="./aktionen:OffensivErfolg">
-          <li class="list-group-item">
-            <h4>
-              <small>Offensiver Erfolg</small>
-            </h4>
-
+## Offensiver Erfolg
 <xsl:value-of select="./aktionen:OffensivErfolg"/>
-
-
-</li>
         </xsl:if>
         <xsl:if test="./aktionen:DefensivErfolg">
-          <li class="list-group-item">
-            <h4>
-              <small>Defensiver Erfolg</small>
-            </h4>
-
+## Defensiver Erfolg
 <xsl:value-of select="./aktionen:DefensivErfolg"/>
-
-          </li>
         </xsl:if>
-             <xsl:if test="./aktionen:OffensivMiserfolg">
-          <li class="list-group-item">
-            <h4>
-              <small>Offensiver Misserfolg</small>
-            </h4>
-
+        <xsl:if test="./aktionen:OffensivMiserfolg">
+## Offensiver Misserfolg
 <xsl:value-of select="./aktionen:OffensivMiserfolg"/>
-
-          </li>
         </xsl:if>
         <xsl:if test="./aktionen:DefensivMiserfolg">
-          <li class="list-group-item">
-            <h4>
-              <small>Defensiver Misserfolg</small>
-            </h4>
-
+## Defensiver Misserfolg
 <xsl:value-of select="./aktionen:DefensivMiserfolg"/>
-
-          </li>
         </xsl:if>
-      </ul>
-      <div class="panel-footer">
-        <dl class="dl-horizontal" style="margin-bottom:0px;">
-          <dt>Ausdauerkosten</dt>
-          <dd>
-            <xsl:value-of select="@Kosten"/>
-          </dd>
-          <dt>Typ</dt>
-          <dd>
-            <xsl:choose>
+**Ausdauerkosten** _<xsl:value-of select="@Kosten"/>_
+
+**Typ** _<xsl:choose>
               <xsl:when test="@Typ='Offensiv'">Offensiv</xsl:when>
               <xsl:when test="@Typ='Defensiv'">Defensiv</xsl:when>
               <xsl:when test="@Typ='Ausgeglieschen'">Offensiv und Passiv</xsl:when>
               <xsl:when test="@Typ='Frei'">Frei</xsl:when>
               <xsl:when test="@Typ='Sekundär'">Sekundär</xsl:when>
               <xsl:otherwise>[Ungültiger wert]</xsl:otherwise>
-            </xsl:choose>
-          </dd>
+            </xsl:choose>_
           <xsl:if test="./aktionen:Mod">
-            <dt>Modifikation</dt>
-            <dd>
-              <xsl:if test="./aktionen:Mod/@ModifierType eq 'Bonus'">
-                <span class="label label-success"> &#65291;
+**Modifikation**
+
+_<xsl:if test="./aktionen:Mod/@ModifierType eq 'Bonus'">
+                ::{.label .label-success} &#65291;
                   <xsl:apply-templates select="./aktionen:Mod/*"/>
-                </span>
+                ::
               </xsl:if>
               <xsl:if test="./aktionen:Mod/@ModifierType eq 'Malus'">
-                <span class="label label-danger">&#x2212;
+                ::{.label .label-danger} &#x2212;
                   <xsl:apply-templates select="./aktionen:Mod/*"/>
-                </span>
+                ::
               </xsl:if>
-            </dd>
-          </xsl:if>
-        </dl>
-      </div>
-    </div>
+          </xsl:if>_
+:::
   </xsl:template>
 
   <xsl:template match="aktionen:ConcreteModValueType">

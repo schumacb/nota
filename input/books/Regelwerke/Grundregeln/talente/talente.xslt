@@ -65,7 +65,7 @@ Ableitung
 </xsl:template>
 
 <xsl:template match="talent:Ableitung">
-  +<xsl:value-of select="@Name" />_(<xsl:value-of select="@Anzahl" />)_
+  + <xsl:value-of select="@Name" /> _(<xsl:value-of select="@Anzahl" />)_
 </xsl:template>
 
 <xsl:template match="talent:Mut">MU</xsl:template>
