@@ -224,8 +224,8 @@ Pipelines.Add("books",
 	/// XLSX ///
 	If(@doc.Source.Extension==".xlsx",
 		ExcelToCsv(),
-		// CsvToMarkdown() 
-		// 	.WithHeader(),
+		CsvToMarkdown() 
+			.WithHeader(),
 		Helper.ChangeExtension(".md")
 	),
 
