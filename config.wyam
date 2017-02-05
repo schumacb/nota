@@ -126,7 +126,16 @@ public static class AutoLinkHelper
 			if(String.IsNullOrEmpty(url))
 				continue;
 
-var extension = System.IO.Path.GetExtension(url);
+			var toSubstitude = new char[]{'ä','ö','ü','Ä','Ö','Ü','ß'};
+			foreach(var c in toSubstitude)
+			{
+				var escapeString = Uri.HexEscape(c);
+				url = url.Replace(c.ToString(),escapeString);
+			}
+
+			if(!Uri.IsWellFormedUriString(url, UriKind.Relative))
+				continue;
+			var extension = System.IO.Path.GetExtension(url);
 			
 			if(extension == ".cshtml"
 			   || extension == ".md")
@@ -138,6 +147,10 @@ var extension = System.IO.Path.GetExtension(url);
 			
 		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
 	}
+
+	
+
+
 }
 
 
@@ -378,6 +391,20 @@ Pipelines.Add("htmlWrite",
 	),
 	Concat(	
 		Documents("htmlStatic")
+	),
+	If(@doc.Source != null,
+		GitContributors()
+			.ForEachInputDocument(),
+		Trace(@doc.Source),
+		Meta("ReposetoryUrl",  (@doc, @ctx)=> 
+		{
+			//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
+			var relativPath = @ctx.FileSystem.RootPath.Combine("input").GetRelativePath((Wyam.Common.IO.FilePath)@doc.Source);
+			var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ relativPath.FullPath;
+
+
+			return url;
+		})
 	),
 	Where(!@doc.Metadata.Bool("hide", false)),
 	Where(@doc.Source != null),
