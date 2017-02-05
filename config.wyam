@@ -300,7 +300,8 @@ Pipelines.Add("MainMenue",
 	{
 		var path = ((Wyam.Common.IO.DirectoryPath)"render").GetRelativePath((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]);
 		return path;
-	})	
+	}),
+	OrderBy(@doc.Metadata.Get<int>("Order",-1))
 );
 
 
