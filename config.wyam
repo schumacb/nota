@@ -290,8 +290,6 @@ Pipelines.Add("WriteMarkDown",
 
 Pipelines.Add("MainMenue",
 	ReadFiles(@"render\**\*.{*,!xsd,!meta}"),
-	Trace(@doc["RelativeFilePath"]),
-	Where(@doc["RelativeFilePath"].ToString()!=@"render/index.md"),
 	FrontMatter(Yaml()),
 	Sidecar(Yaml()),
 	DirectoryMeta()
@@ -364,7 +362,9 @@ Pipelines.Add("htmlStatic",
 			)
 		)
 	),
-	Replace("http://nota.org/", $"http://{Constants.SiteURL}/")
+	If(@doc.Source.Extension == ".xsd"||@doc.Source.Extension == ".xml",
+		Replace("http://nota.org/", $"http://{Constants.SiteURL}/")
+	)
 );
 
 

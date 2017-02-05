@@ -50,13 +50,13 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav">
-                  @if(@"\".Equals(Metadata["RelativeFilePath"]))
+                  <!--@if(@"\".Equals(Metadata["RelativeFilePath"]))
                   {
                     <li class="active"><a href="/">Home</a></li>
                   }
                   else{
                     <li><a href="/">Home</a></li>
-                  } 
+                  } -->
 
                   @if(Documents["books"].Any(doc => doc["RelativeFilePath"].Equals(Metadata["RelativeFilePath"])))
                   {
