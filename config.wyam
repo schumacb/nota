@@ -290,6 +290,8 @@ Pipelines.Add("WriteMarkDown",
 
 Pipelines.Add("MainMenue",
 	ReadFiles(@"render\**\*.{*,!xsd,!meta}"),
+	Trace(@doc["RelativeFilePath"]),
+	Where(@doc["RelativeFilePath"].ToString()!=@"render/index.md"),
 	FrontMatter(Yaml()),
 	Sidecar(Yaml()),
 	DirectoryMeta()

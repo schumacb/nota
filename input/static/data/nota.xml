@@ -832,16 +832,16 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
 
     <Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
       <Beschreibung>
-        Der Charakter bereitet einen gezielten Schuss vor.
+Der Charakter bereitet einen gezielten Schuss vor.
       </Beschreibung>
       <SekundärErfolg>
-        Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
+Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
       </SekundärErfolg>
     </Aktion>
 
     <Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
       <Beschreibung>
-        Der Charakter führt einen gezielten Schuss durch.
+Der Charakter führt einen gezielten Schuss durch.
       </Beschreibung>
       <InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</InstantEffekt>
       <Mod ModifierType="Bonus">
@@ -860,7 +860,7 @@ Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise
 
     <Aktion Name="Schnellschuss" Kosten="2" Typ="Offensiv">
       <Beschreibung>
-        Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
+Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
       </Beschreibung>
     </Aktion>
 
@@ -910,7 +910,7 @@ Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise
     <Eigenschaften>
       <Eigenschaft Name="Präzise">
         <Beschreibung>
-          Eine Waffe mit der Eigenschaft Präzise ist in der Lage die Rüstung des Gegners zu umgehen.
+Eine Waffe mit der Eigenschaft Präzise ist in der Lage die Rüstung des Gegners zu umgehen.
         </Beschreibung>
       </Eigenschaft>
     </Eigenschaften>

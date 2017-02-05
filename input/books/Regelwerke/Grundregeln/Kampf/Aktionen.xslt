@@ -1,4 +1,5 @@
 <xsl:stylesheet 
+  xml:space="preserve"
   xmlns:nota="http://nota.org/schema/nota" 
   xmlns:geschöpf="http://nota.org/schema/geschöpf" 
   xmlns:kultur="http://nota.org/schema/kultur" 
@@ -15,44 +16,45 @@
   </xsl:template>
   <xsl:template match="aktionen:Aktionen">
 
-<h1>Aktionen</h1>
-    <xsl:apply-templates select="aktionen:Aktion"/>
-  </xsl:template>
+# Aktionen
 
-  <xsl:template match="aktionen:Aktion" xml:space="preserve">
+<xsl:apply-templates select="aktionen:Aktion"/>
+</xsl:template>
+
+  <xsl:template match="aktionen:Aktion" >
 
 :::Action
 
-# <xsl:value-of select="@Name"/>  
+## <xsl:value-of select="@Name"/>  
 
 <xsl:value-of select="aktionen:Beschreibung"/>
 
         <xsl:if test="./aktionen:Bedingung">
-## Bedingung
+### Bedingung
 <xsl:value-of select="./aktionen:Bedingung"/>
         </xsl:if>
         <xsl:if test="./aktionen:InstantEffekt">
-## Augenblicklicher Effekt
+### Augenblicklicher Effekt
 <xsl:value-of select="./aktionen:InstantEffekt"/>
         </xsl:if>
         <xsl:if test="./aktionen:GarantierterEffekt">
-## Garantierter Effekt
+### Garantierter Effekt
 <xsl:value-of select="./aktionen:GarantierterEffekt"/>
         </xsl:if>
         <xsl:if test="./aktionen:OffensivErfolg">
-## Offensiver Erfolg
+### Offensiver Erfolg
 <xsl:value-of select="./aktionen:OffensivErfolg"/>
         </xsl:if>
         <xsl:if test="./aktionen:DefensivErfolg">
-## Defensiver Erfolg
+### Defensiver Erfolg
 <xsl:value-of select="./aktionen:DefensivErfolg"/>
         </xsl:if>
         <xsl:if test="./aktionen:OffensivMiserfolg">
-## Offensiver Misserfolg
+### Offensiver Misserfolg
 <xsl:value-of select="./aktionen:OffensivMiserfolg"/>
         </xsl:if>
         <xsl:if test="./aktionen:DefensivMiserfolg">
-## Defensiver Misserfolg
+### Defensiver Misserfolg
 <xsl:value-of select="./aktionen:DefensivMiserfolg"/>
         </xsl:if>
 **Ausdauerkosten** _<xsl:value-of select="@Kosten"/>_
@@ -63,49 +65,30 @@
               <xsl:when test="@Typ='Ausgeglieschen'">Offensiv und Passiv</xsl:when>
               <xsl:when test="@Typ='Frei'">Frei</xsl:when>
               <xsl:when test="@Typ='Sekundär'">Sekundär</xsl:when>
-              <xsl:otherwise>[Ungültiger wert]</xsl:otherwise>
+              <xsl:when test="@Typ='Unterstützend'">Unterstützend</xsl:when>
+              <xsl:otherwise>[Ungültiger wert] (<xsl:value-of select="@Typ"/>)</xsl:otherwise>
             </xsl:choose>_
           <xsl:if test="./aktionen:Mod">
 **Modifikation**
 
-_<xsl:if test="./aktionen:Mod/@ModifierType eq 'Bonus'">
-                ::{.label .label-success} &#65291;
-                  <xsl:apply-templates select="./aktionen:Mod/*"/>
-                ::
-              </xsl:if>
-              <xsl:if test="./aktionen:Mod/@ModifierType eq 'Malus'">
-                ::{.label .label-danger} &#x2212;
-                  <xsl:apply-templates select="./aktionen:Mod/*"/>
-                ::
-              </xsl:if>
-          </xsl:if>_
+<xsl:if test="./aktionen:Mod/@ModifierType eq 'Bonus'">
+::&#65291;<xsl:apply-templates select="./aktionen:Mod/*"/>::{.bonus}
+</xsl:if>
+<xsl:if test="./aktionen:Mod/@ModifierType eq 'Malus'">
+::&#x2212;<xsl:apply-templates select="./aktionen:Mod/*"/>::{.malus}
+</xsl:if>
+</xsl:if>
 :::
-  </xsl:template>
+</xsl:template>
 
-  <xsl:template match="aktionen:ConcreteModValueType">
-    <var><xsl:value-of select="@Value"/>
-    <xsl:if test="@Type='Percent'">%</xsl:if></var>
-  </xsl:template>
+<xsl:template match="aktionen:ConcreteModValueType"><xsl:value-of select="@Value"/><xsl:if test="@Type='Percent'">%</xsl:if></xsl:template>
 
-  <xsl:template match="aktionen:VariableModValueType">
-    <var><xsl:value-of select="@Value"/></var>
-  </xsl:template>
+<xsl:template match="aktionen:VariableModValueType"><xsl:value-of select="@Value"/></xsl:template>
 
-  <xsl:template match="aktionen:AddModValueType">
-    <xsl:apply-templates select="./*[1]"/>
-    <xsl:for-each select="./*[position()>1]">
-      &#65291; <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </xsl:template>
+  <xsl:template match="aktionen:AddModValueType"><xsl:apply-templates select="./*[1]"/> <xsl:for-each select="./*[position()>1]"> &#65291; <xsl:apply-templates select="."/></xsl:for-each></xsl:template>
 
-  <xsl:template match="aktionen:MultiplyModValueType">
-    <xsl:apply-templates select="./*[1]"/>
-    <xsl:for-each select="./*[position()>1]">
-      &#8226; <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </xsl:template>
+  <xsl:template match="aktionen:MultiplyModValueType"><xsl:apply-templates select="./*[1]"/><xsl:for-each select="./*[position()>1]"> &#8226; <xsl:apply-templates select="."/></xsl:for-each></xsl:template>
 
-  <xsl:template match="*">  [FEHLER IM XSLT]            
-    <xsl:value-of select="local-name()"/>
+  <xsl:template match="*">  [[FEHLER IM XSLT]] (<xsl:value-of select="local-name()"/>)
   </xsl:template>
 </xsl:stylesheet>
