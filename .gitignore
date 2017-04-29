@@ -11,4 +11,5 @@
 .vs/slnx.sqlite
 .vs/slnx.sqlite-journal
 
+packages.xml
 wyam.log
