@@ -4,6 +4,20 @@
     src: url('/font/RomantiqueInitials.ttf'); /*URL to font*/
 }
 
+/* Custom classes
+-------------------------------------------------- */
+
+.Bsp{
+    padding: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 3;
+    border-width: 1;
+    border-color: black;
+    border-style: groove;
+    background-color: lightgray;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
