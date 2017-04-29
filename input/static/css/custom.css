@@ -28,6 +28,28 @@ font-weight: bold;
     background-color: #f8f8f8;
 }
 
+.Action{
+    padding: 1em;
+    margin-top: 1em;
+    border-radius: 10;
+    border-width: 1;
+    border-color: #e0e0e0;
+    border-style: solid;
+    background-color: #f8f8f8;
+}
+
+.Action h2{
+    font-size: 24px;
+}
+.Action h3{
+    font-size: 16px;
+    padding-bottom: 9px;
+    border-bottom: solid 1px #ddd;
+
+}
+
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
