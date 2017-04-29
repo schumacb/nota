@@ -7,15 +7,25 @@
 /* Custom classes
 -------------------------------------------------- */
 
+.Bsp:before{
+content: "Beispiel";
+font-weight: bold;
+
+}
+
+
 .Bsp{
     padding: 1em;
     margin-top: 2em;
     margin-bottom: 2em;
-    border-radius: 3;
+    border-radius: 10;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     border-width: 1;
-    border-color: black;
-    border-style: groove;
-    background-color: lightgray;
+    border-left-width: 1em;
+    border-color: #e0e0e0;
+    border-style: solid;
+    background-color: #f8f8f8;
 }
 
 
@@ -85,7 +95,10 @@ padding-right: 20px;
 }
 
 
+
 .twoColumn h1 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 9px;
     column-span: all;
     -webkit-column-span: all;
     -moz-column-span: all;

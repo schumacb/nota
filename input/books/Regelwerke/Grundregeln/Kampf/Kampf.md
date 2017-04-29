@@ -323,7 +323,7 @@ Zudem besitzt jede rüstung einen Schuzgrad pro Trefferzone, dies beschreibt wie
 
 Der Schutzwert wird verwendet, um herauszufinden ob ein Angriff auf eine Trefferzone die Rüstung umgangen hat. Hierzu wird der zweite Würfel der Trefferzonenbestimmung verwendet. solte dieser eine Zone bestimmen, deren Wert als Schuzgrad aufgeführt ist, wird der Schaden um die entsprechenden werte der Rüstung reduziert.
 
-Sollte der Angreife *keine* Waffe mit der Eigenschaft Präzise verwenden, und der Verteidiger eine Defensive Aktion ausführen, so kann der Verteidiger die getroffene Zone um eins veringern oder erhöhen. Dies führt dazu das bei Rüstungen mit einem Hohen Schutzgrad eine genauere bestimmung unnötig wird. Solche Rüstungen erhalten die Metaeigenschaft Zonenschutz der entsprechenden Zone.
+Sollte der Angreife **keine** Waffe mit der Eigenschaft Präzise verwenden, und der Verteidiger eine Defensive Aktion ausführen, so kann der Verteidiger die getroffene Zone um eins veringern oder erhöhen. Dies führt dazu das bei Rüstungen mit einem Hohen Schutzgrad eine genauere bestimmung unnötig wird. Solche Rüstungen erhalten die Metaeigenschaft Zonenschutz der entsprechenden Zone.
 
 :::Bsp
 Ein Kämpfer wird an seinem Arm mit einem Schwert, welches nicht präzise ist, getroffen. Er trägt lederne Unterarm und Oberarmschienen. Diese decken zusammen die Zonen 2-4 und 7-9 ab. Bestimmt der angreifer zur genauen Zonenbestimmung eine Zone die nicht geschützt ist, so kann der verteidiger jedoch immer auf eine Zone ausweichen welche geschützt ist. Bei der 1 ist dies die Zone 2, bei 5 die 4, bei 6 die 7 und bei 10 die Zone 9.
