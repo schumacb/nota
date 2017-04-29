@@ -330,8 +330,6 @@ Ein Kämpfer wird an seinem Arm mit einem Schwert, welches nicht präzise ist, g
 :::
 
 
-Bestimmte prezise Waffen oder Aktionen können die Rüstung umgehen. Hierzu wird ein W20 gewürfelt und mit dem Schutzgrad verglichen. Sollte der Würfel höher sein als der Schutzgrad der Rüstung wird diese Ignoriert. Ein Schutzgrad von 20 kann durch Aktionen nicht reduziert werden.
-
 Eine Rüstung besitzt zusätzlich noch eine Erschwerniss für Proben.
 
 Eine Rüstung ist auch nicht immer schnell angezogen. Für mansche Rüstungen benötigt man sogar Hilfe. Jede Rüstung hat angegeben wie lange man braucht sie aleine Anzuziehen, und wie lange man mit hilfe braucht.
