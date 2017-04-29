@@ -204,6 +204,7 @@ Je nach art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt 
 | Rechtes Bein| 15%                |(18-20)|
 +-------------+--------------------+-------+
 
+Wenn es nötig ist kann auch ein zweiter W20 geworfen werden um die Trefferzone weiter auf eine von 10 Zonen einzugrenzen. Hierzu wird das ergebniss des W20 halbiert und bei bedarf aufgerundet. Der effizienz halber sollten beide Würfel gleichzeitig geworfen werden, auch wenn eventuell nur einer benötigt wird.
 
 ### Wunden
 
@@ -316,9 +317,18 @@ Um sich vor potenziellen verletzungen zu schützen, kann sich ein Charakter mit 
 
 Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florrett oder einem Hammer nicht viel entgegenzubringen. 
 
-Hierzu ist jeder Trefferzone Schadenstyp kombination ein Rüstgrad zugeordnet. Ein treffer eines Schadenstyp in der Zone wird um eine entsprehende anzahl an Punkten reduziert. 
+Hierzu ist jedem Schadenstyp ein Rüstgrad zugeordnet. Ein treffer eines Schadenstyp wird um eine entsprehende anzahl an Punkten reduziert. 
 
-Zudem besitzt jede Rüstung einen Schutzgrad, dies beschreibt wieviel angrifsfläche die Rüstung ungeschützt läßt. Dies kann ein Wert zwischen 0 und 20 sein. Wobei 20 eine komplette abschirmung der gesammten Trefferzone darstellt.
+Zudem besitzt jede rüstung einen Schuzgrad pro Trefferzone, dies beschreibt wieviel angrifsfläche die Rüstung ungeschützt läßt. Der Schutzgrad wird in mehreren Werten zwichen 1 und 10 Angegeben. Besitzt eine Rüstung nur einen Wert als Schutzgrad deckt sie nicht viel fläche der Trefferzone ab, beispielsweise ein Handschuh. Besitzt sie hingegen 8 oder mehr Werte, bietet sie beinahe einen Perfekten schutz wie ein Vollhelm mit Visir. 
+
+Der Schutzwert wird verwendet, um herauszufinden ob ein Angriff auf eine Trefferzone die Rüstung umgangen hat. Hierzu wird der zweite Würfel der Trefferzonenbestimmung verwendet. solte dieser eine Zone bestimmen, deren Wert als Schuzgrad aufgeführt ist, wird der Schaden um die entsprechenden werte der Rüstung reduziert.
+
+Sollte der Angreife *keine* Waffe mit der Eigenschaft Präzise verwenden, und der Verteidiger eine Defensive Aktion ausführen, so kann der Verteidiger die getroffene Zone um eins veringern oder erhöhen. Dies führt dazu das bei Rüstungen mit einem Hohen Schutzgrad eine genauere bestimmung unnötig wird. Solche Rüstungen erhalten die Metaeigenschaft Zonenschutz der entsprechenden Zone.
+
+:::Bsp
+Ein Kämpfer wird an seinem Arm mit einem Schwert, welches nicht präzise ist, getroffen. Er trägt lederne Unterarm und Oberarmschienen. Diese decken zusammen die Zonen 2-4 und 7-9 ab. Bestimmt der angreifer zur genauen Zonenbestimmung eine Zone die nicht geschützt ist, so kann der verteidiger jedoch immer auf eine Zone ausweichen welche geschützt ist. Bei der 1 ist dies die Zone 2, bei 5 die 4, bei 6 die 7 und bei 10 die Zone 9.
+:::
+
 
 Bestimmte prezise Waffen oder Aktionen können die Rüstung umgehen. Hierzu wird ein W20 gewürfelt und mit dem Schutzgrad verglichen. Sollte der Würfel höher sein als der Schutzgrad der Rüstung wird diese Ignoriert. Ein Schutzgrad von 20 kann durch Aktionen nicht reduziert werden.
 
