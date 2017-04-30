@@ -288,6 +288,7 @@ var test = currentContext.Documents.FromPipeline("books").Select(d=> d.Metadata.
 
 	/// Adding Tree ///
 	If(@doc.Metadata.Bool("hide", false)),
+	Trace(@doc["RelativeFilePath"]),
 	Tree()
 		.WithRoots(@doc.Get<bool>("IsBook"))
 		.WithTreePath(((string)@doc["ID"]).Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries))
@@ -435,7 +436,6 @@ Pipelines.Add("htmlWrite",
 	// 	Documents("staticOutput")
 	// ),
 	
-	// Trace(@doc["TargetFile"]),
 	WriteFiles()
 );
 
