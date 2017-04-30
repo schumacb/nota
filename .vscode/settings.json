@@ -3,7 +3,12 @@
     "files.associations": {
         "*.wyam": "csharp"
     },
-    "editor.wrappingColumn": 80,
+    "[markdown]": {
+        "editor.wordWrap": "bounded",
+        "editor.quickSuggestions": false
+    },
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
     "editor.wrappingIndent": "indent",
     "editor.renderWhitespace": "boundary"
 }

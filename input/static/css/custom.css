@@ -107,6 +107,7 @@ padding-right: 20px;
 	-webkit-column-width: 25em;	
 	-moz-column-width: 25em;	
 	column-width: 25em;	
+    column-fill: auto;
 }
 
 
