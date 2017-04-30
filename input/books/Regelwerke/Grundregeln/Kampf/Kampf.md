@@ -288,7 +288,7 @@ Eine weitere eigenschaft von Waffen ist der Schaden den sie anrichten, wenn sie 
 
 #### Nahkampfwaffe
 
-Eine Nahkampfwaffe besitzt eine größe, die angibt wie weit der gegner entfernt sein sollte. so ist ein Dolch beispielsweise kleiner als ein Schwert. Dementsprechend hat es ein Dolch auch schwerer gegen eine Schwert als gegen einen anderen Dolch. Ein Charakter mit einer größeren Waffe kann den gegner leichter stueren und in eine günstige Position bringen.
+Eine Nahkampfwaffe besitzt eine größe, die angibt wie weit der gegner entfernt sein sollte. so ist ein Dolch beispielsweise kleiner als ein Schwert. Dementsprechend hat es ein Dolch auch schwerer gegen eine Schwert als gegen einen anderen Dolch. Ein Charakter mit einer größeren Waffe kann den gegner leichter steuren und in eine günstige Position bringen.
 
 Mansche Waffen sind auch besser geignet zum Angriff als zur Verteidigung, oder umgekehrt. Eine Waffe hat einen Modifikator, der angibt ob sie einen Malus oder Bonus auf Offensive, bzw. Defensive Aktionen erhält. Dieser Modifikator beeinflusst nicht die Talentprobe, sondern den Aktionswert.
 
