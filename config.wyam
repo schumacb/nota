@@ -176,9 +176,9 @@ public static class Helper
 {
 	public static IModule TargetUrlModule()
 	{
-	return new Meta("TargetUrl",  (@doc, @ctx)=> 
+	return new Meta("RelativeFilePath",  (@doc, @ctx)=> 
 	{
-		var targetFile = (Wyam.Common.IO.FilePath)@doc["TargetFile"];
+		var targetFile = (Wyam.Common.IO.FilePath)@doc["RelativeFilePath"];
 		string url;
 		if(targetFile.FileName.FullPath == "index.html")
 			url = targetFile.Directory.FullPath;
@@ -187,7 +187,7 @@ public static class Helper
 		url = "\\"+url;
 		url = url.Replace('\\','/');
 		url = url.Replace("//","/");
-		return url;
+		return new FilePath(url, PathKind.Relative);
 	});		
 	}
 
@@ -383,11 +383,55 @@ Pipelines.Add("htmlStatic",
 );
 
 
+Pipelines.Add("authorPages",
+	GitContributors(),
+	Meta("RelativeFilePath", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]+".html").ChangeExtension(".cshtml"))),
+	Meta("Title", @doc["ContributorName"]),
+	Meta("Layout", @"book.cshtml"),
+	Content(
+		ReadFiles(@"template\author.cshtml")		
+	),
+	ConcatBranch(
+		Execute((@doc, @ctx)=>{
+			var information = @doc["Commits"] as IEnumerable<IDocument>;
+			
+			var fileCommits = information
+				.SelectMany(x=> (x["Entries"] as IReadOnlyDictionary<Wyam.Common.IO.FilePath, string>)
+					.Select(entry => new { Entry = entry, Commit = x}))
+				.GroupBy(x=>x.Entry.Key);
+			return (IEnumerable<IDocument>) fileCommits.Select(x=>
+			{
+				var autherFolder = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author"));
+				var emailFolder = autherFolder.Combine(new Wyam.Common.IO.DirectoryPath((string)@doc["ContributorEmail"]));
+				var commitetFile = emailFolder.CombineFile(x.Key);
+				var targetFile =  commitetFile.AppendExtension(".cshtml");
+				targetFile = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( targetFile );
+				var commits = x.ToDictionary(y=> y.Commit, y=>y.Entry.Value).ToArray();				
+				return @ctx.GetDocument(new KeyValuePair<string,object>[]
+				{
+					new KeyValuePair<string,object>("Title", x.Key.ToString()),
+					new KeyValuePair<string,object>("ContributorName", @doc["ContributorName"]),
+					new KeyValuePair<string,object>("ContributorEmail", @doc["ContributorEmail"]),
+					new KeyValuePair<string,object>("ContributorSite", @doc["RelativeFilePath"]),
+					new KeyValuePair<string,object>("RelativeFilePath", targetFile),
+					new KeyValuePair<string,object>("Commits", commits),
+					new KeyValuePair<string,object>("Path", x.Key),
+				});				
+			});
+		}),
+		Content(
+			ReadFiles(@"template\CommitFile.cshtml")		
+		)
+	),
+	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).ChangeExtension( ".cshtml")),@doc.Content)})
+);
+
 Pipelines.Add("htmlWrite",
 	Documents("htmlBooksPrepare"),
 	Concat(	
 		Documents("htmlBootstrap")
 	),
+
 	Concat(	
 		Documents("MainMenue")
 	),
@@ -397,7 +441,6 @@ Pipelines.Add("htmlWrite",
 	If(@doc.Source != null,
 		GitContributors()
 			.ForEachInputDocument(),
-		Trace(@doc.Source),
 		Meta("ReposetoryUrl",  (@doc, @ctx)=> 
 		{
 			//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
@@ -407,6 +450,9 @@ Pipelines.Add("htmlWrite",
 
 			return url;
 		})
+	),
+	Concat(	
+		Documents("authorPages")
 	),
 	Where(!@doc.Metadata.Bool("hide", false)),
 	Where(@doc.Source != null),
@@ -421,20 +467,12 @@ Pipelines.Add("htmlWrite",
 		Helper.ChangeExtension(".html")
 	), 
 	
-	// AutoLink((IDictionary<string,string>)AutoLinkHelper.ToLookup(@ctx)  // Use our new ToLookup extension
-	// 	.ToDictionary(x => x.Key, 
-	// 		x => (string)x.OrderBy(y=>y.ContainsKey("IsDisambigiusPage") ? 0 : 1).First()["TargetUrl"])  )
-	// 	.WithMatchOnlyWholeWord(),
 	If(Helper.IsExtension(@doc, ".html"),
 		// Execute(AutoLinkHelper.AddImageMetadata),
 		Execute(AutoLinkHelper.AddClassToTable),
 		Execute(AutoLinkHelper.FixLink),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
 	),
-	// Concat(
-	// 	Documents("staticOutput")
-	// ),
-	
 	WriteFiles()
 );
 
