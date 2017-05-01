@@ -36,7 +36,7 @@ Wer nicht in vergessenheit geriet war Natsuda, der sich zum Zeitpunkt der Katast
 
 :::{.hidden-information .Meister .Information}
 
-Die Waffe die, die Minzk mit holfe der Ajour errichtetn benötigte unmengen an Energie um in der Lage zu sein den Göttern zu schaden. Und diese Energie zogen Sie aus der Bariere zwichen den Welten. Die selbe Technologie, die die Letzte Welt vernichtete, war kurz davor auch diese zu vernichten. Und niemand konnte sagen ob es noch eine nächste geben würde.
+Die Waffe die, die Minzk mit holfe der Ajour errichtetn benötigte unmengen an Energie um in der Lage zu sein den Göttern zu schaden. Und diese Energie zogen Sie aus der Bariere zwichen den Welten. Die selbe Technologie, die die das letzte Zeitalter vernichtete, war kurz davor auch diese zu vernichten. Und niemand konnte sagen ob es noch eine nächste geben würde.
 
 In anbetracht dieser Lage beschlossen sich die Götter in die belange der Menschen einzumischen. So erschienen sie vor Natsuda und verkündigtem ihn das Baldige ende der Welt. Sie baten ihm von seinem Plan abzusehen, und die inbetriebnahme der Waffe zu unterbienden. Und nach einiger Überzeugungsarbeit seitens der Götter willigte er ein. Jedoch nur unter einer Bedingung, die Götter die er für all das Leid verantwortlich machte müssten sich zurück ziehen und ihr Ankliz nie wieder Zeigen.
 
