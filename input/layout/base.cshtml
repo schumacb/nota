@@ -236,7 +236,7 @@
             <a id="mitwirkende" title="Mitwirkende" class="btn btn-default btn-xs" href="#" data-toggle="popover" data-placement="top" data-container="body" data-template='<div class="popover" style="max-width:unset" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'>Mitwirkende</a>
             <div id="mitwirkendeContent" style="display: none">
               <ul class="list-unstyled">
-                @foreach(var con in Metadata["Contributors"] as IEnumerable<IDocument>){
+                @foreach(var con in (Metadata["Contributors"] as IEnumerable<IDocument>).OrderBy(x=>x["ContributorName"])){
                   var url ="/author/" +con["ContributorEmail"] +".html";
                   <li class="list-item"><a href="@url"> @con["ContributorName"]</a></li>
                 }
