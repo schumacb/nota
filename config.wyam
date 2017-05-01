@@ -446,8 +446,13 @@ Pipelines.Add("htmlWrite",
 			//https://github.com/LokiMidgard/nota/edit/master/input/render/Downloads.md
 			var relativPath = @ctx.FileSystem.RootPath.Combine("input").GetRelativePath((Wyam.Common.IO.FilePath)@doc.Source);
 			var url = $"{Constants.GitUrl}/edit/{Constants.GitBranch}/input/"+ relativPath.FullPath;
-
-
+			return url;
+		}),
+		Meta("ReposetoryHistoryUrl",  (@doc, @ctx)=> 
+		{
+			//https://github.com/LokiMidgard/nota/commits/master/input/books/Regelwerke/Grundregeln/Grundregeln.md
+			var relativPath = @ctx.FileSystem.RootPath.Combine("input").GetRelativePath((Wyam.Common.IO.FilePath)@doc.Source);
+			var url = $"{Constants.GitUrl}/commits/{Constants.GitBranch}/input/"+ relativPath.FullPath;
 			return url;
 		})
 	),

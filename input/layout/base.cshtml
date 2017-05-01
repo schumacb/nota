@@ -259,8 +259,12 @@
                     <li class="list-item"><small>@time</small> @message</li>
                   }
                 }
-                @if(commits.Length >  numberOfCommitsToDisplay){
-                  <li class="list-item">more...</li>                    
+                @if(Metadata.ContainsKey("ReposetoryHistoryUrl")){
+                  @if(commits.Length >  numberOfCommitsToDisplay){
+                    <li class="list-item"><a href='@Metadata["ReposetoryHistoryUrl"]' target="_blank">Mehr...</a></li>                    
+                  } else{
+                    <li class="list-item"><a href='@Metadata["ReposetoryHistoryUrl"]' target="_blank">Details</a></li>
+                  }
                 }
               </ul>
             </div>
