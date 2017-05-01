@@ -247,7 +247,7 @@
                     var numberOfCommitsToDisplay = 3;
                 }
                 @foreach(var con in commits.Take(numberOfCommitsToDisplay)){
-                  var time = ((DateTimeOffset)con["CommitterWhen"]).ToString("dd.MM.yy HH:mm");
+                  var time = ((DateTimeOffset)con["CommitterWhen"]).ToLocalTime().ToString("dd.MM.yy HH:mm");
                   var message = con["Message"] as string;
                   var messageLength =80;
                   @if(message.Length > messageLength || message.Contains("\n")){
@@ -323,7 +323,7 @@
             var lastEditDateTimeOffset = DateTimeOffset.Now; 
             @if(Metadata.ContainsKey("Contributors"))
             {          
-              var commitTimeOfset = (DateTimeOffset?) (Metadata["Contributors"] as IEnumerable<IDocument>).Select(x=> ((IEnumerable<IDocument>)x["Commits"]).Select(y=>(DateTimeOffset?)y["AuthorWhen"]).OrderByDescending(y=>y).FirstOrDefault()).OrderBy(x=>x).FirstOrDefault();
+              var commitTimeOfset = (DateTimeOffset?) (Metadata["Contributors"] as IEnumerable<IDocument>).Select(x=> ((IEnumerable<IDocument>)x["Commits"]).Select(y=>(DateTimeOffset?)y["CommitterWhen"]).OrderByDescending(y=>y).FirstOrDefault()).OrderByDescending(x=>x).FirstOrDefault();
               @if(commitTimeOfset == null){
                 lastEditDateTimeOffset = DateTimeOffset.Now;
               }
