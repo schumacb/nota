@@ -233,12 +233,34 @@
         <div class="btn-group pull-left">
  
           @if(Metadata.ContainsKey("Contributors")){          
-            <a id="mitwirkende" title="Mitwirkende" class="btn btn-default btn-xs" href="#" data-toggle="popover" data-placement="top" data-container="body">Mitwirkende</a>
+            <a id="mitwirkende" title="Mitwirkende" class="btn btn-default btn-xs" href="#" data-toggle="popover" data-placement="top" data-container="body" data-template='<div class="popover" style="max-width:unset" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'>Mitwirkende</a>
             <div id="mitwirkendeContent" style="display: none">
               <ul class="list-unstyled">
                 @foreach(var con in Metadata["Contributors"] as IEnumerable<IDocument>){
                   var url ="/author/" +con["ContributorEmail"] +".html";
-                  <li class="list-item"><a href="@url"> @con["ContributorName"] <small>@con.["Message"] </small> </a></li>
+                  <li class="list-item"><a href="@url"> @con["ContributorName"]</a></li>
+                }
+              </ul>
+              <ul class="list-unstyled">
+                @{
+                  var commits = (Metadata["Contributors"] as IEnumerable<IDocument>).SelectMany(x=> (IEnumerable<IDocument>) x["Commits"]).OrderByDescending(x=>x["CommitterWhen"]).ToArray();
+                    var numberOfCommitsToDisplay = 3;
+                }
+                @foreach(var con in commits.Take(numberOfCommitsToDisplay)){
+                  var time = ((DateTimeOffset)con["CommitterWhen"]).ToString("dd.MM.yy HH:mm");
+                  var message = con["Message"] as string;
+                  var messageLength =80;
+                  @if(message.Length > messageLength || message.Contains("\n")){
+                    messageLength = Math.Min(messageLength, message.IndexOf("\n")+3);
+                    var shortMessage = message.Substring(0,messageLength-3)+"...";
+
+                    <li class="list-item"><small>@time</small> <abbr title='@message'>@shortMessage</abbr></li>
+                  }else{
+                    <li class="list-item"><small>@time</small> @message</li>
+                  }
+                }
+                @if(commits.Length >  numberOfCommitsToDisplay){
+                  <li class="list-item">more...</li>                    
                 }
               </ul>
             </div>
