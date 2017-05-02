@@ -111,4 +111,13 @@ Der reale Tallentwert berechnet sich aus mehren Teilen welche addiert werden:
  
  Der Effektive Tallentwert wiederum stellt 3/4 des reallen Wertes dar.
  
- 
+# Abgeleitet Werte
+
+Einige Werte werden anhand von anderen Werten berrechnet.
+
+## Ausdauerwert
+ Der ausdauer wert berechnet sich durch 70 - (KO + KO + KR)
+
+## Initiative
+
+## Geschwindigkeit
