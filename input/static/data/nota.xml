@@ -888,22 +888,18 @@ Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
     <Rüstungen>
       <Rüstung Name="Lederharnisch" Erschwernis="1">
         <Schutz >
-          <Brust Schutzgrad="18">
-            <Wucht Wert="1"/>
-            <Schnitt Wert="2"/>
-            <Stich Wert="1"/>
-          </Brust>
-          <Rücken Schutzgrad="18">
-            <Wucht Wert="1"/>
-            <Schnitt Wert="2"/>
-            <Stich Wert="1"/>
-          </Rücken>
-          <Bauch Schutzgrad="18">
-            <Wucht Wert="1"/>
-            <Schnitt Wert="2"/>
-            <Stich Wert="1"/>
-          </Bauch>
+          <Wucht Wert="1"/>
+          <Schnitt Wert="2"/>
+          <Stich Wert="1"/>
         </Schutz>
+        <Trefferzonen>
+          <Brust>
+            <Schutz Von="2" Bis="19"/>
+          </Brust>
+          <Bauch>
+            <Schutz Von="2" Bis="19"/>
+          </Bauch>
+        </Trefferzonen>
       </Rüstung>
 
     </Rüstungen>

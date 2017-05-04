@@ -77,14 +77,27 @@
                     <element name="Schutz">
                       <complexType>
                         <sequence>
-                          <element name="Kopf" type ="ausrüstung:Rüstschutz"         minOccurs="0"/>
-                          <element name="Brust" type ="ausrüstung:Rüstschutz"        minOccurs="0"/>
-                          <element name="Rücken" type ="ausrüstung:Rüstschutz"       minOccurs="0"/>
-                          <element name="Bauch" type ="ausrüstung:Rüstschutz"        minOccurs="0"/>
-                          <element name="LinkerArm" type ="ausrüstung:Rüstschutz"    minOccurs="0"/>
-                          <element name="RechterArm" type ="ausrüstung:Rüstschutz"   minOccurs="0"/>
-                          <element name="LinkesBein" type ="ausrüstung:Rüstschutz"   minOccurs="0"/>
-                          <element name="RechtesBein" type ="ausrüstung:Rüstschutz"  minOccurs="0"/>
+                          <element name="Wucht"   type="ausrüstung:Rüstwert" minOccurs="0"/>
+                          <element name="Schnitt" type="ausrüstung:Rüstwert" minOccurs="0"/>
+                          <element name="Stich"   type="ausrüstung:Rüstwert" minOccurs="0"/>
+                          <element name="Feuer"   type="ausrüstung:Rüstwert" minOccurs="0"/>
+                          <element name="Frost"   type="ausrüstung:Rüstwert" minOccurs="0"/>
+                          <element name="Elektro" type="ausrüstung:Rüstwert" minOccurs="0"/>
+                          <element name="Säure"   type="ausrüstung:Rüstwert" minOccurs="0"/>
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="Trefferzonen">
+                      <complexType>
+                        <sequence>
+                          <element name="Kopf" type ="ausrüstung:Schutzwert"         minOccurs="0"/>
+                          <element name="Brust" type ="ausrüstung:Schutzwert"        minOccurs="0"/>
+                          <element name="Rücken" type ="ausrüstung:Schutzwert"       minOccurs="0"/>
+                          <element name="Bauch" type ="ausrüstung:Schutzwert"        minOccurs="0"/>
+                          <element name="LinkerArm" type ="ausrüstung:Schutzwert"    minOccurs="0"/>
+                          <element name="RechterArm" type ="ausrüstung:Schutzwert"   minOccurs="0"/>
+                          <element name="LinkesBein" type ="ausrüstung:Schutzwert"   minOccurs="0"/>
+                          <element name="RechtesBein" type ="ausrüstung:Schutzwert"  minOccurs="0"/>
                         </sequence>
                       </complexType>
                     </element>
@@ -142,27 +155,32 @@
     </restriction>
   </simpleType>
 
-  <complexType name="Rüstschutz">
+  <complexType name="Schutzwert">
     <sequence>
-      <element name="Wucht"   type="ausrüstung:Schutzwert" minOccurs="0"/>
-      <element name="Schnitt" type="ausrüstung:Schutzwert" minOccurs="0"/>
-      <element name="Stich"   type="ausrüstung:Schutzwert" minOccurs="0"/>
-      <element name="Feuer"   type="ausrüstung:Schutzwert" minOccurs="0"/>
-      <element name="Frost"   type="ausrüstung:Schutzwert" minOccurs="0"/>
-      <element name="Elektro" type="ausrüstung:Schutzwert" minOccurs="0"/>
-      <element name="Säure"   type="ausrüstung:Schutzwert" minOccurs="0"/>
+      <element name="Schutz" minOccurs="1" maxOccurs="unbounded">
+        <complexType>
+          <attribute name="Von">
+            <simpleType>
+              <restriction base="int">
+                <minInclusive value="1"/>
+                <maxInclusive value="20"/>
+              </restriction>
+            </simpleType>
+          </attribute>
+          <attribute name="Bis">
+            <simpleType>
+              <restriction base="int">
+                <minInclusive value="1"/>
+                <maxInclusive value="20"/>
+              </restriction>
+            </simpleType>
+          </attribute>
+        </complexType>
+      </element>
     </sequence>
-    <attribute name="Schutzgrad">
-      <simpleType>
-        <restriction base="int">
-          <minInclusive value="1"/>
-          <maxInclusive value="20"/>
-        </restriction>
-      </simpleType>
-    </attribute>
   </complexType>
 
-  <complexType name="Schutzwert">
+  <complexType name="Rüstwert">
     <attribute type="nonNegativeInteger" name="Wert"/>
   </complexType>
 
