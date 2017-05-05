@@ -426,12 +426,20 @@ Pipelines.Add("authorPages",
 	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).ChangeExtension( ".cshtml")),@doc.Content)})
 );
 
+Pipelines.Add("convertAIFiles",
+	ReadFiles(@"misc\documents\source\**\*.ai"),
+	Meta("RelativeFilePath", ((DirectoryPath) @"downloads").CombineFile(((DirectoryPath) @"misc\documents\source").GetRelativePath( (FilePath)@doc["RelativeFilePath"]).ChangeExtension(".pdf")))
+);
+
+
 Pipelines.Add("htmlWrite",
 	Documents("htmlBooksPrepare"),
 	Concat(	
 		Documents("htmlBootstrap")
 	),
-
+	Concat(	
+		Documents("convertAIFiles")
+	),
 	Concat(	
 		Documents("MainMenue")
 	),
