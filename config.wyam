@@ -4,8 +4,9 @@
 // #a **\*
 /* */
 
+// #n Wyam.All -s https://www.myget.org/F/wyam/api/v2?package=Wyam&prerelease
 #n Wyam.All
-#n LibGit2Sharp.NativeBinaries
+
 #n jQuery -v [2.2.3]
 #n bootstrap -v [3.3.6]
 

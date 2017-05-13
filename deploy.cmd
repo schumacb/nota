@@ -10,7 +10,7 @@ IF NOT EXIST "Tools" (md "Tools")
 IF %ERRORLEVEL% NEQ 0 goto error
 IF NOT EXIST "Tools\Addins" (md "Tools\Addins")
 IF %ERRORLEVEL% NEQ 0 goto error
-nuget install Cake -ExcludeVersion -OutputDirectory "Tools" -Version 0.15.2
+nuget install Cake -ExcludeVersion -OutputDirectory "Tools" -Version 0.19.5
 .\Tools\Cake\Cake.exe deploy.cake -verbosity=Verbose %*
 IF %ERRORLEVEL% NEQ 0 goto error
 
