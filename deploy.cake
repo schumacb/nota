@@ -58,7 +58,7 @@ Task("Build")
         { 
             OutputPath  = websitePath,
             LogFilePath = "wyam.log",
-            Verbose = true
+            Verbose = false
         });        
     });
         
