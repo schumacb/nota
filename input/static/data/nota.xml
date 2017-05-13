@@ -55,26 +55,36 @@
       <Professionen>
         <profession:Profession Name="Bäcker"/>
       </Professionen>
-      <Level>
-        <Level
-          xmlns="http://nota.org/schema/nota">
+      <Levels xmlns="http://nota.org/schema/nota">
+        <Level Name="2">
+          <Bedingungen>
+            <LevelVoraussetzung>
+              <Level Name="2"/>
+            </LevelVoraussetzung>
+          </Bedingungen>
           <fertigkeit:Fertigkeit Name="Kulturkunde Alan"/>
         </Level>
-      </Level>
+      </Levels>
     </Kultur>
   </Kulturen>
   <Professionen
     xmlns="http://nota.org/schema/profession">
     <Profession Name="Bäcker" Kosten="3">
       <Beschreibung></Beschreibung>
-      <Level>
-        <Level
-          xmlns="http://nota.org/schema/nota">
+      <Levels xmlns="http://nota.org/schema/nota">
+        <Level Name="Test3">
           <talent:Talent Name="Backen" Level="3"/>
           <talent:Talent Name="Backen" Level="2"/>
           <talent:Talent Name="Backen" Level="1"/>
         </Level>
-      </Level>
+        <Level Name="">
+          <Bedingungen>
+            <LevelVoraussetzung>
+              <Level Name="Test3"/>
+            </LevelVoraussetzung>
+          </Bedingungen>
+        </Level>
+      </Levels>
     </Profession>
   </Professionen>
   <Talente
@@ -129,9 +139,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Säbel" Anzahl="3"/>
-    </Ableitungen>
+      <Ableitungen>
+        <Ableitung Name="Säbel" Anzahl="3"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Säbel" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -140,9 +150,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Säbel" Anzahl="2"/>
-    </Ableitungen>
+      <Ableitungen>
+        <Ableitung Name="Säbel" Anzahl="2"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Zweihandschwert" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -183,9 +193,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Gewehre, Armbrüste</Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Zweihandprojektielwaffen" Anzahl="3"/>
-    </Ableitungen>
+      <Ableitungen>
+        <Ableitung Name="Zweihandprojektielwaffen" Anzahl="3"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Zweihandprojektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -446,12 +456,12 @@
         <Klugheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Sehen" Anzahl="3"/>
-      <Ableitung Name="Hören" Anzahl="3"/>
-      <Ableitung Name="Fühlen" Anzahl="4"/>
-      <Ableitung Name="Richen und Schmeken" Anzahl="5"/>
-    </Ableitungen>
+      <Ableitungen>
+        <Ableitung Name="Sehen" Anzahl="3"/>
+        <Ableitung Name="Hören" Anzahl="3"/>
+        <Ableitung Name="Fühlen" Anzahl="4"/>
+        <Ableitung Name="Richen und Schmeken" Anzahl="5"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Sehen" Komplexität="B" Kategorie="Geist">
       <Probe>
@@ -530,7 +540,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-        <Talent Name="Einschüchtern" Komplexität="B" Kategorie="Geselchaft">
+    <Talent Name="Einschüchtern" Komplexität="B" Kategorie="Geselchaft">
       <Probe>
         <Mut/>
         <Intuition/>
@@ -667,9 +677,9 @@
         <Feinmotorik/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
-    <Ableitungen>
-      <Ableitung Name="Richen und Schmeken" Anzahl="3"/>
-    </Ableitungen>
+      <Ableitungen>
+        <Ableitung Name="Richen und Schmeken" Anzahl="3"/>
+      </Ableitungen>
     </Talent>
     <Talent Name="Kochen" Komplexität="B" Kategorie="Handwerk">
       <Probe>
@@ -696,7 +706,34 @@
   </Fertigkeiten>
   <Besonderheiten
     xmlns="http://nota.org/schema/besonderheit">
-    <Besonderheit Name="Beidhändig" Kosten="3">
+    <Besonderheit Name="Auserwählter" Gebunden="true" Kosten="0">
+      <Beschreibung>
+        Der Charakter wurde von einem der Götter auserwählt
+      </Beschreibung>
+    </Besonderheit>
+
+    <Besonderheit Name="Miasma Resistenz" Kosten="0">
+      <Beschreibung>Der Charakter hat eine erhöte Resistenz gegen das dämonische Miasma</Beschreibung>
+      <Bedingung>
+        <Besonderheit Name="Auserwählter"/>
+      </Bedingung>
+    </Besonderheit>
+
+    <Besonderheit Name="Verbesserte Wundheilung" Kosten="0">
+      <Beschreibung>Die Wunden des Charakters heilen Schneller.</Beschreibung>
+      <Bedingung>
+        <Besonderheit Name="Auserwählter"/>
+      </Bedingung>
+    </Besonderheit>
+
+    <Besonderheit Name="Krankheitsresistenz" Kosten="0">
+      <Beschreibung>Der Charakter wird troz wiedriger Umstände nicht so leicht Krank.</Beschreibung>
+      <Bedingung>
+        <Besonderheit Name="Auserwählter"/>
+      </Bedingung>
+    </Besonderheit>
+
+    <Besonderheit Name="Beidhändig" Kosten="3"     >
       <Beschreibung></Beschreibung>
     </Besonderheit>
   </Besonderheiten>
@@ -749,14 +786,14 @@
       <Bedingung>Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.</Bedingung>
       <OffensivErfolg>
 
-Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
+        Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
 
-Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
+        Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
 
-Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
+        Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
 
 
-</OffensivErfolg>
+      </OffensivErfolg>
       <Mod ModifierType="Malus">
         <AddModValueType>
           <VariableModValueType Value="X"/>
@@ -784,9 +821,9 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
       <Beschreibung>Der Charakter kann am ende der Kampfrunde mehr sagen als er eigentlich dürfte. Er kann einen ungefähr 5 sekunden lange nachricht von sich geben.</Beschreibung>
       <InstantEffekt>
 
-Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
+        Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
 
-</InstantEffekt>
+      </InstantEffekt>
     </Aktion>
 
     <Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
@@ -803,23 +840,23 @@ Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige
       <Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</Beschreibung>
       <OffensivErfolg>
 
-Die Trefferzone wird nicht mehr zufällig bestimmt.
+        Die Trefferzone wird nicht mehr zufällig bestimmt.
 
-Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
-+-------------+-------------+
-| Trefferzone | Malus x     |
-+=============+=============+
-| Kopf        | 4           |
-+-------------+-------------+
-| Brust       | 1           |
-+-------------+-------------+
-| Arm         | 2           |
-+-------------+-------------+
-| Bein        | 3           |
-+-------------+-------------+
+        Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
+        +-------------+-------------+
+        | Trefferzone | Malus x     |
+        +=============+=============+
+        | Kopf        | 4           |
+        +-------------+-------------+
+        | Brust       | 1           |
+        +-------------+-------------+
+        | Arm         | 2           |
+        +-------------+-------------+
+        | Bein        | 3           |
+        +-------------+-------------+
 
 
-</OffensivErfolg>
+      </OffensivErfolg>
       <Mod ModifierType="Malus">
         <VariableModValueType Value="X"/>
       </Mod>
@@ -832,16 +869,16 @@ Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
 
     <Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
       <Beschreibung>
-Der Charakter bereitet einen gezielten Schuss vor.
+        Der Charakter bereitet einen gezielten Schuss vor.
       </Beschreibung>
       <SekundärErfolg>
-Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
+        Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
       </SekundärErfolg>
     </Aktion>
 
     <Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
       <Beschreibung>
-Der Charakter führt einen gezielten Schuss durch.
+        Der Charakter führt einen gezielten Schuss durch.
       </Beschreibung>
       <InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</InstantEffekt>
       <Mod ModifierType="Bonus">
@@ -851,7 +888,8 @@ Der Charakter führt einen gezielten Schuss durch.
 
     <Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
       <Beschreibung>
-Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.</Beschreibung>
+        Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.
+      </Beschreibung>
       <InstantEffekt>Der Angriff erfolgt diese Kampfrunde, trifft sein Ziel aber erst nächste. Dabei ist das Problem weniger den Anvisierten Punkt zu treffe, als vorherzusehen wo sich der gegner zu diesem Zeitpunkt befinden wird.</InstantEffekt>
       <Mod ModifierType="Malus">
         <ConcreteModValueType Value="2" Type="Absolute"/>
@@ -860,7 +898,7 @@ Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise
 
     <Aktion Name="Schnellschuss" Kosten="2" Typ="Offensiv">
       <Beschreibung>
-Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
+        Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
       </Beschreibung>
     </Aktion>
 
@@ -906,7 +944,7 @@ Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
     <Eigenschaften>
       <Eigenschaft Name="Präzise">
         <Beschreibung>
-Eine Waffe mit der Eigenschaft Präzise ist in der Lage die Rüstung des Gegners zu umgehen.
+          Eine Waffe mit der Eigenschaft Präzise ist in der Lage die Rüstung des Gegners zu umgehen.
         </Beschreibung>
       </Eigenschaft>
     </Eigenschaften>

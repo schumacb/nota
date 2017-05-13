@@ -33,7 +33,14 @@
             </sequence>
             <attribute name="Name" type="string" use="required"/>
             <attribute name="Kosten" type="int" use="required"/>
-            <attribute name="ArtGebunden" type="boolean" use="optional" default="false"/>
+
+            <attribute name="Gebunden" type="boolean" use="optional" default="false" >
+              <annotation >
+                <documentation xml:lang="de">
+                  Dieses Element beschreibt Besonderheiten, welche nicht frei zur verfügung stehen, sondern nur in Kombination mit einem anderen Element wie Einer Art erhalten werden kann.
+                </documentation>
+              </annotation>
+            </attribute>
           </complexType>
           <unique name="BesonderheitUniqness">
             <selector xpath=".//besonderheit:Besonderheit"/>
@@ -45,6 +52,7 @@
   </element>
 
   <element name="Besonderheit" type="nota:NamedType"/>
+
 
   <complexType name="BedingugsAuswahl">
     <choice>

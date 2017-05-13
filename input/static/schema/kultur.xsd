@@ -30,7 +30,7 @@
                   </sequence>
                 </complexType>
               </element>
-              <element name="Level" type="nota:Levels"/>
+              <element ref="nota:Levels" />
             </sequence>
             <attribute name="Name" type="string" use="required"/>
             <attribute name="Kosten" type="int" use="required"/>
