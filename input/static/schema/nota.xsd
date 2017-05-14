@@ -22,6 +22,81 @@
   <element name="Daten">
     <complexType>
       <sequence>
+        <element minOccurs="0" name="Pfade">
+          <annotation>
+            <documentation xml:lang="de">
+              Neben Gattung Kultur und Profession, können noch weitere Entscheidungen bei der Charakterschaffung beschritten werden. Welche dies sind wird an dieser Stelle definiert.
+            </documentation>
+          </annotation>
+          <complexType>
+            <sequence maxOccurs="unbounded">
+              <element  name="PfadAuswahl">
+                <complexType>
+                  <sequence >
+                    <element name="Beschreibung" type="string"/>
+                    <element name="Pfad" maxOccurs="unbounded">
+                      <complexType>
+                        <sequence>
+                          <element name="Beschreibung" type="string"/>
+                          <element name="Bedingung" maxOccurs="unbounded" minOccurs="0">
+                            <complexType>
+                              <annotation>
+                                <documentation xml:lang="de">
+                                  Falls es mindestens eine Bedingung Existiert, muss mindestens eine Bedingung Wahr sein damit die Auswahl gültig ist. Eine Bedingung ist wahr falls alle seine Kunder Wahr sind.
+                                </documentation>
+                              </annotation>
+                              <sequence>
+                                <element name="ProfessionsBedingung" type="profession:ProfessionAuswahlen" minOccurs="0" />
+                                <element name="KulturBedingung" type="kultur:KulturAuswahlen" minOccurs="0"/>
+                                <element name="GeschöpfBedingung" type="geschöpf:GeschöpfAuswahlen" minOccurs="0"/>
+                              </sequence>
+                            </complexType>
+                          </element>
+                          <element name="Modifikationen" type="geschöpf:Mods" minOccurs="0" />
+                          <choice maxOccurs="unbounded" minOccurs="0">
+                            <element ref="fertigkeit:Fertigkeit"/>
+                            <element ref="talent:Talent"/>
+                          </choice>
+                        </sequence>
+                        <attribute name="Name" type="string" use="required">
+                          <annotation>
+                            <documentation xml:lang="de">
+                              Der Name des Pfades
+                            </documentation>
+                          </annotation>
+                        </attribute>
+
+                      </complexType>
+                    </element>
+                  </sequence>
+
+                  <attribute name="Name" type="string" use="required">
+                    <annotation>
+                      <documentation xml:lang="de">
+                        Der Name der Auswahl
+                      </documentation>
+                    </annotation>
+                  </attribute>
+
+                  <attribute name="MinimumAuswahl" type="positiveInteger" default="1">
+                    <annotation>
+                      <documentation xml:lang="de">
+                        Der Nutzer muss mindestens die angegebene Anzahl an auswahlen treffen. (Default ist 1)
+                      </documentation>
+                    </annotation>
+                  </attribute>
+                  <attribute name="MaximumAuswahl" type="positiveInteger" default="1">
+                    <annotation>
+                      <documentation xml:lang="de">
+                        Der Nutzer muss mindestens die angegebene Anzahl an auswahlen treffen. (Default ist 1)
+                      </documentation>
+                    </annotation>
+                  </attribute>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
         <element ref="geschöpf:Geschöpfe"/>
         <element ref="kultur:Kulturen"/>
         <element ref="profession:Professionen"/>

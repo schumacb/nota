@@ -34,5 +34,26 @@
 
   <element name="Profession"  type="nota:NamedType"/>
 
+  <complexType name="ProfessionAuswahl">
+    <choice>
+      <element ref="profession:Or"></element>
+      <element ref="profession:And"></element>
+      <element ref="profession:Not"></element>
+      <element ref="profession:Profession"/>
+    </choice>
+  </complexType>
+  <complexType name="ProfessionAuswahlen">
+    <choice maxOccurs="unbounded">
+      <element ref="profession:Or"></element>
+      <element ref="profession:And"></element>
+      <element ref="profession:Not"></element>
+      <element ref="profession:Profession"/>
+    </choice>
+  </complexType>
+
+  <element name="Or" type="profession:ProfessionAuswahlen" />
+  <element name="And" type="profession:ProfessionAuswahlen" />
+  <element name="Not" type="profession:ProfessionAuswahl" />
+
 
 </schema>

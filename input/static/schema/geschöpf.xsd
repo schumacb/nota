@@ -67,6 +67,28 @@
 
   <element name="Geschöpf" type="nota:NamedType"/>
 
+  <complexType name="GeschöpfAuswahl">
+    <choice>
+      <element ref="geschöpf:Or"></element>
+      <element ref="geschöpf:And"></element>
+      <element ref="geschöpf:Not"></element>
+      <element ref="geschöpf:Geschöpf"/>
+    </choice>
+  </complexType>
+  <complexType name="GeschöpfAuswahlen">
+    <choice maxOccurs="unbounded">
+      <element ref="geschöpf:Or"></element>
+      <element ref="geschöpf:And"></element>
+      <element ref="geschöpf:Not"></element>
+      <element ref="geschöpf:Geschöpf"/>
+    </choice>
+  </complexType>
+
+  <element name="Or" type="geschöpf:GeschöpfAuswahlen" />
+  <element name="And" type="geschöpf:GeschöpfAuswahlen" />
+  <element name="Not" type="geschöpf:GeschöpfAuswahl" />
+
+
   <complexType name="Morph" >
     <sequence>
       <element name="Beschreibung" type="string"/>

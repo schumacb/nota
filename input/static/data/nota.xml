@@ -12,6 +12,24 @@
   xmlns:ausrüstung="http://nota.org/schema/kampf/ausrüstung"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/geschöpf ../schema/geschöpf.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd http://nota.org/schema/kampf/ausrüstung ../schema/kampf/ausrüstung.xsd">
+  <Pfade>
+    <PfadAuswahl Name="Götter">
+      <Beschreibung>
+        Der Gott dem der Charakter gewidmet ist.
+      </Beschreibung>
+      <Pfad Name="Alsa">
+        <Beschreibung>
+          Der Charakter ist ein Diener des Gottes Alsa.
+        </Beschreibung>
+        <Modifikationen>
+          <Besonderheiten xmlns="http://nota.org/schema/geschöpf">
+            <besonderheit:Besonderheit Name="Auserwählter"/>
+            <besonderheit:Besonderheit Name="Auserwählter Alsas"/>
+          </Besonderheiten>
+        </Modifikationen>
+      </Pfad>
+    </PfadAuswahl>
+  </Pfade>
   <Geschöpfe
     xmlns="http://nota.org/schema/geschöpf">
     <Geschöpf Name="Mensch" Gattung="Homo" Art="Sapiens">
@@ -711,6 +729,13 @@
         Der Charakter wurde von einem der Götter auserwählt
       </Beschreibung>
     </Besonderheit>
+
+    <Besonderheit Name="Auserwählter Alsas" Gebunden="true" Kosten="0">
+      <Beschreibung>
+        Der Charakter wurde von einem der Götter auserwählt
+      </Beschreibung>
+    </Besonderheit>
+
 
     <Besonderheit Name="Miasma Resistenz" Kosten="0">
       <Beschreibung>Der Charakter hat eine erhöte Resistenz gegen das dämonische Miasma</Beschreibung>

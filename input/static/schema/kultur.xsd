@@ -42,6 +42,27 @@
 
   <element name="Kultur" type="nota:NamedType"/>
 
+  <complexType name="KulturAuswahl">
+    <choice>
+      <element ref="kultur:Or"></element>
+      <element ref="kultur:And"></element>
+      <element ref="kultur:Not"></element>
+      <element ref="kultur:Kultur"/>
+    </choice>
+  </complexType>
+  <complexType name="KulturAuswahlen">
+    <choice maxOccurs="unbounded">
+      <element ref="kultur:Or"></element>
+      <element ref="kultur:And"></element>
+      <element ref="kultur:Not"></element>
+      <element ref="kultur:Kultur"/>
+    </choice>
+  </complexType>
+
+  <element name="Or" type="kultur:KulturAuswahlen" />
+  <element name="And" type="kultur:KulturAuswahlen" />
+  <element name="Not" type="kultur:KulturAuswahl" />
+
 
 
 </schema>
