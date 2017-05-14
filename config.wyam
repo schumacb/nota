@@ -87,7 +87,7 @@ public static class AutoLinkHelper
 			image.SetAttribute("data-content", txt);
 		}			
 			
-		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
+		return new IDocument[]{@ctx.GetDocument(doc, @ctx.GetContentStream(document.DocumentElement.OuterHtml))};	
 	}
 
 
@@ -109,7 +109,7 @@ public static class AutoLinkHelper
 			table.SetAttribute("class", "table");
 		}			
 			
-		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
+		return new IDocument[]{@ctx.GetDocument(doc,@ctx.GetContentStream(document.DocumentElement.OuterHtml))};	
 	}
 
 	public static IDocument[] FixLink(IDocument doc, IExecutionContext ctx)
@@ -148,7 +148,7 @@ public static class AutoLinkHelper
 			table.SetAttribute("href", url);
 		}			
 			
-		return new IDocument[]{@ctx.GetDocument(doc,document.DocumentElement.OuterHtml)};	
+		return new IDocument[]{@ctx.GetDocument(doc,@ctx.GetContentStream(document.DocumentElement.OuterHtml))};	
 	}
 
 	
@@ -424,7 +424,7 @@ Pipelines.Add("authorPages",
 			ReadFiles(@"template\CommitFile.cshtml")		
 		)
 	),
-	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).ChangeExtension( ".cshtml")),@doc.Content)})
+	Execute(new IDocument[]{ @ctx.GetDocument(doc,@ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile(  ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).ChangeExtension( ".cshtml")), @ctx.GetContentStream(@doc.Content))})
 );
 
 Pipelines.Add("convertAIFiles",
