@@ -1,7 +1,7 @@
 <xsl:stylesheet
         xml:space="preserve"
         xmlns:nota="http://nota.org/schema/nota"
-        xmlns:geschöpf="http://nota.org/schema/geschöpf"
+        xmlns:lebewesen="http://nota.org/schema/lebewesen"
         xmlns:kultur="http://nota.org/schema/kultur"
         xmlns:profession="http://nota.org/schema/profession"
         xmlns:talent="http://nota.org/schema/talent"
@@ -9,7 +9,7 @@
         xmlns:besonderheit="http://nota.org/schema/besonderheit"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://nota.org/schema/nota ..\..\..\..\..\static\schema\nota.xsd
-                http://nota.org/schema/geschöpf ..\..\..\..\..\static\schema\geschöpf.xsd
+                http://nota.org/schema/lebewesen ..\..\..\..\..\static\schema\lebewesen.xsd
                 http://nota.org/schema/kultur ..\..\..\..\..\static\schema\kultur.xsd
                 http://nota.org/schema/profession ..\..\..\..\..\static\schema\profession.xsd
                 http://nota.org/schema/talent ..\..\..\..\..\static\schema\talent.xsd

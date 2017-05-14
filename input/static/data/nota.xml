@@ -2,16 +2,16 @@
 <!-- This file represents a fragment of a book store inventory database -->
 <Daten
   xmlns='http://nota.org/schema/nota'
-  xmlns:geschöpf="http://nota.org/schema/wesen"
+  xmlns:lebewesen="http://nota.org/schema/wesen"
   xmlns:kultur="http://nota.org/schema/kultur"
   xmlns:profession="http://nota.org/schema/profession"
   xmlns:talent="http://nota.org/schema/talent"
   xmlns:fertigkeit="http://nota.org/schema/fertigkeit"
   xmlns:besonderheit="http://nota.org/schema/besonderheit"
   xmlns:aktionen="http://nota.org/schema/kampf/aktionen"
-  xmlns:ausrüstung="http://nota.org/schema/kampf/ausrüstung"
+  xmlns:ausstattung="http://nota.org/schema/kampf/ausstattung"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/geschöpf ../schema/geschöpf.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd http://nota.org/schema/kampf/ausrüstung ../schema/kampf/ausrüstung.xsd">
+  xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/lebewesen ../schema/Lebewesen.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd http://nota.org/schema/kampf/ausstattung ../schema/kampf/ausstattung.xsd">
   <Pfade>
     <PfadAuswahl Name="Götter">
       <Beschreibung>
@@ -22,7 +22,7 @@
           Der Charakter ist ein Diener des Gottes Alsa.
         </Beschreibung>
         <Modifikationen>
-          <Besonderheiten xmlns="http://nota.org/schema/geschöpf">
+          <Besonderheiten xmlns="http://nota.org/schema/lebewesen">
             <besonderheit:Besonderheit Name="Auserwählter"/>
             <besonderheit:Besonderheit Name="Auserwählter Alsas"/>
           </Besonderheiten>
@@ -30,9 +30,9 @@
       </Pfad>
     </PfadAuswahl>
   </Pfade>
-  <Geschöpfe
-    xmlns="http://nota.org/schema/geschöpf">
-    <Geschöpf Name="Mensch" Gattung="Homo" Art="Sapiens">
+  <Lebewesene
+    xmlns="http://nota.org/schema/lebewesen">
+    <Lebewesen Name="Mensch" Gattung="Homo" Art="Sapiens">
       <Eigenschaften>
         <Mut Durchschnitt="1" Minimum="7" Maximum="13" />
         <Glück Durchschnitt="1" Minimum="7" Maximum="13" />
@@ -64,8 +64,8 @@
         </Morph>
       </Morphe>
       <Beschreibung>...</Beschreibung>
-    </Geschöpf>
-  </Geschöpfe>
+    </Lebewesen>
+  </Lebewesene>
   <Kulturen
     xmlns="http://nota.org/schema/kultur">
     <Kultur Name="Alan" Kosten="0">
@@ -934,7 +934,7 @@
 
   </Aktionen>
 
-  <Ausrüstung xmlns="http://nota.org/schema/kampf/ausrüstung">
+  <Ausstattung xmlns="http://nota.org/schema/kampf/ausstattung">
     <Waffen>
       <Waffe Name="Floret"  Distanzklasse="2"  >
         <Schaden>
@@ -973,5 +973,5 @@
         </Beschreibung>
       </Eigenschaft>
     </Eigenschaften>
-  </Ausrüstung>
+  </Ausstattung>
 </Daten>

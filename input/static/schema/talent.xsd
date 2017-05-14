@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         xmlns:nota="http://nota.org/schema/nota"
-        xmlns:geschöpf="http://nota.org/schema/geschöpf"
+        xmlns:lebewesen="http://nota.org/schema/lebewesen"
         xmlns:kultur="http://nota.org/schema/kultur"
         xmlns:profession="http://nota.org/schema/profession"
         xmlns:talent="http://nota.org/schema/talent"
@@ -10,7 +10,7 @@
         targetNamespace="http://nota.org/schema/talent"
         elementFormDefault="qualified">
   <import namespace="http://nota.org/schema/nota" schemaLocation="nota.xsd"></import>
-  <import namespace="http://nota.org/schema/geschöpf" schemaLocation="geschöpf.xsd"></import>
+  <import namespace="http://nota.org/schema/lebewesen" schemaLocation="lebewesen.xsd"></import>
   <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
   <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
   <import namespace="http://nota.org/schema/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
