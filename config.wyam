@@ -379,7 +379,8 @@ Pipelines.Add("htmlStatic",
 		)
 	),
 	If(@doc.Source.Extension == ".xsd"||@doc.Source.Extension == ".xml",
-		Replace("http://nota.org/", $"http://{Constants.SiteURL}/")
+		Replace("http://nota.org/", $"http://{Constants.SiteURL}/"),
+		Replace("schemaLocation=\"", $"schemaLocation=\"http://{Constants.SiteURL}/schema/")
 	)
 );
 
