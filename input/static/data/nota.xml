@@ -2,6 +2,7 @@
 <!-- This file represents a fragment of a book store inventory database -->
 <Daten
   xmlns='http://nota.org/schema/nota'
+  xmlns:misc='http://nota.org/schema/misc'
   xmlns:lebewesen="http://nota.org/schema/wesen"
   xmlns:kultur="http://nota.org/schema/kultur"
   xmlns:profession="http://nota.org/schema/profession"
@@ -11,7 +12,7 @@
   xmlns:aktionen="http://nota.org/schema/kampf/aktionen"
   xmlns:ausstattung="http://nota.org/schema/kampf/ausstattung"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/lebewesen ../schema/Lebewesen.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd http://nota.org/schema/kampf/ausstattung ../schema/kampf/ausstattung.xsd">
+  xsi:schemaLocation="http://nota.org/schema/nota ../schema/nota.xsd http://nota.org/schema/lebewesen ../schema/Lebewesen.xsd http://nota.org/schema/kultur ../schema/kultur.xsd http://nota.org/schema/profession ../schema/profession.xsd http://nota.org/schema/talent ../schema/talent.xsd http://nota.org/schema/fertigkeit ../schema/fertigkeit.xsd http://nota.org/schema/besonderheit ../schema/besonderheit.xsd http://nota.org/schema/kampf/aktionen ../schema/kampf/aktionen.xsd http://nota.org/schema/kampf/ausstattung ../schema/kampf/ausstattung.xsd http://nota.org/schema/misc ../schema/misc.xsd">
   <Pfade>
     <PfadAuswahl Name="Götter">
       <Beschreibung>
@@ -73,7 +74,7 @@
       <Professionen>
         <profession:Profession Name="Bäcker"/>
       </Professionen>
-      <Levels xmlns="http://nota.org/schema/nota">
+      <Levels xmlns="http://nota.org/schema/misc">
         <Level Name="2">
           <Bedingungen>
             <LevelVoraussetzung>
@@ -89,7 +90,7 @@
     xmlns="http://nota.org/schema/profession">
     <Profession Name="Bäcker" Kosten="3">
       <Beschreibung></Beschreibung>
-      <Levels xmlns="http://nota.org/schema/nota">
+      <Levels xmlns="http://nota.org/schema/misc">
         <Level Name="Test3">
           <talent:Talent Name="Backen" Level="3"/>
           <talent:Talent Name="Backen" Level="2"/>

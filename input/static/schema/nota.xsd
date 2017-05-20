@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         xmlns:nota="http://nota.org/schema/nota"
+        xmlns:misc="http://nota.org/schema/misc"
         xmlns:lebewesen="http://nota.org/schema/lebewesen"
         xmlns:kultur="http://nota.org/schema/kultur"
         xmlns:profession="http://nota.org/schema/profession"
@@ -11,6 +12,7 @@
         xmlns:ausstattung="http://nota.org/schema/kampf/ausstattung"
         targetNamespace="http://nota.org/schema/nota"
         elementFormDefault="qualified"   >
+  <import namespace="http://nota.org/schema/misc" schemaLocation="misc.xsd"></import>
   <import namespace="http://nota.org/schema/lebewesen" schemaLocation="lebewesen.xsd"></import>
   <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
   <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
@@ -172,122 +174,5 @@
 
 
   </element>
-
-
-  <complexType name="NamedType">
-    <attribute name="Name" use="required"></attribute>
-  </complexType>
-
-  <complexType name="NamedTypeReqiredeValue">
-    <complexContent>
-      <extension base="nota:NamedType">
-        <attribute name="Wert" type="int" use="required"/>
-      </extension>
-    </complexContent>
-  </complexType>
-
-  <complexType name="NamedTypeOptionalValue">
-    <complexContent>
-      <extension base="nota:NamedType">
-        <attribute name="Wert" type="int" use="optional"/>
-      </extension>
-    </complexContent>
-  </complexType>
-
-  <element name="Levels">
-    <complexType >
-      <annotation>
-        <documentation xml:lang="de">
-          Eine Liste von leveln die in der jeweiligen Proffesion oder ähnlihcem erlernt werden kann.
-        </documentation>
-      </annotation>
-      <sequence>
-        <element name="Level" maxOccurs="unbounded">
-          <annotation>
-            <documentation xml:lang="de">
-              Das einzelen Level, welches erlernt werden kann. Diese beinhaltet die erlernten Fertigkeiten und Talente, sowie voraussetzungen.
-            </documentation>
-          </annotation>
-          <complexType>
-            <sequence>
-              <element name="Bedingungen" minOccurs="0">
-                <annotation>
-                  <documentation xml:lang="de">
-                    Die voraussetzungenm welche zum erlernen des Levels gegeben sein müssen.
-                  </documentation>
-                </annotation>
-                <complexType>
-                  <sequence>
-                    <element name="Besonderheiten" type="besonderheit:BedingugsAuswahl" minOccurs="0"  maxOccurs="1">
-                      <annotation>
-                        <documentation xml:lang="de">
-                          Die besonderheiten die ein Charakter besizten muss um dieses level zu erlernen.
-                        </documentation>
-                      </annotation>
-                    </element>
-                    <element name="LevelVoraussetzung" type="nota:LevelAuswahl" minOccurs="0"  maxOccurs="1">
-                      <annotation>
-                        <documentation xml:lang="de">
-                          Andere Level die der Charakter bereist besitzen muss um dieses Level zu erlernen.
-                        </documentation>
-                      </annotation>
-                    </element>
-                  </sequence>
-                </complexType>
-              </element>
-              <choice maxOccurs="unbounded" minOccurs="0">
-                <element ref="fertigkeit:Fertigkeit"/>
-                <element ref="talent:Talent"/>
-              </choice>
-            </sequence>
-            <attribute name="Name" use="optional" >
-              <annotation>
-                <documentation xml:lang="de">
-                  Der Name des Levels, dies wird verwendet damit andere Level auf dieses verweisen können. (Nicht übergreifend)
-                </documentation>
-              </annotation>
-            </attribute>
-          </complexType>
-
-
-
-        </element>
-      </sequence>
-    </complexType>
-    <key name="LevelPK">
-      <selector xpath='./nota:Level'/>
-      <field xpath="@Name"/>
-    </key>
-
-    <keyref name="LevelFK" refer="nota:LevelPK">
-      <selector xpath=".//nota:LevelVoraussetzung/nota:Level"/>
-      <field xpath="@Name"/>
-    </keyref>
-  </element>
-
-  <element name="Level" type="nota:NamedType"/>
-
-
-  <complexType name="LevelAuswahl">
-    <choice>
-      <element ref="nota:Or"></element>
-      <element ref="nota:And"></element>
-      <element ref="nota:Not"></element>
-      <element ref="nota:Level"/>
-    </choice>
-  </complexType>
-  <complexType name="LevelAuswahlen">
-    <choice maxOccurs="unbounded">
-      <element ref="nota:Or"></element>
-      <element ref="nota:And"></element>
-      <element ref="nota:Not"></element>
-      <element ref="nota:Level"/>
-    </choice>
-  </complexType>
-
-  <element name="Or" type="nota:LevelAuswahlen" />
-  <element name="And" type="nota:LevelAuswahlen" />
-  <element name="Not" type="nota:LevelAuswahl" />
-
 
 </schema>

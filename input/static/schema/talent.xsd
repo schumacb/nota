@@ -9,7 +9,6 @@
         xmlns:besonderheit="http://nota.org/schema/besonderheit"
         targetNamespace="http://nota.org/schema/talent"
         elementFormDefault="qualified">
-  <import namespace="http://nota.org/schema/nota" schemaLocation="nota.xsd"></import>
   <import namespace="http://nota.org/schema/lebewesen" schemaLocation="lebewesen.xsd"></import>
   <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
   <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>

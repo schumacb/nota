@@ -4,7 +4,6 @@
         xmlns:aktionen="http://nota.org/schema/kampf/aktionen"
         targetNamespace="http://nota.org/schema/kampf/aktionen"
         elementFormDefault="qualified">
-  <import namespace="http://nota.org/schema/nota" schemaLocation="../nota.xsd"></import>
 
   <element name="Aktionen">
     <complexType>
