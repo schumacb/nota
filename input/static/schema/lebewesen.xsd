@@ -124,13 +124,26 @@
     <attribute name="startAlter" type="float" use="required"/>
     <attribute name="endAlter" type="float" use="required"/>
     <attribute name="Name" use="optional" type="string"/>
-    <attribute name="minGröße" type="float" use="required"/>
+    <attribute name="minGröße" type="float" use="required">
+      <annotation>
+        <documentation xml:lang="de">
+          Die minimale Größe in m.
+        </documentation>
+      </annotation>
+    </attribute>
     <attribute name="minBMI" type="float" use="required"/>
-    <attribute name="maxGröße" type="float" use="required"/>
+    <attribute name="maxGröße" type="float" use="required">
+      <annotation>
+        <documentation xml:lang="de">
+          Die maximale Größe in m.
+        </documentation>
+      </annotation>
+    </attribute>
     <attribute name="maxBMI" type="float" use="required"/>
     <!-- Anhaltspunkte für Jugendliche (Menschen) -->
     <!-- http://www.bmi-online-rechner.de/bmi_tabelle_kinder_jugendliche.php -->
     <!-- http://www.netmoms.de/magazin/kinder/kinder-entwicklung/kinder-wachstumstabelle-2-19-jahre/ -->
+    <!-- BMI = gewicht in kg / größe in m zum quadrat => Kg = BMI * m^2 -->
   </complexType>
 
   <complexType name="EigenschaftsWert">

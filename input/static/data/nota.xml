@@ -50,7 +50,7 @@
         <Morph Name="Mann">
           <Beschreibung></Beschreibung>
           <Lebensabschnitte>
-            <Lebensabschnitt startAlter="12" endAlter="13"  minGröße="141" maxGröße="156" minBMI="15" maxBMI="21">
+            <Lebensabschnitt startAlter="12" endAlter="13"  minGröße="1.41" maxGröße="1.56" minBMI="15" maxBMI="21">
               <Beschreibung>...</Beschreibung>
             </Lebensabschnitt>
           </Lebensabschnitte>
@@ -58,7 +58,7 @@
         <Morph Name="Frau">
           <Beschreibung></Beschreibung>
           <Lebensabschnitte>
-            <Lebensabschnitt startAlter="0" endAlter="3" minGröße="144" maxGröße="158" minBMI="16" maxBMI="21">
+            <Lebensabschnitt startAlter="0" endAlter="3" minGröße="1.44" maxGröße="1.58" minBMI="16" maxBMI="21">
               <Beschreibung>...</Beschreibung>
             </Lebensabschnitt>
           </Lebensabschnitte>
