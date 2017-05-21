@@ -47,18 +47,18 @@
         <Konstitution Durchschnitt="1" Minimum="7" Maximum="13" />
       </Eigenschaften>
       <Morphe>
-        <Morph Name="Mann" minGröße="165" maxGröße="185" minGewicht="55" maxGewicht="195">
+        <Morph Name="Mann">
           <Beschreibung></Beschreibung>
           <Lebensabschnitte>
-            <Lebensabschnitt startAlter="0" endAlter="3">
+            <Lebensabschnitt startAlter="12" endAlter="13"  minGröße="141" maxGröße="156" minBMI="15" maxBMI="21">
               <Beschreibung>...</Beschreibung>
             </Lebensabschnitt>
           </Lebensabschnitte>
         </Morph>
-        <Morph Name="Frau" minGröße="155" maxGröße="180" minGewicht="50" maxGewicht="190">
+        <Morph Name="Frau">
           <Beschreibung></Beschreibung>
           <Lebensabschnitte>
-            <Lebensabschnitt startAlter="0" endAlter="3">
+            <Lebensabschnitt startAlter="0" endAlter="3" minGröße="144" maxGröße="158" minBMI="16" maxBMI="21">
               <Beschreibung>...</Beschreibung>
             </Lebensabschnitt>
           </Lebensabschnitte>

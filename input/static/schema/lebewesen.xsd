@@ -39,7 +39,7 @@
                 </complexType>
               </element>
 
-              <element name="Morphe" minOccurs="0">
+              <element name="Morphe">
                 <complexType>
                   <choice>
                     <element name="Morph" minOccurs="1" maxOccurs="unbounded" type="lebewesen:Morph" />
@@ -54,8 +54,6 @@
                 </complexType>
               </element>
               <element name="Beschreibung" type="string"/>
-              <element name="NPC" minOccurs="0"></element>
-              <element name="PC" minOccurs="0"></element>
             </sequence>
             <attribute type="string" name="Name" use="required"/>
             <attribute type="string" name="Gattung" use="required"/>
@@ -106,10 +104,6 @@
       </element>
     </sequence>
     <attribute name="Name" use="optional" type="string" />
-    <attribute name="minGröße" type="float" use="optional"/>
-    <attribute name="minGewicht" type="float" use="optional"/>
-    <attribute name="maxGröße" type="float" use="optional"/>
-    <attribute name="maxGewicht" type="float" use="optional"/>
   </complexType>
 
 
@@ -117,16 +111,26 @@
 
   <complexType name="Lebensabschnitt" >
     <sequence>
+      <element name="Spielbar" minOccurs="0">
+        <complexType>
+          <attribute name="kosten"  type="int"/>
+          <attribute name="professionsLevel"  type="positiveInteger"/>
+          <attribute name="kulturLevel"  type="positiveInteger"/>
+        </complexType>
+      </element>
       <element name="Beschreibung" type="string"/>
       <element name="Mods" minOccurs="0" type="lebewesen:Mods"/>
     </sequence>
     <attribute name="startAlter" type="float" use="required"/>
     <attribute name="endAlter" type="float" use="required"/>
     <attribute name="Name" use="optional" type="string"/>
-    <attribute name="minGröße" type="float" use="optional"/>
-    <attribute name="minGewicht" type="float" use="optional"/>
-    <attribute name="maxGröße" type="float" use="optional"/>
-    <attribute name="maxGewicht" type="float" use="optional"/>
+    <attribute name="minGröße" type="float" use="required"/>
+    <attribute name="minBMI" type="float" use="required"/>
+    <attribute name="maxGröße" type="float" use="required"/>
+    <attribute name="maxBMI" type="float" use="required"/>
+    <!-- Anhaltspunkte für Jugendliche (Menschen) -->
+    <!-- http://www.bmi-online-rechner.de/bmi_tabelle_kinder_jugendliche.php -->
+    <!-- http://www.netmoms.de/magazin/kinder/kinder-entwicklung/kinder-wachstumstabelle-2-19-jahre/ -->
   </complexType>
 
   <complexType name="EigenschaftsWert">
