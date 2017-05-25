@@ -76,6 +76,7 @@
                 <element ref="talent:Talent"/>
               </choice>
             </sequence>
+            <attributeGroup ref="misc:KostenElement"/>
             <attribute name="Name" use="optional" >
               <annotation>
                 <documentation xml:lang="de">
@@ -106,6 +107,10 @@
 
   <attributeGroup name="NamedElement">
     <attribute name="Name" use="required" type="string"></attribute>
+  </attributeGroup>
+
+  <attributeGroup name="KostenElement">
+    <attribute name="Kosten" use="optional" type="int" default="0"></attribute>
   </attributeGroup>
 
   <complexType name="LevelAuswahl">

@@ -139,7 +139,7 @@
     <sequence>
       <element name="Spielbar" minOccurs="0">
         <complexType>
-          <attribute name="kosten"  type="int"/>
+          <attributeGroup ref="misc:KostenElement"/>
           <attribute name="professionsLevel"  type="positiveInteger"/>
           <attribute name="kulturLevel"  type="positiveInteger"/>
         </complexType>

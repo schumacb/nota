@@ -60,25 +60,13 @@
                             <element ref="talent:Talent"/>
                           </choice>
                         </sequence>
-                        <attribute name="Name" type="string" use="required">
-                          <annotation>
-                            <documentation xml:lang="de">
-                              Der Name des Pfades
-                            </documentation>
-                          </annotation>
-                        </attribute>
+                        <attributeGroup ref="misc:NamedElement"/>
 
                       </complexType>
                     </element>
                   </sequence>
 
-                  <attribute name="Name" type="string" use="required">
-                    <annotation>
-                      <documentation xml:lang="de">
-                        Der Name der Auswahl
-                      </documentation>
-                    </annotation>
-                  </attribute>
+                  <attributeGroup ref="misc:NamedElement"/>
 
                   <attribute name="MinimumAuswahl" type="positiveInteger" default="1">
                     <annotation>
