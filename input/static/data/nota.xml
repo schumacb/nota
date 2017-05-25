@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <!-- This file represents a fragment of a book store inventory database -->
-<Daten
+<Daten Version='1'
   xmlns='http://nota.org/schema/nota'
   xmlns:misc='http://nota.org/schema/misc'
   xmlns:lebewesen="http://nota.org/schema/wesen"

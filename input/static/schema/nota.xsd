@@ -108,6 +108,7 @@
         <element ref="aktion:Aktionen"/>
         <element ref="ausstattung:Ausstattung"/>
       </sequence>
+      <attribute type="positiveInteger" name="Version" use="required"/>
     </complexType>
 
     <key name="BesonderheitPK">

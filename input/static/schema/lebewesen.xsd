@@ -39,6 +39,19 @@
                 </complexType>
               </element>
 
+              <element name="StandardKulturen" minOccurs="0">
+                <annotation>
+                  <documentation xml:lang="de">
+                    Die Kulturen in denen sich dieses Wesen üblicherweise aufhält.
+                  </documentation>
+                </annotation>
+                <complexType>
+                  <sequence>
+                    <element ref="kultur:Kultur" maxOccurs="unbounded"/>
+                  </sequence>
+                </complexType>
+              </element>
+              
               <element name="Morphe">
                 <complexType>
                   <choice>
@@ -91,6 +104,19 @@
   <complexType name="Morph" >
     <sequence>
       <element name="Beschreibung" type="string"/>
+      <element name="StandardKulturen" minOccurs="0">
+        <annotation>
+          <documentation xml:lang="de">
+            Die Kulturen in denen sich dieser Morph üblicherweise aufhält.
+          </documentation>
+        </annotation>
+        <complexType>
+          <sequence>
+            <element ref="kultur:Kultur" maxOccurs="unbounded"/>
+          </sequence>
+        </complexType>
+      </element>
+
       <element name="EigenschaftModifikation" minOccurs="0" type="lebewesen:EigenschaftsMods"/>
 
       <element name="Mods" minOccurs="0" type="lebewesen:Mods"/>
