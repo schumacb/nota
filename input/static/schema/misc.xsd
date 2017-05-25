@@ -11,7 +11,7 @@
   <import namespace="http://nota.org/schema/talent" schemaLocation="talent.xsd"></import>
 
   <complexType name="NamedType">
-    <attribute name="Name" use="required"></attribute>
+    <attributeGroup ref="misc:NamedElement"/>
   </complexType>
 
   <complexType name="NamedTypeReqiredeValue">
@@ -83,6 +83,7 @@
                 </documentation>
               </annotation>
             </attribute>
+            
           </complexType>
 
 
@@ -103,6 +104,9 @@
 
   <element name="Level" type="misc:NamedType"/>
 
+  <attributeGroup name="NamedElement">
+    <attribute name="Name" use="required" type="string"></attribute>
+  </attributeGroup>
 
   <complexType name="LevelAuswahl">
     <choice>

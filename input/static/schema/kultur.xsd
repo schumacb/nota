@@ -33,7 +33,7 @@
               </element>
               <element ref="misc:Levels" />
             </sequence>
-            <attribute name="Name" type="string" use="required"/>
+             <attributeGroup ref="misc:NamedElement"/>
             <attribute name="Kosten" type="int" use="required"/>
           </complexType>
         </element>

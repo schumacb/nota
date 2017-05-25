@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         xmlns:nota="http://nota.org/schema/nota"
+        xmlns:misc="http://nota.org/schema/misc"
         xmlns:lebewesen="http://nota.org/schema/lebewesen"
         xmlns:kultur="http://nota.org/schema/kultur"
         xmlns:profession="http://nota.org/schema/profession"
@@ -9,6 +10,7 @@
         xmlns:besonderheit="http://nota.org/schema/besonderheit"
         targetNamespace="http://nota.org/schema/talent"
         elementFormDefault="qualified">
+  <import namespace="http://nota.org/schema/misc" schemaLocation="misc.xsd"></import>
   <import namespace="http://nota.org/schema/lebewesen" schemaLocation="lebewesen.xsd"></import>
   <import namespace="http://nota.org/schema/kultur" schemaLocation="kultur.xsd"></import>
   <import namespace="http://nota.org/schema/profession" schemaLocation="profession.xsd"></import>
@@ -81,7 +83,8 @@
 
   <element name="Talent" >
     <complexType>
-      <attribute name="Name" type="string" use="required"/>
+
+      <attributeGroup ref="misc:NamedElement"/>
       <attribute name="Level" type="int" use="optional"/>
     </complexType>
   </element>
@@ -118,7 +121,7 @@
 
   <element name="Ableitung">
     <complexType  >
-      <attribute name="Name" type="string" use="required" />
+       <attributeGroup ref="misc:NamedElement"/>
       <attribute name="Anzahl" type="int" use="required" />
     </complexType>
   </element>

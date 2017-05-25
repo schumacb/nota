@@ -32,7 +32,7 @@
               </element>
               <element name="Bedingung" type="besonderheit:BedingugsAuswahl" minOccurs="0" />
             </sequence>
-            <attribute name="Name" type="string" use="required"/>
+             <attributeGroup ref="misc:NamedElement"/>
             <attribute name="Kosten" type="int" use="required"/>
 
             <attribute name="Gebunden" type="boolean" use="optional" default="false" >

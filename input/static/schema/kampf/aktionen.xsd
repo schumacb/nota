@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         xmlns:nota="http://nota.org/schema/nota"
+        xmlns:misc="http://nota.org/schema/misc"
         xmlns:aktionen="http://nota.org/schema/kampf/aktionen"
         targetNamespace="http://nota.org/schema/kampf/aktionen"
         elementFormDefault="qualified">
+  <import namespace="http://nota.org/schema/misc" schemaLocation="..\misc.xsd"></import>
 
   <element name="Aktionen">
     <complexType>
@@ -33,7 +35,7 @@
                 </complexType>
               </element>
             </sequence>
-            <attribute name="Name" type="string" use="required"/>
+             <attributeGroup ref="misc:NamedElement"/>
             <attribute name="Kosten" type="int" use="required"/>
             <attribute name="Typ" type="aktionen:ActionType" use="required"/>
           </complexType>
