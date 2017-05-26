@@ -74,6 +74,7 @@
               <choice maxOccurs="unbounded" minOccurs="0">
                 <element ref="fertigkeit:Fertigkeit"/>
                 <element ref="talent:Talent"/>
+                <element ref="besonderheit:Besonderheit"/>
               </choice>
             </sequence>
             <attributeGroup ref="misc:KostenElement"/>
