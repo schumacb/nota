@@ -48,7 +48,22 @@ font-weight: bold;
 
 }
 
+/* Gaben
+-------------------------------------------------- */
 
+.Gabe {
+    padding: 1em;
+    margin-top: 1em;
+    border-radius: 10;
+    border-width: 1;
+    border-color: #e0e0e0;
+    border-style: solid;
+    background-color: #f8f8f8;
+}
+
+.Gabe .Titel{
+    font-size: 24px;
+}
 
 
 /* Sticky footer styles
