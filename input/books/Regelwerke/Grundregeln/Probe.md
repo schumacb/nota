@@ -6,7 +6,15 @@ Will ein Charakter etwas machen, und möchte man wissen ob die Fähigkeiten die 
 
 Jedem Talent sind 3 Primäreigenschaften zugeordnet, mindestens zwei unterschiedliche. Für jede Eigenschaft würfelt man nun einen W20. Hat man den Wert der entsprechenden Eigenschaft erwürfelt, oder einen höheren Wert, so wurde der Wurf für diese Eigenschaft bestanden. Hat man den Zielwert jedoch nicht erreicht, so wird die erwürelte Zahl von dem realen Talentwert des Charakters abgezogen. Sollte nachdem alle Eigenschaften gewürfelt wurden der Talentwert noch Positiv sein, so hat man die Probe erfolgreich bestanden. 
 
-Neben der frage ob eine Probe geschafft wurde kann auch die abgelieferte Qualität von bedeutung sein. Diese ergibt sich aus den bei der Probe noch nicht verbrauchten Talentpunkten. Maximal können so jedoch Punkte in höhe des effektiven Tallentwertes überbehalten wederden.
+Neben der frage ob eine Probe geschafft wurde kann auch die abgelieferte Qualität von bedeutung sein. Diese ergibt sich aus den bei der Probe noch nicht verbrauchten Talentpunkten. Um die Qualität zu bestimmen kann folgende tabelle zu raten gezogen werden.
+
++----------+----+----+----+----+----+-----+-----+-----+
+|  Punkte  | 0  | 1+ | 2+ | 4+ | 8+ | 16+ | 32+ | ... |
++----------+----+----+----+----+----+-----+-----+-----+
+| Qualität | 0  | 1  | 2  | 3  | 4  |  5  |  6  | ... |
++----------+----+----+----+----+----+-----+-----+-----+
+
+Formel zur berechnung: $\(\log_2 punkte + 1\)$ mit dem Sonderfall für 0 Punkte. 
 
 ## Patzer
 

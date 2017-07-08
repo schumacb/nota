@@ -9,7 +9,7 @@
 
 #n jQuery -v [2.2.3]
 #n bootstrap -v [3.3.6]
-
+#n MathJax -v [2.7.0]
 
 // Declaration code
 using AngleSharp.Dom;
@@ -481,8 +481,10 @@ Pipelines.Add("htmlWrite",
 	Where(@doc.Source != null),
 	If(Helper.IsExtension(@doc, ".md"),
 		Markdown()
-		 .UseExtensions(),
+		//  .UseConfiguration("mathematics")
 		// .UseConfiguration("DisableHtml")
+		 .UseExtensions(),
+		 
 		Helper.ChangeExtension(".cshtml")
 	), 
 	If(Helper.IsExtension(@doc, ".cshtml"),

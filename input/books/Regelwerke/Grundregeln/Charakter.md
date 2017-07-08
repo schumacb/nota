@@ -108,9 +108,7 @@ Ein Talent besitzt einen Basiswert, Realwert und einen Effektivwert. Wenn von Ta
 Der reale Tallentwert berechnet sich aus mehren Teilen welche addiert werden:
  + Dem Basistalentwert
  + Zudem für jedes verwandte Talent einen Teil dessen Basiswertes. Wieviel dies ist hängt von dem jeweiligen Talent ab. Im Normalfall steuert jedes verwandte Talent einen Wert kleiner gleich 50% bei. In der Auflistung der Talente wird für jedes Talent angegeben welche Talente mit diesem verwandt sind.
- 
- Der Effektive Tallentwert wiederum stellt 3/4 des reallen Wertes dar.
- 
+  
 # Abgeleitet Werte
 
 Einige Werte werden anhand von anderen Werten berrechnet.
