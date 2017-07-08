@@ -103,9 +103,9 @@ Bestimmte eigenarten heben den Charakter von anderen ab. Manschmal in Positiver 
 
 Was ein Charakter kann oder auch nicht wird durch Talente festgehalten. Sie decken ein breites Feld von tätigkeiten ab welche ein Charakter ausüben kann. Jedem Talent ist ein Wert zugeordnet. Dieser bestimmt wie gut ein Charakter welches Talent beherscht.
 
-Ein Talent besitzt einen Basiswert, Realwert und einen Effektivwert. Wenn von Tallentwert gesprochen wir, ist in der Regel der reale Wert gemeint.
+Ein Talent besitzt einen Basiswert, und einen Effektivwert. Wenn von Tallentwert gesprochen wir, ist in der Regel der Effektivwert gemeint.
 
-Der reale Tallentwert berechnet sich aus mehren Teilen welche addiert werden:
+Der effektive Tallentwert berechnet sich aus mehren Teilen welche addiert werden:
  + Dem Basistalentwert
  + Zudem für jedes verwandte Talent einen Teil dessen Basiswertes. Wieviel dies ist hängt von dem jeweiligen Talent ab. Im Normalfall steuert jedes verwandte Talent einen Wert kleiner gleich 50% bei. In der Auflistung der Talente wird für jedes Talent angegeben welche Talente mit diesem verwandt sind.
   
