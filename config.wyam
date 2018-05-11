@@ -144,11 +144,79 @@ public static class AutoLinkHelper
 			   || extension == ".md")
 				url = System.IO.Path.ChangeExtension(url ,".html");
 
-
 			table.SetAttribute("href", url);
 		}			
 			
 		return new IDocument[]{@ctx.GetDocument(doc,@ctx.GetContentStream(document.DocumentElement.OuterHtml))};	
+	}
+
+private static Dictionary<string, string> externalUrlPathLoockup = new  Dictionary<string, string>();
+
+	public static IDocument[] DownloadExternaResourcs(IDocument doc, IExecutionContext ctx)
+	{
+		var parser = new AngleSharp.Parser.Html.HtmlParser();
+		//Source to be pared
+		var source = @doc.Content;
+		//Parse source to document
+		var document = parser.Parse(source);
+		//Do something with document like the following
+
+		var list = new List<IDocument>();
+
+		var images = document.QuerySelectorAll("img");
+		foreach (var image in images)
+		{			
+			var url = image.GetAttribute("src");
+			// Console.WriteLine(image.OuterHtml);
+			if(String.IsNullOrEmpty(url))
+				continue;
+
+			if(!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+				continue;
+			
+			if(url.StartsWith("https://" + Constants.SiteURL)|| url.StartsWith("http://" + Constants.SiteURL))
+				continue;
+
+			if(externalUrlPathLoockup.ContainsKey(url))
+				url = externalUrlPathLoockup[url];
+			else
+			{
+				var request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
+				string extension;
+				var response = request.GetResponse();
+				switch (response.ContentType)
+				{
+					case "image/png":
+						extension = ".png";
+						break;
+					case "image/jpeg":
+						extension = ".jpg";
+						break;
+					case "image/svg+xml":
+						extension = ".svg";
+						break;
+					default:
+						Console.WriteLine("Unsupported ContentType: " + response.ContentType + " " + url);
+						extension = "";
+						break;
+				}
+				var memoryStream = new System.IO.MemoryStream();
+				using (var responseStream = response.GetResponseStream())
+					responseStream.CopyTo(memoryStream);
+				memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+
+				var internalUrl = "image/external/"+ Guid.NewGuid()+ extension;
+				externalUrlPathLoockup.Add(url,internalUrl);
+				url = internalUrl;
+				var filePath = @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).CombineFile( new FilePath(url, PathKind.Relative));
+				var imageDocument = ctx.GetDocument(memoryStream, new []{new KeyValuePair<string,object>("RelativeFilePath",filePath) } ,true);
+				list.Add(imageDocument);
+			}
+			image.SetAttribute("src", "/"+url);
+		}			
+			
+		list.Add(@ctx.GetDocument(doc,@ctx.GetContentStream(document.DocumentElement.OuterHtml)));
+		return list.ToArray();	
 	}
 
 	
@@ -496,8 +564,10 @@ Pipelines.Add("htmlWrite",
 		// Execute(AutoLinkHelper.AddImageMetadata),
 		Execute(AutoLinkHelper.AddClassToTable),
 		Execute(AutoLinkHelper.FixLink),
-		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß')
+		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß'),
+		Execute(AutoLinkHelper.DownloadExternaResourcs, parallel: false) // this must be the last. It creates additional Image documenttes we may not manipulate those.
 	),
+	// Trace(@doc["RelativeFilePath"]),
 	WriteFiles()
 );
 
