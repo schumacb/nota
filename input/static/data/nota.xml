@@ -810,13 +810,11 @@
     <Aktion Name="Waffe Platzieren" Kosten="2" Typ="Offensiv">
       <Beschreibung>Ein Angriff der die Waffe an eine empfindliche stelle wie beispielsweise Kehle Plaziert.</Beschreibung>
       <Bedingung>Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.</Bedingung>
-      <OffensivErfolg>
+      <OffensivErfolg>Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
 
-        Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
+Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
 
-        Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
-
-        Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
+Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
 
 
       </OffensivErfolg>
@@ -845,11 +843,7 @@
 
     <Aktion Name="Reden" Kosten="1" Typ="Frei">
       <Beschreibung>Der Charakter kann am ende der Kampfrunde mehr sagen als er eigentlich dürfte. Er kann einen ungefähr 5 sekunden lange nachricht von sich geben.</Beschreibung>
-      <InstantEffekt>
-
-        Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.
-
-      </InstantEffekt>
+      <InstantEffekt>Der Charakter erhält einen Malus von 1 auf alle Aktionen. Wenn dies die einzige Aktion ist, werden die Kosten auf 0 reduziert.</InstantEffekt>
     </Aktion>
 
     <Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
@@ -864,22 +858,20 @@
 
     <Aktion Name="Gezielter Angriff" Kosten="1" Typ="Unterstützend">
       <Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</Beschreibung>
-      <OffensivErfolg>
+      <OffensivErfolg>Die Trefferzone wird nicht mehr zufällig bestimmt.
 
-        Die Trefferzone wird nicht mehr zufällig bestimmt.
-
-        Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
-        +-------------+-------------+
-        | Trefferzone | Malus x     |
-        +=============+=============+
-        | Kopf        | 4           |
-        +-------------+-------------+
-        | Brust       | 1           |
-        +-------------+-------------+
-        | Arm         | 2           |
-        +-------------+-------------+
-        | Bein        | 3           |
-        +-------------+-------------+
+Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
++-------------+-------------+
+| Trefferzone | Malus x     |
++=============+=============+
+| Kopf        | 4           |
++-------------+-------------+
+| Brust       | 1           |
++-------------+-------------+
+| Arm         | 2           |
++-------------+-------------+
+| Bein        | 3           |
++-------------+-------------+
 
 
       </OffensivErfolg>
@@ -894,18 +886,14 @@
     </Aktion>
 
     <Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
-      <Beschreibung>
-        Der Charakter bereitet einen gezielten Schuss vor.
-      </Beschreibung>
+      <Beschreibung>Der Charakter bereitet einen gezielten Schuss vor.</Beschreibung>
       <SekundärErfolg>
         Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
       </SekundärErfolg>
     </Aktion>
 
     <Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
-      <Beschreibung>
-        Der Charakter führt einen gezielten Schuss durch.
-      </Beschreibung>
+      <Beschreibung>Der Charakter führt einen gezielten Schuss durch.</Beschreibung>
       <InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</InstantEffekt>
       <Mod ModifierType="Bonus">
         <ConcreteModValueType Value="3" Type="Absolute"/>
@@ -913,8 +901,7 @@
     </Aktion>
 
     <Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
-      <Beschreibung>
-        Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.
+      <Beschreibung>Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.
       </Beschreibung>
       <InstantEffekt>Der Angriff erfolgt diese Kampfrunde, trifft sein Ziel aber erst nächste. Dabei ist das Problem weniger den Anvisierten Punkt zu treffe, als vorherzusehen wo sich der gegner zu diesem Zeitpunkt befinden wird.</InstantEffekt>
       <Mod ModifierType="Malus">
@@ -923,9 +910,7 @@
     </Aktion>
 
     <Aktion Name="Schnellschuss" Kosten="2" Typ="Offensiv">
-      <Beschreibung>
-        Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.
-      </Beschreibung>
+      <Beschreibung>Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.</Beschreibung>
     </Aktion>
 
     <Aktion Kosten="3" Name="Ausweichen" Typ="Defensiv">
