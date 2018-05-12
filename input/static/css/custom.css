@@ -112,7 +112,10 @@ padding-right: 20px;
 /* Not required for template or sticky footer method. */
 
 #wrap > .container {
-	padding-top: 60px;
+    padding-top: 60px;
+    min-height: calc(-60px + 100%);
+    display: flex;
+    flex-direction: column;
 }
 
 .twoColumn {
@@ -123,6 +126,7 @@ padding-right: 20px;
 	-moz-column-width: 25em;	
 	column-width: 25em;	
     column-fill: auto;
+    flex: auto;
 }
 
 
