@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'InitialsFont'; /*a name to be used later*/
-    src: url('/font/RomantiqueInitials.ttf'); /*URL to font*/
+    src: url('/fonts/RomantiqueInitials.ttf'); /*URL to fonts*/
 }
 
 /* Custom classes
