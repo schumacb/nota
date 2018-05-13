@@ -150,7 +150,12 @@ public static class AutoLinkHelper
 		return new IDocument[]{@ctx.GetDocument(doc,@ctx.GetContentStream(document.DocumentElement.OuterHtml))};	
 	}
 
-private static Dictionary<string, string> externalUrlPathLoockup = new  Dictionary<string, string>();
+	public static void ClearLookups()
+	{
+		externalUrlPathLoockup.Clear();
+	}
+
+	private static Dictionary<string, string> externalUrlPathLoockup = new  Dictionary<string, string>();
 
 	public static IDocument[] DownloadExternaResourcs(IDocument doc, IExecutionContext ctx)
 	{
@@ -565,6 +570,7 @@ Pipelines.Add("htmlWrite",
 		Execute(AutoLinkHelper.AddClassToTable),
 		Execute(AutoLinkHelper.FixLink),
 		HtmlEscape().WithEscapedChar('ä','ö','ü','Ä','Ö','Ü','ß'),
+		Execute((IExecutionContext  xtf)=> AutoLinkHelper.ClearLookups()),
 		Execute(AutoLinkHelper.DownloadExternaResourcs, parallel: false) // this must be the last. It creates additional Image documenttes we may not manipulate those.
 	),
 	// Trace(@doc["RelativeFilePath"]),
