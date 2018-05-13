@@ -77,10 +77,15 @@ MathJax.Ajax.config.path["Contrib"] = "/scripts/MathJax-extensions";
                 @{
                   string parentPath = @"\books";
                   bool isFirstEntry = true;
+                IList<string> bookTypeOrder = new[]{
+                  "Regelbuch",
+                  "Weltbeschreibung",
+                };
                 }
                 @foreach(var group in Documents["books"]
                     .Where(x=>x.Metadata.ContainsKey("BookType"))
-                    .GroupBy(x=>x["BookType"]))
+                    .GroupBy(x=>x["BookType"])
+                    .OrderBy(x=>bookTypeOrder.IndexOf((string)x.Key)))
                 {                  
                   <li class="dropdown-header">@group.Key</li>
 
@@ -280,7 +285,7 @@ MathJax.Ajax.config.path["Contrib"] = "/scripts/MathJax-extensions";
           }
         </div>
         <div  class="pull-left"  style="margin-left:5px">
-          <small class="text-muted" id="lastEdit" ></small>
+          <small class="text-muted hidden-xs" id="lastEdit" ></small>
         </div>
 
         <div id="licenseContent" style="display: none">
