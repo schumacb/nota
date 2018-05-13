@@ -96,14 +96,14 @@ position: relative;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
 #footer {
 margin-left: -20px;
 margin-right: -20px;
-padding-left: 20px;
+padding-left: 20px; 
 padding-right: 20px; 
 }
-}
+} */
 
 
 
@@ -127,6 +127,8 @@ padding-right: 20px;
 	column-width: 25em;	
     column-fill: auto;
     flex: auto;
+    column-gap: 3em;
+    column-rule: lightgray solid 1px;
 }
 
 
@@ -144,6 +146,13 @@ padding-right: 20px;
     column-span: all;
     -webkit-column-span: all;
     -moz-column-span: all;
+}
+
+
+.twoColumn h1, .twoColumn h2, .twoColumn h3, .twoColumn h4, .twoColumn h5, .twoColumn h6 {
+    break-after: avoid-column;
+    -webkit-column-break-after: avoid;
+    page-break-after: avoid;
 }
 
 .container .credit {
