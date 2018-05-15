@@ -26,6 +26,7 @@ font-weight: bold;
     border-color: #e0e0e0;
     border-style: solid;
     background-color: #f8f8f8;
+    break-inside: avoid;
 }
 
 .Action{
@@ -36,6 +37,7 @@ font-weight: bold;
     border-color: #e0e0e0;
     border-style: solid;
     background-color: #f8f8f8;
+    break-inside: avoid;
 }
 
 .Action h2{
@@ -59,6 +61,7 @@ font-weight: bold;
     border-color: #e0e0e0;
     border-style: solid;
     background-color: #f8f8f8;
+    break-inside: avoid;
 }
 
 .Gabe .Titel{
