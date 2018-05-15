@@ -30,7 +30,7 @@ Je nach gespielten Aktion werden Proben auf ein oder mehrere Talente benötigt. 
 
 Je mehr Aktionen ein Charakter durchführt desto weniger richtet die einzelne Aktion aus. Die Aktionswerte jeder Aktion werden durch die Anzahl der Aktionen (inkl. Bewegung) geteilt (abrunden).
 
-Besitzt eine Aktion Modifikatioren, so wird in der Regel nur der Aktionswert der Probe modifiziert, nicht aber die Probe selbst. Es gibt verschiedene Arten von Modifikationen. Absolute und Prozentuale. Dabei gilt Prozentualle Modifikationen werden vor Absuluten angewendet und mehrer prozentuale Modifikatoren werden addiert bevor sie angewendet werden. Werden Aktionswerte miteinander verglichen, so gillt ist der Aktionswert einer Aktion dessen Probe nicht geglückt ist kleiner als jede Aktion deren Probe gelungen ist.
+Besitzt eine Aktion Modifikatioren, so wird in der Regel nur der Aktionswert der Probe modifiziert, nicht aber die Probe selbst. Es gibt verschiedene Arten von Modifikationen. Absolute und Prozentuale. Dabei gilt Prozentualle Modifikationen werden vor Absuluten angewendet und mehrer prozentuale Modifikatoren werden addiert bevor sie angewendet werden. Werden Aktionswerte miteinander verglichen, so gillt der Aktionswert einer Aktion, dessen Probe nicht geglückt ist, kleiner als jede Aktion deren Probe gelungen ist.
 
 :::Bsp
 Führt ein Charakter zwei Aktionen durch eine mit einem Malus von 1, eine mit einem Bonus von 1 und Erreicht bei seiner Probe einen Wert von 3, so besitzt die erste Aktion einen Aktionswert von 2 und die zweite Aktion einen Aktionswert von 4.
