@@ -858,23 +858,19 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
 
     <Aktion Name="Gezielter Angriff" Kosten="1" Typ="Unterstützend">
       <Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</Beschreibung>
-      <OffensivErfolg>Die Trefferzone wird nicht mehr zufällig bestimmt.
+      <OffensivErfolg>Die bestimmung der Trefferzone (W20 Gliedmaße) kann x mal wiederholt werden. Das Letzte Ergebniss muss genommen werden.</OffensivErfolg>
+      <Mod ModifierType="Malus">
+        <MultiplyModValueType>
+          <VariableModValueType Value="X"/>
+          <VariableModValueType Value="X"/>
+        </MultiplyModValueType>
+      </Mod>
+    </Aktion>
 
-Der Malus wird bestimmt in abhänigkeit des anvisierten Körperteils:
-+-------------+-------------+
-| Trefferzone | Malus x     |
-+=============+=============+
-| Kopf        | 4           |
-+-------------+-------------+
-| Brust       | 1           |
-+-------------+-------------+
-| Arm         | 2           |
-+-------------+-------------+
-| Bein        | 3           |
-+-------------+-------------+
-
-
-      </OffensivErfolg>
+    <Aktion Name="Präziser Angriff" Kosten="1" Typ="Unterstützend">
+      <Beschreibung>Erlaubt dem Angreifer an der Rüstung des Gegners Vorbei zu stechen..</Beschreibung>
+      <Bedingung>Nur mit Präzisen Waffen möglich.</Bedingung>
+      <OffensivErfolg>Bei genauer bestimmung der Trefferzone (W10) kann x zum Ergebniss Addiert oder Subtrahiert werden.</OffensivErfolg>
       <Mod ModifierType="Malus">
         <VariableModValueType Value="X"/>
       </Mod>

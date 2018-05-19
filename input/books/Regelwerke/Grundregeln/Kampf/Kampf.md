@@ -184,7 +184,9 @@ Sollte ein Charakter genug in bedrängniss geraten, kann er verletzungen erleide
 
 ### Trefferzonen
 
-Je nach art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt wurde. 
+Je nach Art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt wurde. Dazu wird ein W20 und ein W10 geworfen. Der W20 gibt die Gliedmaße an welche getroffen wurde. Muss genauer bestimmt werden wo der Treffer landet, wird der W10 zu rate gezogen. Dies ist in erster Linie wichtig bei Rüstungen. Muss die stelle nicht genauer bestimmt werden, so muss auch kein zweiter Würfel geworfen werden. 
+
+Die Zuordnung des W20 zu den Einzelnen Zonen ist wiefolgt.
 
 +:-----------:+:------------------:+------:+
 | Trefferzone | Wahrscheinlichkeit | W20   |
@@ -204,7 +206,9 @@ Je nach art der Verletzung ist es nötig die Zone zu bestimmen, welche verletzt 
 | Rechtes Bein| 15%                |(18-20)|
 +-------------+--------------------+-------+
 
-Wenn es nötig ist kann auch ein zweiter W20 geworfen werden um die Trefferzone weiter auf eine von 10 Zonen einzugrenzen. Hierzu wird das ergebniss des W20 halbiert und bei bedarf aufgerundet. Der effizienz halber sollten beide Würfel gleichzeitig geworfen werden, auch wenn eventuell nur einer benötigt wird.
+:::Info
+Die Aufteilung ist Kompatible zu DSA 4.1, daher können auch Hilfsmittel zur Zonenbestimmung verwendet werden die Kompatible zu DSA 4.1 sind.
+:::
 
 ### Wunden
 
@@ -231,7 +235,7 @@ Foraussetzung zum Abbau der Blutpunkte ist Ruhe und genügend flüssigkeit und N
 Neben Wunden, verursacht eine Verletzung auch Schmerzen. Diese fließen als weitere Mali in den Kampf ein. Jede Kampfrunde baut sich ein Schmerzensmali ab.
 
 ### Schadensarten
-Je nach art der Waffe versucht sie unterschiedliche arten von Schaden.
+Je nach Art der Waffe versucht sie unterschiedliche arten von Schaden.
 Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt beispielsweise in erster linie Wucht schaden, aber auch zusätzlich Schnittschaden.
 
 + **Wucht**
