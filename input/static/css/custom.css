@@ -128,7 +128,7 @@ padding-right: 20px;
 	-webkit-column-width: 25em;	
 	-moz-column-width: 25em;	
 	column-width: 25em;	
-    column-fill: auto;
+    column-fill: balance;
     flex: auto;
     column-gap: 3em;
     column-rule: lightgray solid 1px;
