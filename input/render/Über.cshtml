@@ -1,128 +1,76 @@
-Title: Über
-Order: 2
----
+Title: Über Order: 2 ---
 
 <p>
-  Die Seite wurde mit hilfe verschiedener Bibliotheken erstellt:
-  <ul>
-    <li>Bootstrap<small>(<a title="Lizenz" href="https://github.com/twbs/bootstrap/blob/0b9c4a4007c44201dce9a6cc1a38407005c26c86/LICENSE">MIT</a>)</small></li>
-    <li>jQuerry<small>(<a title="Lizenz" href="https://github.com/jquery/jquery/blob/18c9efdafae6ec6f959e9bfa3537b83706e4aaa2/LICENSE.txt">MIT</a>)</small></li>
-    <li>MathJax<small>(<a title="Lizenz" href="https://github.com/mathjax/MathJax/blob/6273842a9746731b9ecca0de18ec9fd50a36df99/LICENSE">Apache 2.0</a>)</small></li>
-    <li>MathJax-Accessibility<small>(<a title="Lizenz" href="https://github.com/mathjax/MathJax-a11y/blob/579e687110746c5f8b07ba023e7e29e52b5c4c90/LICENSE">Apache 2.0</a>)</small></li>
-    <li>Wyam<small>(<a title="Lizenz" href="https://github.com/Wyamio/Wyam/blob/c63852b0ab63a4eedc22bc81ea47b94729a7e4c7/LICENSE">MIT</a>)</small></li>
-  </ul>
-  Die Sourcen aus denen sie generiert wird können auf <a href="@Constants.GitUrl">Github</a> gefunden werden.
-</p>
-
-<p>
-  Zur erstellung wird AppVeyor verwendet. Der Build status kann auf <a title="Build status" href="https://ci.appveyor.com/project/LokiMidgard/nota">dieser Seite</a> eingesehen werden.
+    Die Seite wurde mit hilfe verschiedener Bibliotheken erstellt:
+    <ul>
+        <li>Bootstrap<small>(<a title="Lizenz" href="https://github.com/twbs/bootstrap/blob/0b9c4a4007c44201dce9a6cc1a38407005c26c86/LICENSE">MIT</a>)</small></li>
+        <li>jQuerry<small>(<a title="Lizenz" href="https://github.com/jquery/jquery/blob/18c9efdafae6ec6f959e9bfa3537b83706e4aaa2/LICENSE.txt">MIT</a>)</small></li>
+        <li>MathJax<small>(<a title="Lizenz" href="https://github.com/mathjax/MathJax/blob/6273842a9746731b9ecca0de18ec9fd50a36df99/LICENSE">Apache 2.0</a>)</small></li>
+        <li>MathJax-Accessibility<small>(<a title="Lizenz" href="https://github.com/mathjax/MathJax-a11y/blob/579e687110746c5f8b07ba023e7e29e52b5c4c90/LICENSE">Apache 2.0</a>)</small></li>
+        <li>Wyam<small>(<a title="Lizenz" href="https://github.com/Wyamio/Wyam/blob/c63852b0ab63a4eedc22bc81ea47b94729a7e4c7/LICENSE">MIT</a>)</small></li>
+    </ul>
+    Die Sourcen aus denen sie generiert wird können auf <a href="@Constants.GitUrl">Github</a> gefunden werden.
 </p>
 
 <p>
-Die Texte dieser Seite unterstehen, sofern nicht anders angegeben, <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.
+    Zur erstellung wird AppVeyor verwendet. Der Build status kann auf <a title="Build status" href="https://ci.appveyor.com/project/LokiMidgard/nota">dieser Seite</a> eingesehen werden.
+</p>
+
+<p>
+    Die Texte dieser Seite unterstehen, sofern nicht anders angegeben, <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.
 </p>
 <p>
-Als Namennennung reicht "Unterstützer des @Constants.ProjectName Projekt". Falls eine genaue zuordnung zu einer Person gewüncht ist, so kann diese unter <a  href="@Constants.GitUrl">GitHub</a> in der Historie der Daten eingesehen werden.
+    Als Namennennung reicht "Unterstützer des @Constants.ProjectName Projekt". Falls eine genaue zuordnung zu einer Person gewüncht ist, so kann diese unter <a href="@Constants.GitUrl">GitHub</a> in der Historie der Daten eingesehen werden.
 </p>
 <p>
-Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.	
+    Andere Resourcen wie z.B. Bilder können anderen Bestimmungen unterliegen.
 </p>
 
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#resourceTable" aria-expanded="false" aria-controls="resourceTable">
   Genutzte Resourcen
 </button>
 <table class="table table-hover collapse" id="resourceTable">
-<thead>
-  <th> Datei </th>
-  <th> Public Domain status </th>
-  <th> Uhrheber </th>
-  <th> Lizenz </th>
-  </thead>
-  <tbody>
-    @foreach(var doc in Documents["htmlWrite"])
-    {
-      var hasMetadata = false;
-      bool? rightsReserved = null;
-      string creator=null;
-      string copyright=null;
-      bool isImage = false;
+    <thead>
+        <th> Datei </th>
+        <th> Public Domain status </th>
+        <th> Uhrheber </th>
+        <th> Lizenz </th>
+    </thead>
+    <tbody>
+        @foreach(var doc in Documents["htmlWrite"]) { var hasMetadata = false; bool? rightsReserved = null; string creator=null; string copyright=null; bool isImage = false; @if(null!=@doc.Get
 
-   @if(null!=@doc.Get<bool?>("RightsReserved"))
-      {
-        hasMetadata = true;
-        rightsReserved = doc.Get<bool?>("RightsReserved");
-      }
-      @if(doc.ContainsKey("Creator"))
-      {
-        hasMetadata = true;
-        creator =(string) doc["Creator"];
-      }      
-      @if(@doc.ContainsKey("Copyright"))
-      {
-        hasMetadata = true;
-        @if(doc["Copyright"] is Object[])
-        {
-          copyright = (doc["Copyright"] as Object[])[0].ToString();
-        } 
-        else
-        {
-          copyright = doc["Copyright"].ToString();          
-        }
-      }
-
-      
-      var extension = ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension;
-      
-
-
-      @switch(extension)
-      {
-        case ".png":
-          isImage=true;
-          break;
-      }
-      
-      @if(hasMetadata)
-      {
-        <tr>
-          @if(isImage)
-          {
-            <td>
-            <img class="img-responsive" src="@doc["RelativeFilePath"]" />
-            </td>
-          }                      
-          else
-          {
-            <td>
-            <a class="img-responsive" href="@doc["RelativeFilePath"]">
+        <bool?>("RightsReserved")) { hasMetadata = true; rightsReserved = doc.Get
+            <bool?>("RightsReserved"); } @if(doc.ContainsKey("Creator")) { hasMetadata = true; creator =(string) doc["Creator"]; } @if(@doc.ContainsKey("Copyright")) { hasMetadata = true; @if(doc["Copyright"] is Object[]) { copyright = (doc["Copyright"] as Object[])[0].ToString();
+                } else { copyright = doc["Copyright"].ToString(); } } var extension = ((Wyam.Common.IO.FilePath)@doc["RelativeFilePath"]).Extension; @switch(extension) { case ".png": isImage=true; break; } @if(hasMetadata) {
+                <tr>
+                    @if(isImage) {
+                    <td>
+                        <img class="img-responsive" src="@doc[" RelativeFilePath "]" />
+                    </td>
+                    } else {
+                    <td>
+                        <a class="img-responsive" href="@doc[" RelativeFilePath "]">
             @doc["RelativeFilePath"]
             </a>
-            </td>
-          }
-          
-          @if(rightsReserved.HasValue && !rightsReserved.Value)
-          {
-            <td>
-            Public Domain
-            </td>
-          }
-          else
-          {
-            <td>
-            </td>
-          }
-          
-          <td>
-            @creator
-          </td>
-          <td>
-             @( Html.Raw(copyright))
-          </td>
-                
-        </tr>
-        
-      }
+                    </td>
+                    } @if(rightsReserved.HasValue && !rightsReserved.Value) {
+                    <td>
+                        Public Domain
+                    </td>
+                    } else {
+                    <td>
+                    </td>
+                    }
 
-    }
-  </tbody>           
+                    <td>
+                        @creator
+                    </td>
+                    <td>
+                        @( Html.Raw(copyright))
+                    </td>
+
+                </tr>
+
+                } }
+    </tbody>
 </table>
