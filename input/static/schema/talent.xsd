@@ -46,12 +46,12 @@
                 <complexType>
                   <sequence>
                     <element name="Bedingung" maxOccurs="unbounded">
-                      <complexType>
-                        <choice maxOccurs="unbounded">
-                          <element ref="talent:Talent"/>
-                          <element ref="fertigkeit:Fertigkeit"/>
-                        </choice>
-                        <attribute name="Wert"></attribute>
+                      <complexType  >
+                        <complexContent>
+                          <extension base="misc:BedingungsAuswahl">
+                            <attribute name="Wert"></attribute>
+                          </extension>
+                        </complexContent> 
                       </complexType>
                       <unique name="WertUniqueForBedingung">
                         <selector xpath=".//Bedingung"></selector>

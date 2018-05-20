@@ -22,14 +22,7 @@
         <element name="Fertigkeit" minOccurs="0" maxOccurs="unbounded">
           <complexType>
             <sequence>
-              <element name="Voraussetzung" minOccurs="0">
-                <complexType>
-                  <choice maxOccurs="unbounded">
-                    <element ref="talent:Talent" />
-                    <element ref="fertigkeit:Fertigkeit" />
-                  </choice>
-                </complexType>
-              </element>
+              <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0"/>
               <element name="Beschreibung" type="string"></element>
             </sequence>
             <attribute type="string" name="Name" use="required"/>

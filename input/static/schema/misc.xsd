@@ -54,7 +54,7 @@
                 </annotation>
                 <complexType>
                   <sequence>
-                    <element name="Besonderheiten" type="besonderheit:BedingugsAuswahl" minOccurs="0"  maxOccurs="1">
+                    <element name="Besonderheiten" type="misc:BedingungsAuswahl" minOccurs="0"  maxOccurs="1">
                       <annotation>
                         <documentation xml:lang="de">
                           Die besonderheiten die ein Charakter besizten muss um dieses level zu erlernen.
@@ -116,24 +116,50 @@
 
   <complexType name="LevelAuswahl">
     <choice>
-      <element ref="misc:Or"></element>
-      <element ref="misc:And"></element>
-      <element ref="misc:Not"></element>
+      <element name="Or" type="misc:LevelAuswahlen" />
+      <element name="And" type="misc:LevelAuswahlen" />
+      <element name="Not" type="misc:LevelAuswahl" />
       <element ref="misc:Level"/>
     </choice>
   </complexType>
   <complexType name="LevelAuswahlen">
     <choice maxOccurs="unbounded">
-      <element ref="misc:Or"></element>
-      <element ref="misc:And"></element>
-      <element ref="misc:Not"></element>
+      <element name="Or" type="misc:LevelAuswahlen" />
+      <element name="And" type="misc:LevelAuswahlen" />
+      <element name="Not" type="misc:LevelAuswahl" />
       <element ref="misc:Level"/>
     </choice>
   </complexType>
 
-  <element name="Or" type="misc:LevelAuswahlen" />
-  <element name="And" type="misc:LevelAuswahlen" />
-  <element name="Not" type="misc:LevelAuswahl" />
 
+  <complexType name="BedingungsAuswahl">
+    <choice minOccurs="1">
+      <element name="Or" type="misc:BedingungsAuswahlen" />
+      <element name="And" type="misc:BedingungsAuswahlen" />
+      <element name="Not" type="misc:BedingungsAuswahl" />
+      <element ref="fertigkeit:Fertigkeit"/>
+      <element ref="talent:Talent"/>
+      <element ref="besonderheit:Besonderheit"/>
+    </choice>
+  </complexType>
+  <complexType name="BedingungsAuswahlen">
+    <choice maxOccurs="unbounded" minOccurs="1">
+      <element name="Or" type="misc:BedingungsAuswahlen" />
+      <element name="And" type="misc:BedingungsAuswahlen" />
+      <element name="Not" type="misc:BedingungsAuswahl" />
+      <element ref="fertigkeit:Fertigkeit"/>
+      <element ref="talent:Talent"/>
+      <element ref="besonderheit:Besonderheit"/>
+    </choice>
+  </complexType>
+
+
+
+
+  <!--<element name="Or" type="misc:LevelAuswahlen" />
+  <element name="And" type="misc:LevelAuswahlen" />
+  <element name="Not" type="misc:LevelAuswahl" />-->
+
+  
 
 </schema>
