@@ -1,8 +1,90 @@
 @{
   Layout = @"base.cshtml";
 }
+<div id="contents" class="bookConent">
+  <span style="overflow:visible"><div class="openbtn" onclick="toggleContent()">&#128209;</div></span>
+  
+ <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+    <div class="index">
+      
+  @{
+    var parent = GetRoot(Model);
+@:<ul class="nav nav-stacked">
+    var stack = new Stack<IDocument>();
+      stack.Push(parent);
+      IDocument current = null;
+      while(stack.Count >0){
+          if(current !=null && current != parent && current.Metadata.ContainsKey(Keys.NextSibling) && current.Metadata[Keys.NextSibling]==null){
+        @:</ul>
+        @:</li>
+      }
+        current = stack.Pop();
+        string name;
+        if(current.Metadata.ContainsKey("Title")){
+          name = current.Metadata["Title"] as string;
+        }
+        else{
+          name = current.Metadata["RelativeFilePath"].ToString();
+        }
+        @:<li><a href="/@current.Metadata["RelativeFilePath"]">@name</a>
+      
+      var childrean = current.Metadata[Keys.Children] as IReadOnlyCollection<IDocument>;
+        if(childrean.Count > 0){
+          @:<ul>
+        }
+else{
+          @:</li>
+
+}      
+      foreach(var x in childrean.Reverse()){
+        stack.Push(GetActualDocument(x));
+      }
+      }
+
+  }
+</div>
+</div>
+<script>
+function toggleContent() {
+  let element = document.getElementById("contents");
+  if(element.className === "bookConent"){
+    element.className = "bookConent bookConent-close";
+  }
+  else {
+    element.className = "bookConent";
+  }
+}
+</script>
 <div class="twoColumn">
 <div class="content">
         @RenderBody()
 </div>
 </div>
+
+@functions {
+  IDocument GetRoot(IDocument doc) {
+    var currentDoc = @doc;
+    while(currentDoc.Metadata.ContainsKey(Keys.Parent)){
+      var parentDocument = (IDocument)currentDoc.Metadata[Keys.Parent];
+      parentDocument=GetActualDocument(parentDocument);
+      if(parentDocument == null)
+        return currentDoc;
+      
+      currentDoc = parentDocument;
+    }
+    return currentDoc;
+  }
+
+  IDocument GetActualDocument(IDocument doc) {
+    if(doc==null){
+      return null;
+    }
+    if(!doc.Metadata.ContainsKey("ID")){
+      return null;
+      throw new ArgumentException("doc", $"ID was not set. {doc.Metadata["RelativeFilePath"]}");
+    }
+    var id = doc.Metadata["ID"] as string;
+    var referencedDocument = Documents["books"].FirstOrDefault(d=> d.Metadata.String("ID", null) == id);
+    return referencedDocument;
+  }
+}

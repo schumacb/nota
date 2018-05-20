@@ -342,7 +342,7 @@ Pipelines.Add("books",
 //System.Linq.Enumerable.FirstOrDefault();
 
 			var referencedDocument = currentContext.Documents.FromPipeline("books").FirstOrDefault(d=> d.Metadata.String("ID", null) == id);
-var test = currentContext.Documents.FromPipeline("books").Select(d=> d.Metadata.String("ID", null));
+// var test = currentContext.Documents.FromPipeline("books").Select(d=> d.Metadata.String("ID", null));
 
 			return referencedDocument?.Content ?? "[Error refference not found]";
 		}
@@ -470,7 +470,7 @@ Pipelines.Add("authorPages",
 	GitContributors(),
 	Meta("RelativeFilePath", @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).GetRelativePath( @ctx.FileSystem.RootPath.Combine(@ctx.FileSystem.OutputPath).Combine( new Wyam.Common.IO.DirectoryPath("author")).CombineFile((string)@doc["ContributorEmail"]+".html").ChangeExtension(".cshtml"))),
 	Meta("Title", @doc["ContributorName"]),
-	Meta("Layout", @"book.cshtml"),
+	Meta("Layout", @"twoColumns.cshtml"),
 	Content(
 		ReadFiles(@"template\author.cshtml")		
 	),
@@ -514,8 +514,7 @@ Pipelines.Add("convertAIFiles",
 	Meta("RelativeFilePath", ((DirectoryPath) @"downloads").CombineFile(((DirectoryPath) @"misc\documents\source").GetRelativePath( (FilePath)@doc["RelativeFilePath"]).ChangeExtension(".pdf")))
 );
 
-
-Pipelines.Add("htmlWrite",
+Pipelines.Add("beforeHtmlWrite",
 	Documents("htmlBooksPrepare"),
 	Concat(	
 		Documents("htmlBootstrap")
@@ -549,7 +548,11 @@ Pipelines.Add("htmlWrite",
 	),
 	Concat(	
 		Documents("authorPages")
-	),
+	)
+);
+
+Pipelines.Add("htmlWrite",
+	Documents("beforeHtmlWrite"),
 	Where(!@doc.Metadata.Bool("hide", false)),
 	Where(@doc.Source != null),
 	If(Helper.IsExtension(@doc, ".md"),
