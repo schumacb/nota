@@ -336,3 +336,7 @@ dd .label {
     list-style: none;
     list-style-position: outside;
 }
+
+.index il {
+    padding-top: 0px;
+}
