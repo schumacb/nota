@@ -11,5 +11,24 @@
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 80,
     "editor.wrappingIndent": "indent",
-    "editor.renderWhitespace": "boundary"
+    "editor.renderWhitespace": "boundary",
+    "spellright.language": "de",
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "spellright.ignoreRegExpsByClass": {
+        "markdown": [
+            "/^:::{[^}]*}/g",
+            "/^:::.*$/gm",
+            "/inkl\\\\./g",
+            "/lat\\\\./g",
+            "/^(.|\\\\r?\\\\n)*\\\\r?\\\\n---\\\\r?\\\\n/g",
+            "/§\\\\\"[^\\\\\"]*\\\\\"/g"
+        ]
+    },
+    "spellright.ignoreFiles": [
+        "**/*.*.meta"
+    ]
 }

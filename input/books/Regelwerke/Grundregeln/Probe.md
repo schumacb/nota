@@ -4,7 +4,7 @@ Title: 'Proben'
 
 Will ein Charakter etwas machen, und möchte man wissen ob die Fähigkeiten die er dafür benötigt ausreichen, so muss dieser eine Probe auf ein zu der Tätigkeit passendes Talent ablegen.
 
-Jedem Talent sind 3 Primäreigenschaften zugeordnet, mindestens zwei unterschiedliche. Für jede Eigenschaft würfelt man nun einen W20. Hat man den Wert der entsprechenden Eigenschaft erwürfelt, oder einen höheren Wert, so wurde der Wurf für diese Eigenschaft bestanden. Hat man den Zielwert jedoch nicht erreicht, so wird die erwürelte Zahl von dem realen Talentwert des Charakters abgezogen. Sollte nachdem alle Eigenschaften gewürfelt wurden der Talentwert noch Positiv sein, so hat man die Probe erfolgreich bestanden. 
+Jedem Talent sind 3 Primäreigenschaften zugeordnet, mindestens zwei unterschiedliche. Für jede Eigenschaft würfelt man nun einen W20. Hat man den Wert der entsprechenden Eigenschaft erwürfelt, oder einen höheren Wert, so wurde der Wurf für diese Eigenschaft bestanden. Hat man den Zielwert jedoch nicht erreicht, so wird die erwürfelte Zahl von dem realen Talentwert des Charakters abgezogen. Sollte nachdem alle Eigenschaften gewürfelt wurden der Talentwert noch Positiv sein, so hat man die Probe erfolgreich bestanden. 
 
 Neben der frage ob eine Probe geschafft wurde kann auch die abgelieferte Qualität von Bedeutung sein. Diese ergibt sich aus den bei der Probe noch nicht verbrauchten Talentpunkten. Um die Qualität zu bestimmen kann folgende Tabelle zu raten gezogen werden.
 

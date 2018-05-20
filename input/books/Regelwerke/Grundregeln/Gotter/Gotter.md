@@ -3,7 +3,7 @@ Title: 'Götter'
 
 ---
 
-Ein Charakter der von einem Gott auserweäht wurde, hat zugriff auf zusätzliche vom jeweiligen Gott abhänigen Gaben.
+Ein Charakter der von einem Gott auserwählt wurde, hat zugriff auf zusätzliche vom jeweiligen Gott abhängigen Gaben.
 
 Zusätzlich erhalten sie zugriff auf folgende Vorteile:
 
