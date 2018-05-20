@@ -164,7 +164,7 @@
             <simpleType>
               <restriction base="int">
                 <minInclusive value="1"/>
-                <maxInclusive value="20"/>
+                <maxInclusive value="10"/>
               </restriction>
             </simpleType>
           </attribute>
@@ -172,7 +172,7 @@
             <simpleType>
               <restriction base="int">
                 <minInclusive value="1"/>
-                <maxInclusive value="20"/>
+                <maxInclusive value="10"/>
               </restriction>
             </simpleType>
           </attribute>
