@@ -1,20 +1,22 @@
 @{
   Layout = @"base.cshtml";
 }
-<div id="contents" class="bookConent">
-  <span style="overflow:visible"><div class="openbtn" onclick="toggleContent()">&#128209;</div></span>
+<div id="bookConent" class="bookConent bookConent-close">
+  <span style="overflow:visible;"><div class="openbtn" onclick="toggleContent()">&#128209;</div></span>
   
  <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
     <div class="index">
       
   @{
-    var parent = GetRoot(Model);
-@:<ul class="nav nav-stacked">
+    var root = GetRoot(Model);
+    var generatingDocumentId= GetId(Model);
+    var counter = 0;
+@:<ul>
     var stack = new Stack<IDocument>();
-      stack.Push(parent);
+      stack.Push(root);
       IDocument current = null;
       while(stack.Count >0){
-          if(current !=null && current != parent && current.Metadata.ContainsKey(Keys.NextSibling) && current.Metadata[Keys.NextSibling]==null){
+          if(current !=null && current != root && current.Metadata.ContainsKey(Keys.NextSibling) && current.Metadata[Keys.NextSibling]==null){
         @:</ul>
         @:</li>
       }
@@ -26,14 +28,38 @@
         else{
           name = current.Metadata["RelativeFilePath"].ToString();
         }
-        @:<li><a href="/@current.Metadata["RelativeFilePath"]">@name</a>
-      
+        
+        bool isSelected;
+        if(GetId(current) == generatingDocumentId){
+          isSelected = true;
+        }else{
+          isSelected = false;
+        }
+
+
+       @:<li>
       var childrean = current.Metadata[Keys.Children] as IReadOnlyCollection<IDocument>;
         if(childrean.Count > 0){
+          var id = $"bookContentSection{counter++}";
+          if(current.Metadata.ContainsKey("ID") && IsDocumentOnPathToRoot(Model, current)){
+            @:<input type="checkbox" id="@id" checked />
+          }else{
+            @:<input type="checkbox" id="@id" />
+          }
+          if(isSelected){
+            @:<label for="@id"class="selected" ><a href="/@current.Metadata["RelativeFilePath"]">@name</a></label>
+          }else{
+            @:<label for="@id"><a href="/@current.Metadata["RelativeFilePath"]">@name</a></label>
+          }
           @:<ul>
         }
 else{
-          @:</li>
+  if(isSelected){
+    @:<label class="leaf selected"><a href="/@current.Metadata["RelativeFilePath"]">@name</a></label>
+  } else{
+    @:<label class="leaf"><a href="/@current.Metadata["RelativeFilePath"]">@name</a></label>
+  }
+         @:</li>
 
 }      
       foreach(var x in childrean.Reverse()){
@@ -46,7 +72,7 @@ else{
 </div>
 <script>
 function toggleContent() {
-  let element = document.getElementById("contents");
+  let element = document.getElementById("bookConent");
   if(element.className === "bookConent"){
     element.className = "bookConent bookConent-close";
   }
@@ -63,7 +89,7 @@ function toggleContent() {
 
 @functions {
   IDocument GetRoot(IDocument doc) {
-    var currentDoc = @doc;
+    var currentDoc = doc;
     while(currentDoc.Metadata.ContainsKey(Keys.Parent)){
       var parentDocument = (IDocument)currentDoc.Metadata[Keys.Parent];
       parentDocument=GetActualDocument(parentDocument);
@@ -75,16 +101,40 @@ function toggleContent() {
     return currentDoc;
   }
 
+  bool IsDocumentOnPathToRoot(IDocument start, IDocument toCheck) {
+    var currentDoc = start;
+    var idToCheck = GetId(toCheck);
+    if(idToCheck == null)
+      throw new ArgumentException(nameof(toCheck), "Document did not contain ID");
+    while(currentDoc.Metadata.ContainsKey(Keys.Parent)){
+
+      if(GetId(currentDoc) == idToCheck){
+        return true;
+      }
+
+      var parentDocument = (IDocument)currentDoc.Metadata[Keys.Parent];
+      parentDocument=GetActualDocument(parentDocument);
+      if(parentDocument == null)
+        return false;
+      
+      currentDoc = parentDocument;
+    }
+    return false;
+  }
+
+
   IDocument GetActualDocument(IDocument doc) {
     if(doc==null){
       return null;
     }
-    if(!doc.Metadata.ContainsKey("ID")){
-      return null;
-      throw new ArgumentException("doc", $"ID was not set. {doc.Metadata["RelativeFilePath"]}");
-    }
-    var id = doc.Metadata["ID"] as string;
+    var id = GetId(doc);
     var referencedDocument = Documents["books"].FirstOrDefault(d=> d.Metadata.String("ID", null) == id);
     return referencedDocument;
+  }
+  string GetId(IDocument doc){
+    if(!doc.Metadata.ContainsKey("ID")){
+      return null;
+    }
+    return doc.Metadata["ID"] as string;
   }
 }
