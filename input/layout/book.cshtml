@@ -2,7 +2,10 @@
   Layout = @"base.cshtml";
 }
 <div id="bookConent" class="bookConent bookConent-close">
-  <span style="overflow:visible;"><div class="openbtn" onclick="toggleContent()">&#128209;</div></span>
+  <div class="trigger" onclick="toggleContent()">
+    <div class="openbtn">&#128209;</div>
+    <div class="trigger-text">Inhaltsverzeichniss</div>
+  </div>
   
  <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
     <div class="index">

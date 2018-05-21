@@ -213,26 +213,28 @@ dd .label {
 ----------------------------*/
 
 .bookConent {
-    transition: 1.5s;
+    transition: 0.5s;
     position: fixed;
     left: 0px;
     height: calc(100% - 70px);
     padding-left: 2em;
     background-color: #f8f8f8;
-    border:solid 1px #e7e7e7;
+    border: solid 1px #e7e7e7;
+    box-shadow: 3px 3px 1px #888888;
     width: auto;
     max-width: 400px;
     z-index: 999;
 }
 
 .bookConent.bookConent-close {
-    max-width:  0px;
+    max-width: 0px;
     padding: 0px;
     min-width: 0px;
+    box-shadow: 0px 0px 0px #888888;
 }
 
 .bookConent .index {
-    transition: 1.5s;
+    transition: 0.5s;
     opacity: 1;
     overflow: auto;
     height: 100%;
@@ -248,43 +250,81 @@ dd .label {
     max-width: 0px;
     min-width: 0px;
     opacity: 0;
-    transition: 1.5s;
-}
-.bookConent .index > *{
-    opacity: 1;
-    transition: 0.3s 1.5s;
+    transition: 0.5s;
 }
 
-.bookConent.bookConent-close .index > *{
+.bookConent .index>* {
+    opacity: 1;
+    transition: 0.3s 0.5s;
+}
+
+.bookConent.bookConent-close .index>* {
     opacity: 0;
     transition: 0.3s;
 }
 
+/* Inhalzverzeichniss Schaltfläche
+-----------------------------------*/
 
-.bookConent .openbtn {
-    font-size: 30px;
-    cursor: pointer;
+.bookConent>.trigger {
+    overflow: visible;
     position: absolute;
     right: 0px;
     z-index: 100;
-    transition: 1.5s;
+    transition: 0.5s;
+    padding-top: 0.5em;
+    width: 3em;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 0px #888888;
+    cursor: pointer;
 }
-.bookConent .openbtn:hover {
-    right: 0px;
+
+.bookConent>.trigger>.trigger-text {
+    writing-mode: tb-rl;
+    display: inline-block;
+    padding: 6px;
 }
-.bookConent.bookConent-close .openbtn {
-    right: -1em;
+
+.bookConent>.trigger>.openbtn {
+    font-size: 30px;
 }
-.bookConent.bookConent-close .openbtn:hover {
-    right: -1.5em;
+
+.bookConent.bookConent-close>.trigger:hover {
+    box-shadow: 5px 5px 3px #888888;
+    transform: translate(-2px,-2px);
 }
+
+.bookConent.bookConent-close>.trigger {
+    right: -3em;
+    box-shadow: 3px 3px 1px #888888
+}
+
+@media (max-width: 767px) {
+    .bookConent.bookConent-close>.trigger>.trigger-text {
+        transition: 0.5s;
+        overflow: hidden;
+        max-height: 0px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+    .bookConent.bookConent-close>.trigger:hover>.trigger-text {
+        max-height: 999px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+}
+
+/* Tree
+-------------------------------------------------*/
 
 .index li input {
     display: none;
 }
 
 /*First entry in */
-.index > ul > li > label,.index > ul > li > label::before { 
+
+.index>ul>li>label,
+.index>ul>li>label::before {
     font-size: 16pt;
 }
 
