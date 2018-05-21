@@ -213,34 +213,53 @@ dd .label {
 ----------------------------*/
 
 .bookConent {
+    transition: 1.5s;
     position: fixed;
     left: 0px;
-    height: calc(100% - 65px);
+    height: calc(100% - 70px);
     padding-left: 2em;
     background-color: #f8f8f8;
-    border-color: #e7e7e7;
-    transition: 0.5s;
+    border:solid 1px #e7e7e7;
     width: auto;
-}
-
-.bookConent .index {
-    overflow-y: auto;
-    height: 100%;
-    padding-right: 2em;
-    min-width: 20em;
-}
-
-.bookConent.bookConent-close .index {
-    overflow-y: hidden;
-    padding-right: 0em;
+    max-width: 400px;
+    z-index: 999;
 }
 
 .bookConent.bookConent-close {
-    transition: 0.5s;
-    width: 0px;
+    max-width:  0px;
     padding: 0px;
     min-width: 0px;
 }
+
+.bookConent .index {
+    transition: 1.5s;
+    opacity: 1;
+    overflow: auto;
+    height: 100%;
+    padding-right: 2em;
+    min-width: 20em;
+    max-width: 380px;
+    padding-top: 2em;
+}
+
+.bookConent.bookConent-close .index {
+    overflow: hidden;
+    padding-right: 0em;
+    max-width: 0px;
+    min-width: 0px;
+    opacity: 0;
+    transition: 1.5s;
+}
+.bookConent .index > *{
+    opacity: 1;
+    transition: 0.3s 1.5s;
+}
+
+.bookConent.bookConent-close .index > *{
+    opacity: 0;
+    transition: 0.3s;
+}
+
 
 .bookConent .openbtn {
     font-size: 30px;
@@ -248,18 +267,25 @@ dd .label {
     position: absolute;
     right: 0px;
     z-index: 100;
+    transition: 1.5s;
 }
-
+.bookConent .openbtn:hover {
+    right: 0px;
+}
 .bookConent.bookConent-close .openbtn {
-    right: auto;
+    right: -1em;
 }
-
-.bookConent.bookConent-close .index {
-    display: none;
+.bookConent.bookConent-close .openbtn:hover {
+    right: -1.5em;
 }
 
 .index li input {
     display: none;
+}
+
+/*First entry in */
+.index > ul > li > label,.index > ul > li > label::before { 
+    font-size: 16pt;
 }
 
 .index li label {
