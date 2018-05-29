@@ -29,6 +29,7 @@
         ]
     },
     "spellright.ignoreFiles": [
-        "**/*.*.meta"
+        "**/*.*.meta",
+        "**/*.*.xmp"
     ]
 }
