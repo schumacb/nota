@@ -89,7 +89,7 @@ Ein Fernkämpfer unterliegt weiteren Erschwernissen
 +------------------------------------------+--------------+
 | Ziel bewegt sich horizontal zum Schützen | GS / 2       |
 +------------------------------------------+--------------+
-| Ziel bewegt sich vertikal zum Schützen    | GS / 4       |
+| Ziel bewegt sich vertikal zum Schützen   | GS / 4       |
 +------------------------------------------+--------------+
 | Ziel vollführt Ausweichbewegungen        | GS           |
 +------------------------------------------+--------------+
@@ -123,6 +123,7 @@ Die meisten Angriffe bedrängen den Gegner das bedeutet er erhält auf seine wei
 Hat ein Charakter etwas Zeit kann er seine Stellung wieder verbessern und Bedrängungsmalus wieder abbauen.
 
 Nicht immer ist es aber von Vorteil große Waffen zu nutzen. In beengten Umgebungen, für die die Waffe zu groß ist, gilt sie als entsprechend viele Distanzklassen kleiner anstelle größer.
+
 ## Mali
 
 Mali die der Charakter im Kampf ansammelt können aus verschiedenen Quellen kommen. Sie sind alle kumulativ werden aber nicht direkt von den Proben abgezogen. Der eigentliche Malus auf die Proben wird über die Anzahl der Mali bestimmt.
@@ -254,14 +255,7 @@ Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt b
   _Schwerter, Messer oder Säbel_  
   Eine Schnittwaffe verursacht eine Blutung in höhe des Schadens.
 
-  Schnittwaffen verursachen 2-4 Schaden.
-+ **Stich**
-  _Degen oder Florett_  
-  Eine Stichwaffe verursacht Blutungen in Höhe des Schadens. Sie kann in anderen Trefferzonen als dem Bauch und der Brust nur leichte Wunden zufügen.
-
-  In der Trefferzone Bauch und Brust haben die verursachten Blutungen die doppelte Stufe.
-
-  Stichwaffen verursachen 1-3 Schaden.
+  Schnittwaffen verursachen 1-4 Schaden.
 
 Zusätzlich Elementarer Schaden wie
 + **Feuer**  
@@ -320,9 +314,16 @@ Unbewaffnete Angriffe fügen einen Wuchtschaden in Abhängigkeit der Stärke des
 
 Um sich vor potenziellen Verletzungen zu schützen, kann sich ein Charakter mit verschiedenen arten von Rüstung schützen. Eine Rüstung schützt gegen verschiedene arten von Schaden. 
 
-Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Florett oder einem Hammer nicht viel entgegenzubringen. 
+Ein Kettenhemd stellt beispielsweise einen Guten Schutz gegen Schnitt Waffen dar, hat aber einem Hammer nicht viel entgegenzubringen. 
 
-Hierzu ist jedem Schadenstyp ein Rüstgrad zugeordnet. Ein Treffer eines Schadenstyp wird um eine entsprechende Anzahl an Punkten reduziert. 
+Eine Rüstung besitzt drei Eigenschaften. Härte, Flexibilität und Dämpfung. Härte stellt die Strapazierfähigkeit einer Rüstung dar. Sie verhindert in erste Linie Schnittschaden. Dämpfung hingen stellt das Polster dar und mindert den Wuchtschaden. Flexibilität verhindert ebenfalls Wuchtschaden. Je Steifer (weniger Flexibel) eine Rüstung ist, desto mehr wird die Wucht verteilt und Abgemindert.
+
+Wie viel der beiden Schadensarten Wucht und Schnitt tatsächlich Schaden verursachen wird wie folgt berechnet:
++-----------+--------------------------------------------------------------------------------+
+| **Wucht** | $\(Wucht - \lfloor \frac{Wucht-Dämpfung}{Flexibilität+1} \rfloor - Dämpfung\)$ |
++-----------+--------------------------------------------------------------------------------+
+|**Schnitt**| $\(Schnitt - (Härte -  \lfloor Wucht/2 \rfloor)\)$                             |
++-----------+--------------------------------------------------------------------------------+
 
 Zudem besitzt jede Rüstung einen Schutzgrad pro Trefferzone, dies beschreibt wieviel Angriffsfläche die Rüstung ungeschützt lässt. Der Schutzgrad wird in mehreren Werten zwischen 1 und 10 Angegeben. Besitzt eine Rüstung nur einen Wert als Schutzgrad deckt sie nicht viel Fläche der Trefferzone ab, beispielsweise ein Handschuh. Besitzt sie hingegen 8 oder mehr Werte, bietet sie beinahe einen Perfekten Schutz wie ein Vollhelm mit Visier. 
 
