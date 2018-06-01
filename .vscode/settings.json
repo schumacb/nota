@@ -20,6 +20,9 @@
     ],
     "spellright.ignoreRegExpsByClass": {
         "markdown": [
+            "/\\\\\\\\frac/g",
+            "/\\\\\\\\rfloor/g",
+            "/\\\\\\\\lfloor/g",
             "/^:::{[^}]*}/g",
             "/^:::.*$/gm",
             "/inkl\\\\./g",
