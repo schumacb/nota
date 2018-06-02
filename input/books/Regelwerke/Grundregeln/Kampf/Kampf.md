@@ -212,13 +212,33 @@ Die Zuordnung des W20 zu den Einzelnen Zonen ist wie folgt.
 Die Aufteilung ist Kompatible zu DSA 4.1, daher können auch Hilfsmittel zur Zonenbestimmung verwendet werden die Kompatible zu DSA 4.1 sind.
 :::
 
-### Wunden
+### Stumpfe Wunden (Prellungen/Brüche)
 
 Jedes Körperteil kann Wunden in verschiedenen Kategorien besitzen. Leichte, Mittlere und Schwere. Zudem besitzt jedes Körperteil noch eine weitere wundstufe die entweder die Amputation der entsprechenden Gliedmaße bedeutend, oder den direkten Tod. Die wenigsten Menschen überstehen die Amputation eines Kopfes oder des Torsos.
 
-Wunden können oberflächliche, innere Wunden oder Brüche sein.
++:-----------:+:-------------:+:--------------:+:-------------:+:-------------:+
+| Trefferzone | Leichte Wunde | Mittlere Wunde | Schwere Wunde | Amputation    |
++:===========:+:=============:+:==============:+:=============:+:=============:+
+| Kopf        | 1             | 3              | 5             | 7             |
++-------------+---------------+----------------+---------------+---------------+
+|Brust/Rücken | 3             | 6              | 9             | 12            |
++-------------+---------------+----------------+---------------+---------------+
+| Linker Arm  | 3             | 5              | 8             | 11            |
++-------------+---------------+----------------+---------------+---------------+
+| Rechter Arm | 3             | 5              | 8             | 11            |
++-------------+---------------+----------------+---------------+---------------+
+| Bauch/Hüfte | 3             | 6              | 9             | 12            |
++-------------+---------------+----------------+---------------+---------------+
+| Linkes Bein | 3             | 5              | 8             | 11            |
++-------------+---------------+----------------+---------------+---------------+
+| Rechtes Bein| 3             | 5              | 8             | 11            |
++-------------+---------------+----------------+---------------+---------------+
 
-### Blutungen
+Für jeweils 3 Punkte der Eigenschaft Konstitution unter 21 steigt die Wundschwelle in jeder Zone um 1.
+
+Eine Zone kann 3 leichte Wunden, 2 Mittlere Wunden und eine Schwere Wunde haben. Sollte eine Wunde verursacht werden, aber das entsprechende Maximum dieser Wundklasse ist schon erreicht, so wird eine Wunde eine Kategorie schlimmer Verursacht. 
+
+### Penetrierende Wunden (Blutungen)
 
 Eine Blutung führt zum regelmäßigen erhalt von Blutungspunkten. Jede Kampfrunde erhält der Charakter Blutungspunkte in höhe der Stufe der Blutung. Diese Punkte werden wie Erschöpfungspunkte behandelt, jedoch regeneriert die Aktion Erholen diese nicht.
 
@@ -249,23 +269,13 @@ Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt b
   Wuchtwaffen Variieren stark je nach Waffe zwischen 3 und 8 Schaden.  
   Waffenlose Angriffe verursachen 1-3 Schaden.
 
-  Die Wucht hängt auch von der Kraft des Charakters ab, so erhöht sich der Wuchtschaden einer Waffe in Abhängigkeit der Körperkraft. Der Entsprechende Wuchtschaden kann somit maximal verdoppelt werden.
+  Die Wucht hängt auch von der Stärke des Charakters ab. Der Entsprechende Wuchtschaden kann somit maximal verdoppelt werden. Der Bonus beträgt 1 Punkt für jeweils 10 Punkte Stärke. 
 
 + **Schnitt**
   _Schwerter, Messer oder Säbel_  
   Eine Schnittwaffe verursacht eine Blutung in höhe des Schadens.
 
   Schnittwaffen verursachen 1-4 Schaden.
-
-Zusätzlich Elementarer Schaden wie
-+ **Feuer**  
-  Verursacht ein Feuer angriff genug Schaden kann man Feuer Fangen.
-+ **Frost**  
-+ **Elektro**  
-  Jeder Punkt schaden verursachte einen zusätzlichen Malie Schmerzen
-  Erhält das Ziel zusätzlich stich oder Schnittschaden, wird Elektro Rüstung ignoriert.
-+ **Säure**  
-  Verletzungen durch, meist ätzende, Flüssigkeiten.
 
 Wenn eine Waffe mehrere schadenstypen besitzt, werden diese einzeln abgehandelt. Mail durch Schmerzen werden nur von dem höchsten schadenstyp verursacht. Zusatzeffekte durch die Schadensart kommen aber alle zu tragen.
 

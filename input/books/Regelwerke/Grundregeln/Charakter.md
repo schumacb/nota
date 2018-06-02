@@ -92,6 +92,15 @@ Nicht immer muss es Können sein welches benötigt wird. Glück erlaubt es das S
 ## Größe & Gewicht
 Wie zu vermuten stellt stellt dies die Körpergröße bzw. das Gewicht dar. Diese Eigenschaften hängen stark voneinander ab. Je größer eine Person ist, desto schwerer ist sie in der Regel auch. Zudem gibt einem ein höheres Gewicht auch Vorteile in Stärkebasierten Tätigkeiten.
 
+## Stärke
+Die Stärke eines Charakters ergibt sich aus seiner Kraft und seiner Masse.
+
+$\(Stärke = \frac{91}{30}Kraft^2+\frac{1529}{300}Kraft+\frac{3}{50}\)$
+
+:::{.hidden-information .Information}
+Dies ergibt sich aus der Tragkraft eines durchschnittlichen Menschen von 60% seines Körpergewichtes (Stärke 10 [Quelle](http://www.spiegel.de/wissenschaft/mensch/warum-nepalesen-so-viel-tragen-koennen-a-1121522.html)). Annahme Sehr Kräftiger Mensch (Stärke 7) 85% und Schwach (Stärke 13) 47%.
+:::
+
 ## Geschwindigkeit
 Gibt in der Regel an wie schnell sich ein Charakter fortbewegt.
 
