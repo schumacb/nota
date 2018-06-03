@@ -897,8 +897,7 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
     </Aktion>
 
     <Aktion Name="Steilshuss" Kosten="1" Typ="Offensiv">
-      <Beschreibung>Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.
-      </Beschreibung>
+      <Beschreibung>Der Charakter führt einen Balistischen Schuss durch. Dieses kann beispielsweise auch gegner hinter Dekung treffen. Durch die Balistische Flugbahn ist das geschoss jedoch lönger unterwegs.</Beschreibung>
       <InstantEffekt>Der Angriff erfolgt diese Kampfrunde, trifft sein Ziel aber erst nächste. Dabei ist das Problem weniger den Anvisierten Punkt zu treffe, als vorherzusehen wo sich der gegner zu diesem Zeitpunkt befinden wird.</InstantEffekt>
       <Mod ModifierType="Malus">
         <ConcreteModValueType Value="2" Type="Absolute"/>

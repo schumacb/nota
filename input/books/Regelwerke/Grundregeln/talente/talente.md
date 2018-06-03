@@ -12,7 +12,7 @@ Der TaA ist ein Bonus der von anderen Talenten herrührt. Dies stellt dar das ma
 
 Im Folgendem sind die Einzelnen Talente aufgeführt. 
 
-Zu jedem Talent wird die Komplexität angegeben. Dies bestimmt wie viel Ep von Nöten sind den TaB um eins zu steigern. Dabei handelt es sich um einen Buchstaben zwischen *A* und *Z*, wobei zur Komplexitätsklasse *A* die günstigstens Talente gehören und zur Komplexitätsklasse *Z* die Teuersten.
+Zu jedem Talent wird die Komplexität angegeben. Dies bestimmt wie viel Ep von Nöten sind den TaB um eins zu steigern. Dabei handelt es sich um einen Buchstaben zwischen *A* und *Z*, wobei zur Komplexitätsklasse *A* die günstigsten Talente gehören und zur Komplexitätsklasse *Z* die Teuersten.
 
  Unter dem punkt Ableiten, sind verwandte Talente aufgeführt. Die Zahl in Klammern eines Talentes bestimmt wie viele Punkte man von dem Talent erhält. Der TaB des Talentes durch die Zahl in Klammern (abgerundet) gibt den Bonus auf den TaA an. Sind Mehrere Talente angegeben, so werden die Einzelnen Boni addiert. Es sei den sie sind einem *Maximum* untergeordnet. In diesem fall werden nur die Talente mit dem Höchstem Wert berücksichtigt, entsprechend der Zahl die bei Maximum angegeben ist.
 
