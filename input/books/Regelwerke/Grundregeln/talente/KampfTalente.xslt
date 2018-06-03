@@ -23,23 +23,17 @@
 
 
 <xsl:template match="talent:Talente">
-<p>
-Eine übersciht der verschiedenen Talente
-</p>
-<xsl:for-each-group select="talent:Talent" group-by="@Kategorie">
-# <xsl:value-of select="@Kategorie" />
-<xsl:for-each select="current-group()">
+<xsl:for-each select="talent:Talent[@Kategorie='Kampf']">
 
 :::Talent
 <xsl:apply-templates select="."/>
 :::
 
 </xsl:for-each>
-</xsl:for-each-group>
 </xsl:template>
 
 <xsl:template match="talent:Talent">
-## <xsl:value-of select="@Name"/> *(<xsl:apply-templates  select="talent:Probe/*[1]" />, <xsl:apply-templates  select="talent:Probe/*[2]" />, <xsl:apply-templates  select="talent:Probe/*[3]" />)*
+## <xsl:value-of select="@Name"/> *(<xsl:apply-templates  select="talent:Probe/*[1]" />/<xsl:apply-templates  select="talent:Probe/*[2]" />/<xsl:apply-templates  select="talent:Probe/*[3]" />)*
 **Komplexität**: <xsl:value-of select="@Komplexität"/>
 
 :::Description
@@ -53,21 +47,23 @@ Ableitung
 </xsl:template>
 
 <xsl:template match="talent:Ableitungen">
-  <xsl:apply-templates select="*" />
+<xsl:for-each select="*">
+  <xsl:apply-templates select="." />
+</xsl:for-each>
 </xsl:template>
 
 <xsl:template match="*">
 [FEHLER IM XSLT]
 </xsl:template>
 
-<xsl:template match="talent:Max">
-  + Maximum
-    <xsl:apply-templates select="*" />
+<xsl:template match="talent:Max" xml:space="preserve">
+  + Maximum (<xsl:value-of select="@Anzahl"/>)
+<xsl:for-each select="*">
+    <xsl:apply-templates select="." />
+</xsl:for-each>
 </xsl:template>
 
-<xsl:template match="talent:Ableitung">
-  + <xsl:value-of select="@Name" /> _(<xsl:value-of select="@Anzahl" />)_
-</xsl:template>
+<xsl:template match="talent:Ableitung">+ <xsl:value-of select="@Name" /> _(<xsl:value-of select="@Anzahl" />)_</xsl:template>
 
 <xsl:template match="talent:Mut">MU</xsl:template>
 <xsl:template match="talent:Glück">GL</xsl:template>

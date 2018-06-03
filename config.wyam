@@ -278,6 +278,9 @@ public static class Helper
 		return ((FilePath)document["RelativeFilePath"]).Extension== newExtension;
 	}
 
+	public static IModule FixSkillChecks(){
+		return new Replace(@"(?<first>\p{Lu}{2})/(?<seccond>\p{Lu}{2})/(?<third>\p{Lu}{2})", @"${first}&#xfeff;/&#xfeff;${seccond}&#xfeff;/&#xfeff;${third}").IsRegex(System.Text.RegularExpressions.RegexOptions.None);
+	}
 
 }
 
@@ -334,7 +337,7 @@ Pipelines.Add("books",
 	Execute(context=> {currentContext = context;}),
 
 	/// TODO: Replace  (including md files into another) ///
-	If(@doc.Source.Extension==".md",
+	If((@doc["RelativeFilePath"] as FilePath).Extension==".md",
 		Replace("§\"(?<id>[^\"]+)\"", match =>
 		{
 			var id = match.Groups["id"].Value;
@@ -347,7 +350,9 @@ Pipelines.Add("books",
 			return referencedDocument?.Content ?? "[Error refference not found]";
 		}
 		
-		)
+		),
+		Helper.FixSkillChecks(),
+		Prepend(ReadFiles(@"template\markdownPrämable.md"))
 	), 
 
 	

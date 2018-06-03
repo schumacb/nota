@@ -123,6 +123,10 @@ padding-right: 20px;
 }
 
 .twoColumn {
+    flex: auto;
+}
+
+.twoColumn>.content {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
@@ -130,12 +134,11 @@ padding-right: 20px;
     -moz-column-width: 25em;
     column-width: 25em;
     column-fill: auto;
-    flex: auto;
     column-gap: 3em;
     column-rule: lightgray solid 1px;
 }
 
-.twoColumn>.content>.span {
+.twoColumn>.content .span {
     column-span: all;
     -webkit-column-span: all;
     -moz-column-span: all;
@@ -291,7 +294,7 @@ dd .label {
 
 .bookConent.bookConent-close>.trigger:hover {
     box-shadow: 5px 5px 3px #888888;
-    transform: translate(-2px,-2px);
+    transform: translate(-2px, -2px);
 }
 
 .bookConent.bookConent-close>.trigger {
@@ -405,4 +408,11 @@ dd .label {
 
 .index li {
     padding-top: 0px;
+}
+
+/* Abkürzungen
+-----------------------------------------*/
+
+abbr {
+    font-variant: small-caps;
 }

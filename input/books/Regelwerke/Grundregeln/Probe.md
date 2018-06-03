@@ -61,3 +61,28 @@ Hierbei arbeiten mehrere Charaktere zusammen an dem Selben Problem, jeder muss h
 
 ## Eigenschaft's Proben
 Proben auf eine Eigenschaft sollte wenn möglich vermieden werden. Stattdessen sollte ein entsprechendes Talent zu rate gezogen werden, welches auch Technik und Erfahrung widerspiegelt. Muss dennoch auf eine einzelne Eigenschaft geprüft werden, so wird eine Talent Probe abgelegt bei der zweimal auf die zu testende Eigenschaft gewürfelt wird und einmal auf die jeweils andere zur Primäreigenschaften gehörende Subeigenschaft (für Kraft wäre die Probe also KR/KR/KO). Als Talentwert wird 15 minus dem Eigenschaftswert gerechnet.
+
+##  Glück
+
+Ein Charakter besitzt 21 - GL viele Glückspunkte (GlP). Diese Repräsentieren wie viel Glück der Charakter in seinem Leben hat. Glückspunkte können eingesetzt werden um den Ausgang von Proben zu verändern. Es stehen folgende Effekte zur Verfügung, nachdem wie viele GlP der Charakter ausgibt.
+
++:------:+:--------------------------------------------------------+
+| Kosten | Effekt                                                  |
++:======:+:========================================================+
+| 1      | Ändere das Ergebnis eines Würfels um 1                  |
++--------+---------------------------------------------------------+
+| 3      | Wiederhole eine Probe                                   |
++--------+---------------------------------------------------------+
+| 3      | Tausche das Ergebnis zweier Würfel einer Probe          |
++--------+---------------------------------------------------------+
+| 5      | Wiederhole einen Würfel einer Probe                     |
++--------+---------------------------------------------------------+
+| 5      | Ein anderer Charakter muss eine Probe wiederholen       |
++--------+---------------------------------------------------------+
+| 6      | Eine Wunde die gerade Erlitten wurde ist eine Kategorie |
+|        | kleiner (bevor sie eventuell aufgestuft wurde)          |
++--------+---------------------------------------------------------+
+| 6      | Abbau von 10 Positionsmali                              |
++--------+---------------------------------------------------------+
+
+Die GlP stehen einem im laufe eines Abenteuers zur Verfügung. Bei längen Abenteuern (besonders wenn diese sich über mehrere Tage hinziehen) sollte jedoch der Vorrat wieder aufgefrischt werden. 

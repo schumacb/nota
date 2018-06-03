@@ -5,6 +5,8 @@ Title: 'Kampf'
 
 Eine Kampfrunde besteht aus drei Phasen. Phase eins ist Bewegung, Phase zwei Aktion, Phase drei ausführen der angesagten Aktionen. Spieler verwenden Karten um ihre Aktionen festzulegen. Die Kampfrunde erstreckt sich hierbei auf 6 Sekunden.
 
+
+
 ## Phase 1 Bewegung ansagen
 
 In dieser Phase sagen die Spieler ihre Bewegungen an. Dies geschieht in einer oder mehrerer Runden. In jeder runde kann genau ein Charakter, der noch keine Bewegung angesagt hat, eine solche ansagen. Sollte kein Charakter dies tun, ist diese Phase beendet und es wird mit Phase 2 fortgesetzt. Die Reihenfolge in der die Charaktere ihre Bewegung ansagen verläuft in umgekehrter Initiative Reihenfolge, d.h. der langsamste Charakter hat die erste Möglichkeit seine Bewegung festzulegen.
@@ -269,7 +271,7 @@ Eine Waffe kann verschiedene Schadensarten Kombinieren, so verursacht eine Axt b
   Wuchtwaffen Variieren stark je nach Waffe zwischen 3 und 8 Schaden.  
   Waffenlose Angriffe verursachen 1-3 Schaden.
 
-  Die Wucht hängt auch von der Stärke des Charakters ab. Der Entsprechende Wuchtschaden kann somit maximal verdoppelt werden. Der Bonus beträgt 1 Punkt für jeweils 10 Punkte Stärke. 
+  Die Wucht hängt auch von der Kraft des Charakters ab. Der Entsprechende Wuchtschaden kann somit maximal verdoppelt werden. Der Bonus beträgt 1 Punkt für jeweils 10 Punkte Kraft. 
 
 + **Schnitt**
   _Schwerter, Messer oder Säbel_  
