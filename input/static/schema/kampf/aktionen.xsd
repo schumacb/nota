@@ -28,6 +28,7 @@
                   <choice>
                     <element ref="aktionen:ConcreteModValueType"/>
                     <element ref="aktionen:VariableModValueType"/>
+                    <element ref="aktionen:SubstractModValueType"/>
                     <element ref="aktionen:AddModValueType"/>
                     <element ref="aktionen:MultiplyModValueType"/>
                   </choice>
@@ -62,7 +63,20 @@
       <choice maxOccurs="unbounded">
         <element ref="aktionen:ConcreteModValueType"/>
         <element ref="aktionen:VariableModValueType"/>
+        <element ref="aktionen:SubstractModValueType"/>
         <element ref="aktionen:AddModValueType"/>
+        <element ref="aktionen:MultiplyModValueType"/>
+      </choice>
+    </complexType>
+  </element>
+
+  <element name="SubstractModValueType" >
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <element ref="aktionen:ConcreteModValueType"/>
+        <element ref="aktionen:VariableModValueType"/>
+        <element ref="aktionen:AddModValueType"/>
+        <element ref="aktionen:SubstractModValueType"/>
         <element ref="aktionen:MultiplyModValueType"/>
       </choice>
     </complexType>
@@ -73,6 +87,7 @@
       <choice maxOccurs="unbounded">
         <element ref="aktionen:ConcreteModValueType"/>
         <element ref="aktionen:VariableModValueType"/>
+        <element ref="aktionen:SubstractModValueType"/>
         <element ref="aktionen:AddModValueType"/>
         <element ref="aktionen:MultiplyModValueType"/>
       </choice>

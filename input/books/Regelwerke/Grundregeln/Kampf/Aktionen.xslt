@@ -87,6 +87,8 @@
 
   <xsl:template match="aktionen:AddModValueType"><xsl:apply-templates select="./*[1]"/> <xsl:for-each select="./*[position()>1]"> &#65291; <xsl:apply-templates select="."/></xsl:for-each></xsl:template>
 
+  <xsl:template match="aktionen:SubstractModValueType"><xsl:apply-templates select="./*[1]"/> <xsl:for-each select="./*[position()>1]"> &#x2212; <xsl:apply-templates select="."/></xsl:for-each></xsl:template>
+
   <xsl:template match="aktionen:MultiplyModValueType"><xsl:apply-templates select="./*[1]"/><xsl:for-each select="./*[position()>1]"> &#8226; <xsl:apply-templates select="."/></xsl:for-each></xsl:template>
 
   <xsl:template match="*">  [[FEHLER IM XSLT]] (<xsl:value-of select="local-name()"/>)

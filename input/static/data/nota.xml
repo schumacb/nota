@@ -769,20 +769,27 @@
       <Beschreibung>Ein standard angriff mit ausgeglichener verteidigung.</Beschreibung>
       <OffensivErfolg>Die Waffe Trift.</OffensivErfolg>
     </Aktion>
+    
     <Aktion Name="Verteidigungshaltung" Kosten="2" Typ="Defensiv">
       <Beschreibung>Der Charakter konzentriert sich auf seine Verteidigung, auf kosten seiner Angriffe.</Beschreibung>
       <Mod ModifierType="Bonus">
         <ConcreteModValueType Type="Percent" Value="50"/>
       </Mod>
     </Aktion>
-
+    <Aktion Name="Angriffshaltung" Kosten="2" Typ="Offensiv">
+      <Beschreibung>Der Charakter konzentriert sich auf seine Verteidigung, auf kosten seiner Angriffe.</Beschreibung>
+      <OffensivErfolg>Die Waffe Trift.</OffensivErfolg>
+      <Mod ModifierType="Bonus">
+        <ConcreteModValueType Type="Percent" Value="50"/>
+      </Mod>
+    </Aktion>
     <Aktion Name="Rückzug" Kosten="2" Typ="Defensiv">
-      <Beschreibung></Beschreibung>
+      <Beschreibung>Ein gezielter Rückzug bei dem sich der Charakter aus dem Nahkampf lößt, ohne sich Preis zu geben</Beschreibung>
       <DefensivErfolg>Der Charakter lößt sich aus dem Nahkampf.</DefensivErfolg>
     </Aktion>
 
     <Aktion Name="Flucht" Kosten="3" Typ="Sekundär">
-      <Beschreibung></Beschreibung>
+      <Beschreibung>Der Charakter entfernt sich aus dem Nahkampf ohne sich um seine Deckung zu kümmern.</Beschreibung>
       <GarantierterEffekt>Der Charakter lößt sich aus dem Nahkampf.</GarantierterEffekt>
     </Aktion>
 
@@ -797,8 +804,21 @@
 
     <Aktion Name="Wuchtschlag" Kosten="4" Typ="Unterstützend">
       <Beschreibung>Setzt mehr Wucht in einen auszuführenden Angriff.</Beschreibung>
-      <OffensivErfolg>Erhöht den Wuchtschaden der Waffe um x. Der Wuchtschaden kann maximal um den basis Wuchtschaden der Waffe erhöt werden.</OffensivErfolg>
+      <OffensivErfolg>Die Waffe Trift. Erhöht den Wuchtschaden der Waffe um x. Der Wuchtschaden kann maximal um den doppelten basis Wuchtschaden der Waffe erhöt werden.</OffensivErfolg>
       <DefensivMiserfolg>Erhalte Positions Mali in höhe von x.</DefensivMiserfolg>
+      <Mod ModifierType="Malus">
+        <MultiplyModValueType>
+          <ConcreteModValueType Value="2" Type="Absolute"/>
+          <VariableModValueType Value="X"/>
+        </MultiplyModValueType>
+      </Mod>
+    </Aktion>
+
+    <Aktion Name="Todesstoß" Kosten="5" Typ="Offensiv">
+      <Beschreibung>Der Charakter leitet einen Riskanten Angriff ein um den gegner einen Gefährlichen Treffer zu versetzen.</Beschreibung>
+      <GarantierterEffekt>Die Defensiv Aktion des Ziels wird um x reduziert.</GarantierterEffekt>
+      <OffensivErfolg>Die Waffe Trift.</OffensivErfolg>
+      <DefensivMiserfolg>Erhalte Positions Mali in höhe von 3x.</DefensivMiserfolg>
       <Mod ModifierType="Malus">
         <MultiplyModValueType>
           <ConcreteModValueType Value="3" Type="Absolute"/>
@@ -810,11 +830,11 @@
     <Aktion Name="Waffe Platzieren" Kosten="2" Typ="Offensiv">
       <Beschreibung>Ein Angriff der die Waffe an eine empfindliche stelle wie beispielsweise Kehle Plaziert.</Beschreibung>
       <Bedingung>Pro Waffe kann nur eine Aktion Waffe Platzieren gewählt werden.</Bedingung>
-      <OffensivErfolg>Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnitt- und/oder Stichschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
+      <OffensivErfolg>Führt das Ziel nächste Runde eine Offensive Aktion aus erhält es den Schnittschaden der Waffe. Sollte die Aktion nur eine Defensive sein, so wird der Schaden nur erlitten falls diese ein Misserfolg ist.
 
 Zusätzlich erhällt das Ziel nächste runde einen zusätzlichen Malus von x und der Charakter einen Bonus von x.
 
-Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden.
+Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in der Nächsten runde durch eine andere Offensive Aktion ausgetauscht werden, nachdem alle Aktionen bekannt gegeben wurden. Als Trefferzone kann die selebe Zone gewählt werden die diese Aktion getroffen hat. In diesem Fall kann eine belibige Unterzone gewählt werden.
 
 
       </OffensivErfolg>
@@ -827,7 +847,7 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
     </Aktion>
 
     <Aktion Name="Schutz" Kosten="3" Typ="Defensiv">
-      <Beschreibung></Beschreibung>
+      <Beschreibung>Der Charakter übernimmt den Schutz eines anderen.</Beschreibung>
       <InstantEffekt>Diese Aktion gillt als Defensive Aktion des zu schützenden Ziels und nicht für den ausführenden Charakter.</InstantEffekt>
     </Aktion>
 
@@ -836,9 +856,9 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
     </Aktion>
 
     <Aktion Name="Position" Kosten="2" Typ="Defensiv">
-      <Beschreibung></Beschreibung>
+      <Beschreibung>Der Charakter versucht seine Position zu verbessern.</Beschreibung>
       <DefensivErfolg>Der Charakter baut die hälfte seiner Stellenmali ab (aufgerundet).</DefensivErfolg>
-      <DefensivMiserfolg>Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet).</DefensivMiserfolg>
+      <DefensivMiserfolg>Der Charakter baut ein virtel seiner Stellenmali ab (aufgerundet). Würde der Charakter diese runde Stellen Mali bekommen, entfellt der Effekt dafür wird der erhaltene Mali um die hälfte Reduziert.</DefensivMiserfolg>
     </Aktion>
 
     <Aktion Name="Reden" Kosten="1" Typ="Frei">
@@ -848,7 +868,7 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
 
     <Aktion Name="Zustechen" Kosten="2" Typ="Offensiv">
       <Beschreibung>Bei diesem Angriff nutzt der Charakter die Schneide seiner Waffe an einer äußerst empfindlichen stelle, wie beispielsweise dem Hals. Oder Durschtößt mit der Klinge den Körper des Gegners. Ein bevorzugter Angriff von meuchlern.</Beschreibung>
-      <OffensivErfolg>Die Waffe Trift. Die verwendete Waffe verursacht anstatt Schnittschaden Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</OffensivErfolg>
+      <OffensivErfolg>Die Waffe Trift. Der  Wuchtschaden der Waffe wird auf 0 gesetzt (Wuchtschläge funktionieren). Wird Kopf, Brust oder Hüfte getroffen, wird der Schnittschaden verdoppelt. Stichschaden in der Selben höhe. Dafür wird der Wuchtschaden auf 0 reduziert.</OffensivErfolg>
       <Mod ModifierType="Malus">
         <ConcreteModValueType Type="Percent" Value="50"/>
 
@@ -858,7 +878,7 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
 
     <Aktion Name="Gezielter Angriff" Kosten="1" Typ="Unterstützend">
       <Beschreibung>Der Kämpfer versucht ein bestimmtes Körperteil gezielt zu treffen.</Beschreibung>
-      <OffensivErfolg>Die bestimmung der Trefferzone (W20 Gliedmaße) kann x mal wiederholt werden. Das Letzte Ergebniss muss genommen werden.</OffensivErfolg>
+      <OffensivErfolg>Die bestimmung der Trefferzone (W20 Gliedmaße) kann x mal wiederholt werden.</OffensivErfolg>
       <Mod ModifierType="Malus">
         <MultiplyModValueType>
           <VariableModValueType Value="X"/>
@@ -881,18 +901,27 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
       <GarantierterEffekt>Der Charakter regeneriert alle Erschöpfung, wenn dies deine einzige Aktion ist. Andernfalls die Hälfte.</GarantierterEffekt>
     </Aktion>
 
-    <Aktion Name="Zielen" Kosten="1" Typ="Unterstützend">
+    <Aktion Name="Zielen" Kosten="1" Typ="Offensiv">
       <Beschreibung>Der Charakter bereitet einen gezielten Schuss vor.</Beschreibung>
-      <SekundärErfolg>
-        Der Charakter erhält einen Bonus von abs(2w6-w6)+1 in der nächsten runde auf die Aktion gezielter Schuss.
-      </SekundärErfolg>
+      <InstantEffekt>X entspricht der Fernkampf modifikation.</InstantEffekt>
+      <SekundärErfolg>Der Charakter erhält einen Bonus in Höhe der halben Punkte auf seine nächste Aktion falls diese auf das Selbe Ziel geht.</SekundärErfolg>
+      <Mod ModifierType="Malus">
+        <MultiplyModValueType>
+          <VariableModValueType Value="X"/>
+          <ConcreteModValueType Type="Percent" Value="50"/>
+        </MultiplyModValueType>
+      </Mod>
     </Aktion>
 
     <Aktion Name="Gezielter Schuss" Kosten="1" Typ="Offensiv">
       <Beschreibung>Der Charakter führt einen gezielten Schuss durch.</Beschreibung>
-      <InstantEffekt>Egal wie hoch die Schussfrequenz ist, wird immer nur ein Schuss abgegebeb.</InstantEffekt>
-      <Mod ModifierType="Bonus">
-        <ConcreteModValueType Value="3" Type="Absolute"/>
+      <InstantEffekt>X entspricht der Fernkampf modifikation.</InstantEffekt>
+      <OffensivErfolg>Der Charakter Trifft das Ziel einmal.</OffensivErfolg>
+      <Mod ModifierType="Malus">
+        <SubstractModValueType>
+          <VariableModValueType Value="X"/>
+          <ConcreteModValueType Value="3" Type="Absolute"/>
+        </SubstractModValueType>
       </Mod>
     </Aktion>
 
@@ -906,6 +935,11 @@ Ausserdem darf eine Waffe Plazieren Aktion die das selbe Ziel wie diese hat in d
 
     <Aktion Name="Schnellschuss" Kosten="2" Typ="Offensiv">
       <Beschreibung>Schießt mit einer Distanzwaffe bis zur maximalen schussfrequenz.</Beschreibung>
+      <InstantEffekt>X entspricht der Fernkampf modifikation.</InstantEffekt>
+      <OffensivErfolg>Der Charakter Trifft das Ziel entsprechend der Feuerrate.</OffensivErfolg>
+      <Mod ModifierType="Malus">
+        <VariableModValueType Value="X"/>
+      </Mod>
     </Aktion>
 
     <Aktion Kosten="3" Name="Ausweichen" Typ="Defensiv">
