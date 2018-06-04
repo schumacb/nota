@@ -16,6 +16,39 @@ Zu jedem Talent wird die Komplexität angegeben. Dies bestimmt wie viel Ep von N
 
  Unter dem punkt Ableiten, sind verwandte Talente aufgeführt. Die Zahl in Klammern eines Talentes bestimmt wie viele Punkte man von dem Talent erhält. Der TaB des Talentes durch die Zahl in Klammern (abgerundet) gibt den Bonus auf den TaA an. Sind Mehrere Talente angegeben, so werden die Einzelnen Boni addiert. Es sei den sie sind einem *Maximum* untergeordnet. In diesem fall werden nur die Talente mit dem Höchstem Wert berücksichtigt, entsprechend der Zahl die bei Maximum angegeben ist.
 
+# Geistig
+
+Geistige Talente sind Intuitive Fähigkeiten, die jeder beherrscht
+
+§"books/Regelwerke/Grundregeln/talente/GeistTalente"
+
+# Körper
+
+Sei es nun Klettern oder Laufen, alle Sportlichen Fähigkeiten fallen unter diese Kategorie.
+
+§"books/Regelwerke/Grundregeln/talente/KörperTalente"
+
+# Gesellschaft
+
+Talente für die Integration mit anderen Charakteren sind hier zu finden.
+
+§"books/Regelwerke/Grundregeln/talente/GesellschaftTalente"
+
 # Kampf
 
+Der geschulte Umgang mit und ohne Waffen.
+
 §"books/Regelwerke/Grundregeln/talente/KampfTalente"
+
+# Wissen
+
+Bücherwissen. 
+
+§"books/Regelwerke/Grundregeln/talente/WissenTalente"
+
+# Handwerk
+
+Handwerkliche Tätigkeiten
+
+§"books/Regelwerke/Grundregeln/talente/HandwerkTalente"
+

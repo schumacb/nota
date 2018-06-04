@@ -94,7 +94,7 @@
     <restriction base="string">
       <enumeration value="Geist"/>
       <enumeration value="Körper"/>
-      <enumeration value="Geselchaft"/>
+      <enumeration value="Gesellschaft"/>
       <enumeration value="Kampf"/>
       <enumeration value="Wissen"/>
       <enumeration value="Handwerk"/>

@@ -527,7 +527,7 @@
       </Ableitungen>
     </Talent>
     <!--Gesellschaft BEGINN-->
-    <Talent Name="Menschenkentniss" Komplexität="B" Kategorie="Geselchaft">
+    <Talent Name="Menschenkentniss" Komplexität="B" Kategorie="Gesellschaft">
       <Probe>
         <Intuition/>
         <Antipathie/>
@@ -535,7 +535,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-    <Talent Name="Verführen" Komplexität="B" Kategorie="Geselchaft">
+    <Talent Name="Verführen" Komplexität="B" Kategorie="Gesellschaft">
       <Probe>
         <Mut/>
         <Intuition/>
@@ -543,7 +543,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-    <Talent Name="Lügen" Komplexität="B" Kategorie="Geselchaft">
+    <Talent Name="Lügen" Komplexität="B" Kategorie="Gesellschaft">
       <Probe>
         <Mut/>
         <Klugheit/>
@@ -551,7 +551,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-    <Talent Name="Überreden" Komplexität="B" Kategorie="Geselchaft">
+    <Talent Name="Überreden" Komplexität="B" Kategorie="Gesellschaft">
       <Probe>
         <Intuition/>
         <Klugheit/>
@@ -559,7 +559,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-    <Talent Name="Einschüchtern" Komplexität="B" Kategorie="Geselchaft">
+    <Talent Name="Einschüchtern" Komplexität="B" Kategorie="Gesellschaft">
       <Probe>
         <Mut/>
         <Intuition/>
@@ -567,7 +567,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
-    <Talent Name="Tanzen" Komplexität="B" Kategorie="Geselchaft">
+    <Talent Name="Tanzen" Komplexität="B" Kategorie="Gesellschaft">
       <Probe>
         <Intuition/>
         <Gewandtheit/>
