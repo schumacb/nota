@@ -44,15 +44,15 @@ Ein Charakter wird definiert über 6 Primäreigenschaften, welche sich in jeweil
     - Präzision (PR)
 + Geist
   + Charisma
-    - Antipathie (AP)
-    - Sympathie (SP)
+    - Antipathie (AN)
+    - Sympathie (SY)
   + Auffassung
     - Klugheit (KL)
     - Intuition (IN)
 + Seele
   + Potential
-    - Wahrnehmung (WN)
-    - Manipulation (MN)
+    - Fokus (FO)
+    - Einfluss (EI)
   + Gaben
     - Mut (MU)
     - Glück (GL) 
@@ -91,10 +91,10 @@ Dies stellt dar wie gut man in der Lage ist Formal und Logisch zu Denken.
 ## Intuition
 Intuition hingegen stellt das Bauchgefühl dar. 
 
-## Wahrnehmung
-Diese Eigenschaft bestimmt wie detailliert der Charakter seine Umgebung Wahrnehmen kann. Sowohl im Profanen als auch im Magischem Sinne.
+## Fokus
+Die Fähigkeit sich auf zu besinnen und zu Konzentrieren.
 
-## Manipulation
+## Einfluss
 Dies Eigenschaft ist einzig und alleine Wichtig für Personen die das Wesen der Welt mittels Magie manipulieren wollen.
 
 ## Mut

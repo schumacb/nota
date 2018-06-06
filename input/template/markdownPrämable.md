@@ -4,12 +4,12 @@
 *[KO]: Konstitution
 *[GE]: Gewandtheit
 *[PR]: Präzision
-*[AP]: Antipathie
-*[SP]: Sympathie
+*[AN]: Antipathie
+*[SY]: Sympathie
 *[KL]: Klugheit
 *[IN]: Intuition
-*[WN]: Wahrnehmung
-*[MN]: Manipulation
+*[FO]: Fokus
+*[EI]: Einfluss
 *[MU]: Mut
 *[GL]: Glück
 *[TaA]: Talentableitungswert

@@ -27,16 +27,18 @@
                 <complexType>
                   <sequence>
                     <choice maxOccurs="3" minOccurs="3">
-                      <element name="Mut" />
-                      <element name="Glück" />
-                      <element name="Klugheit" />
-                      <element name="Intuition" />
-                      <element name="Gewandtheit" />
-                      <element name="Feinmotorik" />
-                      <element name="Sympathie" />
-                      <element name="Antipathie" />
                       <element name="Stärke" />
                       <element name="Konstitution" />
+                      <element name="Gewandtheit" />
+                      <element name="Präzision" />
+                      <element name="Antipathie" />
+                      <element name="Sympathie" />
+                      <element name="Klugheit" />
+                      <element name="Intuition" />
+                      <element name="Fokus" />
+                      <element name="Einfluss" />
+                      <element name="Mut" />
+                      <element name="Glück" />
                     </choice>
                   </sequence>
                 </complexType>

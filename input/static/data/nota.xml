@@ -108,6 +108,14 @@
   </Professionen>
   <Talente
     xmlns="http://nota.org/schema/talent">
+    <Talent Name="Kampfgespür" Komplexität="D" Kategorie="Kampf">
+      <Probe>
+        <Intuition/>
+        <Intuition/>
+        <Fokus/>
+      </Probe>
+      <Beschreibung>Die fähigkeit im Kampf immer den überblick zu halten.</Beschreibung>
+    </Talent>
     <Talent Name="Fechtwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
@@ -115,6 +123,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Eine leichte und schnelle Waffe die vorallem auf präzision statt kraft setzt.</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Stumpfe Hiebwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -123,6 +134,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Eine brachiale Waffe die ihre effiktivität aus der Kraft des nutzers zieht.</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Einhandäxte" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -132,6 +146,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
       <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
         <Ableitung Name="Stumpfe Hiebwaffen" Anzahl="2"/>
       </Ableitungen>
     </Talent>
@@ -142,6 +157,9 @@
         <Gewandtheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Stäbe" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -150,6 +168,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Schwerter" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -159,6 +180,7 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
       <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
         <Ableitung Name="Säbel" Anzahl="3"/>
       </Ableitungen>
     </Talent>
@@ -170,24 +192,42 @@
       </Probe>
       <Beschreibung>Test</Beschreibung>
       <Ableitungen>
-        <Ableitung Name="Säbel" Anzahl="2"/>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+        <Ableitung Name="Schwert" Anzahl="2"/>
       </Ableitungen>
     </Talent>
     <Talent Name="Zweihandschwert" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
+        <Stärke/>
         <Mut/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
+    </Talent>
+    <Talent Name="Zweihandhiebwaffe" Komplexität="B" Kategorie="Kampf">
+      <Probe>
+        <Stärke/>
+        <Mut/>
+        <Intuition/>
+      </Probe>
+      <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Zweihandsäbel" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
+        <Stärke/>
         <Mut/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Tonfas" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -196,19 +236,25 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Bogen" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Stärke/>
+        <Fokus/>
+        <Präzision/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="7"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Faust Projektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Feinmotorik/>
-        <Feinmotorik/>
+        <Präzision/>
+        <Fokus/>
         <Intuition/>
       </Probe>
       <Beschreibung>Gewehre, Armbrüste</Beschreibung>
@@ -218,8 +264,8 @@
     </Talent>
     <Talent Name="Zweihandprojektielwaffen" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Feinmotorik/>
-        <Feinmotorik/>
+        <Präzision/>
+        <Fokus/>
         <Intuition/>
       </Probe>
       <Beschreibung>Gewehre, Armbrüste</Beschreibung>
@@ -234,7 +280,10 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
-    </Talent>
+        <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
+</Talent>
     <Talent Name="Ausweichen" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
@@ -242,6 +291,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Stangenwaffe" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -250,14 +302,20 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Peitche" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Feinmotorik/>
+        <Präzision/>
         <Mut/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Dolch" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -266,6 +324,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Flegel" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -274,6 +335,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Waffenlos" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -288,6 +352,7 @@
           <Ableitung Name="Säbel" Anzahl="4"/>
           <Ableitung Name="Stumpfe Hiebwaffen" Anzahl="3"/>
         </Max>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
       </Ableitungen>
     </Talent>
     <Talent Name="Chakram" Komplexität="B" Kategorie="Kampf">
@@ -300,27 +365,36 @@
     </Talent>
     <Talent Name="Wurfspeer" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Mut/>
+        <Präzision/>
+        <Stärke/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Wurfaxt" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Mut/>
+        <Präzision/>
+        <Stärke/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Wurfmesser" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Mut/>
+        <Präzision/>
+        <Stärke/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Katar" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -329,6 +403,9 @@
         <Intuition/>
       </Probe>
       <Beschreibung>Das Katar, auch Coutar, Katah, Koutah, Kutah, Kutar, Bundi Dolch oder Jemdhar genannt, ist ein indischer Faustdolch. Der Ursprung liegt bei den Rajputen, aber die Waffe ist im indischen Raum weit verbreitet</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Wurfwaffe" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -337,46 +414,66 @@
         <Intuition/>
       </Probe>
       <Beschreibung>z.B. Stein</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Schleuder" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Mut/>
+        <Präzision/>
+        <Fokus/>
         <Intuition/>
       </Probe>
       <Beschreibung></Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Speerschleuder" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
-        <Mut/>
+        <Präzision/>
+        <Fokus/>
         <Intuition/>
       </Probe>
       <Beschreibung></Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Nunchaku" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
         <Mut/>
-        <Intuition/>
+        <Fokus/>
       </Probe>
       <Beschreibung></Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Dreigliederstab" Komplexität="B" Kategorie="Kampf">
       <Probe>
         <Gewandtheit/>
-        <Mut/>
+        <Fokus/>
         <Intuition/>
       </Probe>
       <Beschreibung></Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Nunchaku" Anzahl="2"/>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Kettenwaffe" Komplexität="B" Kategorie="Kampf">
       <Probe>
-        <Gewandtheit/>
+        <Fokus/>
         <Mut/>
         <Intuition/>
       </Probe>
       <Beschreibung>z.B. Suruchin, Manriki Gusari</Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+      <Ableitung Name="Flegel" Anzahl="3"/>
+    </Ableitungen>
     </Talent>
     <Talent Name="Sense" Komplexität="B" Kategorie="Kampf">
       <Probe>
@@ -385,6 +482,11 @@
         <Intuition/>
       </Probe>
       <Beschreibung></Beschreibung>
+    <Ableitungen>
+      <Ableitung Name="Kampfgespür" Anzahl="5"/>
+      <Ableitung Name="Zweihandhiebwaffe" Anzahl="4"/>
+      <Ableitung Name="Stäbe" Anzahl="3"/>
+    </Ableitungen>
     </Talent>
     <!--Körper BEGINN-->
     <Talent Name="Springen" Komplexität="B" Kategorie="Körper">
