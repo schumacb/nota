@@ -193,7 +193,7 @@
       <Beschreibung>Test</Beschreibung>
       <Ableitungen>
       <Ableitung Name="Kampfgespür" Anzahl="5"/>
-        <Ableitung Name="Schwert" Anzahl="2"/>
+        <Ableitung Name="Schwerter" Anzahl="2"/>
       </Ableitungen>
     </Talent>
     <Talent Name="Zweihandschwert" Komplexität="B" Kategorie="Kampf">
@@ -539,8 +539,8 @@
     </Talent>
     <Talent Name="Fingerübungen" Komplexität="B" Kategorie="Körper">
       <Probe>
-        <Feinmotorik/>
-        <Feinmotorik/>
+        <Präzision/>
+        <Präzision/>
         <Intuition/>
       </Probe>
       <Beschreibung>Manschmal muss ein Charakter sehr prezise arbeit mit seinen Fingern durchführen. Seien es Taschenspieler Triks, wie das Hervorziehen einer Münze, oder den Bolzen möglichst zügig aus einer Felsspalte zu ziehen. In solchen Fällen steht das Tallent Fingerübungen zur verfügung.</Beschreibung>
@@ -620,7 +620,7 @@
     <Talent Name="Fühlen" Komplexität="B" Kategorie="Geist">
       <Probe>
         <Intuition/>
-        <Feinmotorik/>
+        <Präzision/>
         <Klugheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
@@ -713,7 +713,7 @@
     <Talent Name="Schriftlicherausdruck" Komplexität="B" Kategorie="Wissen">
       <Probe>
         <Klugheit/>
-        <Feinmotorik/>
+        <Präzision/>
         <Intuition/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
@@ -722,7 +722,7 @@
       <Probe>
         <Intuition/>
         <Klugheit/>
-        <Feinmotorik/>
+        <Präzision/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
@@ -738,7 +738,7 @@
       <Probe>
         <Klugheit/>
         <Klugheit/>
-        <Feinmotorik/>
+        <Präzision/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
     </Talent>
@@ -785,7 +785,7 @@
     <!--Handwerk BEGINN-->
     <Talent Name="Alchemie" Komplexität="B" Kategorie="Handwerk">
       <Probe>
-        <Feinmotorik/>
+        <Präzision/>
         <Klugheit/>
         <Intuition/>
       </Probe>
@@ -795,7 +795,7 @@
       <Probe>
         <Intuition/>
         <Klugheit/>
-        <Feinmotorik/>
+        <Präzision/>
       </Probe>
       <Beschreibung>Test</Beschreibung>
       <Ableitungen>
@@ -805,7 +805,7 @@
     <Talent Name="Kochen" Komplexität="B" Kategorie="Handwerk">
       <Probe>
         <Intuition/>
-        <Feinmotorik/>
+        <Präzision/>
         <Klugheit/>
       </Probe>
       <Beschreibung>Test</Beschreibung>

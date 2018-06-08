@@ -70,10 +70,11 @@ Ableitung
 <xsl:template match="talent:Klugheit">KL</xsl:template>
 <xsl:template match="talent:Intuition">IN</xsl:template>
 <xsl:template match="talent:Gewandtheit">GE</xsl:template>
-<xsl:template match="talent:Feinmotorik">IN</xsl:template>
+<xsl:template match="talent:Präzision">PR</xsl:template>
 <xsl:template match="talent:Sympathie">SY</xsl:template>
-<xsl:template match="talent:Antipathie">AP</xsl:template>
+<xsl:template match="talent:Antipathie">AN</xsl:template>
 <xsl:template match="talent:Stärke">ST</xsl:template>
 <xsl:template match="talent:Konstitution">KO</xsl:template>
-
+<xsl:template match="talent:Fokus">FO</xsl:template>
+<xsl:template match="talent:Einfluss">EI</xsl:template>
 </xsl:stylesheet>
