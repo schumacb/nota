@@ -2,7 +2,7 @@ Order: 1
 Title: 'Charakter'
 
 ---
-Der Charakter stellt eine (Person?) in der Welt da. Über sie interagiert der Spieler mit dieser (liest sich etwas holprig, da sich dieser prinzipiel auch auf die Person beziehen könnte). Im Folgendem werden die wichtigsten Punkte zu einem Charakter erklärt. Dies gilt nicht nur für Spieler Charaktere, sondern auch für nicht Spieler Charaktere.
+Der Charakter stellt den Avatar des Spielers in der Welt dar. Über diesen interagiert der Spieler mit seiner Umwelt. Im Folgendem werden die wichtigsten Punkte zu einem Charakter erklärt. Dies gilt nicht nur für Spieler Charaktere, sondern auch für nicht Spieler Charaktere.
 
 ## Gattung und Art
 
@@ -79,7 +79,7 @@ Gewandtheit gibt den grad der Kontrolle über den Körper als Ganzes an.
 ## Präzision
 Während Gewandtheit im Normalfall den ganzen Körper involviert, so stellt Präzision vor allem das Fingerspitzengefühl dar. Für filigrane Arbeiten ist dies eine wichtige Eigenschaft.
 
-## Antipathie ( Vielleicht lieber Bedrohlichkeit, Antipathie bedeutet eher, dass man jemanden nicht leiden kann, nicht mag oder ectl. hasst. Darauß folgt aber nicht dass man ihn auch einschüchtern kann. )
+## Antipathie
 Dies ist teil der eigenen Ausstrahlung. Wie der Name vermuten lässt, dient sie dazu jemanden Angst zu machen.
 
 ## Sympathie
